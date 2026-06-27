@@ -68,7 +68,11 @@ class TerminalUI {
                     this.currentLine.slice(0, this.cursorPos - 1) +
                     this.currentLine.slice(this.cursorPos);
                 this.cursorPos--;
-                this._redrawLine();
+                if (this.cursorPos === this.currentLine.length) {
+                    this.term.write('\b \b');
+                } else {
+                    this._redrawLine();
+                }
             }
             return;
         }
@@ -102,12 +106,18 @@ class TerminalUI {
         }
 
         if (printable && key.length === 1) {
-            this.currentLine =
-                this.currentLine.slice(0, this.cursorPos) +
-                key +
-                this.currentLine.slice(this.cursorPos);
-            this.cursorPos++;
-            this._redrawLine();
+            if (this.cursorPos === this.currentLine.length) {
+                this.currentLine += key;
+                this.cursorPos++;
+                this.term.write(key);
+            } else {
+                this.currentLine =
+                    this.currentLine.slice(0, this.cursorPos) +
+                    key +
+                    this.currentLine.slice(this.cursorPos);
+                this.cursorPos++;
+                this._redrawLine();
+            }
         }
     }
 
@@ -122,6 +132,7 @@ class TerminalUI {
 
     _executeCurrentLine() {
         const line = this.currentLine;
+        this.term.write('\r\n');
         const result = this.simulator.executeLine(line);
 
         if (result.clear) {
