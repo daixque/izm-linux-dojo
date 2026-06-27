@@ -1,0 +1,52 @@
+appTitle: "IZM Linux 道場"
+subtitle: "ターミナルで学ぶ Linux 入門"
+
+page_title:
+  learn: "説明"
+  exercise: "演習課題"
+
+header:
+  lesson_prefix: "レッスン"
+
+language_switcher:
+  to_english: "English"
+  to_japanese: "日本語"
+
+learn:
+  start_exercise: "演習を始める"
+
+exercise:
+  task_heading: "📋 課題内容"
+  instructions_heading: "✏️ やること"
+  hints_heading: "💡 ヒント"
+  button_test: "✓ テスト"
+  button_reset: "🔄 リセット"
+  button_solution: "💡 解答を見る"
+  button_clear: "クリア"
+  back_to_menu: "← 目次に戻る"
+  back_to_learn: "📚 説明に戻る"
+  next_lesson: "次のレッスンへ →"
+  status_ready: "準備完了"
+  status_testing: "テスト中..."
+  status_preparing: "準備中..."
+  terminal_label: "💻 ターミナル"
+  task_label: "課題"
+  task_toggle_open: "◀"
+  task_toggle_close: "▶"
+
+progress:
+  overall_title: "全体の進捗"
+  lessons_completed: "レッスン完了"
+  chapter_progress: "レッスン完了"
+  filter_all: "全て表示"
+  filter_incomplete: "未完了のみ"
+  filter_completed: "完了済みのみ"
+  showing_count: "件表示中"
+  reset_progress: "進捗をリセット"
+  reset_confirm: "本当に全ての進捗をリセットしますか？この操作は取り消せません。"
+  mark_complete: "完了にする"
+  mark_incomplete: "未完了にする"
+  completed_on: "完了日時"
+  congratulations: "🎉 おめでとうございます！レッスンを完了しました！"
+  status_completed: "完了"
+  status_incomplete: "未完了"

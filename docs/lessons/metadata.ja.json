@@ -1,0 +1,19 @@
+{
+  "chapters": [
+    {
+      "id": "01_dir_and_file",
+      "number": 1,
+      "title": "ディレクトリとファイル",
+      "description": "Linux のファイルシステムと基本コマンドを学びます",
+      "lessons": [
+        {
+          "id": "01_dir_and_file/01_ls_cd",
+          "number": "01-01",
+          "title": "ls と cd の基本",
+          "description": "ls と cd コマンドを使ってディレクトリを移動し、ファイル一覧を表示します。",
+          "available": true
+        }
+      ]
+    }
+  ]
+}

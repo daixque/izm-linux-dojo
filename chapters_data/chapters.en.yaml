@@ -1,0 +1,5 @@
+chapters:
+  - id: "01_dir_and_file"
+    number: "01"
+    title: "Directories and Files"
+    description: "Learn the Linux filesystem and basic commands"

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 01-01: ls and cd Basics</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">ls and cd Basics</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>What is a Terminal?</h2>
+<p>On Linux, you control the computer by typing <strong>commands</strong> with the keyboard. The screen where you type and see output is called a <strong>terminal</strong>.</p>
+<p>Press <kbd>Enter</kbd> to run a command after typing it.</p>
+
+<h2>Directories and Files</h2>
+<p>The Linux filesystem is organized as a hierarchy of folders (<strong>directories</strong>) and <strong>files</strong>.</p>
+
+<pre class="mermaid">
+graph TD
+    home["/home/user"]
+    home --> documents["documents/"]
+    home --> notes["notes.txt"]
+    documents --> readme["readme.txt"]
+</pre>
+
+<h2>Basic Commands</h2>
+<h3><code>pwd</code> — Print Working Directory</h3>
+<p>Shows the path of your current directory.</p>
+<pre><code>$ pwd
+/home/user</code></pre>
+
+<h3><code>ls</code> — List Files</h3>
+<p>Lists the contents of the current directory.</p>
+<pre><code>$ ls
+documents
+notes.txt</code></pre>
+
+<h3><code>cd</code> — Change Directory</h3>
+<p>Move to another directory.</p>
+<ul>
+  <li><code>cd documents</code> — move into documents (relative path)</li>
+  <li><code>cd ..</code> — move up one directory</li>
+  <li><code>cd /home/user</code> — move using absolute path</li>
+</ul>
+
+<h2>Next Step</h2>
+<p>Try <code>cd</code> and <code>ls</code> yourself on the exercise page!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

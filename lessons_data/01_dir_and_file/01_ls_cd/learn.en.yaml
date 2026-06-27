@@ -1,0 +1,45 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "01"
+  id: "01_dir_and_file/01_ls_cd"
+  title: "ls and cd Basics"
+
+content: |
+  <h2>What is a Terminal?</h2>
+  <p>On Linux, you control the computer by typing <strong>commands</strong> with the keyboard. The screen where you type and see output is called a <strong>terminal</strong>.</p>
+  <p>Press <kbd>Enter</kbd> to run a command after typing it.</p>
+
+  <h2>Directories and Files</h2>
+  <p>The Linux filesystem is organized as a hierarchy of folders (<strong>directories</strong>) and <strong>files</strong>.</p>
+
+  <pre class="mermaid">
+  graph TD
+      home["/home/user"]
+      home --> documents["documents/"]
+      home --> notes["notes.txt"]
+      documents --> readme["readme.txt"]
+  </pre>
+
+  <h2>Basic Commands</h2>
+  <h3><code>pwd</code> — Print Working Directory</h3>
+  <p>Shows the path of your current directory.</p>
+  <pre><code>$ pwd
+  /home/user</code></pre>
+
+  <h3><code>ls</code> — List Files</h3>
+  <p>Lists the contents of the current directory.</p>
+  <pre><code>$ ls
+  documents
+  notes.txt</code></pre>
+
+  <h3><code>cd</code> — Change Directory</h3>
+  <p>Move to another directory.</p>
+  <ul>
+    <li><code>cd documents</code> — move into documents (relative path)</li>
+    <li><code>cd ..</code> — move up one directory</li>
+    <li><code>cd /home/user</code> — move using absolute path</li>
+  </ul>
+
+  <h2>Next Step</h2>
+  <p>Try <code>cd</code> and <code>ls</code> yourself on the exercise page!</p>

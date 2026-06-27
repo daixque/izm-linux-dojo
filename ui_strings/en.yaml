@@ -1,0 +1,52 @@
+appTitle: "IZM Linux Dojo"
+subtitle: "Learn Linux Through the Terminal"
+
+page_title:
+  learn: "Learn"
+  exercise: "Exercise"
+
+header:
+  lesson_prefix: "Lesson"
+
+language_switcher:
+  to_english: "English"
+  to_japanese: "日本語"
+
+learn:
+  start_exercise: "Start Exercise"
+
+exercise:
+  task_heading: "📋 Task"
+  instructions_heading: "✏️ Instructions"
+  hints_heading: "💡 Hints"
+  button_test: "✓ Test"
+  button_reset: "🔄 Reset"
+  button_solution: "💡 Show Solution"
+  button_clear: "Clear"
+  back_to_menu: "← Back to Menu"
+  back_to_learn: "📚 Back to Learn"
+  next_lesson: "Next Lesson →"
+  status_ready: "Ready"
+  status_testing: "Testing..."
+  status_preparing: "Loading..."
+  terminal_label: "💻 Terminal"
+  task_label: "Task"
+  task_toggle_open: "◀"
+  task_toggle_close: "▶"
+
+progress:
+  overall_title: "Overall Progress"
+  lessons_completed: "Lessons Completed"
+  chapter_progress: "Lessons Completed"
+  filter_all: "Show All"
+  filter_incomplete: "Incomplete Only"
+  filter_completed: "Completed Only"
+  showing_count: "showing"
+  reset_progress: "Reset Progress"
+  reset_confirm: "Are you sure you want to reset all progress? This action cannot be undone."
+  mark_complete: "Mark as Complete"
+  mark_incomplete: "Mark as Incomplete"
+  completed_on: "Completed on"
+  congratulations: "🎉 Congratulations! You've completed this lesson!"
+  status_completed: "Completed"
+  status_incomplete: "Incomplete"

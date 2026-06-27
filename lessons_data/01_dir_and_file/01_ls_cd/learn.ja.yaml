@@ -1,0 +1,45 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "01"
+  id: "01_dir_and_file/01_ls_cd"
+  title: "ls と cd の基本"
+
+content: |
+  <h2>ターミナルとは？</h2>
+  <p>Linux では、キーボードから<strong>コマンド</strong>を入力してコンピュータを操作します。その入出力を行う画面を<strong>ターミナル</strong>（端末）と呼びます。</p>
+  <p>コマンドを入力したら <kbd>Enter</kbd> キーを押すと実行されます。</p>
+
+  <h2>ディレクトリとファイル</h2>
+  <p>Linux のファイルシステムは、フォルダ（<strong>ディレクトリ</strong>）と<strong>ファイル</strong>の階層構造になっています。</p>
+
+  <pre class="mermaid">
+  graph TD
+      home["/home/user"]
+      home --> documents["documents/"]
+      home --> notes["notes.txt"]
+      documents --> readme["readme.txt"]
+  </pre>
+
+  <h2>基本コマンド</h2>
+  <h3><code>pwd</code> — 現在地を表示</h3>
+  <p>今いるディレクトリのパス（住所）を表示します。</p>
+  <pre><code>$ pwd
+  /home/user</code></pre>
+
+  <h3><code>ls</code> — ファイル一覧を表示</h3>
+  <p>カレントディレクトリの中身を一覧表示します。</p>
+  <pre><code>$ ls
+  documents
+  notes.txt</code></pre>
+
+  <h3><code>cd</code> — ディレクトリ移動</h3>
+  <p>別のディレクトリに移動します。</p>
+  <ul>
+    <li><code>cd documents</code> — documents フォルダに移動（相対パス）</li>
+    <li><code>cd ..</code> — 一つ上のディレクトリに移動</li>
+    <li><code>cd /home/user</code> — 絶対パスで移動</li>
+  </ul>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで実際にターミナルを使って、<code>cd</code> と <code>ls</code> を試してみましょう！</p>

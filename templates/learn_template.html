@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ui.page_title.learn }} - {{ ui.header.lesson_prefix }} {{ lesson.chapter_number|default('') }}-{{ lesson.number }}: {{ lesson.title }}</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 {{ ui.appTitle }}</a>
+            </div>
+            <h1 id="lesson-title">{{ lesson.title }}</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 {{ ui.page_title.learn }}</span>
+                <div id="language-switcher">
+                    {% if lang == 'ja' %}
+                        <a href="learn.en.html" class="language-link">{{ ui.language_switcher.to_english }}</a>
+                    {% else %}
+                        <a href="learn.ja.html" class="language-link">{{ ui.language_switcher.to_japanese }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            {{ content|safe }}
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">{% if lang == 'ja' %}← 目次に戻る{% else %}← Back to Menu{% endif %}</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.{{ lang }}.html" class="btn btn-primary">
+                    {{ ui.learn.start_exercise }} →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

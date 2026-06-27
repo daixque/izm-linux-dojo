@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D4KVK1SY3P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D4KVK1SY3P');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZM Linux 道場 - Linux 入門</title>
+    <link rel="stylesheet" href="lib/css/index.css">
+    <script src="lib/js/i18n.js"></script>
+    <script src="lib/js/progress.js"></script>
+</head>
+<body>
+    <!-- サイドバー -->
+    <aside class="sidebar">
+        <div class="sidebar-title">📖 Chapters</div>
+        <ul class="sidebar-nav" id="chapter-nav">
+            <!-- チャプターナビゲーションは動的に読み込まれます -->
+        </ul>
+    </aside>
+    
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <header class="header">
+                <div class="language-switcher" id="language-switcher"></div>
+                <h1 id="page-title">🐧 IZM Linux 道場</h1>
+                <p id="page-subtitle">ターミナルで学ぶ Linux 入門</p>
+                
+                <!-- 全体進捗 -->
+                <div class="overall-progress" id="overall-progress" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h3 id="progress-title" style="margin: 0; font-size: 16px;">📊 全体の進捗</h3>
+                        <button id="btn-reset-progress" class="btn-reset-progress" title="進捗をリセット">🗑️</button>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <span id="progress-text">0/0 レッスン完了</span>
+                        <span id="progress-percentage" style="font-weight: bold; font-size: 20px;">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="progress-bar" style="width: 0%">
+                            <span id="progress-bar-text"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- フィルターボタン -->
+                <div class="filter-buttons" id="filter-buttons" style="display: none;">
+                    <button class="filter-btn active" data-filter="all" id="filter-all">全て表示</button>
+                    <button class="filter-btn" data-filter="incomplete" id="filter-incomplete">未完了のみ</button>
+                    <button class="filter-btn" data-filter="completed" id="filter-completed">完了済みのみ</button>
+                    <span id="filter-count" style="margin-left: 16px; color: #999;"></span>
+                </div>
+            </header>
+
+            <!-- レッスン一覧 -->
+            <div class="lessons-grid" id="lessons-grid">
+                <!-- レッスンは動的に読み込まれます -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 多言語UIの更新
+        function updateUITexts() {
+            document.getElementById('page-title').textContent = `🐧 ${window.i18n.t('appTitle')}`;
+            document.getElementById('page-subtitle').textContent = window.i18n.t('subtitle');
+            
+            // 進捗セクションの文言
+            const progressTitle = document.getElementById('progress-title');
+            if (progressTitle) {
+                progressTitle.textContent = `📊 ${window.i18n.t('progress.overall_title')}`;
+            }
+            
+            // フィルターボタンの文言
+            const filterAll = document.getElementById('filter-all');
+            const filterIncomplete = document.getElementById('filter-incomplete');
+            const filterCompleted = document.getElementById('filter-completed');
+            if (filterAll) filterAll.textContent = window.i18n.t('progress.filter_all');
+            if (filterIncomplete) filterIncomplete.textContent = window.i18n.t('progress.filter_incomplete');
+            if (filterCompleted) filterCompleted.textContent = window.i18n.t('progress.filter_completed');
+            
+            // ステータスバッジの文言を更新
+            const statusCompletedText = window.i18n.t('progress.status_completed');
+            const statusIncompleteText = window.i18n.t('progress.status_incomplete');
+            document.querySelectorAll('.lesson-status-badge').forEach(badge => {
+                if (badge.classList.contains('completed')) {
+                    badge.textContent = `✓ ${statusCompletedText}`;
+                } else {
+                    badge.textContent = `○ ${statusIncompleteText}`;
+                }
+            });
+        }
+        
+        // チャプターナビゲーションを生成
+        function buildChapterNav(chapters) {
+            const nav = document.getElementById('chapter-nav');
+            nav.innerHTML = '';
+            
+            chapters.forEach(chapter => {
+                const li = document.createElement('li');
+                li.className = 'nav-item';
+                
+                const link = document.createElement('a');
+                link.href = `#chapter-${chapter.id}`;
+                link.className = 'nav-link';
+                link.innerHTML = `<span class="nav-chapter-number">Ch.${chapter.number}</span> ${chapter.title}`;
+                
+                li.appendChild(link);
+                nav.appendChild(li);
+            });
+        }
+        
+        // レッスン一覧を読み込んで表示
+        async function loadLessons() {
+            try {
+                const metadataFile = window.i18n.getMetadataFilePath();
+                const response = await fetch(metadataFile);
+                const data = await response.json();
+                
+                const grid = document.getElementById('lessons-grid');
+                grid.innerHTML = ''; // クリア
+                
+                // チャプターナビゲーションを構築
+                buildChapterNav(data.chapters);
+                
+                // 全レッスン数を計算
+                let totalLessons = 0;
+                data.chapters.forEach(chapter => {
+                    totalLessons += chapter.lessons.length;
+                });
+                
+                // 全体進捗を表示
+                updateOverallProgress(totalLessons);
+                
+                // フィルターモードを復元
+                const filterMode = window.progress.getFilterMode();
+                
+                // 章ごとにレンダリング
+                data.chapters.forEach(chapter => {
+                    // 章セクションを作成
+                    const chapterSection = document.createElement('div');
+                    chapterSection.className = 'chapter-section';
+                    chapterSection.id = `chapter-${chapter.id}`;
+                    chapterSection.dataset.chapterId = chapter.id;
+                    
+                    // 章の進捗を計算
+                    const chapterProgress = window.progress.getChapterProgress(chapter.id, chapter.lessons);
+                    
+                    // 章ヘッダー
+                    const chapterHeader = document.createElement('div');
+                    chapterHeader.className = 'chapter-header';
+                    const progressClass = chapterProgress.percentage === 100 ? 'complete' : '';
+                    const progressText = window.i18n.t('progress.chapter_progress');
+                    chapterHeader.innerHTML = `
+                        <div class="chapter-number">Chapter ${chapter.number}</div>
+                        <h2>${chapter.title}</h2>
+                        <p>${chapter.description}</p>
+                        <div class="chapter-progress ${progressClass}">${chapterProgress.completed}/${chapterProgress.total} ${progressText} (${chapterProgress.percentage}%)</div>
+                    `;
+                    chapterSection.appendChild(chapterHeader);
+                    
+                    // レッスングリッド
+                    const chapterLessons = document.createElement('div');
+                    chapterLessons.className = 'chapter-lessons';
+                    
+                    // 章内のレッスンをレンダリング
+                    chapter.lessons.forEach(lesson => {
+                        const card = document.createElement('div');
+                        card.className = 'lesson-card';
+                        card.dataset.lessonId = lesson.id;
+                        
+                        // 完了状態をチェック
+                        const isCompleted = window.progress.isLessonCompleted(lesson.id);
+                        if (isCompleted) {
+                            card.classList.add('completed');
+                        }
+                        
+                        // フィルターに応じて表示/非表示
+                        if (filterMode === 'incomplete' && isCompleted) {
+                            card.classList.add('hidden');
+                        } else if (filterMode === 'completed' && !isCompleted) {
+                            card.classList.add('hidden');
+                        }
+                        
+                        if (!lesson.available) {
+                            card.style.opacity = '0.5';
+                        }
+                        
+                        const learnLabel = window.i18n.t('label_learn').replace('📚 ', '');
+                        const exerciseLabel = window.i18n.t('label_exercise').replace('✏️ ', '');
+                        const markCompleteText = window.i18n.t('progress.mark_complete');
+                        const markIncompleteText = window.i18n.t('progress.mark_incomplete');
+                        const statusCompletedText = window.i18n.t('progress.status_completed');
+                        const statusIncompleteText = window.i18n.t('progress.status_incomplete');
+                        
+                        if (lesson.available) {
+                            const lang = window.i18n.currentLang;
+                            const toggleBtnText = isCompleted ? markIncompleteText : markCompleteText;
+                            const statusText = isCompleted ? statusCompletedText : statusIncompleteText;
+                            const statusIcon = isCompleted ? '✓' : '○';
+                            
+                            card.innerHTML = `
+                                <button class="lesson-completion-toggle" data-lesson-id="${lesson.id}" title="${toggleBtnText}">
+                                    ${isCompleted ? '✓' : '○'}
+                                </button>
+                                <div class="lesson-status-badge ${isCompleted ? 'completed' : 'incomplete'}">
+                                    ${statusIcon} ${statusText}
+                                </div>
+                                <h2>${lesson.title}</h2>
+                                <p>${lesson.description}</p>
+                                <div class="lesson-links">
+                                    <a href="lessons/${lesson.id}/learn.${lang}.html" class="btn btn-secondary">📚 ${learnLabel}</a>
+                                    <a href="lessons/${lesson.id}/exercise.${lang}.html" class="btn btn-primary">✏️ ${exerciseLabel}</a>
+                                </div>
+                            `;
+                            
+                            // 完了切り替えボタンのイベントリスナー
+                            const toggleBtn = card.querySelector('.lesson-completion-toggle');
+                            const statusBadge = card.querySelector('.lesson-status-badge');
+                            
+                            toggleBtn.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const newState = window.progress.toggleLessonCompletion(lesson.id);
+                                
+                                // カードの見た目を更新
+                                if (newState) {
+                                    card.classList.add('completed');
+                                    toggleBtn.textContent = '✓';
+                                    toggleBtn.title = markIncompleteText;
+                                    statusBadge.className = 'lesson-status-badge completed';
+                                    statusBadge.textContent = `✓ ${statusCompletedText}`;
+                                } else {
+                                    card.classList.remove('completed');
+                                    toggleBtn.textContent = '○';
+                                    toggleBtn.title = markCompleteText;
+                                    statusBadge.className = 'lesson-status-badge incomplete';
+                                    statusBadge.textContent = `○ ${statusIncompleteText}`;
+                                }
+                                
+                                // 進捗表示を更新
+                                updateOverallProgress(totalLessons);
+                                updateChapterProgress(chapter.id, chapter.lessons);
+                                
+                                // フィルターを再適用
+                                applyFilter(window.progress.getFilterMode());
+                            });
+                        } else {
+                            card.innerHTML = `
+                                <h2>${lesson.title}</h2>
+                                <p>${lesson.description}</p>
+                                <div class="lesson-links">
+                                    <button class="btn btn-secondary" disabled>📚 ${learnLabel}</button>
+                                    <button class="btn btn-primary" disabled>✏️ ${exerciseLabel}</button>
+                                </div>
+                            `;
+                        }
+                        
+                        chapterLessons.appendChild(card);
+                    });
+                    
+                    chapterSection.appendChild(chapterLessons);
+                    grid.appendChild(chapterSection);
+                });
+                
+                // フィルターボタンのイベントリスナーを設定
+                setupFilterButtons();
+                
+                // 進捗リセットボタンのイベントリスナーを設定
+                setupResetButton();
+                
+                // 初期フィルターを適用
+                applyFilter(filterMode);
+                
+                // スクロール時のアクティブチャプターハイライト
+                setupScrollObserver();
+            } catch (error) {
+                console.error('Failed to load lessons metadata:', error);
+                document.getElementById('lessons-grid').innerHTML = `
+                    <p style="color: white;">レッスンデータの読み込みに失敗しました。</p>
+                `;
+            }
+        }
+        
+        // スクロール監視で現在のチャプターをハイライト
+        function setupScrollObserver() {
+            const chapters = document.querySelectorAll('.chapter-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const chapterId = entry.target.id;
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${chapterId}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            chapters.forEach(chapter => observer.observe(chapter));
+        }
+        
+        // 全体進捗を更新
+        function updateOverallProgress(totalLessons) {
+            const progressSection = document.getElementById('overall-progress');
+            const progressText = document.getElementById('progress-text');
+            const progressPercentage = document.getElementById('progress-percentage');
+            const progressBar = document.getElementById('progress-bar');
+            const progressBarText = document.getElementById('progress-bar-text');
+            
+            if (!progressSection || !window.progress) return;
+            
+            const progress = window.progress.getProgress(totalLessons);
+            const lessonsCompletedText = window.i18n.t('progress.lessons_completed');
+            
+            progressSection.style.display = 'block';
+            progressText.textContent = `${progress.completed}/${progress.total} ${lessonsCompletedText}`;
+            progressPercentage.textContent = `${progress.percentage}%`;
+            progressBar.style.width = `${progress.percentage}%`;
+            
+            if (progress.percentage > 10) {
+                progressBarText.textContent = `${progress.percentage}%`;
+            } else {
+                progressBarText.textContent = '';
+            }
+        }
+        
+        // 章の進捗を更新
+        function updateChapterProgress(chapterId, lessons) {
+            const chapterSection = document.querySelector(`[data-chapter-id="${chapterId}"]`);
+            if (!chapterSection) return;
+            
+            const chapterProgress = window.progress.getChapterProgress(chapterId, lessons);
+            const progressElement = chapterSection.querySelector('.chapter-progress');
+            
+            if (progressElement) {
+                const progressText = window.i18n.t('progress.chapter_progress');
+                progressElement.textContent = `${chapterProgress.completed}/${chapterProgress.total} ${progressText} (${chapterProgress.percentage}%)`;
+                
+                if (chapterProgress.percentage === 100) {
+                    progressElement.classList.add('complete');
+                } else {
+                    progressElement.classList.remove('complete');
+                }
+            }
+        }
+        
+        // フィルターボタンのイベントリスナーを設定
+        function setupFilterButtons() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const filterButtonsContainer = document.getElementById('filter-buttons');
+            
+            if (filterButtonsContainer && window.progress) {
+                filterButtonsContainer.style.display = 'flex';
+                
+                filterButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const mode = btn.dataset.filter;
+                        
+                        // アクティブ状態を更新
+                        filterButtons.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        
+                        // フィルターを適用
+                        applyFilter(mode);
+                        
+                        // localStorageに保存
+                        window.progress.setFilterMode(mode);
+                    });
+                });
+                
+                // 初期状態を設定
+                const currentMode = window.progress.getFilterMode();
+                filterButtons.forEach(btn => {
+                    if (btn.dataset.filter === currentMode) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+        }
+        
+        // フィルターを適用
+        function applyFilter(mode) {
+            const lessons = document.querySelectorAll('.lesson-card');
+            const chapters = document.querySelectorAll('.chapter-section');
+            let visibleCount = 0;
+            
+            lessons.forEach(card => {
+                const lessonId = card.dataset.lessonId;
+                const isCompleted = window.progress.isLessonCompleted(lessonId);
+                
+                if (mode === 'all') {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else if (mode === 'incomplete' && !isCompleted) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else if (mode === 'completed' && isCompleted) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // 章全体が非表示の場合は章も非表示
+            chapters.forEach(chapter => {
+                const visibleLessons = chapter.querySelectorAll('.lesson-card:not(.hidden)');
+                if (visibleLessons.length === 0) {
+                    chapter.classList.add('hidden');
+                } else {
+                    chapter.classList.remove('hidden');
+                }
+            });
+            
+            // 表示件数を更新
+            const filterCount = document.getElementById('filter-count');
+            if (filterCount) {
+                const showingText = window.i18n.t('progress.showing_count');
+                filterCount.textContent = `${visibleCount}${showingText}`;
+            }
+        }
+        
+        // リセットボタンのイベントリスナーを設定
+        function setupResetButton() {
+            const resetBtn = document.getElementById('btn-reset-progress');
+            if (resetBtn && window.progress) {
+                resetBtn.addEventListener('click', () => {
+                    const confirmText = window.i18n.t('progress.reset_confirm');
+                    if (confirm(confirmText)) {
+                        window.progress.clearAllProgress();
+                        
+                        // UIを更新
+                        loadLessons();
+                    }
+                });
+            }
+        }
+        
+        // 初期化
+        window.addEventListener('DOMContentLoaded', () => {
+            window.i18n.init();
+            window.i18n.createLanguageSwitcher('language-switcher', () => {
+                updateUITexts();
+                loadLessons();
+            });
+            updateUITexts();
+            loadLessons();
+        });
+    </script>
+</body>
+</html>

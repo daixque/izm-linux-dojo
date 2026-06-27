@@ -1,0 +1,38 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: "Welcome to IZM Linux Dojo!\n"
+      notes.txt:
+        type: file
+        content: "memo\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cd documents
+  - ls
+
+tests:
+  - name: "documents ディレクトリに移動できている"
+    description: "cd documents で正しく移動できているか"
+    type: cwd
+    commands: []
+    expected_cwd: /home/user/documents
+
+  - name: "ls で readme.txt が表示される"
+    description: "documents 内の ls 出力を確認"
+    type: command_output
+    command: ls
+    expected_output: "readme.txt\n"
+
+  - name: "pwd で現在地を確認"
+    description: "pwd の出力が正しいか"
+    type: command_output
+    command: pwd
+    expected_output: "/home/user/documents\n"

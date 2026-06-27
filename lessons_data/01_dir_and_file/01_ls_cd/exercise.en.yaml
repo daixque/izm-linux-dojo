@@ -1,0 +1,23 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "01"
+  id: "01_dir_and_file/01_ls_cd"
+  title: "ls and cd Basics"
+
+description: "Use ls and cd to navigate directories and list files."
+
+task_description: |
+  <p>Use the terminal to move into the <code>documents</code> directory and run <code>ls</code> to see its contents.</p>
+
+instructions:
+  - "Run <code>pwd</code> to check your location (should be <code>/home/user</code>)"
+  - "Run <code>ls</code> to list files in the current directory"
+  - "Run <code>cd documents</code> to enter the documents directory"
+  - "Run <code>ls</code> again and confirm <code>readme.txt</code> appears"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Press Enter after typing a command"
+  - "Put a space after <code>cd</code> before the directory name"
+  - "Use the <strong>Reset</strong> button to start over if needed"

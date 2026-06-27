@@ -1,0 +1,19 @@
+{
+  "chapters": [
+    {
+      "id": "01_dir_and_file",
+      "number": 1,
+      "title": "Directories and Files",
+      "description": "Learn the Linux filesystem and basic commands",
+      "lessons": [
+        {
+          "id": "01_dir_and_file/01_ls_cd",
+          "number": "01-01",
+          "title": "ls and cd Basics",
+          "description": "Use ls and cd to navigate directories and list files.",
+          "available": true
+        }
+      ]
+    }
+  ]
+}

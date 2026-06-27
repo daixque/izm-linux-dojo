@@ -1,0 +1,23 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "01"
+  id: "01_dir_and_file/01_ls_cd"
+  title: "ls と cd の基本"
+
+description: "ls と cd コマンドを使ってディレクトリを移動し、ファイル一覧を表示します。"
+
+task_description: |
+  <p>ターミナルでコマンドを入力し、<code>documents</code> ディレクトリに移動してから <code>ls</code> で中身を確認しましょう。</p>
+
+instructions:
+  - "<code>pwd</code> で現在地を確認します（<code>/home/user</code> のはず）"
+  - "<code>ls</code> でファイル一覧を表示します"
+  - "<code>cd documents</code> で documents ディレクトリに移動します"
+  - "もう一度 <code>ls</code> を実行し、<code>readme.txt</code> が表示されることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "コマンド入力後は Enter キーを押します"
+  - "<code>cd</code> の後にスペースを入れてからディレクトリ名を入力します"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"
