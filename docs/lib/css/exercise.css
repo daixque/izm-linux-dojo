@@ -105,6 +105,18 @@ body {
     background: #FCFCFC;
 }
 
+.language-link {
+    color: #4F7FE7;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.language-link:hover {
+    color: #142C49;
+    text-decoration: underline;
+}
+
 /* メインコンテンツ */
 .main-content {
     flex: 1;
