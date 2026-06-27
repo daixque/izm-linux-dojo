@@ -22,9 +22,9 @@ class TerminalUI {
             fontSize: 14,
             fontFamily: 'Menlo, Monaco, "Courier New", monospace',
             theme: {
-                background: '#1e1e1e',
-                foreground: '#d4d4d4',
-                cursor: '#d4d4d4',
+                background: '#000000',
+                foreground: '#ffffff',
+                cursor: '#ffffff',
             },
             convertEol: true,
         });

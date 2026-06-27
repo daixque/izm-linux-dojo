@@ -953,7 +953,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: #1e1e1e;
+    background: #000;
     border-radius: 8px;
     overflow: hidden;
     min-height: 0;

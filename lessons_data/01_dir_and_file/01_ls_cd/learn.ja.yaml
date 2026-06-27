@@ -6,20 +6,36 @@ lesson:
   title: "ls と cd の基本"
 
 content: |
-  <h2>ターミナルとは？</h2>
-  <p>Linux では、キーボードから<strong>コマンド</strong>を入力してコンピュータを操作します。その入出力を行う画面を<strong>ターミナル</strong>（端末）と呼びます。</p>
-  <p>コマンドを入力したら <kbd>Enter</kbd> キーを押すと実行されます。</p>
-
   <h2>ディレクトリとファイル</h2>
-  <p>Linux のファイルシステムは、フォルダ（<strong>ディレクトリ</strong>）と<strong>ファイル</strong>の階層構造になっています。</p>
+  <p>Linux 上のデータは、<strong>ディレクトリ</strong>（フォルダ）と<strong>ファイル</strong>の 2 種類に分かれています。</p>
+  <ul>
+    <li><strong>ディレクトリ</strong> — ファイルや他のディレクトリを入れておく入れ物</li>
+    <li><strong>ファイル</strong> — テキストや画像など、実際のデータそのもの</li>
+  </ul>
+  <p>ディレクトリの中にさらにディレクトリやファイルを置けるので、入れ子の階層構造になります。たとえば次のような構造です。</p>
 
-  <pre class="mermaid">
-  graph TD
-      home["/home/user"]
-      home --> documents["documents/"]
-      home --> notes["notes.txt"]
-      documents --> readme["readme.txt"]
-  </pre>
+  <pre class="tree"><code>/
+  └── home/
+      └── user/
+          ├── documents/
+          │   └── readme.txt
+          └── notes.txt</code></pre>
+
+  <p>ファイルやディレクトリの場所を表す文字列を<strong>パス</strong>（path）と呼びます。パスでは <code>/</code>（スラッシュ）でディレクトリの階層が区切られます。先頭の <code>/</code> はルート（最上位）のディレクトリを表します。</p>
+  <p>たとえば <code>/home/user</code> は、ルートの中の <code>home</code> ディレクトリ、その中の <code>user</code> ディレクトリを指します（2 つのディレクトリ名が <code>/</code> でつながっています）。<code>readme.txt</code> のパス <code>/home/user/documents/readme.txt</code> も同様に、<code>/</code> ごとに通過するディレクトリが示されていきます。</p>
+
+  <h2>コマンドで確認する</h2>
+  <p>このような構造を実際の Linux 上で確認するには、<strong>コマンド</strong>を使います。</p>
+  <ul>
+    <li>今どのディレクトリにいるかを調べる</li>
+    <li>ディレクトリの中に何があるかを一覧表示する</li>
+    <li>別のディレクトリへ移動する</li>
+  </ul>
+  <p>これから学ぶ <code>pwd</code>・<code>ls</code>・<code>cd</code> は、まさにこの確認のためのコマンドです。</p>
+
+  <h2>ターミナルとは？</h2>
+  <p>コマンドを実行するには、<strong>ターミナル</strong>（端末）という画面が必要です。ターミナルは、キーボードからコマンドを入力し、結果を表示する入出力の場所です。</p>
+  <p>コマンドを入力したら <kbd>Enter</kbd> キーを押すと実行されます。以降の例は、すべてターミナル上での表示です。</p>
 
   <h2>基本コマンド</h2>
   <h3><code>pwd</code> — 現在地を表示</h3>
@@ -28,7 +44,7 @@ content: |
   /home/user</code></pre>
 
   <h3><code>ls</code> — ファイル一覧を表示</h3>
-  <p>カレントディレクトリの中身を一覧表示します。</p>
+  <p>カレントディレクトリの中身を一覧表示します。<code>user</code> ディレクトリ（パス <code>/home/user</code>）の中身は、次のように表示されます。</p>
   <pre><code>$ ls
   documents
   notes.txt</code></pre>

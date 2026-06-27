@@ -6,20 +6,36 @@ lesson:
   title: "ls and cd Basics"
 
 content: |
-  <h2>What is a Terminal?</h2>
-  <p>On Linux, you control the computer by typing <strong>commands</strong> with the keyboard. The screen where you type and see output is called a <strong>terminal</strong>.</p>
-  <p>Press <kbd>Enter</kbd> to run a command after typing it.</p>
-
   <h2>Directories and Files</h2>
-  <p>The Linux filesystem is organized as a hierarchy of folders (<strong>directories</strong>) and <strong>files</strong>.</p>
+  <p>On Linux, data is stored as either <strong>directories</strong> (folders) or <strong>files</strong>.</p>
+  <ul>
+    <li><strong>Directory</strong> — a container that holds files and other directories</li>
+    <li><strong>File</strong> — the actual data, such as text or images</li>
+  </ul>
+  <p>Directories can contain more directories and files, forming a nested hierarchy. Here is an example:</p>
 
-  <pre class="mermaid">
-  graph TD
-      home["/home/user"]
-      home --> documents["documents/"]
-      home --> notes["notes.txt"]
-      documents --> readme["readme.txt"]
-  </pre>
+  <pre class="tree"><code>/
+  └── home/
+      └── user/
+          ├── documents/
+          │   └── readme.txt
+          └── notes.txt</code></pre>
+
+  <p>The string that describes where a file or directory lives is called a <strong>path</strong>. In a path, each directory level is separated by <code>/</code> (a forward slash). The leading <code>/</code> represents the root (top-level) directory.</p>
+  <p>For example, <code>/home/user</code> means the <code>home</code> directory inside root, then the <code>user</code> directory inside <code>home</code> — two directory names joined by <code>/</code>. The path to <code>readme.txt</code>, <code>/home/user/documents/readme.txt</code>, works the same way: each <code>/</code> marks another directory you pass through.</p>
+
+  <h2>Checking with Commands</h2>
+  <p>To verify this structure on a real Linux system, you use <strong>commands</strong>.</p>
+  <ul>
+    <li>Find out which directory you are in</li>
+    <li>List what is inside a directory</li>
+    <li>Move to another directory</li>
+  </ul>
+  <p>The commands <code>pwd</code>, <code>ls</code>, and <code>cd</code> that you will learn next are exactly for this kind of checking.</p>
+
+  <h2>What is a Terminal?</h2>
+  <p>To run commands, you need a screen called a <strong>terminal</strong>. A terminal is where you type commands with the keyboard and read the results.</p>
+  <p>Press <kbd>Enter</kbd> after typing a command to run it. The examples below all show what you would see in a terminal.</p>
 
   <h2>Basic Commands</h2>
   <h3><code>pwd</code> — Print Working Directory</h3>
@@ -28,7 +44,7 @@ content: |
   /home/user</code></pre>
 
   <h3><code>ls</code> — List Files</h3>
-  <p>Lists the contents of the current directory.</p>
+  <p>Lists the contents of the current directory. Inside the <code>user</code> directory (path <code>/home/user</code>), you would see:</p>
   <pre><code>$ ls
   documents
   notes.txt</code></pre>
@@ -38,7 +54,7 @@ content: |
   <ul>
     <li><code>cd documents</code> — move into documents (relative path)</li>
     <li><code>cd ..</code> — move up one directory</li>
-    <li><code>cd /home/user</code> — move using absolute path</li>
+    <li><code>cd /home/user</code> — move using an absolute path</li>
   </ul>
 
   <h2>Next Step</h2>

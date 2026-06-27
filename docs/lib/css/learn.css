@@ -128,6 +128,99 @@ body {
     color: #c0392b;
 }
 
+.content h2 {
+    font-size: 22px;
+    color: #142C49;
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #4F7FE7;
+}
+
+.content h2:first-child {
+    margin-top: 0;
+}
+
+.content h3 {
+    font-size: 17px;
+    color: #142C49;
+    margin: 24px 0 12px;
+}
+
+.content p,
+.content ul {
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.content ul {
+    margin-left: 24px;
+}
+
+.content li {
+    margin-bottom: 8px;
+}
+
+.content code {
+    background: #FCFCFC;
+    border: 1px solid #e8e8e8;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: Menlo, Monaco, 'Courier New', monospace;
+    font-size: 13.5px;
+    color: #c0392b;
+}
+
+/* ディレクトリ構造（tree 風テキスト） */
+.content pre.tree {
+    background: #f8f8f8;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    padding: 16px;
+    border-radius: 6px;
+    font-family: Menlo, Monaco, 'Courier New', monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.5;
+    margin: 16px 0;
+}
+
+.content pre.tree code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* ターミナル風コードブロック */
+.content pre:not(.mermaid):not(.tree),
+.example-code {
+    background: #000;
+    color: #fff;
+    padding: 16px;
+    border-radius: 6px;
+    font-family: Menlo, Monaco, 'Courier New', monospace;
+    font-size: 14px;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.6;
+}
+
+.content pre:not(.mermaid):not(.tree) {
+    margin: 16px 0;
+}
+
+.content pre:not(.mermaid):not(.tree) code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
 /* コード例 */
 .examples {
     margin-top: 32px;
@@ -162,14 +255,6 @@ body {
 }
 
 .example-code {
-    background: #1e1e1e;
-    color: #d4d4d4;
-    padding: 16px;
-    border-radius: 6px;
-    font-family: 'Monaco', 'Courier New', monospace;
-    font-size: 14px;
-    overflow-x: auto;
-    white-space: pre;
     margin-bottom: 12px;
 }
 
