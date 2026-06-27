@@ -17,7 +17,7 @@ content: |
   <p>Files also belong to a <strong>group</strong>. Groups bundle users who share access — for example, all students in a <code>students</code> group might use the same shared folder. For now, think of the group as "another name shown next to the owner."</p>
 
   <h2>Detailed Listing with <code>ls -l</code></h2>
-  <p>Chapter 1 briefly introduced <code>ls -l</code>. Now we use it in earnest. The <code>-l</code> flag means <strong>long format</strong>.</p>
+  <p><code>ls -l</code> shows detailed information for each file on its own line (<code>-l</code> means a longer, more detailed list).</p>
   <pre><code>$ ls -l
   -rw-r--r-- 1 user user    8 Jan  1 10:00 memo.txt
   drwxr-xr-x 2 user user 4096 Jan  1 10:00 documents</code></pre>

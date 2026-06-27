@@ -6,20 +6,20 @@ lesson:
   title: "What Is a User?"
 
 content: |
-  <h2>Review</h2>
-  <p>In Chapters 1–3, you learned how to <strong>operate</strong> on files and directories in the terminal — listing with <code>ls</code>, reading with <code>cat</code>, creating with <code>mkdir</code> and <code>touch</code>, and more.</p>
-  <p>From here, we shift perspective. On Linux, it matters <strong>whose</strong> file something is. In Chapter 4, we learn about that "who" — the <strong>user</strong>.</p>
+  <h2>Whose File Is It?</h2>
+  <p>In Chapters 1–3, you learned how to <strong>work with</strong> files and directories in the terminal — listing with <code>ls</code>, reading with <code>cat</code>, creating with <code>mkdir</code> and <code>touch</code>, and more.</p>
+  <p>On Linux, files carry information about <strong>who they belong to</strong>. Even in the same folder, different owners can mean different allowed actions. This chapter looks at that "who" — the <strong>user</strong>.</p>
 
   <h2>What Is a User Account?</h2>
   <p>On Linux and macOS, each person who uses the computer gets a <strong>user account</strong>. The username you use to log in is that account.</p>
   <p>For example, if two students share a school PC, each logs in with a different username. Files created by one student are usually kept separate from the other's.</p>
-  <p>In this dojo, your username is <code>user</code>, and your home directory is <code>/home/user</code> (on macOS the idea is the same — home is something like <code>/Users/yourname</code>).</p>
+  <p>In the exercises, the username is <code>user</code>, and the home directory is <code>/home/user</code>. On macOS the idea is the same — home is something like <code>/Users/yourname</code>.</p>
 
   <h2>Checking Who You Are Logged In As</h2>
   <p>The command <code>whoami</code> ("who am I") shows which user you are operating as right now.</p>
   <pre><code>$ whoami
   user</code></pre>
-  <p>Your username also appears in the terminal prompt. In this dojo it looks like <code>user@dojo:~$</code> — the <code>user</code> part is your username.</p>
+  <p>Your username also appears in the terminal prompt. In the example <code>user@dojo:~$</code>, the <code>user</code> part is the username.</p>
 
   <h2>Why Does the User Matter?</h2>
   <p>Every file has an owner. The <strong>owner</strong> you will learn about next is exactly that user.</p>
@@ -28,10 +28,7 @@ content: |
     <li>Files others create → they are the owner</li>
     <li>System files → often owned by the administrator <code>root</code></li>
   </ul>
-  <p>Who owns a file affects whether you can read, write, or delete it. Chapters 5 and 6 cover that in detail. For now, remember: <strong>user = the person who owns a file</strong>.</p>
-
-  <h2>Tab Completion and Command History</h2>
-  <p>In this dojo's terminal, <kbd>Tab</kbd> completes command names and paths, and <kbd>↑</kbd><kbd>↓</kbd> recalls previous commands. Try them during the exercise.</p>
+  <p>Who owns a file affects whether you can read, write, or delete it. For now, remember: <strong>user = a candidate owner of a file</strong>.</p>
 
   <h2>Next Step</h2>
-  <p>Run <code>whoami</code> on the exercise page to confirm your username!</p>
+  <p>Run <code>whoami</code> on the exercise page to confirm your username.</p>

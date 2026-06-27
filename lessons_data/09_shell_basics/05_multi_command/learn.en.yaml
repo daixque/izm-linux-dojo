@@ -8,14 +8,20 @@ lesson:
 content: |
   <h2>Multiple Commands on One Line</h2>
   <p>The shell can run several commands in sequence on one line.</p>
-  
+
   <h2><code>;</code> — Run in Order</h2>
   <pre><code>$ cd documents; ls</code></pre>
   <p>The right command runs <strong>regardless</strong> of whether the left one succeeded.</p>
-  
+
   <h2><code>&amp;&amp;</code> — Run If Previous Succeeded</h2>
   <pre><code>$ cd documents &amp;&amp; ls</code></pre>
-  <p>The right command runs only if the left one <strong>succeeded (exit code 0)</strong>.</p>
-  
+  <p>The right command runs only if the left one <strong>succeeded (exit code 0)</strong>. If <code>cd</code> fails, <code>ls</code> is not run.</p>
+
+  <h2>When to Use Which</h2>
+  <ul>
+    <li><code>;</code> — run independent operations one after another</li>
+    <li><code>&amp;&amp;</code> — run the next step only if the previous one succeeded (safer chaining)</li>
+  </ul>
+
   <h2>Next Step</h2>
-  <p>Try <code>cd documents &amp;&amp; ls</code> on the exercise page!</p>
+  <p>On the exercise page, try <code>cd documents &amp;&amp; ls</code>!</p>

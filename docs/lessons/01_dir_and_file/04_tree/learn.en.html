@@ -26,8 +26,9 @@
         </header>
 
         <main class="content" id="content">
-            <h2>Tree Structure — Nested Folders</h2>
-<p>The Linux filesystem is organized like a <strong>branching tree</strong>. The root (<code>/</code>) is the trunk; directories branch out, and files sit at the ends of those branches.</p>
+            <h2>Tree Structure — Folders Inside Folders</h2>
+<p>The Linux file system is organized as a <strong>branching hierarchy</strong>, like a tree. The root (<code>/</code>) is the trunk; directories branch out, and files sit at the ends of those branches.</p>
+<p>Mac Finder's sidebar and the <strong>file explorer</strong> on the exercise page show the same hierarchy in a different view. Being able to read a tree diagram makes it easier to tell "which level am I on?" in any display.</p>
 <p>Here is a deeper version of the example from Lesson 1:</p>
 <pre class="tree"><code>/home/user/
 ├── projects/
@@ -35,7 +36,7 @@
 │       └── app/
 │           └── config.txt
 └── notes.txt</code></pre>
-<p>Inside <code>projects</code> is <code>web</code>, inside that is <code>app</code>, and inside that is <code>config.txt</code> — a <strong>three-level nest</strong>.</p>
+<p>Inside <code>projects</code> is <code>web</code>, inside that is <code>app</code>, and inside that is <code>config.txt</code> — a structure <strong>three folders deep</strong>.</p>
 
 <h2>Counting Levels</h2>
 <p>"Three levels down" means passing through three directories from where you start.</p>
@@ -72,7 +73,7 @@ $ pwd
 <p>Keeping track of "which level am I on?" while reading a tree makes <code>cd</code> and <code>ls</code> output easier to follow.</p>
 
 <h2>Tab Completion Shines Here</h2>
-<p>Deep paths get long. Type <code>cd pro</code> and press Tab to get <code>projects/</code>, then <code>w</code> + Tab for <code>web/</code>, and so on. You do not have to type the full path by hand — get comfortable with Tab during Chapter 1.</p>
+<p>Deep paths get long. Type <code>cd pro</code> and press Tab to get <code>projects/</code>, then <code>w</code> + Tab for <code>web/</code>, and so on. You do not have to type the full path by hand — get comfortable with Tab.</p>
 
 <h2>Next Step</h2>
 <p>On the exercise page, <code>cd</code> to the <code>app</code> directory three levels down and confirm with <code>pwd</code>!</p>

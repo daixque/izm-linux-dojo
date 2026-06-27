@@ -6,17 +6,17 @@ lesson:
   title: "権限 rwx の読み方"
 
 content: |
-  <h2>第4章のおさらい</h2>
-  <p>第4章では「<strong>誰の</strong>ファイルか」（オーナー・グループ）を学びました。第5章では「<strong>何が許されているか</strong>」＝<strong>権限（permissions）</strong>を学びます。</p>
+  <h2>「何が許されているか」</h2>
+  <p>前の章では「<strong>誰の</strong>ファイルか」（オーナー・グループ）を学びました。この章では「<strong>何が許されているか</strong>」＝<strong>権限（permissions）</strong>を見ていきます。</p>
+  <p>同じオーナーのファイルでも、読めるか・書けるか・実行できるかは、設定によって変わります。権限がない操作をしようとすると、<strong>Permission denied</strong>（許可されていません）というメッセージが返されます。</p>
 
   <h2>3 種類の操作：r・w・x</h2>
   <p>Linux のファイル権限は、次の 3 つを組み合わせて表します。</p>
   <ul>
-    <li><strong>r</strong>（read）— 読む（<code>cat</code> など）</li>
-    <li><strong>w</strong>（write）— 書く・変更する（<code>touch</code>、<code>rm</code> など）</li>
-    <li><strong>x</strong>（execute）— 実行する。ディレクトリの場合は「中に入る」（<code>cd</code>）</li>
+    <li><strong>r</strong>（read＝読む）— 内容を読む（<code>cat</code> など）</li>
+    <li><strong>w</strong>（write＝書く）— 内容を変更する（<code>touch</code>、<code>rm</code> など）</li>
+    <li><strong>x</strong>（execute＝実行）— プログラムとして実行する。ディレクトリの場合は「中に入る」（<code>cd</code>）</li>
   </ul>
-  <p>権限がない操作をしようとすると、<strong>Permission denied</strong>（許可されていません）というエラーになります。</p>
 
   <h2><code>ls -l</code> の権限表示</h2>
   <p><code>ls -l</code> の 1 列目が権限です。10 文字で、意味は次のとおりです。</p>
@@ -31,9 +31,16 @@ content: |
   <p><code>-</code> は「その権限なし」を意味します。たとえば <code>rw-</code> は「読める・書ける・実行不可」です。</p>
 
   <h2>具体例</h2>
-  <pre><code>-rw-r--r--  … オーナー: 読・書可 / グループ: 読のみ / その他: 読のみ
-  -rwxr-xr-x  … オーナー: 読・書・実行可 / グループ: 読・実行可 / その他: 読・実行可
-  drwx------  … ディレクトリ。オーナーだけが読・書・実行（＝中に入れる）</code></pre>
+  <table>
+    <thead>
+      <tr><th>権限文字列</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>-rw-r--r--</code></td><td>オーナー: 読・書可 / グループ: 読のみ / その他: 読のみ</td></tr>
+      <tr><td><code>-rwxr-xr-x</code></td><td>オーナー: 読・書・実行可 / グループ: 読・実行可 / その他: 読・実行可</td></tr>
+      <tr><td><code>drwx------</code></td><td>ディレクトリ。オーナーだけが読・書・実行（＝中に入れる）</td></tr>
+    </tbody>
+  </table>
 
   <h2>次のステップ</h2>
-  <p>演習ページで <code>ls -l</code> を実行し、各ファイルの権限文字列を読み取ってみましょう！</p>
+  <p>演習ページで <code>ls -l</code> を実行し、各ファイルの権限文字列を読み取ってみましょう。</p>

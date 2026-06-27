@@ -26,19 +26,20 @@
         </header>
 
         <main class="content" id="content">
-            <h2>前回のおさらい</h2>
+            <h2>一覧表示の限界</h2>
 <p>前のレッスンでは <code>ls</code> でディレクトリの中身を一覧表示しました。通常の <code>ls</code> だけでは、<strong>すべてのファイル</strong>が見えるわけではありません。</p>
 
 <h2>隠しファイルとは？</h2>
-<p>Linux では、名前が <strong>ドット（<code>.</code>）で始まる</strong>ファイルやディレクトリを<strong>隠しファイル</strong>（hidden file）と呼びます。たとえば <code>.config</code> は設定を保存する隠しファイルの例です。</p>
+<p>Linux では、名前が <strong>ドット（<code>.</code>）で始まる</strong>ファイルやディレクトリを<strong>隠しファイル</strong>と呼びます。たとえば <code>.config</code> は設定を保存する隠しファイルの例です。</p>
 <p>隠しファイルは、うっかり消したり編集したりしないよう、普段の <code>ls</code> では表示されない仕組みになっています。設定ファイルやシステムが自動で作るファイルの多くがこの形式です。</p>
+<p>Mac の Finder でも、<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd>（ピリオド）で隠しファイルの表示を切り替えられます。ターミナルでは <code>ls -a</code> が同じ目的の操作です。</p>
 <p>ホームディレクトリ（<code>/home/user</code>）の例：</p>
 <pre><code>$ ls
 documents
 notes.txt</code></pre>
 <p>この表示だけでは <code>.config</code> は見えません。でも実際には次のような構造になっていることがあります。</p>
 <pre class="tree"><code>/home/user/
-├── .config          ← 隠しファイル（ls では見えない）
+├── .config          ← 隠しファイル（通常の ls では見えない）
 ├── documents/
 └── notes.txt</code></pre>
 
@@ -55,25 +56,25 @@ notes.txt</code></pre>
   <li><code>..</code> — 一つ上のディレクトリを表す特殊な記号</li>
   <li><code>.config</code> — ドットで始まる隠しファイル</li>
 </ul>
-<p><code>.</code> と <code>..</code> は、パスの指定（第1章の後半で詳しく学びます）に使う重要な記号です。ここでは「<code>ls -a</code> を使うと出てくる」と覚えておけば十分です。</p>
+<p><code>.</code> と <code>..</code> はパスの指定にも使います。詳しくはレッスン「パスの理解」で学びます。ここでは「<code>ls -a</code> を使うと出てくる」と覚えておけば十分です。</p>
 
-<h2><code>ls -l</code> — 詳しい情報（ちらっと紹介）</h2>
+<h2><code>ls -l</code> — 詳しい情報</h2>
 <p><code>ls -l</code> は、ファイルのサイズや更新日時、<strong>オーナー</strong>（持ち主）など、より詳しい情報を表示するオプションです。</p>
 <pre><code>$ ls -l
 -rw-r--r-- 1 user user  12 Jan  1 10:00 notes.txt
 drwxr-xr-x 2 user user  64 Jan  1 10:00 documents</code></pre>
-<p>各行の意味（権限やオーナーなど）は、<strong>第4章</strong>でじっくり学びます。今は「こんな詳しい表示もできるんだ」と知っておくだけで大丈夫です。</p>
+<p>各行の意味（権限やオーナーなど）は、<strong>第4章</strong>でじっくり学びます。今は「こんな詳しい表示もできる」と知っておくだけで大丈夫です。</p>
 
 <h2>Tab 補完とコマンド履歴</h2>
-<p>この道場のターミナルには、入力を助ける機能があります。</p>
+<p>演習のターミナルには、入力を助ける機能があります。</p>
 <ul>
   <li><strong>Tab キー</strong> — コマンド名やファイル名の途中まで入力して Tab を押すと、残りを補完してくれます（<code>ls doc</code> → Tab → <code>ls documents</code> など）</li>
   <li><strong>↑↓ キー</strong> — 以前に実行したコマンドを呼び出せます。同じコマンドを何度も打ち直すときに便利です</li>
 </ul>
-<p>第9章で正式に学びますが、演習中に試してみても問題ありません。</p>
+<p>第9章でも詳しく扱いますが、演習中から試してみてください。</p>
 
 <h2>次のステップ</h2>
-<p>演習ページで <code>ls -a</code> を実行し、隠しファイル <code>.config</code> が表示されることを確認しましょう！</p>
+<p>演習ページで <code>ls -a</code> を実行し、隠しファイル <code>.config</code> が表示されることを確認しましょう。</p>
 
         </main>
 

@@ -86,7 +86,7 @@ content: |
   <p>A path starting with <code>/</code> is an <strong>absolute path</strong> from root. <strong>Relative paths</strong> (e.g. <code>documents</code>) are covered in more detail later in this chapter.</p>
 
   <h2>Checking with the Terminal</h2>
-  <p>These three commands let you verify the ideas above in a real Linux environment (this dojo’s simulator):</p>
+  <p>These three commands let you verify the ideas above in the browser’s Linux simulator:</p>
   <ul>
     <li><code>pwd</code> — print the path of the directory you are in</li>
     <li><code>ls</code> — list files and subdirectories in the current directory</li>

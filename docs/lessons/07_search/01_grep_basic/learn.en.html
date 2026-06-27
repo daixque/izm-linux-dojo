@@ -27,21 +27,26 @@
 
         <main class="content" id="content">
             <h2>Search Inside Text</h2>
-<p>In Chapter 3 you learned to read file contents with <code>cat</code>, <code>head</code>, and <code>tail</code>. Logs and config files can be long, and you often need to find specific lines quickly.</p>
-<p><code>grep</code> prints only the lines that <strong>contain a given string</strong>.</p>
+<p>In Chapter 3 you learned to read file contents with <code>cat</code>, <code>head</code>, and <code>tail</code>. Logs and config files can have many lines, and you often need to find specific lines quickly.</p>
+<p>For example, in an error log you may want only the lines containing <code>ERROR</code>. Scanning line by line is tedious, so there is a way to <strong>automatically show only lines that contain a given string</strong>.</p>
 
-<h2>Basic Usage</h2>
+<h2>What Is <code>grep</code>?</h2>
+<p><code>grep</code> is a command that extracts and displays <strong>lines containing a specified string</strong> from a file. It is used to search text files.</p>
+
+<h2>Basic Form</h2>
 <pre><code>grep PATTERN FILENAME</code></pre>
-<p>Specify the text you want to find as the pattern. Matching is case-sensitive by default.</p>
+<p>Write the string you want to find as the pattern. Matching is case-sensitive (<code>ERROR</code> and <code>error</code> are treated as different).</p>
 <pre><code>$ grep ERROR app.log
 2024-01-02 ERROR Connection failed
 2024-01-03 ERROR Disk full</code></pre>
+<p>In the example above, each line of <code>app.log</code> is checked, and only lines containing <code>ERROR</code> are shown.</p>
 
 <h2>Search Multiple Files</h2>
-<pre><code>grep ERROR log1.txt log2.txt</code></pre>
+<p>You can list several filenames and grep will search each one in order.</p>
+<pre><code>$ grep ERROR log1.txt log2.txt</code></pre>
 
 <h2>When Nothing Matches</h2>
-<p>If no line matches, grep prints nothing and exits (this is not an error).</p>
+<p>If no line matches the pattern, grep prints nothing and exits. This is not an error — it means no matching lines were found.</p>
 
 <h2>Next Step</h2>
 <p>On the exercise page, use <code>grep</code> to extract ERROR lines from a log file!</p>

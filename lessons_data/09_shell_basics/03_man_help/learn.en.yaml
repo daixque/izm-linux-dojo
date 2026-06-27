@@ -7,14 +7,25 @@ lesson:
 
 content: |
   <h2>Look It Up Yourself</h2>
-  <p>You do not need to memorize every Linux command. When stuck, check the <strong>help</strong>.</p>
-  
-  <h2><code>--help</code> Option</h2>
-  <pre><code>$ ls --help</code></pre>
-  
-  <h2><code>man</code> Command</h2>
+  <p>Linux has many commands, and you do not need to memorize all of them. When you are unsure how something works, get in the habit of checking the <strong>help</strong>.</p>
+
+  <h2>The <code>--help</code> Option</h2>
+  <p>Many commands show a brief description with <code>--help</code>.</p>
+  <pre><code>$ ls --help
+  Usage: ls [OPTION]... [FILE]...
+  List directory contents.
+  ...</code></pre>
+
+  <h2>The <code>man</code> Command</h2>
+  <p><code>man</code> (manual) displays a command's <strong>manual page</strong>. On real Linux you can read detailed documentation.</p>
   <pre><code>$ man ls</code></pre>
-  <p>The dojo simulator includes manual pages for major commands.</p>
-  
+  <p>The dojo simulator also includes manual pages for major commands.</p>
+
+  <h2>What to Remember</h2>
+  <ul>
+    <li>Try <code>command --help</code> first</li>
+    <li>Use <code>man command</code> when you want more detail</li>
+  </ul>
+
   <h2>Next Step</h2>
-  <p>Try <code>ls --help</code> and <code>man grep</code> on the exercise page!</p>
+  <p>On the exercise page, try <code>ls --help</code> and <code>man grep</code>!</p>

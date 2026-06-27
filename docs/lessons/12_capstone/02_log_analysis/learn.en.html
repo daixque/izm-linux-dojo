@@ -26,16 +26,27 @@
         </header>
 
         <main class="content" id="content">
-            <h2>Capstone: Log Analysis</h2>
-<p>Use <code>grep</code>, <code>wc</code>, and pipes (<code>|</code>) from Chapters 7–8 to extract information from log files.</p>
+            <h2>Goal of This Exercise</h2>
+<p>Extract only ERROR lines from a log file and count them. You will combine <code>grep</code>, <code>wc</code>, and pipes (<code>|</code>) from Chapters 7–8 in a task common in real work: "how many errors were there?"</p>
 
-<h2>What is a Log File?</h2>
-<p>Programs and servers write activity records to <strong>log</strong> files. <code>INFO</code> usually means normal operation, <code>ERROR</code> means failure, and <code>WARN</code> means warning.</p>
+<h2>What Is a Log File?</h2>
+<p>Programs and servers write activity records to <strong>log</strong> files. When something goes wrong, logs help you investigate what happened and when.</p>
+<p>Each line in a log often has a label showing severity:</p>
+<table>
+  <thead>
+    <tr><th>Label</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>INFO</code></td><td>Normal operation record</td></tr>
+    <tr><td><code>WARN</code></td><td>Warning (possible problem)</td></tr>
+    <tr><td><code>ERROR</code></td><td>Error (processing failed)</td></tr>
+  </tbody>
+</table>
 
 <h2>Common Combinations</h2>
 <pre><code>$ grep ERROR app.log
 $ grep ERROR app.log | wc -l</code></pre>
-<p>The first shows only ERROR lines; the second counts how many ERROR lines exist.</p>
+<p>The first shows only ERROR lines; the second counts how many ERROR lines exist. The pipe (<code>|</code>) passes the output of the previous command to the next one.</p>
 
 <h2>Workflow</h2>
 <ol>

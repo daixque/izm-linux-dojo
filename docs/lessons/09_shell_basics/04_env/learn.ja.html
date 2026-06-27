@@ -27,26 +27,33 @@
 
         <main class="content" id="content">
             <h2>シェルが覚えている値</h2>
-<p><strong>環境変数</strong>は、シェルやプログラムが参照できる「名前付きの値」です。たとえば、ホームディレクトリの場所やユーザー名が環境変数として保持されています。</p>
+<p>シェルやプログラムは、作業に必要な情報を<strong>名前付きの値</strong>として保持しています。これを<strong>環境変数</strong>と呼びます。</p>
+<p>たとえば「今ログインしているユーザー名は誰か」「ホームディレクトリはどこか」といった情報が、環境変数として保存されています。コマンドやスクリプトは、この値を参照して動作します。</p>
 
-<h2><code>echo</code> で表示</h2>
-<p><code>echo</code> は文字列を表示するコマンドです。環境変数は <code>$</code> を付けて参照します。</p>
+<h2><code>echo</code> で表示する</h2>
+<p><code>echo</code> は文字列を表示するコマンドです。環境変数の値を見るには、変数名の前に <code>$</code> を付けます。</p>
 <pre><code>$ echo $HOME
 /home/user
 
 $ echo $USER
 user</code></pre>
+<p><code>$HOME</code> にはホームディレクトリのパス、<code>$USER</code> にはユーザー名が入っています。</p>
 
 <h2>主な環境変数</h2>
 <table>
-  <tr><th>変数</th><th>意味</th></tr>
-  <tr><td><code>$HOME</code></td><td>ホームディレクトリのパス</td></tr>
-  <tr><td><code>$USER</code></td><td>ログイン中のユーザー名</td></tr>
-  <tr><td><code>$PATH</code></td><td>コマンドを探すディレクトリの一覧</td></tr>
+  <thead>
+    <tr><th>変数</th><th>意味</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>$HOME</code></td><td>ホームディレクトリのパス</td></tr>
+    <tr><td><code>$USER</code></td><td>ログイン中のユーザー名</td></tr>
+    <tr><td><code>$PATH</code></td><td>コマンドを探すディレクトリの一覧</td></tr>
+  </tbody>
 </table>
+<p><code>$PATH</code> には、<code>ls</code> や <code>grep</code> などのコマンドがどのフォルダから探されるかが書かれています。</p>
 
 <h2>なぜ知っておくか</h2>
-<p>スクリプトや設定ファイルで <code>$HOME</code> が使われることがあります。「自分のホームはどこか」を環境変数で確認できます。</p>
+<p>設定ファイルやスクリプトで <code>$HOME</code> が使われることがあります。「自分のホームはどこか」を環境変数で確認できます。第1章で学んだ <code>~</code>（ホームを表す記号）も、内部的には <code>$HOME</code> と同じ場所を指します。</p>
 
 <h2>次のステップ</h2>
 <p>演習ページで <code>echo $HOME</code> と <code>echo $USER</code> を試してみましょう！</p>

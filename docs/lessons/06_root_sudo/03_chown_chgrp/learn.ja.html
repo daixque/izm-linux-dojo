@@ -26,25 +26,52 @@
         </header>
 
         <main class="content" id="content">
-            <h2>オーナーを変える <code>chown</code></h2>
-<p>ファイルのオーナーを変更するコマンドが <code>chown</code>（change owner）です。グループだけ変える <code>chgrp</code>（change group）もあります。</p>
-<pre><code>$ chown user myfile.txt          # オーナーを user に
-$ chown user:staff myfile.txt    # オーナーとグループを同時に
-$ chgrp staff myfile.txt         # グループだけ staff に</code></pre>
+            <h2>オーナーを変える必要がある場面</h2>
+<p>ファイルのオーナーは、だいたい「作った人」になります。でも、次のような場面ではオーナーを変える必要があります。</p>
+<ul>
+  <li>管理者（root）が作ったファイルを、利用者に渡したい</li>
+  <li>退職した人のファイルを、別の担当者に引き継ぎたい</li>
+  <li>共有フォルダのファイルを、チームのメンバーが管理できるようにしたい</li>
+</ul>
+<p>オーナーを変更するコマンドが <code>chown</code>（change owner）です。グループだけを変える <code>chgrp</code>（change group）もあります。</p>
+
+<h2><code>chown</code> — オーナーを変更</h2>
+<pre><code>$ ls -l admin.log
+-rw-r--r-- 1 root root  50 Jan  1 10:00 admin.log
+
+$ sudo chown user admin.log
+
+$ ls -l admin.log
+-rw-r--r-- 1 user root  50 Jan  1 10:00 admin.log</code></pre>
+<p>オーナーが <code>root</code> から <code>user</code> に変わりました。これで <code>user</code> が自分のファイルとして扱えるようになります（権限の設定次第で読み書きも可能になります）。</p>
+
+<h2>オーナーとグループを同時に変更</h2>
+<pre><code>$ sudo chown user:staff admin.log</code></pre>
+<p><code>ユーザー名:グループ名</code> の形式で、オーナーとグループを一度に指定できます。上の例では、オーナーを <code>user</code>、グループを <code>staff</code> に変更します。</p>
+
+<h2><code>chgrp</code> — グループだけ変更</h2>
+<pre><code>$ sudo chgrp staff admin.log</code></pre>
+<p>オーナーはそのままで、グループだけ <code>staff</code> に変えたいときに使います。</p>
 
 <h2>なぜ sudo が必要か</h2>
 <p>他人がオーナーのファイルの <code>chown</code> / <code>chgrp</code> は、普通のユーザーにはできません。root だけが任意のオーナーに変更できます。</p>
 <pre><code>$ chown user admin.log
 chown: changing ownership of 'admin.log': Operation not permitted
 
-$ sudo chown user admin.log
-# 成功</code></pre>
+$ sudo chown user admin.log</code></pre>
+<p>1 行目は sudo なしで失敗し、2 行目は sudo を付けることで成功します。</p>
+<p>自分がオーナーのファイルなら、グループの変更（<code>chgrp</code>）は sudo なしでできる場合もありますが、root オーナーのファイルには sudo が必要です。</p>
 
-<h2>典型例</h2>
-<p>管理者が作ったファイルを、利用者に渡すとき — 「このファイルのオーナーを <code>user</code> に変更してね」と sudo chown で対応します。</p>
+<h2>典型例 — 管理者が作ったファイルを渡す</h2>
+<p>管理者が <code>admin.log</code> を作り、利用者 <code>user</code> に管理を任せたい場面を想像してください。</p>
+<ol>
+  <li><code>sudo chown user admin.log</code> でオーナーを <code>user</code> に変更</li>
+  <li><code>ls -l admin.log</code> で 3 列目が <code>user</code> になったことを確認</li>
+  <li>必要なら <code>chmod</code> で権限も調整</li>
+</ol>
 
 <h2>次のステップ</h2>
-<p>演習ページで <code>sudo chown user admin.log</code> を実行し、オーナーを変更してみましょう！</p>
+<p>演習ページで <code>sudo chown user admin.log</code> を実行し、オーナーを変更してみましょう。</p>
 
         </main>
 

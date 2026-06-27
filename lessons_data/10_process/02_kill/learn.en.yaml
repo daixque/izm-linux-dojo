@@ -6,12 +6,12 @@ lesson:
   title: "Stopping Processes"
 
 content: |
-  <h2>Stopping a Process</h2>
+  <h2>Why Stop a Process?</h2>
   <p>In the previous lesson you used <code>ps</code> to see running processes and their PIDs. Sometimes you need to stop a process that is no longer needed or keeps running by mistake.</p>
-  <p>On Linux, the <code>kill</code> command sends a <strong>signal</strong> to a process with a given PID — essentially telling it to stop.</p>
+  <p>On Linux, the <code>kill</code> command sends a <strong>signal</strong> to a process with a given PID — telling it to stop.</p>
 
-  <h2>What is a Signal?</h2>
-  <p>A signal is a message from the OS to a process, such as "exit now" or "pause." For beginners, remember that <code>kill PID</code> means "stop the process with this PID."</p>
+  <h2>What Is a Signal?</h2>
+  <p>A signal is a message from the OS to a process — "exit now," "pause," and so on. For now, remember that <code>kill PID</code> means "stop the process with this PID."</p>
 
   <h2>Basic <code>kill</code></h2>
   <pre><code>$ kill 3099</code></pre>
@@ -19,11 +19,16 @@ content: |
   <p>Run <code>ps</code> again and the stopped process will no longer appear.</p>
 
   <h2>Cautions</h2>
-  <ul>
-    <li>Specifying a non-existent PID produces an error</li>
-    <li>Important processes like <code>systemd</code> (PID 1) cannot be stopped</li>
-    <li>In production, always confirm before stopping a process</li>
-  </ul>
+  <table>
+    <thead>
+      <tr><th>Situation</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Non-existent PID specified</td><td>Error</td></tr>
+      <tr><td>Important processes like <code>systemd</code> (PID 1)</td><td>Cannot be stopped</td></tr>
+      <tr><td>Before stopping in production</td><td>Confirm it is truly unnecessary</td></tr>
+    </tbody>
+  </table>
 
   <h2>Next Step</h2>
   <p>On the exercise page, run <code>kill 3099</code> to stop <code>sleep 100</code>, then verify with <code>ps</code>.</p>

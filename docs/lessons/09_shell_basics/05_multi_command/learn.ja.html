@@ -26,22 +26,36 @@
         </header>
 
         <main class="content" id="content">
-            <h2>1 行に複数コマンド</h2>
-<p>シェルでは、1 行に複数のコマンドを書いて順番に実行できます。</p>
+            <h2>1 行に複数コマンドを書く</h2>
+<p>シェルでは、1 行に複数のコマンドを書いて、順番に実行できます。コマンドとコマンドのあいだに<strong>区切りの記号</strong>を入れます。</p>
+<p>区切りの記号によって、「前のコマンドが失敗したら次を実行するかどうか」が変わります。</p>
 
 <h2><code>;</code> — 順番に実行</h2>
 <pre><code>$ cd documents; ls</code></pre>
-<p>左のコマンドの<strong>成否に関係なく</strong>、右も実行されます。</p>
+<p>左のコマンドの<strong>成否に関係なく</strong>、右のコマンドも実行されます。<code>cd</code> が失敗しても <code>ls</code> は実行されます。</p>
 
 <h2><code>&amp;&amp;</code> — 成功したら次を実行</h2>
 <pre><code>$ cd documents &amp;&amp; ls</code></pre>
-<p>左のコマンドが<strong>成功（終了コード 0）</strong>したときだけ、右を実行します。<code>cd</code> が失敗したら <code>ls</code> は実行されません。</p>
+<p>左のコマンドが<strong>成功したときだけ</strong>、右のコマンドを実行します。<code>cd</code> が失敗したら <code>ls</code> は実行されません。</p>
+
+<h2>「成功」とは — 終了コード</h2>
+<p>コマンドが終わると、シェルには<strong>終了コード</strong>という数字が返されます。</p>
+<ul>
+  <li><strong>0</strong> — 問題なく終了した（成功）</li>
+  <li><strong>0 以外</strong> — 何か問題があった（失敗）</li>
+</ul>
+<p><code>&amp;&amp;</code> は、左のコマンドの終了コードが 0 のときだけ右を実行します。たとえば存在しないディレクトリへの <code>cd</code> は失敗（0 以外）になるので、その後の <code>ls</code> は動きません。</p>
 
 <h2>使い分け</h2>
-<ul>
-  <li><code>;</code> — 独立した操作を続けて実行</li>
-  <li><code>&amp;&amp;</code> — 前が成功したときだけ次へ（安全な連鎖）</li>
-</ul>
+<table>
+  <thead>
+    <tr><th>記号</th><th>使い方</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>;</code></td><td>互いに関係ない操作を続けて実行するとき</td></tr>
+    <tr><td><code>&amp;&amp;</code></td><td>前の操作が成功したときだけ次へ進みたいとき</td></tr>
+  </tbody>
+</table>
 
 <h2>次のステップ</h2>
 <p>演習ページで <code>cd documents &amp;&amp; ls</code> を試してみましょう！</p>

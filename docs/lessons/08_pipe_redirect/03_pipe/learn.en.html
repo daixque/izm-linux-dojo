@@ -27,14 +27,25 @@
 
         <main class="content" id="content">
             <h2>Connect Commands</h2>
-<p>A <strong>pipe</strong> (<code>|</code>) sends one command's <strong>output</strong> as the next command's <strong>input</strong>.</p>
+<p>A <strong>pipe</strong> (<code>|</code>) sends one command's <strong>output</strong> as the next command's <strong>input</strong>. Data flows through the pipe like water through a tube.</p>
 
-<h2>Example: Count ERROR Lines</h2>
+<h2>Basic Form</h2>
+<pre><code>command1 | command2</code></pre>
+
+<h2>Example: Count ERROR Lines in a Log</h2>
 <pre><code>$ cat app.log | grep ERROR | wc -l
 2</code></pre>
+<ol>
+  <li><code>cat app.log</code> — outputs the file contents</li>
+  <li><code>grep ERROR</code> — keeps only ERROR lines</li>
+  <li><code>wc -l</code> — counts the lines</li>
+</ol>
+
+<h2>No Need for Intermediate Files</h2>
+<p>With pipes, you can chain processing without creating temporary files in between.</p>
 
 <h2>Next Step</h2>
-<p>Try log analysis with pipes on the exercise page!</p>
+<p>On the exercise page, try log analysis with pipes!</p>
 
         </main>
 

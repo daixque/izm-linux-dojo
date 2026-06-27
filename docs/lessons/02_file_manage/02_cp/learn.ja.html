@@ -27,8 +27,8 @@
 
         <main class="content" id="content">
             <h2>コピーとは</h2>
-<p>ファイルやフォルダの<strong>コピー</strong>は、元のデータを残したまま、同じ内容の別コピーを作る操作です。GUI では「コピーして貼り付け」に相当します。</p>
-<p>Linux では <code>cp</code>（copy）コマンドを使います。</p>
+<p>ファイルやフォルダの<strong>コピー</strong>は、<strong>元のデータを残したまま</strong>、同じ内容の別コピーを作る操作です。1 冊の本をコピー機で複写するイメージで、元と写しの 2 つが存在します。</p>
+<p>Mac の Finder では、ファイルを選んで <kbd>⌘</kbd>+<kbd>C</kbd>（コピー）→ 移動先で <kbd>⌘</kbd>+<kbd>V</kbd>（貼り付け）が同じ操作です。Linux では <code>cp</code>（copy）コマンドを使います。</p>
 
 <h2>ファイルをコピーする — <code>cp</code></h2>
 <p>基本形は次のとおりです。</p>
@@ -44,7 +44,7 @@ report.txt</code></pre>
 <pre><code>$ cp report.txt report_backup.txt</code></pre>
 
 <h2>ディレクトリをコピーする — <code>cp -r</code></h2>
-<p>フォルダをコピーするときは <code>-r</code> オプション（recursive：再帰的）が必要です。フォルダの中身ごとまとめてコピーします。</p>
+<p>フォルダをコピーするときは <code>-r</code> オプションが必要です。フォルダの中身（子フォルダも含めて）ごとまとめてコピーします。</p>
 <pre><code>$ cp -r photos photos_copy
 $ ls
 photos
@@ -55,7 +55,7 @@ photos_copy</code></pre>
 <p>第1章の <code>ls</code> や第3章で学ぶ <code>cat</code> を使って、コピー先にファイルがあるか確認しましょう。第1章の <code>cd</code> でコピー先フォルダに移動してから <code>ls</code> する方法もあります。</p>
 
 <h2>次のステップ</h2>
-<p>演習ページで <code>cp</code> を使い、ファイルを別のフォルダへコピーしてみましょう！</p>
+<p>演習ページで <code>cp</code> を使い、ファイルを別のフォルダへコピーしてみましょう。</p>
 
         </main>
 

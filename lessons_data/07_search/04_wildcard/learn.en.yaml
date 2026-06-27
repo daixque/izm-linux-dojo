@@ -7,24 +7,29 @@ lesson:
 
 content: |
   <h2>Filename Patterns</h2>
-  <p>The <code>*</code> in <code>find -name "*.txt"</code> is a <strong>wildcard</strong>. The shell expands wildcards into matching filenames <strong>before</strong> running the command.</p>
-  
+  <p>The <code>*</code> in <code>find -name "*.txt"</code> is called a <strong>wildcard</strong>. It lets you specify part of a filename loosely. Before running the command, the shell <strong>expands wildcards into actual filenames</strong>.</p>
+
   <h2>Common Wildcards</h2>
   <table>
-    <tr><th>Symbol</th><th>Meaning</th><th>Example</th></tr>
-    <tr><td><code>*</code></td><td>Any string (0 or more chars)</td><td><code>*.txt</code></td></tr>
-    <tr><td><code>?</code></td><td>Any single character</td><td><code>file?.txt</code></td></tr>
+    <thead>
+      <tr><th>Symbol</th><th>Meaning</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>*</code></td><td>Any string (0 or more characters)</td><td><code>*.txt</code> → notes.txt, readme.txt</td></tr>
+      <tr><td><code>?</code></td><td>Any single character</td><td><code>file?.txt</code> → file1.txt, fileA.txt</td></tr>
+    </tbody>
   </table>
-  
+
   <h2>Example: <code>ls *.txt</code></h2>
   <pre><code>$ ls *.txt
   notes.txt  readme.txt</code></pre>
-  
+  <p>The shell replaces <code>*.txt</code> with matching filenames in the current directory, then runs <code>ls</code>.</p>
+
   <h2>Wildcards vs find</h2>
   <ul>
-    <li><strong>Wildcards</strong> — expanded by the shell (usually one directory level)</li>
-    <li><strong>find</strong> — recursive search through subdirectories</li>
+    <li><strong>Wildcards</strong> — expanded by the shell (usually one directory level, near the current folder)</li>
+    <li><strong>find</strong> — searches through subdirectories too</li>
   </ul>
-  
+
   <h2>Next Step</h2>
-  <p>Try <code>ls *.txt</code> on the exercise page!</p>
+  <p>On the exercise page, try <code>ls *.txt</code> and see how the wildcard expands!</p>

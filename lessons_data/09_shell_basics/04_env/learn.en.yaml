@@ -7,22 +7,30 @@ lesson:
 
 content: |
   <h2>Values the Shell Remembers</h2>
-  <p><strong>Environment variables</strong> are named values that the shell and programs can read.</p>
-  
+  <p><strong>Environment variables</strong> are named values that the shell and programs can read. For example, the location of your home directory and your username are kept as environment variables.</p>
+
   <h2>Display with <code>echo</code></h2>
+  <p><code>echo</code> prints a string. Reference environment variables with a <code>$</code> prefix.</p>
   <pre><code>$ echo $HOME
   /home/user
-  
+
   $ echo $USER
   user</code></pre>
-  
+
   <h2>Common Variables</h2>
   <table>
-    <tr><th>Variable</th><th>Meaning</th></tr>
-    <tr><td><code>$HOME</code></td><td>Home directory path</td></tr>
-    <tr><td><code>$USER</code></td><td>Current username</td></tr>
-    <tr><td><code>$PATH</code></td><td>Directories searched for commands</td></tr>
+    <thead>
+      <tr><th>Variable</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>$HOME</code></td><td>Home directory path</td></tr>
+      <tr><td><code>$USER</code></td><td>Current username</td></tr>
+      <tr><td><code>$PATH</code></td><td>Directories searched for commands</td></tr>
+    </tbody>
   </table>
-  
+
+  <h2>Why Know These?</h2>
+  <p>Scripts and config files sometimes use <code>$HOME</code>. Environment variables let you confirm "where is my home?" without guessing.</p>
+
   <h2>Next Step</h2>
-  <p>Try <code>echo $HOME</code> and <code>echo $USER</code> on the exercise page!</p>
+  <p>On the exercise page, try <code>echo $HOME</code> and <code>echo $USER</code>!</p>

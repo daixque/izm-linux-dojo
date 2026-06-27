@@ -26,38 +26,44 @@
         </header>
 
         <main class="content" id="content">
-            <h2>What is a Process?</h2>
-<p>A <strong>process</strong> is a program that is <strong>currently running</strong> on the computer. When you use a terminal with <code>bash</code>, open a web browser, or run a background update — each is a process.</p>
-<p>Think of <strong>files</strong> (from Chapter 1) as stored data, and processes as work happening right now.</p>
+            <h2>What Is a Process?</h2>
+<p>A <strong>process</strong> is a program that is <strong>currently running</strong> on the computer. When <code>bash</code> runs in a terminal, when you open a web browser, or when a background update runs — each is a separate process.</p>
+<p>Think of <strong>files</strong> (from Chapter 1) as stored data, and processes as work happening right now. Files remain on disk; processes exist only from start until they finish.</p>
 
 <h2>Process ID (PID)</h2>
 <p>The OS assigns each running process a number called a <strong>Process ID</strong> (<strong>PID</strong>), such as <code>1042</code> or <code>3099</code>.</p>
 <ul>
   <li>Starting the same program twice gives two different PIDs</li>
-  <li>When a process exits, its PID may later be reused</li>
+  <li>When a process exits, its PID may later be reused by another process</li>
 </ul>
+<p>In the next lesson, you will specify this PID when stopping a process.</p>
 
 <h2><code>ps</code> — List Processes</h2>
-<p>The <code>ps</code> command shows running processes. In the dojo simulator, fixed sample data is displayed.</p>
+<p>The <code>ps</code> command shows which processes are running. In the dojo simulator, fixed sample data is displayed.</p>
 <pre><code>$ ps
 PID TTY          TIME CMD
   1 ?           00:00:01 systemd
 1042 pts/0       00:00:00 bash
 2048 pts/0       00:00:02 python simulator.py
 3099 pts/0       00:00:00 sleep 100</code></pre>
-<p>Column meanings:</p>
-<ul>
-  <li><strong>PID</strong> — process ID</li>
-  <li><strong>TTY</strong> — terminal attached (<code>?</code> means none)</li>
-  <li><strong>TIME</strong> — approximate CPU time used</li>
-  <li><strong>CMD</strong> — command name</li>
-</ul>
+<p>Main column meanings:</p>
+<table>
+  <thead>
+    <tr><th>Column</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>PID</strong></td><td>Process ID (number)</td></tr>
+    <tr><td><strong>TTY</strong></td><td>Which terminal it is attached to (<code>?</code> means none)</td></tr>
+    <tr><td><strong>TIME</strong></td><td>Approximate CPU time used</td></tr>
+    <tr><td><strong>CMD</strong></td><td>Command name</td></tr>
+  </tbody>
+</table>
 
 <h2>About <code>top</code> (Reference)</h2>
-<p>On real Linux, <code>top</code> shows a live-updating process list. The dojo focuses on <code>ps</code> instead.</p>
+<p>On real Linux, <code>top</code> shows a live-updating process list. The dojo cannot fully reproduce that, so we focus on checking the list with <code>ps</code>.</p>
 
 <h2>Next Step</h2>
-<p>Run <code>ps</code> on the exercise page and read the PIDs and command names.</p>
+<p>On the exercise page, run <code>ps</code> and read the PIDs and command names.</p>
 
         </main>
 

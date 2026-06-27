@@ -6,26 +6,37 @@ lesson:
   title: "ワイルドカード"
 
 content: |
-  <h2>ファイル名のパターン指定</h2>
-  <p><code>find -name "*.txt"</code> で見た <code>*</code> は<strong>ワイルドカード</strong>と呼ばれ、ファイル名の一部をざっくり指定できます。シェルはコマンドを実行する前に、ワイルドカードを<strong>実際のファイル名に展開</strong>します。</p>
-  
+  <h2>ファイル名の一部をざっくり指定する</h2>
+  <p>前のレッスンで <code>find -name "*.txt"</code> を使いました。この <code>*</code> のような記号を<strong>ワイルドカード</strong>と呼びます。ファイル名の一部を「ここは何でもよい」とざっくり指定できます。</p>
+  <p>シェルはコマンドを実行する<strong>前</strong>に、ワイルドカードを<strong>実際のファイル名に置き換え</strong>ます。この置き換えを「展開」と呼びます。</p>
+
   <h2>主なワイルドカード</h2>
   <table>
-    <tr><th>記号</th><th>意味</th><th>例</th></tr>
-    <tr><td><code>*</code></td><td>任意の文字列（0 文字以上）</td><td><code>*.txt</code> → notes.txt, readme.txt</td></tr>
-    <tr><td><code>?</code></td><td>任意の 1 文字</td><td><code>file?.txt</code> → file1.txt, fileA.txt</td></tr>
+    <thead>
+      <tr><th>記号</th><th>意味</th><th>例</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>*</code></td><td>任意の文字列（0 文字以上）</td><td><code>*.txt</code> → notes.txt, readme.txt</td></tr>
+      <tr><td><code>?</code></td><td>任意の 1 文字</td><td><code>file?.txt</code> → file1.txt, fileA.txt</td></tr>
+    </tbody>
   </table>
-  
+
   <h2><code>ls *.txt</code> の例</h2>
   <pre><code>$ ls *.txt
   notes.txt  readme.txt</code></pre>
-  <p>シェルは <code>*.txt</code> を、カレントディレクトリで .txt で終わるファイル名に置き換えてから <code>ls</code> を実行します。</p>
-  
-  <h2>find との違い</h2>
-  <ul>
-    <li><strong>ワイルドカード</strong> — シェルが展開（主に 1 階層・カレント付近）</li>
-    <li><strong>find</strong> — サブディレクトリも含めて再帰的に検索</li>
-  </ul>
-  
+  <p>シェルは <code>*.txt</code> を、今いるディレクトリで .txt で終わるファイル名に置き換えてから <code>ls</code> を実行します。実際には <code>ls notes.txt readme.txt</code> と同じ意味になります。</p>
+
+  <h2>ワイルドカードと find の違い</h2>
+  <table>
+    <thead>
+      <tr><th>方法</th><th>動き</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>ワイルドカード</strong></td><td>シェルが展開する。主に今いるディレクトリの 1 階層で使う</td></tr>
+      <tr><td><strong>find</strong></td><td>指定したフォルダの下の階層すべてをたどって探す</td></tr>
+    </tbody>
+  </table>
+  <p>今いるフォルダだけなら <code>ls *.txt</code> で十分です。下のフォルダも含めて探すときは <code>find</code> を使います。</p>
+
   <h2>次のステップ</h2>
   <p>演習ページで <code>ls *.txt</code> を試し、ワイルドカードの展開を確認しましょう！</p>

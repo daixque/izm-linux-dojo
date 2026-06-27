@@ -7,13 +7,23 @@ lesson:
 
 content: |
   <h2>Combine Search, Pipes, and Redirection</h2>
-  <p>Combining Chapter 7–8 features enables practical workflows.</p>
-  
-  <h2>Save Filtered Results</h2>
+  <p>Combining what you learned in Chapters 7–8 enables practical workflows.</p>
+
+  <h2>Typical Example: Save Results to a File</h2>
   <pre><code>$ grep ERROR app.log &gt; errors.txt</code></pre>
-  
+  <p>Only ERROR lines are written to <code>errors.txt</code>.</p>
+
   <h2>Pipe + Redirect</h2>
   <pre><code>$ cat app.log | grep ERROR | wc -l &gt; error_count.txt</code></pre>
-  
+  <p>Count ERROR lines and save that number to a file.</p>
+
+  <h2>Workflow</h2>
+  <ol>
+    <li>Read the data (<code>cat</code> or file argument)</li>
+    <li>Filter to the lines you need (<code>grep</code>)</li>
+    <li>Process it (<code>wc</code>, etc.)</li>
+    <li>Save the result (<code>&gt;</code>)</li>
+  </ol>
+
   <h2>Next Step</h2>
-  <p>Try the combined exercise!</p>
+  <p>On the exercise page, try the combined task!</p>

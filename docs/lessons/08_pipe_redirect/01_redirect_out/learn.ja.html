@@ -26,20 +26,33 @@
         </header>
 
         <main class="content" id="content">
-            <h2>画面の代わりにファイルへ</h2>
-<p>これまで、コマンドの結果（<strong>標準出力</strong>）はターミナル画面に表示されていました。第7章の <code>grep</code> や <code>ls</code> も同様です。</p>
-<p><code>&gt;</code>（リダイレクト）を使うと、出力を<strong>ファイルに書き込む</strong>ことができます。</p>
+            <h2>コマンドの結果はどこへ行くか</h2>
+<p>これまで、コマンドを実行すると結果がターミナル画面に表示されていました。第7章の <code>grep</code> や <code>ls</code> も同様です。</p>
+<p>この画面への出力を<strong>標準出力</strong>と呼びます。多くのコマンドは、結果を標準出力に送る仕組みになっています。</p>
+<p>結果を画面に出す代わりに<strong>ファイルに保存</strong>したい場面もあります。そのとき使うのが<strong>リダイレクト</strong>（出力の向きを変える操作）です。</p>
 
 <h2><code>&gt;</code> — ファイルに書き込む（上書き）</h2>
 <pre><code>$ ls &gt; filelist.txt</code></pre>
-<p><code>ls</code> の結果が画面ではなく <code>filelist.txt</code> に保存されます。ファイルが既にある場合は<strong>上書き</strong>されます。</p>
+<p><code>ls</code> の結果が画面ではなく <code>filelist.txt</code> に保存されます。ファイルが既にある場合は、<strong>中身が上書き</strong>されます。元の内容は消えるので注意してください。</p>
 
 <h2><code>&gt;&gt;</code> — ファイルに追記</h2>
 <pre><code>$ ls documents &gt;&gt; filelist.txt</code></pre>
-<p>既存の内容の<strong>末尾に追加</strong>します。上書きではありません。</p>
+<p>既存の内容の<strong>末尾に追加</strong>します。上書きではなく、後ろに足していく形です。</p>
 
-<h2>確認方法</h2>
-<p>保存した内容は <code>cat filelist.txt</code> で確認できます。</p>
+<h2>使い分け</h2>
+<table>
+  <thead>
+    <tr><th>記号</th><th>動き</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>&gt;</code></td><td>ファイルを新しく作る、または中身を上書きする</td></tr>
+    <tr><td><code>&gt;&gt;</code></td><td>ファイルの末尾に追記する</td></tr>
+  </tbody>
+</table>
+
+<h2>保存した内容の確認</h2>
+<p>ファイルに書き込んだ内容は、第3章で学んだ <code>cat</code> で確認できます。</p>
+<pre><code>$ cat filelist.txt</code></pre>
 
 <h2>次のステップ</h2>
 <p>演習ページで <code>ls &gt; filelist.txt</code> を試してみましょう！</p>

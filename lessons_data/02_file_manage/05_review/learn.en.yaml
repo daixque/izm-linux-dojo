@@ -11,26 +11,37 @@ content: |
 
   <h3>Chapter 1 — Navigation</h3>
   <table>
-    <tr><th>Command</th><th>Meaning</th></tr>
-    <tr><td><code>pwd</code></td><td>Show current directory path</td></tr>
-    <tr><td><code>ls</code></td><td>List directory contents</td></tr>
-    <tr><td><code>cd</code></td><td>Change directory</td></tr>
+    <thead>
+      <tr><th>Command</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>pwd</code></td><td>Show current directory path</td></tr>
+      <tr><td><code>ls</code></td><td>List directory contents</td></tr>
+      <tr><td><code>ls -a</code></td><td>List including hidden files</td></tr>
+      <tr><td><code>cd</code></td><td>Change directory</td></tr>
+    </tbody>
   </table>
+  <p>Paths can be <strong>absolute</strong> (from root <code>/</code>) or <strong>relative</strong> (from where you are). <code>~</code> means home; <code>..</code> means one level up.</p>
 
   <h3>Chapter 2 — File Management</h3>
   <table>
-    <tr><th>Command</th><th>Meaning</th></tr>
-    <tr><td><code>mkdir</code></td><td>Create a directory</td></tr>
-    <tr><td><code>mkdir -p</code></td><td>Create nested directories</td></tr>
-    <tr><td><code>touch</code></td><td>Create an empty file</td></tr>
-    <tr><td><code>cp</code></td><td>Copy a file (original remains)</td></tr>
-    <tr><td><code>cp -r</code></td><td>Copy a directory</td></tr>
-    <tr><td><code>mv</code></td><td>Move or rename (original gone)</td></tr>
-    <tr><td><code>rm</code></td><td>Delete a file</td></tr>
-    <tr><td><code>rm -r</code> / <code>rmdir</code></td><td>Delete a directory</td></tr>
+    <thead>
+      <tr><th>Command</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>mkdir</code></td><td>Create a directory</td></tr>
+      <tr><td><code>mkdir -p</code></td><td>Create a directory hierarchy (parents included)</td></tr>
+      <tr><td><code>touch</code></td><td>Create an empty file</td></tr>
+      <tr><td><code>cp</code></td><td>Copy a file (original remains)</td></tr>
+      <tr><td><code>cp -r</code></td><td>Copy a directory</td></tr>
+      <tr><td><code>mv</code></td><td>Move or rename (original gone)</td></tr>
+      <tr><td><code>rm</code></td><td>Delete a file</td></tr>
+      <tr><td><code>rm -r</code> / <code>rmdir</code></td><td>Delete a directory</td></tr>
+    </tbody>
   </table>
 
   <h2>Typical Workflow</h2>
+  <p>In real work, you combine commands in a flow like this:</p>
   <ol>
     <li>Use <code>pwd</code> and <code>ls</code> to see where you are</li>
     <li>Use <code>mkdir -p</code> to prepare folders</li>

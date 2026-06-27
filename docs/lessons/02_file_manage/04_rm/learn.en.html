@@ -28,28 +28,28 @@
         <main class="content" id="content">
             <h2>What Is Deletion?</h2>
 <p><strong>Deletion</strong> removes files or directories you no longer need. On Linux you use <code>rm</code> (remove).</p>
-<p><strong>Important: deleted data is hard to recover.</strong> Unlike a GUI trash bin, <code>rm</code> removes items immediately. Always double-check before pressing Enter.</p>
+<p>In Finder, moving a file to the <strong>Trash</strong> temporarily holds it so you can restore it until you empty the Trash. Terminal <code>rm</code> usually <strong>deletes directly without going through a trash bin</strong>. Deleted data is hard to recover, so always double-check before pressing Enter.</p>
 
 <h2>Delete a File — <code>rm</code></h2>
 <pre><code>$ rm temp.txt</code></pre>
-<p>The specified file is removed. Use <code>ls</code> afterward to confirm.</p>
+<p>The specified file is removed. Use <code>ls</code> afterward to confirm it is gone.</p>
 
 <h2>Delete a Directory — <code>rm -r</code></h2>
-<p>Directories require the <code>-r</code> (recursive) option to remove everything inside.</p>
+<p>When deleting a folder, you need the <code>-r</code> option. It removes everything inside, including subfolders.</p>
 <pre><code>$ rm -r old_folder</code></pre>
-<p>For an empty folder only, you can use <code>rmdir</code> instead:</p>
+<p>For an empty folder only, you can use <code>rmdir</code> instead (it fails if the folder has contents).</p>
 <pre><code>$ rmdir empty_dir</code></pre>
 
 <h2>Safety Tips</h2>
 <ul>
-  <li><strong>Read the filename carefully</strong> before pressing Enter</li>
-  <li><strong>Check your location</strong> with <code>pwd</code> before deleting</li>
+  <li><strong>Confirm it is safe to delete</strong> — read the filename carefully before pressing Enter</li>
+  <li><strong>Do not mistype the path</strong> — run <code>pwd</code> to confirm where you are before deleting</li>
   <li><strong>Be extra careful with directories</strong> — <code>rm -r</code> removes all contents</li>
 </ul>
-<p>On real Linux systems, mistyped paths can cause serious damage. Build the habit of verifying paths first.</p>
+<p>On real Linux systems, dangerous commands like <code>rm -rf /</code> have destroyed entire systems. Build the habit of verifying paths first.</p>
 
 <h2>Next Step</h2>
-<p>Practice safely deleting unneeded files and an empty directory on the exercise page!</p>
+<p>On the exercise page, safely delete unneeded files and an empty directory!</p>
 
         </main>
 

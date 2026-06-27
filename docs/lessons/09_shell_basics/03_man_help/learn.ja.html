@@ -28,24 +28,32 @@
         <main class="content" id="content">
             <h2>困ったときは自分で調べる</h2>
 <p>Linux にはたくさんのコマンドがあり、すべてを暗記する必要はありません。使い方が分からなくなったら、<strong>ヘルプ</strong>を調べる習慣をつけましょう。</p>
+<p>コマンドには、自分の使い方を説明する機能が組み込まれています。2 つの代表的な方法を覚えておけば十分です。</p>
 
 <h2><code>--help</code> オプション</h2>
-<p>多くのコマンドは <code>--help</code> で簡単な説明を表示します。</p>
+<p>多くのコマンドは <code>--help</code> を付けると、短い使い方の説明を表示します。まずこちらを試すのが手軽です。</p>
 <pre><code>$ ls --help
 Usage: ls [OPTION]... [FILE]...
 List directory contents.
 ...</code></pre>
+<p>オプションの一覧や簡単な説明が表示されます。画面が長くなることもありますが、スクロールして読めます。</p>
 
 <h2><code>man</code> コマンド</h2>
-<p><code>man</code>（manual）は、コマンドの<strong>マニュアルページ</strong>を表示します。本物の Linux では詳しい説明が読めます。</p>
+<p><code>man</code>（manual の略）は、コマンドの<strong>マニュアルページ</strong>を表示します。<code>--help</code> より詳しい説明が読めます。</p>
 <pre><code>$ man ls</code></pre>
-<p>この道場のシミュレータでも、主要コマンドの man ページを読めます。</p>
+<p>man ページは専用の閲覧画面で開きます。上下キーやスペースキーでスクロールできます。</p>
+<p><strong>man を終了するときは <kbd>q</kbd> キーを押します。</strong> ターミナルの通常の入力画面に戻ります。</p>
 
-<h2>覚えておくこと</h2>
-<ul>
-  <li>まず <code>コマンド --help</code> を試す</li>
-  <li>もっと詳しく知りたいときは <code>man コマンド</code></li>
-</ul>
+<h2>使い分け</h2>
+<table>
+  <thead>
+    <tr><th>方法</th><th>いつ使うか</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>コマンド --help</code></td><td>まず試す。短い説明で十分なとき</td></tr>
+    <tr><td><code>man コマンド</code></td><td>もっと詳しく知りたいとき</td></tr>
+  </tbody>
+</table>
 
 <h2>次のステップ</h2>
 <p>演習ページで <code>ls --help</code> や <code>man grep</code> を試してみましょう！</p>

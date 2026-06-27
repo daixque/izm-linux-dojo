@@ -6,12 +6,13 @@ lesson:
   title: "ls Options"
 
 content: |
-  <h2>Review</h2>
+  <h2>Limits of a Plain Listing</h2>
   <p>In the previous lesson, you used <code>ls</code> to list the contents of a directory. With plain <code>ls</code>, you do <strong>not</strong> see every file.</p>
 
   <h2>What Are Hidden Files?</h2>
   <p>On Linux, files and directories whose names <strong>start with a dot (<code>.</code>)</strong> are called <strong>hidden files</strong>. For example, <code>.config</code> is a hidden file that often stores settings.</p>
   <p>Hidden files are kept out of normal <code>ls</code> output so you do not accidentally delete or edit them. Many configuration files and auto-generated files use this naming style.</p>
+  <p>On Mac Finder, you can toggle hidden files with <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd> (period). In the terminal, <code>ls -a</code> serves the same purpose.</p>
   <p>Example in the home directory (<code>/home/user</code>):</p>
   <pre><code>$ ls
   documents
@@ -35,9 +36,9 @@ content: |
     <li><code>..</code> — a special name for the parent directory (one level up)</li>
     <li><code>.config</code> — a hidden file starting with a dot</li>
   </ul>
-  <p><code>.</code> and <code>..</code> are important when specifying paths (you will learn more later in Chapter 1). For now, remember that they appear when you use <code>ls -a</code>.</p>
+  <p><code>.</code> and <code>..</code> are also used when specifying paths (you will learn more in the lesson "Understanding Paths"). For now, remember that they appear when you use <code>ls -a</code>.</p>
 
-  <h2><code>ls -l</code> — Detailed Listing (a Quick Peek)</h2>
+  <h2><code>ls -l</code> — Detailed Listing</h2>
   <p><code>ls -l</code> shows extra details such as file size, modification time, and the <strong>owner</strong>.</p>
   <pre><code>$ ls -l
   -rw-r--r-- 1 user user  12 Jan  1 10:00 notes.txt
@@ -45,7 +46,7 @@ content: |
   <p>You will study what each column means (permissions, owner, and more) in <strong>Chapter 4</strong>. For now, it is enough to know that this richer view exists.</p>
 
   <h2>Tab Completion and Command History</h2>
-  <p>The dojo terminal includes helpers for typing:</p>
+  <p>The exercise terminal includes helpers for typing:</p>
   <ul>
     <li><strong>Tab key</strong> — after partial input, Tab completes command or file names (e.g. <code>ls doc</code> + Tab → <code>ls documents</code>)</li>
     <li><strong>↑↓ keys</strong> — recall previously run commands so you do not retype them</li>

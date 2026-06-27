@@ -7,8 +7,8 @@ lesson:
 
 content: |
   <h2>What Is Copying?</h2>
-  <p><strong>Copying</strong> creates a duplicate while keeping the original. In a GUI this is like Copy and Paste.</p>
-  <p>On Linux you use the <code>cp</code> (copy) command.</p>
+  <p><strong>Copying</strong> a file or folder means creating a duplicate <strong>while keeping the original</strong>. Think of photocopying a book — you end up with both the original and the copy.</p>
+  <p>On Mac Finder, selecting a file and pressing <kbd>⌘</kbd>+<kbd>C</kbd> (Copy) then <kbd>⌘</kbd>+<kbd>V</kbd> (Paste) in another location does the same thing. On Linux you use the <code>cp</code> (copy) command.</p>
 
   <h2>Copy a File — <code>cp</code></h2>
   <p>The basic form is:</p>
@@ -20,11 +20,11 @@ content: |
   <p>The original <code>report.txt</code> stays in place, and a new file appears at <code>backup/report.txt</code>.</p>
 
   <h3>Copy with a New Name</h3>
-  <p>You can give the copy a different filename:</p>
+  <p>If you specify a filename as the destination, you can create a copy under a different name.</p>
   <pre><code>$ cp report.txt report_backup.txt</code></pre>
 
   <h2>Copy a Directory — <code>cp -r</code></h2>
-  <p>Directories need the <code>-r</code> option (recursive) to copy everything inside them.</p>
+  <p>When copying a folder, you need the <code>-r</code> option. It copies everything inside, including subfolders.</p>
   <pre><code>$ cp -r photos photos_copy
   $ ls
   photos
@@ -35,4 +35,4 @@ content: |
   <p>Use <code>ls</code> from Chapter 1 or <code>cat</code> from Chapter 3 to confirm the copy exists. You can also <code>cd</code> into the destination folder first.</p>
 
   <h2>Next Step</h2>
-  <p>Try copying a file into another folder on the exercise page!</p>
+  <p>On the exercise page, use <code>cp</code> to copy a file into another folder!</p>

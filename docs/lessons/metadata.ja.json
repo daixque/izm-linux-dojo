@@ -196,7 +196,7 @@
         {
           "id": "05_permissions/04_chmod_octal",
           "number": "05-04",
-          "title": "chmod（8進）【発展】",
+          "title": "chmod（8進）",
           "description": "chmod の 8進形式（644, 755）で権限を設定します。",
           "available": true
         }

@@ -7,31 +7,37 @@ lesson:
 
 content: |
   <h2>プロセスとは？</h2>
-  <p>コンピューター上で<strong>動いているプログラム</strong>のことを<strong>プロセス</strong>（process）と呼びます。たとえば、ターミナルで <code>bash</code> を起動しているとき、Web ブラウザを開いているとき、裏で更新プログラムが動いているとき — それぞれがプロセスです。</p>
-  <p>第1章で学んだ<strong>ファイル</strong>は「保存されているデータ」、プロセスは「今まさに実行されている仕事」と考えると区別しやすいです。</p>
+  <p>コンピューター上で<strong>今まさに動いているプログラム</strong>のことを<strong>プロセス</strong>（process）と呼びます。ターミナルで <code>bash</code> が動いているとき、Web ブラウザを開いているとき、裏で更新プログラムが走っているとき — それぞれが別のプロセスです。</p>
+  <p>第1章で学んだ<strong>ファイル</strong>は「保存されているデータ」、プロセスは「今実行されている仕事」と考えると区別しやすいです。ファイルはディスクに残りますが、プロセスは起動してから終了するまでの一時的な動きです。</p>
 
   <h2>プロセス ID（PID）</h2>
   <p>OS は動いているプロセスを区別するために、それぞれに<strong>プロセス ID</strong>（Process ID、略して <strong>PID</strong>）という番号を付けます。PID は数字だけで、たとえば <code>1042</code> や <code>3099</code> のようになります。</p>
   <ul>
-    <li>同じプログラムを 2 回起動しても、PID は別々</li>
+    <li>同じプログラムを 2 回起動しても、PID は別々になる</li>
     <li>プロセスが終了すると、その PID は別のプロセスに再利用されることがある</li>
   </ul>
+  <p>次のレッスンでプロセスを止めるとき、この PID を指定します。</p>
 
   <h2><code>ps</code> — プロセス一覧を表示</h2>
-  <p><code>ps</code> コマンドで、現在動いているプロセスの一覧を確認できます。道場のシミュレータでは、学習用の固定データが表示されます。</p>
+  <p>どのプロセスが動いているか確認するには、<code>ps</code> コマンドを使います。道場のシミュレータでは、学習用の固定データが表示されます。</p>
   <pre><code>$ ps
   PID TTY          TIME CMD
     1 ?           00:00:01 systemd
   1042 pts/0       00:00:00 bash
   2048 pts/0       00:00:02 python simulator.py
   3099 pts/0       00:00:00 sleep 100</code></pre>
-  <p>主な列の意味：</p>
-  <ul>
-    <li><strong>PID</strong> — プロセス ID</li>
-    <li><strong>TTY</strong> — どの端末に接続しているか（<code>?</code> は端末なし）</li>
-    <li><strong>TIME</strong> — CPU を使った時間の目安</li>
-    <li><strong>CMD</strong> — 実行中のコマンド名</li>
-  </ul>
+  <p>表示される主な列の意味は次のとおりです。</p>
+  <table>
+    <thead>
+      <tr><th>列</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>PID</strong></td><td>プロセス ID（番号）</td></tr>
+      <tr><td><strong>TTY</strong></td><td>どの端末に接続しているか（<code>?</code> は端末なし）</td></tr>
+      <tr><td><strong>TIME</strong></td><td>CPU を使った時間の目安</td></tr>
+      <tr><td><strong>CMD</strong></td><td>実行中のコマンド名</td></tr>
+    </tbody>
+  </table>
 
   <h2><code>top</code> について（参考）</h2>
   <p>本物の Linux では <code>top</code> コマンドで、プロセス一覧をリアルタイムに更新しながら表示できます。道場では再現が難しいため、<code>ps</code> で一覧を確認する方法を中心に学びます。</p>

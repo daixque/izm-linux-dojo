@@ -8,6 +8,7 @@ lesson:
 content: |
   <h2>ツリー構造 — フォルダの入れ子</h2>
   <p>Linux のファイルシステムは、木（ツリー）のように<strong>枝分かれした階層</strong>になっています。ルート（<code>/</code>）が木の根元で、そこからディレクトリが枝のように伸び、先端にファイルがぶら下がるイメージです。</p>
+  <p>Mac の Finder サイドバーや、演習ページ右側の<strong>ファイルエクスプローラー</strong>も、同じ階層を別の見え方で示しています。ツリー図を読めると、どの表示でも「今どの階層にいるか」がわかりやすくなります。</p>
   <p>第1レッスンで見た例を、もう少し深くしてみましょう。</p>
   <pre class="tree"><code>/home/user/
   ├── projects/
@@ -52,7 +53,7 @@ content: |
   <p>ツリー図を見ながら「今どの階層にいるか」を意識すると、<code>cd</code> や <code>ls</code> の結果が理解しやすくなります。</p>
 
   <h2>Tab 補完が特に便利</h2>
-  <p>深い階層ではパスが長くなります。<code>cd pro</code> と入力して Tab を押すと <code>projects/</code> まで補完され、続けて <code>w</code> + Tab で <code>web/</code> … と進められます。長いパスを全部手打ちしなくて済むので、第1章のうちに Tab に慣れておきましょう。</p>
+  <p>深い階層ではパスが長くなります。<code>cd pro</code> と入力して Tab を押すと <code>projects/</code> まで補完され、続けて <code>w</code> + Tab で <code>web/</code> … と進められます。長いパスを全部手打ちしなくて済むので、Tab に慣れておきましょう。</p>
 
   <h2>次のステップ</h2>
-  <p>演習ページで、3 階層下の <code>app</code> ディレクトリまで <code>cd</code> し、<code>pwd</code> で到達を確認しましょう！</p>
+  <p>演習ページで、3 階層下の <code>app</code> ディレクトリまで <code>cd</code> し、<code>pwd</code> で到達を確認しましょう。</p>

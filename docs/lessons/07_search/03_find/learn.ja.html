@@ -27,14 +27,15 @@
 
         <main class="content" id="content">
             <h2>ファイル名で探す</h2>
-<p><code>grep</code> はファイルの<strong>中身</strong>を検索します。一方、ファイル<strong>名</strong>や場所を探すときは <code>find</code> コマンドを使います。</p>
+<p><code>grep</code> はファイルの<strong>中身</strong>を検索します。一方、ファイルの<strong>名前</strong>や<strong>場所</strong>を探したいときは <code>find</code> コマンドを使います。</p>
+<p>たとえば「このフォルダのどこかにある .txt ファイルを全部リストしたい」という場面で使います。Mac の Finder でフォルダ内を検索するのに近い操作です。</p>
 
 <h2>基本の形</h2>
 <pre><code>find ディレクトリ -name パターン</code></pre>
 <ul>
-  <li><strong>ディレクトリ</strong> — 検索を始める場所（<code>.</code> はカレントディレクトリ）</li>
-  <li><strong>-name</strong> — ファイル名で探すオプション</li>
-  <li><strong>パターン</strong> — ファイル名のパターン（ワイルドカード <code>*</code> が使える）</li>
+  <li><strong>ディレクトリ</strong> — 検索を始める場所（<code>.</code> は今いるディレクトリ）</li>
+  <li><strong>-name</strong> — ファイル名で探すためのオプション</li>
+  <li><strong>パターン</strong> — 探したいファイル名の形（<code>*</code> などの記号が使える）</li>
 </ul>
 
 <h2>例: .txt ファイルをすべて探す</h2>
@@ -43,8 +44,9 @@
 ./documents/readme.txt</code></pre>
 <p><code>*</code> は「任意の文字列」を表します。<code>*.txt</code> は「.txt で終わる名前」という意味です。</p>
 
-<h2>サブディレクトリも再帰的に探す</h2>
-<p><code>find</code> は指定したディレクトリの<strong>下の階層すべて</strong>をたどります。深いフォルダの中にあるファイルも見つかります。</p>
+<h2>下のフォルダもまとめて探す</h2>
+<p><code>find</code> は、指定したディレクトリの<strong>中にあるフォルダも順にたどり</strong>、その下にあるファイルも探します。たとえば <code>./documents/readme.txt</code> のように、深い場所にあるファイルも見つかります。</p>
+<p><code>ls</code> が今いるディレクトリの<strong>1 階層だけ</strong>を見るのに対し、<code>find</code> はフォルダの階層を下まで辿って探します。</p>
 
 <h2>次のステップ</h2>
 <p>演習ページで <code>find</code> を使い、.txt ファイルを列挙してみましょう！</p>

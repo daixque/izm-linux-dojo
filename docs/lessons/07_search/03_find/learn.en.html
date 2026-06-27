@@ -27,23 +27,26 @@
 
         <main class="content" id="content">
             <h2>Search by Filename</h2>
-<p><code>grep</code> searches file <strong>contents</strong>. To search by file <strong>name</strong>, use <code>find</code>.</p>
+<p><code>grep</code> searches file <strong>contents</strong>. When you want to find files by <strong>name</strong> or <strong>location</strong>, use the <code>find</code> command.</p>
+<p>For example, "list every .txt file somewhere under this folder" is a common use case. It is similar to searching inside a folder in Mac Finder.</p>
 
 <h2>Basic Form</h2>
 <pre><code>find DIRECTORY -name PATTERN</code></pre>
 <ul>
-  <li><strong>DIRECTORY</strong> — where to start (<code>.</code> means current directory)</li>
-  <li><strong>-name</strong> — search by filename</li>
-  <li><strong>PATTERN</strong> — filename pattern (wildcards like <code>*</code> work)</li>
+  <li><strong>DIRECTORY</strong> — where to start searching (<code>.</code> means the current directory)</li>
+  <li><strong>-name</strong> — option to search by filename</li>
+  <li><strong>PATTERN</strong> — the filename shape you want (wildcards like <code>*</code> work)</li>
 </ul>
 
 <h2>Example: Find All .txt Files</h2>
 <pre><code>$ find . -name "*.txt"
 ./notes.txt
 ./documents/readme.txt</code></pre>
+<p><code>*</code> means "any string." <code>*.txt</code> means "names ending in .txt."</p>
 
-<h2>Searches Subdirectories Too</h2>
-<p><code>find</code> walks the entire tree under the given directory.</p>
+<h2>Searching Subdirectories Too</h2>
+<p><code>find</code> walks through folders <strong>inside</strong> the directory you specify and searches below them as well. For example, it can find <code>./documents/readme.txt</code> even when it is deep in the tree.</p>
+<p><code>ls</code> shows only <strong>one level</strong> of the current directory. <code>find</code> goes down through the folder hierarchy to search.</p>
 
 <h2>Next Step</h2>
 <p>On the exercise page, use <code>find</code> to list .txt files!</p>

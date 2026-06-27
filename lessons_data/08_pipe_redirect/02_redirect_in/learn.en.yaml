@@ -8,9 +8,16 @@ lesson:
 content: |
   <h2>Read Input from a File</h2>
   <p>While <code>&gt;</code> sends output to a file, <code>&lt;</code> feeds a file's contents as <strong>input</strong> to a command.</p>
-  
+
   <h2>Basic Form</h2>
   <pre><code>COMMAND &lt; FILENAME</code></pre>
-  
+  <p>For example, these two mean the same thing:</p>
+  <pre><code>grep ERROR app.log
+  grep ERROR &lt; app.log</code></pre>
+  <p>In the second form, the contents of <code>app.log</code> are passed to <code>grep</code> (in this example, without a filename argument on grep).</p>
+
+  <h2>When It Is Useful</h2>
+  <p>Before combining with pipes (next lesson), get the idea that <code>&lt;</code> makes a file the input source.</p>
+
   <h2>Next Step</h2>
-  <p>Try <code>grep ERROR &lt; app.log</code> on the exercise page!</p>
+  <p>On the exercise page, try <code>grep ERROR &lt; app.log</code>!</p>

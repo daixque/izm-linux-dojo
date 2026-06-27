@@ -6,32 +6,33 @@ lesson:
   title: "オーナーとグループ"
 
 content: |
-  <h2>前のレッスンのおさらい</h2>
-  <p>前のレッスンでは、<code>whoami</code> で「今のユーザー」が <code>user</code> であることを確認しました。ファイルには、このようなユーザーが<strong>オーナー</strong>（持ち主）として記録されています。</p>
+  <h2>ファイルの持ち主と所属</h2>
+  <p>各ファイル・ディレクトリには、2 種類の「誰に関係するか」の情報が記録されています。</p>
+  <ul>
+    <li><strong>オーナー</strong>（owner）— そのファイルの持ち主（1 人のユーザー）</li>
+    <li><strong>グループ</strong>（group）— そのファイルが属するチーム名</li>
+  </ul>
+  <p>だいたい「そのファイルを作ったユーザー」がオーナーになります。たとえば <code>user</code> が <code>touch memo.txt</code> すると、<code>memo.txt</code> のオーナーは <code>user</code> です。</p>
 
-  <h2>オーナー（owner）とは</h2>
-  <p>各ファイル・ディレクトリには、1 人の<strong>オーナー</strong>がいます。だいたい「そのファイルを作ったユーザー」がオーナーになります。</p>
-  <p>たとえば <code>user</code> が <code>touch memo.txt</code> すると、<code>memo.txt</code> のオーナーは <code>user</code> です。</p>
-
-  <h2>グループ（group）とは</h2>
-  <p>ファイルにはオーナーだけでなく、<strong>グループ</strong>も設定されています。グループは「同じチームのメンバー」をまとめる仕組みです。</p>
-  <p>たとえば学校の PC では「<code>students</code> グループ」に所属する生徒が、同じ共有フォルダを使える、といった使い方があります。初心者のうちは「オーナーと一緒に表示される名前」くらいで大丈夫です。</p>
+  <h2>グループとは</h2>
+  <p>グループは「同じチームのメンバー」をまとめる仕組みです。学校の PC では「<code>students</code> グループ」に所属する生徒が、同じ共有フォルダを使える、といった使い方があります。</p>
+  <p>個人の PC では、オーナーと同じ名前のグループが付いていることが多いです。初心者のうちは「オーナーと一緒に表示される名前」くらいで大丈夫です。</p>
 
   <h2><code>ls -l</code> で詳しい情報を見る</h2>
-  <p>第1章で <code>ls -l</code> をちらっと紹介しました。今度は本格的に使います。<code>-l</code> は <strong>long format</strong>（詳細表示）の意味です。</p>
+  <p><code>ls -l</code> は、ファイルの詳しい情報を<strong>1 行ずつ</strong>表示するオプションです（<code>-l</code> は list の long＝詳しい一覧、という意味です）。</p>
   <pre><code>$ ls -l
   -rw-r--r-- 1 user user    8 Jan  1 10:00 memo.txt
   drwxr-xr-x 2 user user 4096 Jan  1 10:00 documents</code></pre>
   <p>各行の意味（左から）：</p>
   <ul>
-    <li><strong>1列目</strong> — 種類と権限（<code>-</code> はファイル、<code>d</code> はディレクトリ。権限の読み方は第5章で詳しく学びます）</li>
+    <li><strong>1列目</strong> — 種類と権限（<code>-</code> はファイル、<code>d</code> はディレクトリ。権限の読み方は次の章で詳しく扱います）</li>
     <li><strong>2列目</strong> — リンク数（ここでは気にしなくて OK）</li>
     <li><strong>3列目</strong> — <strong>オーナー</strong>（この例では <code>user</code>）</li>
     <li><strong>4列目</strong> — <strong>グループ</strong>（この例でも <code>user</code>）</li>
     <li><strong>5列目</strong> — ファイルサイズ（バイト）</li>
-    <li><strong>6列目以降</strong> — 日時とファイル名</li>
+    <li><strong>6列目以降</strong> — 更新日時とファイル名</li>
   </ul>
   <p>演習では、<strong>3列目のオーナー</strong>と<strong>4列目のグループ</strong>に注目してください。</p>
 
   <h2>次のステップ</h2>
-  <p>演習ページで <code>ls -l</code> を実行し、各ファイルのオーナーとグループを読み取ってみましょう！</p>
+  <p>演習ページで <code>ls -l</code> を実行し、各ファイルのオーナーとグループを読み取ってみましょう。</p>

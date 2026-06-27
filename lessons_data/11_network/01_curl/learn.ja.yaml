@@ -6,14 +6,23 @@ lesson:
   title: "curl で Web 取得"
 
 content: |
-  <h2>ネットワークと HTTP</h2>
-  <p>インターネット上の Web サイトや API からデータを取得するとき、多くの場合 <strong>HTTP</strong> という決まりで通信します。ブラウザがページを表示するときも、裏では HTTP でデータを受け取っています。</p>
-  <p>ターミナルから Web のデータを取得する代表的なコマンドが <strong>curl</strong> です。道場では実際のインターネットには接続せず、<strong>固定の模擬レスポンス</strong>を返します。</p>
+  <h2>Web 上のデータを取得する</h2>
+  <p>インターネット上の Web サイトやサービスからデータを受け取るとき、多くの場合 <strong>HTTP</strong> という決まりで通信します。HTTP は「Web ブラウザとサーバーが、決められた形式でやり取りするルール」です。ブラウザがページを表示するときも、裏では HTTP でデータを受け取っています。</p>
+  <p>データの置き場所は <strong>URL</strong>（Uniform Resource Locator）で表します。たとえば <code>https://dojo.example/api/hello</code> は、<code>dojo.example</code> というサーバー上の <code>/api/hello</code> という場所を指します。</p>
+
+  <h2>API と JSON とは？</h2>
+  <p><strong>API</strong>（Application Programming Interface）は、プログラム同士がデータをやり取りするための窓口です。Web ブラウザの代わりに、ターミナルから API に問い合わせてデータを受け取ることができます。</p>
+  <p>API が返すデータの形式のひとつが <strong>JSON</strong>（JavaScript Object Notation）です。キーと値のペアで情報を表す、人間にも読みやすいテキスト形式です。</p>
+  <pre><code>{"message":"Hello from Dojo API"}</code></pre>
+  <p>上の例では、<code>message</code> というキーに <code>Hello from Dojo API</code> という値が入っています。</p>
+
+  <h2><code>curl</code> — ターミナルから Web 取得</h2>
+  <p>ターミナルから Web のデータを取得する代表的なコマンドが <strong>curl</strong> です。URL を指定すると、サーバーから返ってきた内容（レスポンス）がターミナルに表示されます。道場では実際のインターネットには接続せず、<strong>固定の模擬レスポンス</strong>を返します。</p>
 
   <h2><code>curl URL</code> — 内容を表示</h2>
   <pre><code>$ curl https://dojo.example/api/hello
   {"message":"Hello from Dojo API"}</code></pre>
-  <p>URL を指定すると、サーバーから返ってきた内容（レスポンス）がターミナルに表示されます。</p>
+  <p>模擬 API から JSON 形式の挨拶が返ってきます。</p>
 
   <h2><code>curl -o ファイル URL</code> — ファイルに保存</h2>
   <p><code>-o</code> オプションで、レスポンスをファイルに保存できます。第2章のファイル操作と組み合わせると便利です。</p>
@@ -23,11 +32,16 @@ content: |
   Version 1.0</code></pre>
 
   <h2>道場で使える URL</h2>
-  <ul>
-    <li><code>https://dojo.example/api/hello</code> — JSON 形式の挨拶</li>
-    <li><code>https://dojo.example/data/info.txt</code> — テキスト情報</li>
-    <li><code>https://dojo.example/api/status</code> — ステータス JSON</li>
-  </ul>
+  <table>
+    <thead>
+      <tr><th>URL</th><th>返ってくる内容</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>https://dojo.example/api/hello</code></td><td>JSON 形式の挨拶</td></tr>
+      <tr><td><code>https://dojo.example/data/info.txt</code></td><td>テキスト情報</td></tr>
+      <tr><td><code>https://dojo.example/api/status</code></td><td>ステータス（JSON）</td></tr>
+    </tbody>
+  </table>
 
   <h2>次のステップ</h2>
   <p>演習では curl で模擬 API からデータを取得し、ファイルに保存します。</p>

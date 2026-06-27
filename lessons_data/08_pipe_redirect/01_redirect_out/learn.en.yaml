@@ -6,17 +6,33 @@ lesson:
   title: "Output Redirection"
 
 content: |
-  <h2>Write to a File Instead of the Screen</h2>
-  <p>Until now, command output (<strong>standard output</strong>) appeared on the terminal. With <code>&gt;</code> (redirection), you can <strong>write output to a file</strong>.</p>
-  
-  <h2><code>&gt;</code> — Write (Overwrite)</h2>
+  <h2>Where Does Command Output Go?</h2>
+  <p>So far, when you ran a command, the result appeared on the terminal screen. Commands like <code>grep</code> and <code>ls</code> from Chapter 7 work the same way.</p>
+  <p>Output to this screen is called <strong>standard output</strong>. Most commands are built to send their results to standard output.</p>
+  <p>Sometimes you want to <strong>save the result to a file</strong> instead of showing it on screen. That is what <strong>redirection</strong> does — it changes where output goes.</p>
+
+  <h2><code>&gt;</code> — Write to a File (Overwrite)</h2>
   <pre><code>$ ls &gt; filelist.txt</code></pre>
-  
-  <h2><code>&gt;&gt;</code> — Append</h2>
+  <p>The output of <code>ls</code> is saved to <code>filelist.txt</code> instead of the screen. If the file already exists, its contents are <strong>overwritten</strong>. The previous content is lost, so be careful.</p>
+
+  <h2><code>&gt;&gt;</code> — Append to a File</h2>
   <pre><code>$ ls documents &gt;&gt; filelist.txt</code></pre>
-  
-  <h2>Check the Result</h2>
-  <p>Use <code>cat filelist.txt</code> to view saved content.</p>
-  
+  <p>New output is <strong>added at the end</strong> of the existing file rather than replacing it.</p>
+
+  <h2>When to Use Which</h2>
+  <table>
+    <thead>
+      <tr><th>Symbol</th><th>Behavior</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>&gt;</code></td><td>Create a new file or overwrite existing contents</td></tr>
+      <tr><td><code>&gt;&gt;</code></td><td>Append to the end of a file</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Checking Saved Content</h2>
+  <p>You can view what was written using <code>cat</code> from Chapter 3.</p>
+  <pre><code>$ cat filelist.txt</code></pre>
+
   <h2>Next Step</h2>
-  <p>Try <code>ls &gt; filelist.txt</code> on the exercise page!</p>
+  <p>On the exercise page, try <code>ls &gt; filelist.txt</code>!</p>

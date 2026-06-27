@@ -26,18 +26,36 @@
         </header>
 
         <main class="content" id="content">
-            <h2>ファイルから入力を受け取る</h2>
-<p><code>&gt;</code> が出力をファイルに送るのに対し、<code>&lt;</code> はファイルの内容をコマンドの<strong>入力</strong>として渡します。</p>
+            <h2>コマンドへの「入力」とは</h2>
+<p>前のレッスンでは、コマンドの<strong>出力</strong>（結果）をファイルに送る <code>&gt;</code> を学びました。今度は逆方向、<strong>ファイルの内容をコマンドへの入力として渡す</strong>方法を学びます。</p>
+<p>コマンドは、キーボードからの入力やファイルの内容を「入力」として受け取り、それを処理します。この入力の入口を<strong>標準入力</strong>と呼びます。</p>
 
-<h2>基本の形</h2>
+<h2><code>&lt;</code> — ファイルを入力として渡す</h2>
 <pre><code>コマンド &lt; ファイル名</code></pre>
-<p>たとえば、次の 2 つは同じ意味です。</p>
-<pre><code>grep ERROR app.log
-grep ERROR &lt; app.log</code></pre>
-<p>2 つ目は <code>app.log</code> の内容が <code>grep</code> に渡されます（この例では grep にファイル名引数がない形）。</p>
+<p><code>&lt;</code> を使うと、指定したファイルの内容がコマンドの標準入力に流れ込みます。キーボードで文字を打ち込む代わりに、ファイルの中身を読み込ませるイメージです。</p>
 
-<h2>よく使う場面</h2>
-<p>パイプ（次のレッスン）と組み合わせる前に、<code>&lt;</code> で「ファイルを入力源にする」イメージを押さえておきましょう。</p>
+<h2>2 つの渡し方</h2>
+<p><code>grep</code> のようにファイルを扱うコマンドには、内容を渡す方法が 2 つあります。</p>
+<table>
+  <thead>
+    <tr><th>書き方</th><th>意味</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>grep ERROR app.log</code></td><td>grep に「このファイルを読んで」と<strong>ファイル名を渡す</strong></td></tr>
+    <tr><td><code>grep ERROR &lt; app.log</code></td><td>シェルが app.log の内容を読み、grep の<strong>標準入力に流し込む</strong></td></tr>
+  </tbody>
+</table>
+<p>どちらも grep は app.log の内容を調べます。表示される結果は同じです。違いは「grep 自身がファイルを開く」のか「シェルが内容を渡す」のか、という点です。</p>
+
+<h2>入力リダイレクトの例</h2>
+<pre><code>$ grep ERROR &lt; app.log
+2024-01-02 ERROR Connection failed
+2024-01-03 ERROR Disk full</code></pre>
+<p>この書き方では、grep の後ろにファイル名は書きません。<code>&lt; app.log</code> の部分で入力が渡されます。</p>
+
+<h2>いつ使うか</h2>
+<p>ファイル名を引数に取れるコマンド（<code>grep</code> や <code>cat</code> など）では、通常は <code>grep ERROR app.log</code> のように書けば十分です。</p>
+<p><code>&lt;</code> は、次のレッスンで学ぶ<strong>パイプ</strong>（コマンド同士をつなぐ仕組み）と合わせて理解すると、「データの流れ」が分かりやすくなります。入力リダイレクトは「ファイルからコマンドへデータが流れる」基本形です。</p>
 
 <h2>次のステップ</h2>
 <p>演習ページで <code>grep ERROR &lt; app.log</code> を試してみましょう！</p>

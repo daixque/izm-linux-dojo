@@ -11,23 +11,33 @@ content: |
 
   <h3>第1章 — 場所の確認と移動</h3>
   <table>
-    <tr><th>コマンド</th><th>意味</th></tr>
-    <tr><td><code>pwd</code></td><td>今いるディレクトリのパスを表示</td></tr>
-    <tr><td><code>ls</code></td><td>カレントディレクトリの中身を一覧</td></tr>
-    <tr><td><code>cd</code></td><td>別のディレクトリへ移動</td></tr>
+    <thead>
+      <tr><th>コマンド</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>pwd</code></td><td>今いるディレクトリのパスを表示</td></tr>
+      <tr><td><code>ls</code></td><td>今いるディレクトリの中身を一覧</td></tr>
+      <tr><td><code>ls -a</code></td><td>隠しファイルも含めて一覧</td></tr>
+      <tr><td><code>cd</code></td><td>別のディレクトリへ移動</td></tr>
+    </tbody>
   </table>
+  <p>パスには<strong>絶対パス</strong>（ルート <code>/</code> から）と<strong>相対パス</strong>（今いる場所から）があります。<code>~</code> はホーム、<code>..</code> は一つ上のフォルダを表します。</p>
 
   <h3>第2章 — ファイルの作成と管理</h3>
   <table>
-    <tr><th>コマンド</th><th>意味</th></tr>
-    <tr><td><code>mkdir</code></td><td>ディレクトリを作成</td></tr>
-    <tr><td><code>mkdir -p</code></td><td>親ディレクトリごと階層を作成</td></tr>
-    <tr><td><code>touch</code></td><td>空ファイルを作成</td></tr>
-    <tr><td><code>cp</code></td><td>ファイルをコピー（元は残る）</td></tr>
-    <tr><td><code>cp -r</code></td><td>ディレクトリをコピー</td></tr>
-    <tr><td><code>mv</code></td><td>移動・リネーム（元はなくなる）</td></tr>
-    <tr><td><code>rm</code></td><td>ファイルを削除</td></tr>
-    <tr><td><code>rm -r</code> / <code>rmdir</code></td><td>ディレクトリを削除</td></tr>
+    <thead>
+      <tr><th>コマンド</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>mkdir</code></td><td>ディレクトリを作成</td></tr>
+      <tr><td><code>mkdir -p</code></td><td>親ディレクトリごと階層を作成</td></tr>
+      <tr><td><code>touch</code></td><td>空ファイルを作成</td></tr>
+      <tr><td><code>cp</code></td><td>ファイルをコピー（元は残る）</td></tr>
+      <tr><td><code>cp -r</code></td><td>ディレクトリをコピー</td></tr>
+      <tr><td><code>mv</code></td><td>移動・リネーム（元はなくなる）</td></tr>
+      <tr><td><code>rm</code></td><td>ファイルを削除</td></tr>
+      <tr><td><code>rm -r</code> / <code>rmdir</code></td><td>ディレクトリを削除</td></tr>
+    </tbody>
   </table>
 
   <h2>操作の流れを意識する</h2>

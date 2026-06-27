@@ -7,24 +7,33 @@ lesson:
 
 content: |
   <h2>Chapters 7–8 Summary</h2>
-  <p>Review search and data-flow commands.</p>
-  
+  <p>Review the commands for search and controlling data flow.</p>
+
   <h3>Chapter 7 — Search</h3>
   <table>
-    <tr><th>Command</th><th>Meaning</th></tr>
-    <tr><td><code>grep PATTERN FILE</code></td><td>Search lines in text</td></tr>
-    <tr><td><code>find dir -name PATTERN</code></td><td>Recursive filename search</td></tr>
-    <tr><td><code>ls *.txt</code></td><td>Wildcard filename matching</td></tr>
+    <thead>
+      <tr><th>Command</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>grep PATTERN FILE</code></td><td>Search for lines in text</td></tr>
+      <tr><td><code>grep -i/-n/-v/-c</code></td><td>Ignore case, line numbers, invert, count</td></tr>
+      <tr><td><code>find dir -name PATTERN</code></td><td>Search filenames under a folder and its subfolders</td></tr>
+      <tr><td><code>ls *.txt</code></td><td>Specify filenames with wildcards</td></tr>
+    </tbody>
   </table>
-  
+
   <h3>Chapter 8 — Pipes and Redirection</h3>
   <table>
-    <tr><th>Symbol</th><th>Meaning</th></tr>
-    <tr><td><code>&gt;</code></td><td>Write output to file (overwrite)</td></tr>
-    <tr><td><code>&gt;&gt;</code></td><td>Append output to file</td></tr>
-    <tr><td><code>&lt;</code></td><td>Use file as input</td></tr>
-    <tr><td><code>|</code></td><td>Pipe output to next command</td></tr>
+    <thead>
+      <tr><th>Symbol</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>&gt;</code></td><td>Write output to a file (overwrite)</td></tr>
+      <tr><td><code>&gt;&gt;</code></td><td>Append output to a file</td></tr>
+      <tr><td><code>&lt;</code></td><td>Use a file as input</td></tr>
+      <tr><td><code>|</code></td><td>Send output to the next command</td></tr>
+    </tbody>
   </table>
-  
+
   <h2>Next Step</h2>
-  <p>Try the combined review exercise!</p>
+  <p>On the exercise page, try the combined review task!</p>

@@ -26,28 +26,39 @@
         </header>
 
         <main class="content" id="content">
-            <h2>The World of Network Commands</h2>
-<p>Linux has many useful network commands. Here we focus on <strong>concepts</strong>. For commands the dojo cannot run, learn their names and roles.</p>
+            <h2>What Is a Network?</h2>
+<p>A <strong>network</strong> is a system where computers connect via cable or Wi-Fi and exchange data. The Internet is a vast network of networks around the world.</p>
+<p>Linux has many useful network-related commands. Here we look at <strong>what representative commands are for</strong>. Even commands the dojo cannot run are worth knowing by name and purpose for when you encounter them on real Linux.</p>
+
+<h2>Review: URL and HTTP</h2>
+<p>In the previous lesson you learned that a <strong>URL</strong> is the address of data on the Web. A URL starting with <code>https://</code> means communication over HTTPS (secure HTTP).</p>
+<p><strong>HTTP</strong> is the rule by which browsers and curl ask a server for data at a URL and the server sends it back. curl is a tool that performs this HTTP communication from the terminal.</p>
 
 <h2><code>wget</code> — Download Files</h2>
-<p>Similar to <code>curl</code>, but often associated with <strong>downloading files</strong>. In the dojo you practiced the same idea with <code>curl -o</code>.</p>
+<p><code>wget</code> is similar to <code>curl</code> but specialized for <strong>downloading files</strong>. You specify a URL and save the file. In the dojo you learned a similar operation with <code>curl -o</code>.</p>
 
 <h2><code>ping</code> — Check Connectivity</h2>
-<p>Sends a "are you there?" message to a server and shows response time. Used to verify network connectivity. The dojo does not perform real network traffic.</p>
+<p><code>ping</code> sends a small packet to a specified server and asks "are you there?" If the other side responds, you know the network path is connected.</p>
+<p>It is like calling out to a distant friend to see if they can hear you. Response time in milliseconds is also shown, giving a rough sense of line quality. The dojo does not perform real network traffic.</p>
 
 <h2><code>ssh</code> — Remote Login</h2>
-<p>Securely log in to another computer and use its terminal. Common in server administration, but requires setup and keys — outside the dojo scope.</p>
+<p><code>ssh</code> lets you securely log in to another computer (often a server) and use its terminal. It is used when operating a server in a data center from your home PC. It requires username and key setup, so it is outside the dojo scope.</p>
 
 <h2>Review: <code>curl</code></h2>
-<p><code>curl</code> from this chapter fetches data over HTTP.</p>
-<ul>
-  <li><code>curl URL</code> — print the response</li>
-  <li><code>curl -o file URL</code> — save to a file</li>
-</ul>
+<p><code>curl</code> from this chapter is the basic tool for fetching data over HTTP.</p>
+<table>
+  <thead>
+    <tr><th>Command</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>curl URL</code></td><td>Print the response in the terminal</td></tr>
+    <tr><td><code>curl -o file URL</code></td><td>Save the response to a file</td></tr>
+  </tbody>
+</table>
 <p>Dojo mock URLs: <code>https://dojo.example/api/hello</code>, <code>https://dojo.example/data/info.txt</code></p>
 
 <h2>Next Step</h2>
-<p>Complete the curl review exercise and prepare for Chapter 12 capstone tasks.</p>
+<p>On the exercise page, work through the curl review and prepare for Chapter 12 capstone tasks.</p>
 
         </main>
 

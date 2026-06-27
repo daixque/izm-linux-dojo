@@ -7,8 +7,12 @@ lesson:
 
 content: |
   <h2>第1章のおさらい</h2>
-  <p>第1章では、<code>pwd</code>・<code>ls</code>・<code>cd</code> を使って、<strong>今どこにいるか</strong>を確認し、<strong>中身を見て</strong>、<strong>移動する</strong>方法を学びました。これらは「見る・移動する」コマンドです。</p>
+  <p>第1章では、<code>pwd</code>・<code>ls</code>・<code>cd</code> を使って、<strong>今どこにいるか</strong>を確認し、<strong>中身を見て</strong>、<strong>移動する</strong>方法を学びました。これらは「見る・移動する」操作です。</p>
   <p>この章では、ファイルやディレクトリを<strong>新しく作る</strong>方法を学びます。</p>
+
+  <h2>新しいフォルダ・ファイルを作る</h2>
+  <p>Finder では「ファイル → 新規フォルダ」や「新規ファイル」で、今開いている場所に項目を追加できます。ターミナルでも同じことができ、新しく作ったものは<strong>今いるディレクトリ</strong>（いま <code>pwd</code> で表示される場所）の中に現れます。</p>
+  <p>作業の前に <code>pwd</code> で場所を確認しておくと、意図しない場所に作ってしまうミスを防げます。</p>
 
   <h2>ディレクトリを作る — <code>mkdir</code></h2>
   <p><code>mkdir</code>（make directory）は、新しいディレクトリ（フォルダ）を作るコマンドです。</p>
@@ -17,27 +21,29 @@ content: |
   documents
   notes.txt
   project</code></pre>
-  <p>カレントディレクトリの中に <code>project</code> という名前のフォルダができます。</p>
+  <p>今いるフォルダの中に <code>project</code> という名前のディレクトリができます。</p>
+
+  <h3>親フォルダがないときのエラー</h3>
+  <p><code>mkdir project/src</code> のように、まだ存在しないフォルダの中に作ろうとすると、エラーになることがあります。まず <code>project</code> が必要で、それから <code>src</code> を作る、という順序が必要です。</p>
 
   <h3>深い階層を一度に作る — <code>mkdir -p</code></h3>
-  <p>親フォルダがまだない状態で <code>mkdir project/src</code> とすると、エラーになることがあります。<code>-p</code> オプションを付けると、必要な親ディレクトリもまとめて作ってくれます。</p>
+  <p><code>-p</code> オプションを付けると、途中の親ディレクトリもまとめて作ってくれます。</p>
   <pre><code>$ mkdir -p project/src
   $ ls project
   src</code></pre>
-  <p>たとえば「<code>photos/2024/summer</code>」のような深いパスを、途中のフォルダごと一度に作りたいときに便利です。</p>
+  <p>たとえば「<code>photos/2024/summer</code>」のような深いパスを、フォルダの中のフォルダを順に作らずに一度に用意したいときに便利です。</p>
 
   <h2>空のファイルを作る — <code>touch</code></h2>
-  <p><code>touch</code> は、中身のないファイルを新規作成するコマンドです。あとからテキストエディタで内容を書き足すイメージです（この道場ではエディタ操作は対象外ですが、ファイルの「器」だけ先に作れます）。</p>
+  <p><code>touch</code> は、中身のないファイルを新規作成するコマンドです。あとからテキストエディタで内容を書き足すイメージです。ファイルの「器」だけ先に用意できます。</p>
   <pre><code>$ touch memo.txt
   $ ls
   documents
   memo.txt
   notes.txt
   project</code></pre>
-  <p>すでに同名のファイルがある場合、<code>touch</code> は内容を変えずに、ファイルの更新日時だけを更新します（上級者向けの話ですが、覚えておくとよいでしょう）。</p>
 
   <h2>作ったあとは <code>ls</code> で確認</h2>
-  <p>第1章で学んだ <code>ls</code> を使えば、本当に作れたかすぐ確認できます。うまくいかないときは <code>pwd</code> で「今どのディレクトリにいるか」を確かめましょう。別の場所に作ってしまうミスは初心者によくあります。</p>
+  <p>第1章で学んだ <code>ls</code> を使えば、本当に作れたかすぐ確認できます。うまくいかないときは <code>pwd</code> で「今どのディレクトリにいるか」を確かめましょう。</p>
 
   <h2>次のステップ</h2>
-  <p>演習ページで <code>mkdir</code>・<code>mkdir -p</code>・<code>touch</code> を実際に打ってみましょう！</p>
+  <p>演習ページで <code>mkdir</code>・<code>mkdir -p</code>・<code>touch</code> を実際に打ってみましょう。</p>

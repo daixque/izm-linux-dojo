@@ -6,15 +6,21 @@ lesson:
   title: "Moving and Renaming"
 
 content: |
-  <h2>Move and Rename</h2>
-  <p><code>mv</code> (move) moves a file or directory to a new location — like Cut and Paste in a GUI.</p>
-  <p>It also works for <strong>renaming</strong> when source and destination are in the same folder.</p>
+  <h2>Moving and Renaming — How the OS Sees It</h2>
+  <p>From the computer's point of view, both <strong>moving</strong> and <strong>renaming</strong> a file mean changing its address (path). Renaming within the same folder is like rewriting only the last part of the address.</p>
+  <p>In Finder, dragging a file to another folder is a move; clicking the filename to edit it is a rename. In the terminal, the single <code>mv</code> (move) command handles both.</p>
+
+  <h2>Difference from <code>cp</code></h2>
+  <ul>
+    <li><code>cp</code> — keeps the original and creates a copy</li>
+    <li><code>mv</code> — the item leaves its old location and appears at the new one (or under a new name)</li>
+  </ul>
 
   <h2>Rename a File</h2>
   <pre><code>$ mv old_name.txt new_name.txt
   $ ls
   new_name.txt</code></pre>
-  <p>The filename changes from <code>old_name.txt</code> to <code>new_name.txt</code> in the same directory.</p>
+  <p>Within the same directory, the filename changes from <code>old_name.txt</code> to <code>new_name.txt</code>.</p>
 
   <h2>Move to Another Folder</h2>
   <pre><code>$ mv new_name.txt archive/
@@ -23,14 +29,9 @@ content: |
   <p>The file moves into <code>archive</code> and disappears from its original location.</p>
 
   <h2>Move and Rename at Once</h2>
+  <p>You can also give the file a new name at the destination.</p>
   <pre><code>$ mv draft.txt archive/final.txt</code></pre>
   <p><code>draft.txt</code> becomes <code>archive/final.txt</code> in one step.</p>
 
-  <h2><code>cp</code> vs <code>mv</code></h2>
-  <ul>
-    <li><code>cp</code> — keeps the original and creates a copy</li>
-    <li><code>mv</code> — removes the item from the old location</li>
-  </ul>
-
   <h2>Next Step</h2>
-  <p>Try renaming a file and moving it into another folder on the exercise page!</p>
+  <p>On the exercise page, rename a file and move it into another folder!</p>

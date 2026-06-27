@@ -7,13 +7,19 @@ lesson:
 
 content: |
   <h2>Complete What You Type</h2>
-  <p><strong>Tab completion</strong> lets the shell auto-complete command names and paths.</p>
-  
+  <p>Chapter 1 briefly introduced <strong>Tab completion</strong>. Here we cover it formally. Press Tab and the shell <strong>auto-completes</strong> command names and paths.</p>
+
   <h2>Complete Command Names</h2>
-  <pre><code>$ gr[Tab]  →  grep</code></pre>
-  
+  <p>Type the first few characters of a command and press Tab. If there is only one match, it completes automatically.</p>
+  <pre><code>$ gr[Tab]  →  grep  (when grep is the only match)</code></pre>
+
   <h2>Complete Paths</h2>
+  <p>Directory and file names can be completed with Tab too.</p>
   <pre><code>$ cd doc[Tab]  →  cd documents/</code></pre>
-  
+  <p>For directories, a trailing <code>/</code> may be added.</p>
+
+  <h2>When There Are Multiple Matches</h2>
+  <p>Pressing Tab twice may show a list of possible completions.</p>
+
   <h2>Next Step</h2>
-  <p>On the exercise page, use Tab to cd into <code>documents</code>!</p>
+  <p>On the exercise page, use Tab to <code>cd</code> into <code>documents</code>!</p>

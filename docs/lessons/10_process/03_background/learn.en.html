@@ -27,26 +27,26 @@
 
         <main class="content" id="content">
             <h2>Two Ways to Run</h2>
-<p>When you run a command in the terminal, you usually <strong>wait</strong> until it finishes. This is running in the <strong>foreground</strong>.</p>
-<p>Adding <code>&</code> at the end runs the command in the <strong>background</strong>. The terminal becomes available immediately while work continues behind the scenes.</p>
+<p>When you run a command in the terminal, you usually <strong>wait</strong> until it finishes. This is running in the <strong>foreground</strong> — work happening in front of you.</p>
+<p>Adding <code>&</code> at the end runs the command in the <strong>background</strong>. The terminal becomes available immediately while processing continues behind the scenes.</p>
 <pre><code>$ sleep 100 &
 [1] 3099</code></pre>
+<p><code>[1]</code> is the job number; <code>3099</code> is that process's PID.</p>
 
 <h2><code>jobs</code> — List Background Jobs</h2>
-<p>The <code>jobs</code> command shows background work. In the dojo simulator, you will see fixed output like:</p>
+<p>The <code>jobs</code> command shows work running in the background. In the dojo simulator, you will see fixed output like:</p>
 <pre><code>$ jobs
 [1]+ Running    sleep 100 &</code></pre>
 <p><code>[1]</code> is the job number; <code>Running</code> means it is active.</p>
 
-<h2>About <code>fg</code> (Concept)</h2>
-<p><code>fg</code> brings a background job back to the foreground. The dojo does not fully simulate this, but remember: it returns background work to the state where you wait for it in front.</p>
+<h2><code>fg</code> — Bring to the Foreground</h2>
+<p><code>fg</code> (foreground) brings a background job back to the front. Once in the foreground, you wait for that command to finish again. The dojo does not fully simulate this, but it is used in server administration when you want to check a process that was running in the background.</p>
 
 <h2>When to Use Background?</h2>
 <ul>
   <li>Run a long task in the background while using the terminal for other work</li>
   <li>Keep a server program running while typing other commands</li>
 </ul>
-<p>Chapter 10 is optional. Understanding the idea is enough; try <code>&</code> on a real Linux system when you can.</p>
 
 <h2>Next Step</h2>
 <p>On the exercise page, run <code>jobs</code> to see the simulated background job list.</p>

@@ -27,19 +27,27 @@
 
         <main class="content" id="content">
             <h2>検索・パイプ・リダイレクトを組み合わせる</h2>
-<p>第7–8章で学んだ機能を組み合わせると、実践的な作業ができます。</p>
+<p>第7章の検索（<code>grep</code>・<code>find</code>）と、第8章のパイプ・リダイレクトを組み合わせると、実際の作業に近い処理ができます。</p>
+<p>たとえば「ログからエラー行だけ取り出してファイルに保存する」「エラーの件数を数えて記録する」といった作業が、1 行のコマンドで書けます。</p>
 
-<h2>典型例: 結果をファイルに保存</h2>
+<h2>例: 結果をファイルに保存</h2>
 <pre><code>$ grep ERROR app.log &gt; errors.txt</code></pre>
-<p>ERROR 行だけを <code>errors.txt</code> に書き出します。</p>
+<p><code>grep</code> で ERROR 行だけを取り出し、<code>&gt;</code> で <code>errors.txt</code> に書き出します。画面には何も表示されず、結果がファイルに残ります。</p>
 
-<h2>パイプ + リダイレクト</h2>
+<h2>例: パイプ + リダイレクト</h2>
 <pre><code>$ cat app.log | grep ERROR | wc -l &gt; error_count.txt</code></pre>
-<p>ERROR 行の件数を数え、その数字をファイルに保存します。</p>
+<p>左から順に処理が進みます。</p>
+<ol>
+  <li><code>cat app.log</code> でログを読み出す</li>
+  <li><code>grep ERROR</code> で ERROR 行だけに絞る</li>
+  <li><code>wc -l</code> で行数を数える</li>
+  <li><code>&gt; error_count.txt</code> で件数をファイルに保存する</li>
+</ol>
 
 <h2>作業の流れ</h2>
+<p>実際の作業では、次のような流れでコマンドを組み合わせることが多いです。</p>
 <ol>
-  <li>データを読み出す（<code>cat</code> またはファイル指定）</li>
+  <li>データを読み出す（<code>cat</code> やファイル指定）</li>
   <li>必要な行に絞る（<code>grep</code>）</li>
   <li>加工する（<code>wc</code> など）</li>
   <li>結果を保存する（<code>&gt;</code>）</li>

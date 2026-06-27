@@ -6,32 +6,34 @@ lesson:
   title: "長いファイル"
 
 content: |
-  <h2>とても長いファイルの問題</h2>
-  <p><code>cat</code> で長いファイルを全部表示すると、画面からどんどん流れて読みきれません。本物の Linux では <code>less</code> や <code>more</code> というコマンドで、<strong>1 画面ずつ</strong>内容をめくりながら読めます。</p>
-  <pre><code>$ less story.txt
-  （1 画面分が表示され、スペースキーで次のページへ）</code></pre>
-  <p><code>less</code> の中では <kbd>q</kbd> キーで終了します。上下キーで少しずつスクロールすることもできます。</p>
+  <h2>とても長いファイルを読む</h2>
+  <p><code>cat</code> で長いファイルを全部表示すると、内容が画面からどんどん流れて読みきれません。100 行、1000 行あるファイルでは、必要な部分だけをゆっくり読みたい場面が多いです。</p>
+  <p>本物の Linux では <code>less</code> や <code>more</code> というコマンドがあり、<strong>1 画面ずつ</strong>内容をめくりながら読めます。</p>
+  <pre><code>$ less story.txt</code></pre>
+  <p>1 画面分が表示され、<kbd>スペース</kbd> キーで次のページへ進みます。<kbd>q</kbd> キーで終了し、上下キーで少しずつスクロールすることもできます。</p>
 
-  <h2>この道場での扱い</h2>
-  <p>ブラウザ版のシミュレータでは <code>less</code> のページ操作を完全には再現していません。代わりに、<strong>概念として理解</strong>し、実際の確認にはこれまで学んだ <code>head</code> と <code>tail</code> を使います。</p>
-
-  <h2>長いファイルを調べる実用的な方法</h2>
+  <h2>ブラウザ版での確認方法</h2>
+  <p>ブラウザ上のシミュレータでは、<code>less</code> のページ操作をそのまま再現していません。長いファイルを調べるときは、これまで学んだ次の方法を組み合わせて使います。</p>
   <ul>
     <li><strong>最初の部分を見る</strong> — <code>head -n 10 ファイル名</code></li>
     <li><strong>最後の部分を見る</strong> — <code>tail -n 5 ファイル名</code></li>
-    <li><strong>全体の行数を知る</strong> — <code>wc -l ファイル名</code>（前のレッスン）</li>
+    <li><strong>全体の行数を知る</strong> — <code>wc -l ファイル名</code></li>
   </ul>
-  <p>たとえば 100 行あるログファイルなら、<code>head</code> で形式を確認し、<code>tail</code> で最新のエラーを確認する、という使い方が現場でもよくあります。</p>
+  <p>たとえば 100 行あるログファイルなら、<code>head</code> で形式を確認し、<code>tail</code> で最新の記録を確認する、という使い方が現場でもよくあります。</p>
 
-  <h2>まとめ — 第3章で学んだ表示コマンド</h2>
+  <h2>第3章で学んだ表示コマンド</h2>
   <table>
-    <tr><th>コマンド</th><th>用途</th></tr>
-    <tr><td><code>cat</code></td><td>短いファイル全体を表示</td></tr>
-    <tr><td><code>head</code></td><td>先頭の数行を表示</td></tr>
-    <tr><td><code>tail</code></td><td>末尾の数行を表示</td></tr>
-    <tr><td><code>wc</code></td><td>行数・語数などを数える</td></tr>
-    <tr><td><code>less</code></td><td>長いファイルをページ単位で読む（概念）</td></tr>
+    <thead>
+      <tr><th>コマンド</th><th>用途</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>cat</code></td><td>短いファイル全体を表示</td></tr>
+      <tr><td><code>head</code></td><td>先頭の数行を表示</td></tr>
+      <tr><td><code>tail</code></td><td>末尾の数行を表示</td></tr>
+      <tr><td><code>wc</code></td><td>行数・語数などを数える</td></tr>
+      <tr><td><code>less</code></td><td>長いファイルをページ単位で読む（本物の Linux で使う）</td></tr>
+    </tbody>
   </table>
 
   <h2>次のステップ</h2>
-  <p>演習ページでは長い <code>story.txt</code> から、<code>head</code> と <code>tail</code> で必要な部分だけ確認してみましょう！</p>
+  <p>演習ページでは長い <code>story.txt</code> から、<code>head</code> と <code>tail</code> で必要な部分だけ確認してみましょう。</p>

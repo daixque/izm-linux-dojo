@@ -6,27 +6,46 @@ lesson:
   title: "grep のオプション"
 
 content: |
-  <h2>grep をもっと便利に</h2>
-  <p>前のレッスンで <code>grep</code> の基本を学びました。オプション（フラグ）を付けると、検索の仕方を細かく調整できます。</p>
-  
+  <h2>検索の条件を細かく変える</h2>
+  <p>前のレッスンでは <code>grep パターン ファイル名</code> の基本形を学びました。コマンドの後ろに<strong>オプション</strong>（追加の指定）を付けると、検索の仕方を調整できます。</p>
+  <p>オプションはハイフン（<code>-</code>）から始まる短い文字列です。よく使うものを次に示します。</p>
+
+  <h2>主なオプション</h2>
+  <table>
+    <thead>
+      <tr><th>オプション</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>-i</code></td><td>大文字と小文字を区別しない</td></tr>
+      <tr><td><code>-n</code></td><td>見つかった行の行番号も表示する</td></tr>
+      <tr><td><code>-v</code></td><td>パターンに<strong>一致しない</strong>行を表示する</td></tr>
+      <tr><td><code>-c</code></td><td>一致した行の<strong>件数だけ</strong>を表示する</td></tr>
+    </tbody>
+  </table>
+
   <h3><code>-i</code> — 大文字小文字を無視</h3>
   <pre><code>$ grep -i error app.log</code></pre>
   <p><code>ERROR</code> も <code>error</code> も <code>Error</code> も一致します。</p>
-  
+
   <h3><code>-n</code> — 行番号を表示</h3>
   <pre><code>$ grep -n ERROR app.log
   4:2024-01-02 ERROR Connection failed
   6:2024-01-03 ERROR Disk full</code></pre>
-  <p>何行目に見つかったかが分かり、あとで <code>head</code> などと組み合わせやすくなります。</p>
-  
-  <h3><code>-v</code> — 一致しない行を表示（反転）</h3>
+  <p>何行目に見つかったかが分かります。あとで該当箇所を開くときに便利です。</p>
+
+  <h3><code>-v</code> — 一致しない行を表示</h3>
   <pre><code>$ grep -v ERROR app.log</code></pre>
-  <p>ERROR を<strong>含まない</strong>行だけが表示されます。</p>
-  
-  <h3><code>-c</code> — 一致行数だけを表示</h3>
+  <p><code>ERROR</code> を<strong>含まない</strong>行だけが表示されます。エラー以外の行を見たいときに使います。</p>
+
+  <h3><code>-c</code> — 件数だけを表示</h3>
   <pre><code>$ grep -c ERROR app.log
   2</code></pre>
-  <p>件数だけ知りたいときに便利です。</p>
-  
+  <p>行の内容ではなく、何件見つかったかだけを知りたいときに便利です。</p>
+
+  <h2>オプションの書き方</h2>
+  <p>オプションはパターンの<strong>前</strong>に書きます。</p>
+  <pre><code>grep -i -n パターン ファイル名</code></pre>
+  <p>複数のオプションをまとめて <code>grep -in パターン ファイル名</code> のように書くこともできます。</p>
+
   <h2>次のステップ</h2>
   <p>演習ページで、いくつかのオプションを試してみましょう！</p>

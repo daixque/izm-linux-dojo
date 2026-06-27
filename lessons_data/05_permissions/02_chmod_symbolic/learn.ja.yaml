@@ -6,25 +6,75 @@ lesson:
   title: "chmod（記号形式）"
 
 content: |
-  <h2>権限を変更する <code>chmod</code></h2>
-  <p>オーナー（または後の章で学ぶ root）は、<code>chmod</code> コマンドで権限を変更できます。記号形式は、<strong>誰に</strong>・<strong>何を</strong>・<strong>どうする</strong>かを文字で指定する方法です。</p>
+  <h2>権限を変更する理由</h2>
+  <p>ファイルを作ると、だいたい次のような初期権限が付きます。</p>
+  <pre><code>-rw-r--r-- 1 user user  ... memo.txt</code></pre>
+  <p>オーナーは読み書きできますが、実行はできません。プログラム（シェルスクリプトなど）を動かしたいときは、<strong>実行権限（x）</strong>を追加する必要があります。</p>
+  <p>また、秘密のメモを他人に読まれないようにしたいときは、<strong>読み取り権限（r）</strong>を外す、といった調整もできます。</p>
+  <p>権限を変更するコマンドが <code>chmod</code>（change mode）です。</p>
 
-  <h2>記号の意味</h2>
-  <ul>
-    <li><strong>誰に（who）</strong> — <code>u</code>＝オーナー、<code>g</code>＝グループ、<code>o</code>＝その他、<code>a</code>＝すべて</li>
-    <li><strong>操作（operator）</strong> — <code>+</code>＝追加、<code>-</code>＝削除、<code>=</code>＝その値に設定</li>
-    <li><strong>権限（what）</strong> — <code>r</code>、<code>w</code>、<code>x</code></li>
-  </ul>
+  <h2>誰が変更できるか</h2>
+  <p>自分が<strong>オーナー</strong>のファイルなら、<code>chmod</code> で権限を変えられます。他人がオーナーのファイルは変えられません（後の章で学ぶ管理者権限が必要な場合があります）。</p>
 
-  <h2>よく使う例</h2>
-  <pre><code>$ chmod u+x script.sh     # オーナーに実行権限を追加
-  $ chmod go-r secret.txt   # グループとその他から読み取りを削除
-  $ chmod a+r public.txt    # すべてに読み取りを追加
-  $ chmod u=rw,go=r file    # オーナー: rw、グループとその他: r のみ</code></pre>
-  <p>変更後は <code>ls -l</code> で確認する習慣をつけましょう。</p>
+  <h2>記号形式 — 3 つのパーツ</h2>
+  <p>記号形式は、「<strong>誰に</strong>」「<strong>何を</strong>」「<strong>どうする</strong>」の 3 つを文字で指定する方法です。</p>
+
+  <h3>誰に（who）</h3>
+  <table>
+    <thead>
+      <tr><th>記号</th><th>対象</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>u</code></td><td>オーナー（user）</td></tr>
+      <tr><td><code>g</code></td><td>グループ（group）</td></tr>
+      <tr><td><code>o</code></td><td>その他（others）</td></tr>
+      <tr><td><code>a</code></td><td>すべて（all）</td></tr>
+    </tbody>
+  </table>
+
+  <h3>どうする（operator）</h3>
+  <table>
+    <thead>
+      <tr><th>記号</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>+</code></td><td>権限を追加する</td></tr>
+      <tr><td><code>-</code></td><td>権限を削除する</td></tr>
+      <tr><td><code>=</code></td><td>権限をその値に設定する（上書き）</td></tr>
+    </tbody>
+  </table>
+
+  <h3>何を（what）</h3>
+  <p><code>r</code>（読む）、<code>w</code>（書く）、<code>x</code>（実行）を組み合わせます。たとえば <code>rx</code> は「読むと実行」の 2 つをまとめて指定します。</p>
+
+  <h2>例 1 — オーナーに実行権限を追加</h2>
+  <p>スクリプト <code>hello.sh</code> を実行できるようにします。</p>
+  <pre><code>$ ls -l hello.sh
+  -rw-r--r-- 1 user user  20 Jan  1 10:00 hello.sh
+
+  $ chmod u+x hello.sh
+
+  $ ls -l hello.sh
+  -rwxr-xr-x 1 user user  20 Jan  1 10:00 hello.sh</code></pre>
+  <p><code>u+x</code> は「オーナー（u）に実行権限（x）を追加（+）」という意味です。2 文字目が <code>w</code> から <code>x</code> に変わり、<code>rwx</code> になりました。</p>
+
+  <h2>例 2 — グループとその他から読み取りを削除</h2>
+  <pre><code>$ chmod go-r secret.txt</code></pre>
+  <p><code>go-r</code> は「グループ（g）とその他（o）から読み取り（r）を削除（-）」という意味です。秘密のファイルを自分だけが読めるようにできます。</p>
+
+  <h2>例 3 — すべてに読み取りを追加</h2>
+  <pre><code>$ chmod a+r public.txt</code></pre>
+  <p><code>a+r</code> は「すべて（a）に読み取り（r）を追加（+）」という意味です。公開用のファイルによく使います。</p>
+
+  <h2>例 4 — 権限をまとめて設定</h2>
+  <pre><code>$ chmod u=rw,go=r file</code></pre>
+  <p><code>u=rw</code> でオーナーを「読み・書きのみ」に、<code>go=r</code> でグループとその他を「読みのみ」に設定します。<code>=</code> は「今の値に足す」のではなく「この値にそろえる」という意味です。カンマ（<code>,</code>）で複数の指定を続けられます。</p>
+
+  <h2>変更後は必ず確認</h2>
+  <p><code>chmod</code> のあとは <code>ls -l</code> で 1 列目の権限文字列を確認する習慣をつけましょう。意図どおり変わっているか、すぐ確かめられます。</p>
 
   <h2>注意</h2>
   <p>自分がオーナー<strong>でない</strong>ファイルの <code>chmod</code> はできません（Operation not permitted）。他人のファイルの権限は、オーナーか管理者だけが変えられます。</p>
 
   <h2>次のステップ</h2>
-  <p>演習ページで、自分のスクリプト <code>hello.sh</code> に実行権限を付けてみましょう！</p>
+  <p>演習ページで、自分のスクリプト <code>hello.sh</code> に実行権限を付けてみましょう。</p>

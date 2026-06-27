@@ -26,9 +26,15 @@
         </header>
 
         <main class="content" id="content">
-            <h2>移動と名前変更</h2>
-<p><code>mv</code>（move）は、ファイルやディレクトリを<strong>別の場所へ移動</strong>するコマンドです。GUI の「切り取りして貼り付け」に近い操作です。</p>
-<p>実は <code>mv</code> は<strong>名前の変更（リネーム）</strong>にも使えます。同じフォルダの中で名前だけ変えるときも <code>mv</code> です。</p>
+            <h2>移動と名前変更 — OS の見方</h2>
+<p>コンピューターから見ると、ファイルの<strong>移動</strong>も<strong>名前変更</strong>も、「そのファイルの住所（パス）を変える」操作です。同じフォルダの中で名前だけ変えるのは、住所の末尾部分だけ書き換えるのと同じ考え方です。</p>
+<p>Finder では、ファイルを別フォルダへ<strong>ドラッグ</strong>するのが移動、ファイル名を<strong>クリックして編集</strong>するのがリネームです。ターミナルでは <code>mv</code>（move）コマンド 1 つで両方できます。</p>
+
+<h2><code>cp</code> との違い</h2>
+<ul>
+  <li><code>cp</code> — 元を残してコピーを作る（複写）</li>
+  <li><code>mv</code> — 元の場所からなくなり、新しい場所（または新しい名前）に移る</li>
+</ul>
 
 <h2>名前を変える — リネーム</h2>
 <pre><code>$ mv old_name.txt new_name.txt
@@ -47,14 +53,8 @@ new_name.txt</code></pre>
 <pre><code>$ mv draft.txt archive/final.txt</code></pre>
 <p>これで <code>draft.txt</code> は <code>archive/final.txt</code> という名前で移動します。</p>
 
-<h2><code>cp</code> との違い</h2>
-<ul>
-  <li><code>cp</code> — 元を残してコピーを作る</li>
-  <li><code>mv</code> — 元の場所からなくなり、新しい場所（または新しい名前）に移る</li>
-</ul>
-
 <h2>次のステップ</h2>
-<p>演習ページで、ファイルの名前を変えてから別フォルダへ移動してみましょう！</p>
+<p>演習ページで、ファイルの名前を変えてから別フォルダへ移動してみましょう。</p>
 
         </main>
 

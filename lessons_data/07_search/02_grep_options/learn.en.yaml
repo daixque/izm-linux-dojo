@@ -6,23 +6,46 @@ lesson:
   title: "grep Options"
 
 content: |
-  <h2>More Useful grep</h2>
-  <p>In the previous lesson you learned grep basics. Options let you fine-tune how searching works.</p>
-  
+  <h2>Fine-Tuning Your Search</h2>
+  <p>In the previous lesson you learned the basic form <code>grep PATTERN FILENAME</code>. You can add <strong>options</strong> after the command to adjust how the search works.</p>
+  <p>Options are short strings starting with a hyphen (<code>-</code>). Here are the most useful ones.</p>
+
+  <h2>Main Options</h2>
+  <table>
+    <thead>
+      <tr><th>Option</th><th>Meaning</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>-i</code></td><td>Ignore case (upper and lower)</td></tr>
+      <tr><td><code>-n</code></td><td>Show line numbers for matches</td></tr>
+      <tr><td><code>-v</code></td><td>Show lines that do <strong>not</strong> match</td></tr>
+      <tr><td><code>-c</code></td><td>Show only the <strong>count</strong> of matching lines</td></tr>
+    </tbody>
+  </table>
+
   <h3><code>-i</code> — Ignore Case</h3>
   <pre><code>$ grep -i error app.log</code></pre>
-  
+  <p><code>ERROR</code>, <code>error</code>, and <code>Error</code> all match.</p>
+
   <h3><code>-n</code> — Show Line Numbers</h3>
   <pre><code>$ grep -n ERROR app.log
   4:2024-01-02 ERROR Connection failed
   6:2024-01-03 ERROR Disk full</code></pre>
-  
-  <h3><code>-v</code> — Invert Match</h3>
-  <p>Show lines that do <strong>not</strong> contain the pattern.</p>
-  
-  <h3><code>-c</code> — Count Matches</h3>
+  <p>You can see which line each match is on — useful when you need to open that spot later.</p>
+
+  <h3><code>-v</code> — Show Non-Matching Lines</h3>
+  <pre><code>$ grep -v ERROR app.log</code></pre>
+  <p>Only lines that do <strong>not</strong> contain <code>ERROR</code> are shown. Use this when you want everything except errors.</p>
+
+  <h3><code>-c</code> — Count Matches Only</h3>
   <pre><code>$ grep -c ERROR app.log
   2</code></pre>
-  
+  <p>Shows how many matches were found, not the line contents.</p>
+
+  <h2>How to Write Options</h2>
+  <p>Options go <strong>before</strong> the pattern.</p>
+  <pre><code>grep -i -n PATTERN FILENAME</code></pre>
+  <p>You can also combine them: <code>grep -in PATTERN FILENAME</code>.</p>
+
   <h2>Next Step</h2>
-  <p>Try several options on the exercise page!</p>
+  <p>On the exercise page, try several options!</p>

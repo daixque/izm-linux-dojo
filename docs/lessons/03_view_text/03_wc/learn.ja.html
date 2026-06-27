@@ -26,31 +26,42 @@
         </header>
 
         <main class="content" id="content">
-            <h2>ファイルの量を数える</h2>
-<p>テキストファイルを読むだけでなく、「何行あるか」「どれくらいの長さか」を知りたい場面もあります。レポートの行数を数えたり、ログがどれだけ増えたか調べたりするときに便利です。</p>
-<p>Linux では <code>wc</code>（word count）コマンドを使います。</p>
+            <h2>ファイルの「量」を数える</h2>
+<p>テキストファイルは、中身を読むだけでなく「何行あるか」「どれくらいの長さか」も知りたい場面があります。レポートの行数を数えたり、ログがどれだけ増えたか調べたりするときに便利です。</p>
+<p>Linux では <code>wc</code>（word count）というコマンドで、ファイルの量を数えられます。</p>
 
 <h2><code>wc -l</code> — 行数を数える</h2>
-<p><code>-l</code> オプション（lines）で、ファイルの<strong>行数</strong>を数えます。</p>
+<p><code>-l</code> オプション（line＝行）で、ファイルの<strong>行数</strong>を数えます。</p>
 <pre><code>$ wc -l essay.txt
 3 essay.txt</code></pre>
-<p>「3 行ある」という意味です。改行で区切られた行が 1 行として数えられます。</p>
+<p>左側の数字が行数です。この例では 3 行あります。改行で区切られた 1 かたまりが 1 行として数えられます。</p>
 
 <h2><code>wc -w</code> — 語数を数える</h2>
-<p><code>-w</code> オプション（words）で、空白で区切られた<strong>単語の数</strong>を数えます。</p>
+<p><code>-w</code> オプション（word＝語）で、空白で区切られた<strong>単語の数</strong>を数えます。</p>
 <pre><code>$ wc -w essay.txt
 8 essay.txt</code></pre>
+<p>英語の文章では単語数、日本語では空白の有無によって数え方が変わることがあります。</p>
 
 <h2><code>wc -c</code> — バイト数を数える</h2>
-<p><code>-c</code> オプション（bytes）で、ファイルの<strong>文字数（バイト数）</strong>を数えます。英字中心のテキストではおおよそ文字数と同じと考えてよいです。</p>
+<p><code>-c</code> オプション（character / byte＝文字・バイト）で、ファイルの<strong>サイズ（バイト数）</strong>を数えます。英字中心の短いテキストでは、おおよそ文字数に近い値になります。</p>
 <pre><code>$ wc -c essay.txt
 52 essay.txt</code></pre>
 
-<h2>オプションなしの <code>wc</code></h2>
-<p>オプションを付けないと、行数・語数・バイト数をまとめて表示します（上級者向け）。この道場では <code>-l</code>・<code>-w</code>・<code>-c</code> を中心に学びます。</p>
+<h2>よく使うオプションのまとめ</h2>
+<table>
+  <thead>
+    <tr><th>オプション</th><th>数えるもの</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>-l</code></td><td>行数</td></tr>
+    <tr><td><code>-w</code></td><td>語数（空白区切りのかたまり）</td></tr>
+    <tr><td><code>-c</code></td><td>バイト数（ファイルサイズ）</td></tr>
+  </tbody>
+</table>
+<p>オプションを付けない <code>wc</code> は、行数・語数・バイト数をまとめて表示します。まずは <code>-l</code> から覚えておけば十分です。</p>
 
 <h2>次のステップ</h2>
-<p>演習ページで <code>wc -l</code> を使い、ファイルの行数を数えてみましょう！</p>
+<p>演習ページで <code>wc -l</code> を使い、ファイルの行数を数えてみましょう。</p>
 
         </main>
 
