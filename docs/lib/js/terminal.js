@@ -8,6 +8,8 @@ class TerminalUI {
         this.term = null;
         this.currentLine = '';
         this.cursorPos = 0;
+        this._lastTabState = null;
+        this._lastTabTime = 0;
         this.onStateChange = null;
     }
 
@@ -57,6 +59,12 @@ class TerminalUI {
     _handleKey(domEvent, key) {
         const printable = !domEvent.altKey && !domEvent.ctrlKey && !domEvent.metaKey;
 
+        if (domEvent.keyCode === 9) {
+            domEvent.preventDefault();
+            this._handleTab();
+            return;
+        }
+
         if (domEvent.keyCode === 13) {
             this._executeCurrentLine();
             return;
@@ -64,6 +72,8 @@ class TerminalUI {
 
         if (domEvent.keyCode === 8) {
             if (this.cursorPos > 0) {
+                const oldLine = this.currentLine;
+                const oldCursorPos = this.cursorPos;
                 this.currentLine =
                     this.currentLine.slice(0, this.cursorPos - 1) +
                     this.currentLine.slice(this.cursorPos);
@@ -71,25 +81,29 @@ class TerminalUI {
                 if (this.cursorPos === this.currentLine.length) {
                     this.term.write('\b \b');
                 } else {
-                    this._redrawLine();
+                    this._applyLineUpdate(oldLine, oldCursorPos);
                 }
             }
             return;
         }
 
         if (domEvent.keyCode === 38) {
+            const oldLine = this.currentLine;
+            const oldCursorPos = this.cursorPos;
             const prev = this.simulator.getPreviousHistory();
             this.currentLine = prev;
             this.cursorPos = prev.length;
-            this._redrawLine();
+            this._applyLineUpdate(oldLine, oldCursorPos);
             return;
         }
 
         if (domEvent.keyCode === 40) {
+            const oldLine = this.currentLine;
+            const oldCursorPos = this.cursorPos;
             const next = this.simulator.getNextHistory();
             this.currentLine = next;
             this.cursorPos = next.length;
-            this._redrawLine();
+            this._applyLineUpdate(oldLine, oldCursorPos);
             return;
         }
 
@@ -111,18 +125,65 @@ class TerminalUI {
                 this.cursorPos++;
                 this.term.write(key);
             } else {
+                const oldLine = this.currentLine;
+                const oldCursorPos = this.cursorPos;
                 this.currentLine =
                     this.currentLine.slice(0, this.cursorPos) +
                     key +
                     this.currentLine.slice(this.cursorPos);
                 this.cursorPos++;
-                this._redrawLine();
+                this._applyLineUpdate(oldLine, oldCursorPos);
             }
         }
     }
 
-    _redrawLine() {
-        this.term.write('\r' + this.simulator.getPrompt() + '\x1b[K');
+    _handleTab() {
+        const tabState = `${this.currentLine}|${this.cursorPos}`;
+        const listOnly =
+            this._lastTabState === tabState && Date.now() - this._lastTabTime < 600;
+
+        const result = this.simulator.complete(this.currentLine, this.cursorPos, {
+            listOnly,
+        });
+
+        if (!result) {
+            return;
+        }
+
+        if (result.listMatches) {
+            this.term.write('\r\n' + result.listMatches.join('  '));
+            this.term.write('\r\n' + this.simulator.getPrompt() + this.currentLine);
+            const tail = this.currentLine.length - this.cursorPos;
+            if (tail > 0) {
+                this.term.write('\x1b[' + tail + 'D');
+            }
+            this._lastTabState = tabState;
+            this._lastTabTime = Date.now();
+            return;
+        }
+
+        this._lastTabState = null;
+        const oldLine = this.currentLine;
+        const oldCursorPos = this.cursorPos;
+        this.currentLine = result.newLine;
+        this.cursorPos = result.newCursorPos;
+        this._applyLineUpdate(oldLine, oldCursorPos);
+    }
+
+    _applyLineUpdate(oldLine, oldCursorPos) {
+        if (
+            oldCursorPos === oldLine.length &&
+            this.currentLine.startsWith(oldLine)
+        ) {
+            this.term.write(this.currentLine.slice(oldLine.length));
+            return;
+        }
+        this._redrawInput(oldCursorPos);
+    }
+
+    _redrawInput(previousCursorPos) {
+        this.term.write('\x1b[' + previousCursorPos + 'D');
+        this.term.write('\x1b[K');
         this.term.write(this.currentLine);
         const tail = this.currentLine.length - this.cursorPos;
         if (tail > 0) {

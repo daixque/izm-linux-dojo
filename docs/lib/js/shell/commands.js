@@ -120,4 +120,5 @@ window.shellCommands = {
     registerCommand,
     parseCommandLine,
     executeCommand,
+    getCommandNames: () => Object.keys(shellCommands).sort(),
 };

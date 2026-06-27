@@ -79,6 +79,10 @@ class ShellSimulator {
         this.historyIndex += 1;
         return this.history[this.historyIndex] || '';
     }
+
+    complete(line, cursorPos, options = {}) {
+        return window.shellCompletion.completeLine(line, cursorPos, this.vfs, options);
+    }
 }
 
 window.ShellSimulator = ShellSimulator;
