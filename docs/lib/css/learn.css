@@ -173,6 +173,42 @@ body {
     margin-bottom: 8px;
 }
 
+/* 比較表・一覧表 */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 15px;
+    border: 1px solid #c8d0dc;
+}
+
+.content th,
+.content td {
+    border: 1px solid #c8d0dc;
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+.content thead th {
+    background: #142C49;
+    color: white;
+    font-weight: 600;
+}
+
+.content tbody tr:nth-child(even) {
+    background: #f8f9fb;
+}
+
+.content tbody tr:hover {
+    background: #eef3fc;
+}
+
+.content td code {
+    white-space: nowrap;
+}
+
 .content code {
     background: #FCFCFC;
     border: 1px solid #e8e8e8;
@@ -335,6 +371,18 @@ body {
 
     .content {
         padding: 24px;
+    }
+
+    .content table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .content th,
+    .content td {
+        padding: 8px 10px;
+        font-size: 14px;
     }
 
     .footer {

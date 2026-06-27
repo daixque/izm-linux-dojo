@@ -5,16 +5,17 @@ lesson:
   id: "01_dir_and_file/01_ls_cd"
   title: "ls and cd Basics"
 
-description: "Use ls and cd to navigate directories and list files."
+description: "Use ls and cd to explore the file hierarchy and list directory contents."
 
 task_description: |
-  <p>Use the terminal to move into the <code>documents</code> directory and run <code>ls</code> to see its contents.</p>
+  <p>Apply what you learned about directory hierarchy using the terminal and the file explorer on the right. Move from the <code>user</code> folder into the <code>documents</code> subfolder and find <code>readme.txt</code> with <code>ls</code>.</p>
 
 instructions:
-  - "Run <code>pwd</code> to check your location (should be <code>/home/user</code>)"
-  - "Run <code>ls</code> to list files in the current directory"
-  - "Run <code>cd documents</code> to enter the documents directory"
+  - "Run <code>pwd</code> to check your location (should be <code>/home/user</code>, your home directory)"
+  - "Run <code>ls</code> and tell directories from files — <code>documents</code> vs <code>notes.txt</code>"
+  - "Run <code>cd documents</code> to enter documents (like opening a folder in Finder)"
   - "Run <code>ls</code> again and confirm <code>readme.txt</code> appears"
+  - "Notice how the file tree on the right updates as you move in the terminal"
   - "When ready, click the <strong>Test</strong> button"
 
 hints:

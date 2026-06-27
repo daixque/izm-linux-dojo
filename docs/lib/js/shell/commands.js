@@ -431,6 +431,7 @@ function executeCommand(line, vfs) {
             stdout: result.stdout + segmentResult.stdout,
             stderr: result.stderr + segmentResult.stderr,
             exitCode: segmentResult.exitCode,
+            clear: result.clear || segmentResult.clear,
         };
     }
 

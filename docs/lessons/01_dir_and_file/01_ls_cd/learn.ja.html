@@ -26,13 +26,27 @@
         </header>
 
         <main class="content" id="content">
-            <h2>ディレクトリとファイル</h2>
-<p>Linux 上のデータは、<strong>ディレクトリ</strong>（フォルダ）と<strong>ファイル</strong>の 2 種類に分かれています。</p>
+            <h2>第1章 — ファイルとディレクトリ</h2>
+<p>第0章では、ターミナルと Linux の世界の入口を学びました。第1章では、Linux や macOS がデータを整理する仕組み——<strong>ファイル</strong>と<strong>ディレクトリ</strong>——から見ていきます。</p>
+<p>ファイルとディレクトリが何であるか、どう階層になっているかを押さえたうえで、ターミナルから中身を確かめる方法に進みます。GUI（Finder など）で見ているものと、ターミナルで操作しているものは、<strong>同じファイルシステムの別の見え方</strong>です。</p>
+
+<h2>OS におけるファイルとディレクトリ</h2>
+<p>コンピューターの中には、ハードディスクや SSD などの<strong>記憶装置</strong>があります。OS（Linux や macOS）は、その記憶装置の上に<strong>ファイルシステム</strong>と呼ばれる仕組みを作り、データを整理して保存します。</p>
+<p>ファイルシステムの基本単位は、大きく 2 種類です。</p>
 <ul>
-  <li><strong>ディレクトリ</strong> — ファイルや他のディレクトリを入れておく入れ物</li>
-  <li><strong>ファイル</strong> — テキストや画像など、実際のデータそのもの</li>
+  <li><strong>ディレクトリ</strong>（directory）— データを分類・整理するための「入れ物」。Mac の<strong>フォルダ</strong>と同じものです。</li>
+  <li><strong>ファイル</strong>（file）— 実際のデータ本体。文字、数字、画像、プログラムの命令など、コンピューターが扱う情報のかたまりです。</li>
 </ul>
-<p>ディレクトリの中にさらにディレクトリやファイルを置けるので、入れ子の階層構造になります。たとえば次のような構造です。</p>
+<p>すべてのファイルは、必ずどこかのディレクトリの中に置かれます。ディレクトリの外にふわっと浮いているファイルはありません。</p>
+
+<h2>ディレクトリ — 階層構造（ツリー）を作る</h2>
+<p>ディレクトリの重要な性質は、<strong>中にさらにディレクトリやファイルを入れられる</strong>ことです。入れ子にできるので、全体が<strong>階層構造</strong>（木のような形、<strong>ツリー構造</strong>）になります。</p>
+<ul>
+  <li>上の階層を<strong>親ディレクトリ</strong>、下の階層を<strong>子ディレクトリ</strong>と呼びます。</li>
+  <li>フォルダの中にフォルダ、そのまた中にフォルダ……と、何段階でも深くしていけます。</li>
+  <li>Linux では、すべてのディレクトリの最上位に <strong>ルート</strong>（root）と呼ばれる特別なディレクトリがあり、記号 <code>/</code> で表します。</li>
+</ul>
+<p>たとえば、次のような構造を想像してください。</p>
 
 <pre class="tree"><code>/
 └── home/
@@ -41,44 +55,90 @@
         │   └── readme.txt
         └── notes.txt</code></pre>
 
-<p>ファイルやディレクトリの場所を表す文字列を<strong>パス</strong>（path）と呼びます。パスでは <code>/</code>（スラッシュ）でディレクトリの階層が区切られます。先頭の <code>/</code> はルート（最上位）のディレクトリを表します。</p>
-<p>たとえば <code>/home/user</code> は、ルートの中の <code>home</code> ディレクトリ、その中の <code>user</code> ディレクトリを指します（2 つのディレクトリ名が <code>/</code> でつながっています）。<code>readme.txt</code> のパス <code>/home/user/documents/readme.txt</code> も同様に、<code>/</code> ごとに通過するディレクトリが示されていきます。</p>
+<p><code>user</code> の中に <code>documents</code> という子ディレクトリがあり、その中に <code>readme.txt</code> というファイルがあります。同じ <code>user</code> 階層には <code>notes.txt</code> も直接置かれています。枝分かれしていくこの形が、ファイルシステムの基本イメージです。</p>
 
-<h2>コマンドで確認する</h2>
-<p>このような構造を実際の Linux 上で確認するには、<strong>コマンド</strong>を使います。</p>
+<h2>ファイルとは何か</h2>
+<p><strong>ファイル</strong>は、コンピューター上で<strong>名前が付いたデータのかたまり</strong>です。中身は 0 と 1 の並び（バイト列）として記憶装置に保存されていますが、私たちは用途に応じて次のように区別して考えます。</p>
 <ul>
-  <li>今どのディレクトリにいるかを調べる</li>
-  <li>ディレクトリの中に何があるかを一覧表示する</li>
-  <li>別のディレクトリへ移動する</li>
+  <li><strong>テキストファイル</strong> — 文字だけを書いたファイル。メモ、設定、プログラムのソースコードなど。</li>
+  <li><strong>画像ファイル</strong> — 写真やイラストのデータ（JPEG、PNG など）。</li>
+  <li><strong>音声・動画ファイル</strong> — 音楽や動画のデータ。</li>
+  <li><strong>プログラム（実行ファイル）</strong> — コンピューターに「こう動け」と命令するデータ。アプリの本体もファイルです。</li>
+  <li><strong>その他</strong> — 圧縮ファイル（ZIP など）、データベース、ログなど、形式はさまざまです。</li>
 </ul>
-<p>これから学ぶ <code>pwd</code>・<code>ls</code>・<code>cd</code> は、まさにこの確認のためのコマンドです。</p>
+<p>ファイルには<strong>ファイル名</strong>が付きます。Linux では大文字と小文字を区別します（<code>Notes.txt</code> と <code>notes.txt</code> は別物）。</p>
 
-<h2>ターミナルとは？</h2>
-<p>コマンドを実行するには、<strong>ターミナル</strong>（端末）という画面が必要です。ターミナルは、キーボードからコマンドを入力し、結果を表示する入出力の場所です。</p>
-<p>コマンドを入力したら <kbd>Enter</kbd> キーを押すと実行されます。以降の例は、すべてターミナル上での表示です。</p>
+<h2>拡張子とは</h2>
+<p>ファイル名の末尾にある <code>.txt</code> や <code>.jpg</code> のような部分を<strong>拡張子</strong>（extension）と呼びます。多くの場合、<strong>中身がどんな種類のデータか</strong>を人間が一目でわかるようにするための目印です。</p>
+<ul>
+  <li><code>readme.txt</code> — テキストファイルらしい</li>
+  <li><code>photo.jpg</code> — 画像ファイルらしい</li>
+  <li><code>music.mp3</code> — 音声ファイルらしい</li>
+</ul>
+<p>Windows では拡張子がファイルの種類判定に強く結びついていますが、<strong>Linux や macOS では拡張子は慣習</strong>です。拡張子を変えても中身は変わりませんし、拡張子のないファイルも普通に存在します。それでも、人間同士がファイルを扱うときは拡張子を付けるのが一般的です。</p>
+<p>なお、<strong>ディレクトリ（フォルダ）には通常、拡張子は付きません</strong>。<code>documents</code> はフォルダ名、<code>readme.txt</code> はファイル名、と見分けます。</p>
+
+<h2>GUI で見ると — Mac の Finder との対応</h2>
+<p>すでに Mac を使っているなら、<strong>Finder</strong>（ファインダー）でフォルダを開いたりファイルを見たりした経験があるはずです。Finder で見えているものと、Linux のファイルシステムは<strong>考え方が同じ</strong>です。</p>
+
+<table>
+  <thead>
+    <tr><th>Finder（GUI）でやること</th><th>ターミナル（CUI）での対応</th><th>意味</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>フォルダをダブルクリックして開く</td><td><code>cd フォルダ名</code></td><td>そのディレクトリの中に入る</td></tr>
+    <tr><td>ウィンドウに表示されるファイル一覧</td><td><code>ls</code></td><td>今いるディレクトリの中身を見る</td></tr>
+    <tr><td>ウィンドウ下のパス表示（または ⌘+クリックでパス）</td><td><code>pwd</code></td><td>今いる場所の住所（パス）を確認する</td></tr>
+    <tr><td>フォルダ</td><td>ディレクトリ</td><td>中にファイルや別フォルダを入れる入れ物</td></tr>
+    <tr><td>書類・画像・音楽など</td><td>ファイル</td><td>実際のデータ本体</td></tr>
+  </tbody>
+</table>
+
+<p>Finder はアイコンとマウスで操作する<strong>GUI</strong>、ターミナルは文字で操作する<strong>CUI</strong>です。見た目は違いますが、<strong>裏側の階層構造は同じ</strong>です。第0章で学んだように、ターミナルは同じ作業を短い命令で正確に行える別の操作法です。</p>
+<p>演習ページの右側には<strong>ファイルエクスプローラー</strong>（フォルダツリー）も表示されます。ターミナルで <code>cd</code> や <code>ls</code> を実行すると、ツリー側の表示も連動します。GUI と CUI を並べて見ると、理解が深まります。</p>
+
+<h2>パス — 場所を表す「住所」</h2>
+<p>ファイルやディレクトリが<strong>どこにあるか</strong>を表す文字列を<strong>パス</strong>（path）と呼びます。パスでは <code>/</code>（スラッシュ）で階層が区切られ、上から下へ「どのフォルダを通っていくか」が示されます。</p>
+<ul>
+  <li><code>/home/user</code> — ルート <code>/</code> の下の <code>home</code>、その下の <code>user</code> ディレクトリ</li>
+  <li><code>/home/user/documents/readme.txt</code> — <code>user</code> → <code>documents</code> を通って、最後に <code>readme.txt</code> というファイル</li>
+</ul>
+<p>先頭が <code>/</code> で始まるパスは、ルートからの<strong>絶対パス</strong>です。今いる場所からの<strong>相対パス</strong>（例：<code>documents</code>）については、第1章の後半レッスンで詳しく学びます。</p>
+
+<h2>ターミナルで確かめてみる</h2>
+<p>ここまでの概念を、実際の Linux 環境（この道場のシミュレータ）で確かめるのが、次に紹介する 3 つのコマンドです。</p>
+<ul>
+  <li><code>pwd</code> — 今どのディレクトリにいるか（現在地のパス）を表示する</li>
+  <li><code>ls</code> — 今いるディレクトリの中身（ファイルとサブディレクトリ）を一覧表示する</li>
+  <li><code>cd</code> — 別のディレクトリへ移動する</li>
+</ul>
+<p>コマンドは第0章で触れたターミナルに入力し、<kbd>Enter</kbd> で実行します。以降の例は、すべてターミナル上の表示です。</p>
 
 <h2>基本コマンド</h2>
 <h3><code>pwd</code> — 現在地を表示</h3>
-<p>今いるディレクトリのパス（住所）を表示します。</p>
+<p>今いるディレクトリのパス（住所）を表示します。Finder で言えば「今どのフォルダを開いているか」を文字で教えてくれる操作です。</p>
 <pre><code>$ pwd
 /home/user</code></pre>
 
-<h3><code>ls</code> — ファイル一覧を表示</h3>
-<p>カレントディレクトリの中身を一覧表示します。<code>user</code> ディレクトリ（パス <code>/home/user</code>）の中身は、次のように表示されます。</p>
+<h3><code>ls</code> — 中身を一覧表示</h3>
+<p>カレントディレクトリ（今いるディレクトリ）の中身を一覧表示します。Finder のリスト表示に相当します。</p>
+<p><code>/home/user</code> にいるときの例：</p>
 <pre><code>$ ls
 documents
 notes.txt</code></pre>
+<p><code>documents</code> はディレクトリ、<code>notes.txt</code> はファイルです。拡張子 <code>.txt</code> から、テキストファイルと推測できます。</p>
 
 <h3><code>cd</code> — ディレクトリ移動</h3>
-<p>別のディレクトリに移動します。</p>
+<p>別のディレクトリに移動します。Finder でフォルダを開く操作に相当します。</p>
 <ul>
-  <li><code>cd documents</code> — documents フォルダに移動（相対パス）</li>
-  <li><code>cd ..</code> — 一つ上のディレクトリに移動</li>
-  <li><code>cd /home/user</code> — 絶対パスで移動</li>
+  <li><code>cd documents</code> — 今いる場所から <code>documents</code> へ（相対パス）</li>
+  <li><code>cd ..</code> — 一つ上の親ディレクトリへ戻る</li>
+  <li><code>cd /home/user</code> — ルートから書いた絶対パスで移動</li>
 </ul>
+<p>移動したあとは <code>pwd</code> で着いた場所を確認する習慣をつけましょう。</p>
 
 <h2>次のステップ</h2>
-<p>演習ページで実際にターミナルを使って、<code>cd</code> と <code>ls</code> を試してみましょう！</p>
+<p>演習ページで、ファイルエクスプローラーとターミナルを並べながら <code>pwd</code>・<code>ls</code>・<code>cd</code> を試してみましょう。移動のたびに <code>pwd</code> で現在地を、<code>ls</code> でその階層の中身を確認する癖をつけましょう。</p>
 
         </main>
 

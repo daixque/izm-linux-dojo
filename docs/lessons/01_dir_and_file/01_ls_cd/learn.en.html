@@ -26,13 +26,27 @@
         </header>
 
         <main class="content" id="content">
-            <h2>Directories and Files</h2>
-<p>On Linux, data is stored as either <strong>directories</strong> (folders) or <strong>files</strong>.</p>
+            <h2>Chapter 1 — Files and Directories</h2>
+<p>In Chapter 0, you learned what the terminal and the Linux world are about. Chapter 1 starts with how Linux and macOS organize data: <strong>files</strong> and <strong>directories</strong>.</p>
+<p>Once you know what they are and how they form a hierarchy, you will learn how to inspect them from the terminal. What you see in a GUI (Finder, etc.) and what you work with in the terminal are <strong>the same file system, shown differently</strong>.</p>
+
+<h2>Files and Directories in the OS</h2>
+<p>Inside a computer there is storage — a hard disk, SSD, or similar device. The OS (Linux or macOS) builds a <strong>file system</strong> on that storage to organize and save data.</p>
+<p>The file system has two basic kinds of entries:</p>
 <ul>
-  <li><strong>Directory</strong> — a container that holds files and other directories</li>
-  <li><strong>File</strong> — the actual data, such as text or images</li>
+  <li><strong>Directory</strong> — a container for organizing data. The same thing as a <strong>folder</strong> on Mac.</li>
+  <li><strong>File</strong> — the actual data: text, numbers, images, program instructions, and so on.</li>
 </ul>
-<p>Directories can contain more directories and files, forming a nested hierarchy. Here is an example:</p>
+<p>Every file lives inside some directory. There are no files floating outside directories.</p>
+
+<h2>Directories — Building a Hierarchy (Tree)</h2>
+<p>A key property of directories is that they can <strong>hold more directories and files</strong>. One folder can sit inside another, so the whole layout becomes a <strong>hierarchy</strong> — a shape like a tree, called a <strong>tree structure</strong>.</p>
+<ul>
+  <li>The level above is the <strong>parent directory</strong>; the level below is a <strong>child directory</strong>.</li>
+  <li>You can go as many levels deep as you need — folder inside folder inside folder…</li>
+  <li>On Linux, every directory ultimately sits under a special top-level directory called <strong>root</strong>, written as <code>/</code>.</li>
+</ul>
+<p>Imagine a layout like this:</p>
 
 <pre class="tree"><code>/
 └── home/
@@ -41,44 +55,90 @@
         │   └── readme.txt
         └── notes.txt</code></pre>
 
-<p>The string that describes where a file or directory lives is called a <strong>path</strong>. In a path, each directory level is separated by <code>/</code> (a forward slash). The leading <code>/</code> represents the root (top-level) directory.</p>
-<p>For example, <code>/home/user</code> means the <code>home</code> directory inside root, then the <code>user</code> directory inside <code>home</code> — two directory names joined by <code>/</code>. The path to <code>readme.txt</code>, <code>/home/user/documents/readme.txt</code>, works the same way: each <code>/</code> marks another directory you pass through.</p>
+<p>Inside <code>user</code> there is a child directory <code>documents</code>, and inside that is the file <code>readme.txt</code>. At the same <code>user</code> level, <code>notes.txt</code> sits directly in <code>user</code>. This branching shape is the basic mental model of a file system.</p>
 
-<h2>Checking with Commands</h2>
-<p>To verify this structure on a real Linux system, you use <strong>commands</strong>.</p>
+<h2>What Is a File?</h2>
+<p>A <strong>file</strong> is a <strong>named chunk of data</strong> on the computer. Under the hood it is stored as bytes (0s and 1s), but we usually think of these kinds:</p>
 <ul>
-  <li>Find out which directory you are in</li>
-  <li>List what is inside a directory</li>
-  <li>Move to another directory</li>
+  <li><strong>Text files</strong> — plain characters: notes, config, source code.</li>
+  <li><strong>Image files</strong> — photos and graphics (JPEG, PNG, etc.).</li>
+  <li><strong>Audio and video files</strong> — music and movies.</li>
+  <li><strong>Programs (executables)</strong> — instructions for the computer to run. App binaries are files too.</li>
+  <li><strong>Others</strong> — archives (ZIP), databases, logs, and many more formats.</li>
 </ul>
-<p>The commands <code>pwd</code>, <code>ls</code>, and <code>cd</code> that you will learn next are exactly for this kind of checking.</p>
+<p>Each file has a <strong>filename</strong>. On Linux, names are case-sensitive (<code>Notes.txt</code> and <code>notes.txt</code> are different).</p>
 
-<h2>What is a Terminal?</h2>
-<p>To run commands, you need a screen called a <strong>terminal</strong>. A terminal is where you type commands with the keyboard and read the results.</p>
-<p>Press <kbd>Enter</kbd> after typing a command to run it. The examples below all show what you would see in a terminal.</p>
+<h2>What Are File Extensions?</h2>
+<p>The suffix such as <code>.txt</code> or <code>.jpg</code> at the end of a filename is called an <strong>extension</strong>. It is usually a hint for humans about <strong>what kind of data</strong> the file holds.</p>
+<ul>
+  <li><code>readme.txt</code> — looks like text</li>
+  <li><code>photo.jpg</code> — looks like an image</li>
+  <li><code>music.mp3</code> — looks like audio</li>
+</ul>
+<p>On Windows, extensions are tightly tied to file types. On <strong>Linux and macOS, extensions are convention</strong>: renaming an extension does not change the contents, and files without extensions are normal. Still, people usually keep extensions when sharing files.</p>
+<p><strong>Directories (folders) normally have no extension.</strong> <code>documents</code> is a folder name; <code>readme.txt</code> is a file name.</p>
+
+<h2>Seeing It in the GUI — Finder on Mac</h2>
+<p>If you use a Mac, you have opened folders and files in <strong>Finder</strong>. What Finder shows and what Linux’s file system describes are the <strong>same idea</strong>.</p>
+
+<table>
+  <thead>
+    <tr><th>In Finder (GUI)</th><th>In the terminal (CUI)</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Double-click a folder to open it</td><td><code>cd foldername</code></td><td>Enter that directory</td></tr>
+    <tr><td>File list in the window</td><td><code>ls</code></td><td>List what is in the current directory</td></tr>
+    <tr><td>Path bar (or ⌘-click the title)</td><td><code>pwd</code></td><td>Show where you are (the path)</td></tr>
+    <tr><td>Folder</td><td>Directory</td><td>Container for files and other folders</td></tr>
+    <tr><td>Documents, images, music, etc.</td><td>File</td><td>The actual data</td></tr>
+  </tbody>
+</table>
+
+<p>Finder is <strong>GUI</strong> (icons and mouse); the terminal is <strong>CUI</strong> (text and keyboard). They look different, but the <strong>underlying hierarchy is the same</strong>. As in Chapter 0, the terminal is another way to do the same work precisely and quickly.</p>
+<p>On the exercise page, a <strong>file explorer</strong> (folder tree) appears on the side. When you run <code>cd</code> or <code>ls</code> in the terminal, the tree updates too. Comparing GUI and CUI side by side helps the concepts click.</p>
+
+<h2>Paths — Addresses for Locations</h2>
+<p>The string that says <strong>where</strong> a file or directory lives is called a <strong>path</strong>. Slashes <code>/</code> separate levels and show which folders you pass through.</p>
+<ul>
+  <li><code>/home/user</code> — root <code>/</code>, then <code>home</code>, then <code>user</code></li>
+  <li><code>/home/user/documents/readme.txt</code> — through <code>user</code> and <code>documents</code> to file <code>readme.txt</code></li>
+</ul>
+<p>A path starting with <code>/</code> is an <strong>absolute path</strong> from root. <strong>Relative paths</strong> (e.g. <code>documents</code>) are covered in more detail later in this chapter.</p>
+
+<h2>Checking with the Terminal</h2>
+<p>These three commands let you verify the ideas above in a real Linux environment (this dojo’s simulator):</p>
+<ul>
+  <li><code>pwd</code> — print the path of the directory you are in</li>
+  <li><code>ls</code> — list files and subdirectories in the current directory</li>
+  <li><code>cd</code> — change to another directory</li>
+</ul>
+<p>Type commands in the terminal from Chapter 0 and press <kbd>Enter</kbd> to run them. The examples below show terminal output.</p>
 
 <h2>Basic Commands</h2>
 <h3><code>pwd</code> — Print Working Directory</h3>
-<p>Shows the path of your current directory.</p>
+<p>Shows the path of your current directory — like Finder telling you which folder is open, but as text.</p>
 <pre><code>$ pwd
 /home/user</code></pre>
 
-<h3><code>ls</code> — List Files</h3>
-<p>Lists the contents of the current directory. Inside the <code>user</code> directory (path <code>/home/user</code>), you would see:</p>
+<h3><code>ls</code> — List Contents</h3>
+<p>Lists what is in the current directory — like Finder’s list view.</p>
+<p>Example while in <code>/home/user</code>:</p>
 <pre><code>$ ls
 documents
 notes.txt</code></pre>
+<p><code>documents</code> is a directory; <code>notes.txt</code> is a file. The <code>.txt</code> extension suggests a text file.</p>
 
 <h3><code>cd</code> — Change Directory</h3>
-<p>Move to another directory.</p>
+<p>Move into another directory — like opening a folder in Finder.</p>
 <ul>
-  <li><code>cd documents</code> — move into documents (relative path)</li>
-  <li><code>cd ..</code> — move up one directory</li>
+  <li><code>cd documents</code> — into <code>documents</code> from where you are (relative path)</li>
+  <li><code>cd ..</code> — up one level to the parent directory</li>
   <li><code>cd /home/user</code> — move using an absolute path</li>
 </ul>
+<p>After moving, use <code>pwd</code> to confirm where you landed.</p>
 
 <h2>Next Step</h2>
-<p>Try <code>cd</code> and <code>ls</code> yourself on the exercise page!</p>
+<p>On the exercise page, try <code>pwd</code>, <code>ls</code>, and <code>cd</code> with the file explorer and terminal side by side. Each time you move, use <code>pwd</code> to check where you are and <code>ls</code> to see what is in that level.</p>
 
         </main>
 
