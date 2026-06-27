@@ -10,6 +10,8 @@ class TerminalUI {
         this.cursorPos = 0;
         this._lastTabState = null;
         this._lastTabTime = 0;
+        this._isComposing = false;
+        this._ignoreNextEnter = false;
         this.onStateChange = null;
     }
 
@@ -41,7 +43,54 @@ class TerminalUI {
 
         this.writeWelcome();
         this.writePrompt();
+        this._setupImeInput();
         this.term.onKey(({ domEvent, key }) => this._handleKey(domEvent, key));
+        this.term.attachCustomKeyEventHandler((domEvent) => {
+            if (domEvent.type === 'keydown') {
+                if (domEvent.isComposing || domEvent.keyCode === 229) {
+                    return false;
+                }
+            }
+            return true;
+        });
+    }
+
+    _setupImeInput() {
+        const textarea = this.term.textarea;
+        if (!textarea) return;
+
+        textarea.addEventListener('compositionstart', () => {
+            this._isComposing = true;
+        });
+
+        textarea.addEventListener('compositionend', (e) => {
+            this._isComposing = false;
+            if (e.data) {
+                this._insertText(e.data);
+            }
+            this._ignoreNextEnter = true;
+        });
+
+        textarea.addEventListener('paste', (e) => {
+            e.preventDefault();
+            const text = e.clipboardData.getData('text');
+            if (text) {
+                this._insertText(text);
+            }
+        });
+    }
+
+    _insertText(text) {
+        if (!text) return;
+
+        const oldLine = this.currentLine;
+        const oldCursorPos = this.cursorPos;
+        this.currentLine =
+            this.currentLine.slice(0, this.cursorPos) +
+            text +
+            this.currentLine.slice(this.cursorPos);
+        this.cursorPos += text.length;
+        this._applyLineUpdate(oldLine, oldCursorPos);
     }
 
     writeWelcome() {
@@ -57,6 +106,10 @@ class TerminalUI {
     }
 
     _handleKey(domEvent, key) {
+        if (domEvent.isComposing || this._isComposing || domEvent.keyCode === 229) {
+            return;
+        }
+
         const printable = !domEvent.altKey && !domEvent.ctrlKey && !domEvent.metaKey;
 
         if (domEvent.keyCode === 9) {
@@ -66,6 +119,10 @@ class TerminalUI {
         }
 
         if (domEvent.keyCode === 13) {
+            if (this._ignoreNextEnter) {
+                this._ignoreNextEnter = false;
+                return;
+            }
             this._executeCurrentLine();
             return;
         }
