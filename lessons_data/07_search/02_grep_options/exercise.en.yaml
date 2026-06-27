@@ -1,0 +1,20 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "02"
+  id: "07_search/02_grep_options"
+  title: "grep Options"
+
+description: "Use grep -n and grep -c options."
+
+task_description: |
+  <p>Search <code>app.log</code> with line numbers and count matches.</p>
+
+instructions:
+  - "Run <code>grep -n ERROR app.log</code> to show ERROR lines with line numbers"
+  - "Run <code>grep -c ERROR app.log</code> to count ERROR lines"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Put options before the pattern: <code>grep -n PATTERN FILE</code>"
+  - "-c prints a single number"

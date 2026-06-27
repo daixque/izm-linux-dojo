@@ -1,0 +1,27 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "03"
+  id: "06_root_sudo/03_chown_chgrp"
+  title: "オーナー変更"
+
+content: |
+  <h2>オーナーを変える <code>chown</code></h2>
+  <p>ファイルのオーナーを変更するコマンドが <code>chown</code>（change owner）です。グループだけ変える <code>chgrp</code>（change group）もあります。</p>
+  <pre><code>$ chown user myfile.txt          # オーナーを user に
+  $ chown user:staff myfile.txt    # オーナーとグループを同時に
+  $ chgrp staff myfile.txt         # グループだけ staff に</code></pre>
+
+  <h2>なぜ sudo が必要か</h2>
+  <p>他人がオーナーのファイルの <code>chown</code> / <code>chgrp</code> は、普通のユーザーにはできません。root だけが任意のオーナーに変更できます。</p>
+  <pre><code>$ chown user admin.log
+  chown: changing ownership of 'admin.log': Operation not permitted
+
+  $ sudo chown user admin.log
+  # 成功</code></pre>
+
+  <h2>典型例</h2>
+  <p>管理者が作ったファイルを、利用者に渡すとき — 「このファイルのオーナーを <code>user</code> に変更してね」と sudo chown で対応します。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>sudo chown user admin.log</code> を実行し、オーナーを変更してみましょう！</p>

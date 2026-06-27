@@ -1,0 +1,38 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      essay.txt:
+        type: file
+        content: |
+          Linux is useful.
+          Commands are fun.
+          Keep learning.
+
+initial_cwd: /home/user
+
+solution_commands:
+  - wc -l essay.txt
+  - wc -w essay.txt
+
+tests:
+  - name: "Line count is 3"
+    description: "Verify wc -l output"
+    type: command_output
+    command: wc -l essay.txt
+    expected_output: "3 essay.txt\n"
+
+  - name: "Word count is 8"
+    description: "Verify wc -w output"
+    type: command_output
+    command: wc -w essay.txt
+    expected_output: "8 essay.txt\n"
+
+  - name: "wc -l and wc -w in sequence"
+    description: "Both counts are correct"
+    type: command_sequence
+    steps:
+      - command: wc -l essay.txt
+        expected_output: "3 essay.txt\n"
+      - command: wc -w essay.txt
+        expected_output: "8 essay.txt\n"

@@ -1,0 +1,20 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "04"
+  id: "08_pipe_redirect/04_combine"
+  title: "Combining Commands"
+
+description: "Combine grep and redirection to save ERROR lines."
+
+task_description: |
+  <p>Run <code>grep ERROR app.log &gt; errors.txt</code> and verify with <code>cat</code>.</p>
+
+instructions:
+  - "Run <code>grep ERROR app.log &gt; errors.txt</code>"
+  - "Run <code>cat errors.txt</code> to verify"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "<code>&gt;</code> applies to the whole command's output"
+  - "Two lines in errors.txt means success"

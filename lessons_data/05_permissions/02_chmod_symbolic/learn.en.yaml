@@ -1,0 +1,30 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "02"
+  id: "05_permissions/02_chmod_symbolic"
+  title: "chmod (Symbolic Mode)"
+
+content: |
+  <h2>Changing Permissions with <code>chmod</code></h2>
+  <p>The owner (or root, covered later) can change permissions with <code>chmod</code>. Symbolic mode spells out <strong>who</strong>, <strong>what</strong>, and <strong>how</strong> in letters.</p>
+
+  <h2>Symbols</h2>
+  <ul>
+    <li><strong>Who</strong> — <code>u</code> owner, <code>g</code> group, <code>o</code> others, <code>a</code> all</li>
+    <li><strong>Operator</strong> — <code>+</code> add, <code>-</code> remove, <code>=</code> set exactly</li>
+    <li><strong>What</strong> — <code>r</code>, <code>w</code>, <code>x</code></li>
+  </ul>
+
+  <h2>Common Examples</h2>
+  <pre><code>$ chmod u+x script.sh     # add execute for owner
+  $ chmod go-r secret.txt   # remove read from group and others
+  $ chmod a+r public.txt    # add read for everyone
+  $ chmod u=rw,go=r file    # owner: rw; group and others: r only</code></pre>
+  <p>Always verify with <code>ls -l</code> after changing permissions.</p>
+
+  <h2>Note</h2>
+  <p>You cannot <code>chmod</code> a file you do not own (Operation not permitted). Only the owner or an administrator can change permissions.</p>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, add execute permission to your script <code>hello.sh</code>!</p>

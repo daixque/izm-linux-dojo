@@ -1,0 +1,21 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "02"
+  id: "09_shell_basics/02_tab_complete"
+  title: "Tab Completion"
+
+description: "Use Tab completion to navigate directories."
+
+task_description: |
+  <p>Move to <code>documents</code> with <code>cd documents</code> and try Tab completion (<code>cd doc</code> + Tab).</p>
+
+instructions:
+  - "Run <code>ls</code> to confirm <code>documents</code> exists"
+  - "Run <code>cd documents</code> (Tab completion is fine too)"
+  - "Run <code>ls</code> to see contents"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Try <code>cd doc</code> then Tab"
+  - "Tab works anywhere in your input"

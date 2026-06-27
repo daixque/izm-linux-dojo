@@ -1,0 +1,21 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "01"
+  id: "09_shell_basics/01_history"
+  title: "コマンド履歴"
+
+description: "コマンド履歴の使い方を確認します（↑↓ キー）。"
+
+task_description: |
+  <p>いくつかコマンドを実行し、<kbd>↑</kbd> キーで履歴から呼び出して再実行してみましょう。テストでは <code>pwd</code> と <code>ls</code> が正しく動くことを確認します。</p>
+
+instructions:
+  - "<code>pwd</code> を実行します"
+  - "<code>ls</code> を実行します"
+  - "<kbd>↑</kbd> キーを押して <code>ls</code> を呼び出し、Enter で再実行します"
+  - "履歴の便利さを体感できたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "↑ を複数回押すと、さらに古いコマンドが出てきます"
+  - "履歴は Enter で実行したコマンドだけが記録されます"

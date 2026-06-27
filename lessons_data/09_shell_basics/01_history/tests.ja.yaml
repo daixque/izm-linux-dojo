@@ -1,0 +1,33 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      notes.txt:
+        type: file
+        content: 'memo
+
+          '
+      work:
+        type: directory
+        children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "pwd"
+  - "ls"
+
+tests:
+  - name: "pwd が正しい"
+    description: "現在地の確認"
+    type: command_output
+    command: "pwd"
+    expected_output: |
+      /home/user
+  - name: "ls が動作する"
+    description: "ファイル一覧"
+    type: command_output
+    command: "ls"
+    expected_output: |
+      notes.txt
+      work

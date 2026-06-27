@@ -1,0 +1,52 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      projects:
+        type: directory
+        children:
+          web:
+            type: directory
+            children:
+              app:
+                type: directory
+                children:
+                  config.txt:
+                    type: file
+                    content: "debug=false\n"
+      notes.txt:
+        type: file
+        content: "memo\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cd projects/web/app
+  - pwd
+  - ls
+
+tests:
+  - name: "3 階層下の app ディレクトリに到達できる"
+    description: "cd projects/web/app で深い階層へ移動できるか"
+    type: cwd
+    commands:
+      - cd projects/web/app
+    expected_cwd: /home/user/projects/web/app
+
+  - name: "pwd で深い階層のパスが表示される"
+    description: "到達後の pwd 出力を確認"
+    type: command_sequence
+    steps:
+      - command: cd projects/web/app
+        expected_cwd: /home/user/projects/web/app
+      - command: pwd
+        expected_output: "/home/user/projects/web/app\n"
+
+  - name: "深い階層で ls が config.txt を表示する"
+    description: "3 階層下のファイルが ls で見えるか"
+    type: command_sequence
+    steps:
+      - command: cd projects/web/app
+        expected_cwd: /home/user/projects/web/app
+      - command: ls
+        expected_output: "config.txt\n"

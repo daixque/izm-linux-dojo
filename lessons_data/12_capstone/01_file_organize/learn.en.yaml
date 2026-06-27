@@ -1,0 +1,29 @@
+lesson:
+  chapter: "12_capstone"
+  chapter_number: "12"
+  number: "01"
+  id: "12_capstone/01_file_organize"
+  title: "File Organization"
+
+content: |
+  <h2>Capstone: Organize Files</h2>
+  <p>Chapter 12 combines commands from Chapters 1–9. First, a file-management capstone from Chapter 2.</p>
+
+  <h2>Task Overview</h2>
+  <p>Organize scattered files in the home directory into purpose-specific folders.</p>
+  <ul>
+    <li><code>mkdir -p</code> to create <code>docs</code> and <code>images</code></li>
+    <li><code>mv</code> text files into <code>docs/</code>, images into <code>images/</code></li>
+    <li><code>cp</code> to keep a copy of an important file</li>
+    <li><code>rm</code> to remove unneeded files</li>
+  </ul>
+
+  <h2>Workflow</h2>
+  <ol>
+    <li><code>ls</code> to see the starting state</li>
+    <li>Create folders → move/copy → delete</li>
+    <li><code>ls</code> again to verify</li>
+  </ol>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, organize the messy files as specified.</p>

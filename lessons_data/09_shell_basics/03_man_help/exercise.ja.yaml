@@ -1,0 +1,21 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "03"
+  id: "09_shell_basics/03_man_help"
+  title: "ヘルプの調べ方"
+
+description: "--help と man でコマンドの使い方を調べます。"
+
+task_description: |
+  <p><code>ls --help</code> で ls のヘルプを表示し、<code>grep --help</code> も試してみましょう。</p>
+
+instructions:
+  - "<code>ls --help</code> を実行してオプション一覧を確認します"
+  - "<code>grep --help</code> も実行してみます"
+  - "<code>man ls</code> でマニュアルページも読めます（任意）"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>--help</code> はハイフン 2 つです"
+  - "ヘルプは画面いっぱいに表示されることがあります"

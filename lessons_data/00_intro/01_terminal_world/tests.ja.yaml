@@ -1,0 +1,16 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - clear
+
+tests:
+  - name: "clear コマンドが実行できる"
+    description: "clear を実行して画面をクリアできるか"
+    type: command_output
+    command: clear
+    expected_output: ""

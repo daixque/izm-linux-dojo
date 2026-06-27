@@ -1,0 +1,63 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: "Welcome to IZM Linux Dojo!\n"
+      notes.txt:
+        type: file
+        content: "memo\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cd documents
+  - pwd
+  - cd ..
+  - cd ~/documents
+  - cd /home/user
+
+tests:
+  - name: "相対パス cd documents で移動できる"
+    description: "cd documents のあと cwd が /home/user/documents か"
+    type: command_sequence
+    steps:
+      - command: cd documents
+        expected_cwd: /home/user/documents
+      - command: pwd
+        expected_output: "/home/user/documents\n"
+
+  - name: "cd .. で一つ上に戻れる"
+    description: "documents から cd .. で /home/user に戻れるか"
+    type: command_sequence
+    setup_commands:
+      - cd documents
+    steps:
+      - command: cd ..
+        expected_cwd: /home/user
+      - command: pwd
+        expected_output: "/home/user\n"
+
+  - name: "~ パスで documents に移動できる"
+    description: "cd ~/documents が正しく解決されるか"
+    type: command_sequence
+    steps:
+      - command: cd ~/documents
+        expected_cwd: /home/user/documents
+      - command: pwd
+        expected_output: "/home/user/documents\n"
+
+  - name: "絶対パスでホームに戻れる"
+    description: "cd /home/user で絶対パス移動ができるか"
+    type: command_sequence
+    setup_commands:
+      - cd documents
+    steps:
+      - command: cd /home/user
+        expected_cwd: /home/user
+      - command: pwd
+        expected_output: "/home/user\n"

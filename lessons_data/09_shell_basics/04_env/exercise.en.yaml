@@ -1,0 +1,20 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "04"
+  id: "09_shell_basics/04_env"
+  title: "Environment Variables"
+
+description: "Display HOME and USER environment variables with echo."
+
+task_description: |
+  <p>Run <code>echo $HOME</code> and <code>echo $USER</code> to see their values.</p>
+
+instructions:
+  - "Run <code>echo $HOME</code> (should show /home/user)"
+  - "Run <code>echo $USER</code> (should show user)"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Use <code>$</code> before the variable name"
+  - "Optionally try <code>echo $PATH</code>"

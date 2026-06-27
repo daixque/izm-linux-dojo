@@ -1,0 +1,28 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "03"
+  id: "08_pipe_redirect/03_pipe"
+  title: "パイプ"
+
+content: |
+  <h2>コマンドをつなげる</h2>
+  <p><strong>パイプ</strong>（<code>|</code>）は、あるコマンドの<strong>出力</strong>を、次のコマンドの<strong>入力</strong>に渡す仕組みです。データがパイプ（管）のように流れるイメージです。</p>
+  
+  <h2>基本の形</h2>
+  <pre><code>コマンド1 | コマンド2</code></pre>
+  
+  <h2>例: ログから ERROR を数える</h2>
+  <pre><code>$ cat app.log | grep ERROR | wc -l
+  2</code></pre>
+  <ol>
+    <li><code>cat app.log</code> — ファイル内容を出力</li>
+    <li><code>grep ERROR</code> — ERROR 行だけに絞る</li>
+    <li><code>wc -l</code> — 行数を数える</li>
+  </ol>
+  
+  <h2>中間結果をファイルに保存しなくてよい</h2>
+  <p>パイプを使えば、一時ファイルを作らずに処理をつなげられます。</p>
+  
+  <h2>次のステップ</h2>
+  <p>演習ページでパイプを使ったログ分析を試してみましょう！</p>

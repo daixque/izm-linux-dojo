@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 03-01: Display with cat</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Display with cat</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Reading File Contents</h2>
+<p>In Chapter 2 you learned to create, copy, move, and delete files. Now you will learn to <strong>read text</strong> inside files from the terminal.</p>
+<p>Many Linux config files and logs are plain text. Being able to read them helps with troubleshooting and understanding settings.</p>
+
+<h2><code>cat</code> — Show the Whole File</h2>
+<p><code>cat</code> (concatenate) prints a file's contents to the screen. Use it for short text files.</p>
+<pre><code>$ cat messages.txt
+Hello!
+Welcome to Linux Dojo.</code></pre>
+<p>Pass the filename as an argument:</p>
+<pre><code>cat filename</code></pre>
+
+<h2>Multiple Files</h2>
+<p>You can list several files and <code>cat</code> will show them one after another:</p>
+<pre><code>$ cat part1.txt part2.txt</code></pre>
+
+<h2>Not Ideal for Long Files</h2>
+<p><code>cat</code> prints the <strong>entire</strong> file at once. For very long files (like logs), the output scrolls off the screen. Later lessons cover <code>head</code>, <code>tail</code>, and the idea of <code>less</code> for large files.</p>
+
+<h2>Combine with Chapter 1</h2>
+<p>You can <code>cd</code> into the directory first, or use a path: <code>cat documents/readme.txt</code>.</p>
+
+<h2>Next Step</h2>
+<p>Use <code>cat</code> on the exercise page to display the specified file!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

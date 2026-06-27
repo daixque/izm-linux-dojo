@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 07-04: Wildcards</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Wildcards</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Filename Patterns</h2>
+<p>The <code>*</code> in <code>find -name "*.txt"</code> is a <strong>wildcard</strong>. The shell expands wildcards into matching filenames <strong>before</strong> running the command.</p>
+
+<h2>Common Wildcards</h2>
+<table>
+  <tr><th>Symbol</th><th>Meaning</th><th>Example</th></tr>
+  <tr><td><code>*</code></td><td>Any string (0 or more chars)</td><td><code>*.txt</code></td></tr>
+  <tr><td><code>?</code></td><td>Any single character</td><td><code>file?.txt</code></td></tr>
+</table>
+
+<h2>Example: <code>ls *.txt</code></h2>
+<pre><code>$ ls *.txt
+notes.txt  readme.txt</code></pre>
+
+<h2>Wildcards vs find</h2>
+<ul>
+  <li><strong>Wildcards</strong> — expanded by the shell (usually one directory level)</li>
+  <li><strong>find</strong> — recursive search through subdirectories</li>
+</ul>
+
+<h2>Next Step</h2>
+<p>Try <code>ls *.txt</code> on the exercise page!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "04"
+  id: "05_permissions/04_chmod_octal"
+  title: "chmod (Octal Mode) [Advanced]"
+
+content: |
+  <h2>Octal <code>chmod</code></h2>
+  <p>Besides symbolic mode, <code>chmod</code> accepts <strong>octal</strong> numbers (three digits 0–7). This is advanced, but you will often see <code>644</code> and <code>755</code>, so it helps to know what they mean.</p>
+
+  <h2>Three Digits</h2>
+  <p>Each digit is owner, group, and others, encoding rwx as a sum:</p>
+  <ul>
+    <li><code>4</code> = r, <code>2</code> = w, <code>1</code> = x</li>
+    <li><code>7</code> = rwx, <code>6</code> = rw, <code>5</code> = rx, <code>4</code> = r</li>
+  </ul>
+  <pre><code>644  →  rw- r-- r--   (common for files: owner read+write, others read)
+  755  →  rwx r-x r-x   (common for dirs and executables)
+  600  →  rw- --- ---   (owner read+write only)</code></pre>
+
+  <h2>Usage</h2>
+  <pre><code>$ chmod 644 report.txt
+  $ chmod 755 myproject/</code></pre>
+  <p>Octal and symbolic modes express the same permissions in different notation. Use whichever you prefer.</p>
+
+  <h2>Next Step</h2>
+  <p>Try <code>chmod 644</code> and <code>chmod 755</code> on the exercise page! (You can skip this lesson and still continue to Chapter 6.)</p>

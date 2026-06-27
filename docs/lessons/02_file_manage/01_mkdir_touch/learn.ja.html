@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 02-01: 作成コマンド</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">作成コマンド</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>第1章のおさらい</h2>
+<p>第1章では、<code>pwd</code>・<code>ls</code>・<code>cd</code> を使って、<strong>今どこにいるか</strong>を確認し、<strong>中身を見て</strong>、<strong>移動する</strong>方法を学びました。これらは「見る・移動する」コマンドです。</p>
+<p>この章では、ファイルやディレクトリを<strong>新しく作る</strong>方法を学びます。</p>
+
+<h2>ディレクトリを作る — <code>mkdir</code></h2>
+<p><code>mkdir</code>（make directory）は、新しいディレクトリ（フォルダ）を作るコマンドです。</p>
+<pre><code>$ mkdir project
+$ ls
+documents
+notes.txt
+project</code></pre>
+<p>カレントディレクトリの中に <code>project</code> という名前のフォルダができます。</p>
+
+<h3>深い階層を一度に作る — <code>mkdir -p</code></h3>
+<p>親フォルダがまだない状態で <code>mkdir project/src</code> とすると、エラーになることがあります。<code>-p</code> オプションを付けると、必要な親ディレクトリもまとめて作ってくれます。</p>
+<pre><code>$ mkdir -p project/src
+$ ls project
+src</code></pre>
+<p>たとえば「<code>photos/2024/summer</code>」のような深いパスを、途中のフォルダごと一度に作りたいときに便利です。</p>
+
+<h2>空のファイルを作る — <code>touch</code></h2>
+<p><code>touch</code> は、中身のないファイルを新規作成するコマンドです。あとからテキストエディタで内容を書き足すイメージです（この道場ではエディタ操作は対象外ですが、ファイルの「器」だけ先に作れます）。</p>
+<pre><code>$ touch memo.txt
+$ ls
+documents
+memo.txt
+notes.txt
+project</code></pre>
+<p>すでに同名のファイルがある場合、<code>touch</code> は内容を変えずに、ファイルの更新日時だけを更新します（上級者向けの話ですが、覚えておくとよいでしょう）。</p>
+
+<h2>作ったあとは <code>ls</code> で確認</h2>
+<p>第1章で学んだ <code>ls</code> を使えば、本当に作れたかすぐ確認できます。うまくいかないときは <code>pwd</code> で「今どのディレクトリにいるか」を確かめましょう。別の場所に作ってしまうミスは初心者によくあります。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>mkdir</code>・<code>mkdir -p</code>・<code>touch</code> を実際に打ってみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

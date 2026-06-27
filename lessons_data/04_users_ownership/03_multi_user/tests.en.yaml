@@ -1,0 +1,54 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      shared:
+        type: directory
+        owner: user
+        group: user
+        children:
+          my_report.txt:
+            type: file
+            content: "my report\n"
+            owner: user
+            group: user
+          alice_notes.txt:
+            type: file
+            content: "alice's notes\n"
+            owner: alice
+            group: alice
+          bob_data.txt:
+            type: file
+            content: "bob's data\n"
+            owner: bob
+            group: bob
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cd shared
+  - ls -l
+
+tests:
+  - name: "moved into shared directory"
+    description: "confirm cd shared"
+    type: cwd
+    commands:
+      - cd shared
+    expected_cwd: /home/user/shared
+
+  - name: "my_report.txt is owned by user"
+    description: "confirm your file with ls -l"
+    type: command_output
+    setup_commands:
+      - cd shared
+    command: ls -l my_report.txt
+    expected_output: "-rw-r--r-- 1 user user   10 Jan  1 10:00 my_report.txt\n"
+
+  - name: "alice_notes.txt is owned by alice"
+    description: "confirm another user's file"
+    type: command_output
+    setup_commands:
+      - cd shared
+    command: ls -l alice_notes.txt
+    expected_output: "-rw-r--r-- 1 alice alice   14 Jan  1 10:00 alice_notes.txt\n"

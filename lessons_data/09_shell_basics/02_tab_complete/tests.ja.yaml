@@ -1,0 +1,40 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: 'hello
+
+              '
+      notes.txt:
+        type: file
+        content: 'memo
+
+          '
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "cd documents"
+  - "ls"
+
+tests:
+  - name: "documents に移動"
+    description: "cd documents 後の cwd"
+    type: cwd
+    commands:
+      - "cd documents"
+    expected_cwd: "/home/user/documents"
+  - name: "readme.txt が表示される"
+    description: "documents 内の ls"
+    type: command_sequence
+    steps:
+      - command: "cd documents"
+        expected_cwd: "/home/user/documents"
+      - command: "ls"
+        expected_output: |
+          readme.txt

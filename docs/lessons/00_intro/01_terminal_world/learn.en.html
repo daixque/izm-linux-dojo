@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 00-01: The Terminal and the Linux World</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">The Terminal and the Linux World</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Welcome to IZM Linux Dojo</h2>
+<p>In this dojo, you will learn to give your computer <strong>instructions</strong> (commands) through a screen called the <strong>terminal</strong>. At first you might wonder, "Why use this old-fashioned way?" But once you understand commands, you can organize files, check settings, and handle many tasks <strong>precisely and quickly</strong>.</p>
+<p>In Chapter 0, we will not jump into difficult operations. First, let's build a mental picture of what a terminal is and how Linux and macOS relate to it.</p>
+
+<h2>What Are Linux and macOS?</h2>
+<p><strong>Linux</strong> is one of the operating systems (OS) used around the world. Many computers around you — servers, smartphones (Android), embedded devices — run a Linux-based OS.</p>
+<p><strong>macOS</strong> is the OS used on Apple's Mac computers. It looks different from Linux on the surface, but underneath it is a <strong>Unix-like system</strong>, very similar to Linux. That means basic terminal operations and the idea of files work <strong>almost the same</strong> on Linux and macOS.</p>
+<p>This dojo mainly uses Linux as an example, but Mac users can follow along with the same intuition.</p>
+<p><em>Note: Windows uses a different path and permission model, so it is outside the scope of this dojo.</em></p>
+
+<h2>GUI and CUI — Two Ways to Operate a Computer</h2>
+<p>There are two broad ways to operate a computer:</p>
+<ul>
+  <li><strong>GUI</strong> (Graphical User Interface) — the familiar screen with icons, buttons, and mouse control. Opening a folder in Finder (Mac) or File Explorer (Windows) is GUI.</li>
+  <li><strong>CUI</strong> (Character User Interface) — a text-only screen where you type instructions from the keyboard. The <strong>terminal</strong> is the classic example of CUI.</li>
+</ul>
+<p>GUI is intuitive, but repeating the same work many times or specifying fine-grained conditions can become tedious. CUI (the terminal) takes getting used to, but its strength is <strong>precise control with short commands</strong>.</p>
+
+<h2>Reading the Terminal Screen</h2>
+<p>On the exercise page, a terminal appears on the left (or center). A typical terminal looks like this:</p>
+<pre><code>Welcome to IZM Linux Dojo
+Type commands and press Enter.
+
+user@dojo:~$ _</code></pre>
+<ul>
+  <li><strong>Welcome message</strong> — a greeting from the dojo. You do not need to press Enter after reading it.</li>
+  <li><strong>Prompt</strong> — a marker like <code>user@dojo:~$</code> that shows the terminal is waiting for your input. You type commands to the right of it.</li>
+  <li><strong>Cursor</strong> — the blinking <code>_</code> shows where the next character will appear.</li>
+</ul>
+<p>The <code>~</code> in the prompt means you are in your <strong>home</strong> directory (your personal folder). You will learn more in Chapter 1.</p>
+
+<h2>The Enter Key — Sending Your Command</h2>
+<p>After typing a command, press <kbd>Enter</kbd> to run it. Until you press Enter, the computer treats your input as incomplete.</p>
+<p>If you make a typo, use <kbd>Backspace</kbd> to delete characters. After a command runs, the result appears and a new prompt returns so you can type the next command.</p>
+
+<h2>Why Learn Commands?</h2>
+<p>Terminal commands help in situations like these:</p>
+<ul>
+  <li>Organizing and checking many files</li>
+  <li>Inspecting logs from programs or servers</li>
+  <li>Reading configuration files</li>
+  <li>Working on Linux servers or Mac development environments</li>
+</ul>
+<p>From Chapter 1 onward, you will learn commands such as <code>ls</code> (list) and <code>cd</code> (change directory) one step at a time. Take your time — read the explanation before moving to the exercise.</p>
+
+<h2>Next Step</h2>
+<p>On the exercise page, you will try just one command: <code>clear</code>, which clears the screen. When the terminal fills with text, this is your first step toward feeling at home. Chapter 1 starts the real file operations!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

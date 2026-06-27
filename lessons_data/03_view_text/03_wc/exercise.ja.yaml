@@ -1,0 +1,26 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "03"
+  id: "03_view_text/03_wc"
+  title: "行数・語数"
+
+description: "wc コマンドでファイルの行数・語数を数えます。"
+
+task_description: |
+  <p><code>essay.txt</code> について、次のコマンドを実行してください。</p>
+  <ul>
+    <li><code>wc -l essay.txt</code> で行数を数える</li>
+    <li><code>wc -w essay.txt</code> で語数を数える</li>
+  </ul>
+
+instructions:
+  - "<code>cat essay.txt</code> で内容を確認してもよいでしょう"
+  - "<code>wc -l essay.txt</code> を実行します"
+  - "<code>wc -w essay.txt</code> を実行します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "行数は改行 <code>\\n</code> の数に対応します"
+  - "語数はスペースで区切られた単語を数えます"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

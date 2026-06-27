@@ -1,0 +1,32 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "05"
+  id: "02_file_manage/05_review"
+  title: "File Operations Review"
+
+description: "Combine Chapter 1–2 commands to organize files."
+
+task_description: |
+  <p>Organize the messy home directory by completing these steps in order:</p>
+  <ol>
+    <li>Create <code>work/archive</code> with <code>mkdir -p</code></li>
+    <li>Copy <code>notes.txt</code> into <code>work/</code></li>
+    <li>Move <code>draft.txt</code> into <code>work/archive/</code></li>
+    <li>Delete <code>trash/old.txt</code> and remove the empty <code>trash</code> folder</li>
+  </ol>
+
+instructions:
+  - "Run <code>ls</code> to see the starting state (draft.txt, notes.txt, trash/, work/)"
+  - "Run <code>mkdir -p work/archive</code> to create the archive folder"
+  - "Run <code>cp notes.txt work/</code> to copy notes.txt into work"
+  - "Run <code>mv draft.txt work/archive/</code> to move draft.txt"
+  - "Run <code>rm trash/old.txt</code> to delete the unneeded file"
+  - "Run <code>rmdir trash</code> to remove the empty trash folder"
+  - "Run <code>ls work</code> and <code>ls work/archive</code> to verify"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Run <code>ls</code> after each step to stay on track"
+  - "After <code>cp</code>, the original notes.txt still remains in home"
+  - "Use the <strong>Reset</strong> button to start over if needed"

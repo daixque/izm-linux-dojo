@@ -1,0 +1,39 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: "Welcome to IZM Linux Dojo!\n"
+      notes.txt:
+        type: file
+        content: "memo\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - mkdir project
+  - mkdir -p project/src
+  - touch memo.txt
+
+tests:
+  - name: "memo.txt と project が作成されている"
+    description: "ls で新しく作ったファイルとディレクトリを確認"
+    type: command_output
+    command: ls
+    expected_output: "documents\nmemo.txt\nnotes.txt\nproject\n"
+
+  - name: "project/src が作成されている"
+    description: "project の中に src があるか"
+    type: command_output
+    command: ls project
+    expected_output: "src\n"
+
+  - name: "project/src は空のディレクトリ"
+    description: "mkdir -p で作った src が存在するか"
+    type: command_output
+    command: ls project/src
+    expected_output: ""

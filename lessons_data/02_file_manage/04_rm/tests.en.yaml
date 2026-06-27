@@ -1,0 +1,46 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      temp.txt:
+        type: file
+        content: "temporary data\n"
+      junk.txt:
+        type: file
+        content: "unneeded file\n"
+      keep.txt:
+        type: file
+        content: "important — do not delete\n"
+      empty_dir:
+        type: directory
+        children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - rm temp.txt
+  - rm junk.txt
+  - rmdir empty_dir
+
+tests:
+  - name: "Only keep.txt remains"
+    description: "Check ls after deleting unneeded files"
+    type: command_output
+    command: ls
+    expected_output: "keep.txt\n"
+
+  - name: "keep.txt is intact"
+    description: "Important file was not deleted"
+    type: command_output
+    command: cat keep.txt
+    expected_output: "important — do not delete\n"
+
+  - name: "empty_dir was removed"
+    description: "Empty directory should be gone"
+    type: command_sequence
+    steps:
+      - command: ls
+        expected_output: "keep.txt\n"
+      - command: pwd
+        expected_output: "/home/user\n"
+        expected_cwd: /home/user

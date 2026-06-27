@@ -1,0 +1,59 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      draft.txt:
+        type: file
+        content: "draft version\n"
+      notes.txt:
+        type: file
+        content: "important notes\n"
+      trash:
+        type: directory
+        children:
+          old.txt:
+            type: file
+            content: "delete me\n"
+      work:
+        type: directory
+        children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - mkdir -p work/archive
+  - cp notes.txt work/
+  - mv draft.txt work/archive/
+  - rm trash/old.txt
+  - rmdir trash
+
+tests:
+  - name: "work に archive と notes.txt がある"
+    description: "mkdir -p と cp の結果を確認"
+    type: command_output
+    command: ls work
+    expected_output: "archive\nnotes.txt\n"
+
+  - name: "work/archive に draft.txt がある"
+    description: "mv の結果を確認"
+    type: command_output
+    command: ls work/archive
+    expected_output: "draft.txt\n"
+
+  - name: "trash フォルダが削除されている"
+    description: "rm と rmdir の結果を確認"
+    type: command_output
+    command: ls
+    expected_output: "notes.txt\nwork\n"
+
+  - name: "コピーと移動の内容が正しい"
+    description: "ファイル内容が保たれているか"
+    type: command_sequence
+    steps:
+      - command: cat work/notes.txt
+        expected_output: "important notes\n"
+      - command: cat work/archive/draft.txt
+        expected_output: "draft version\n"
+      - command: pwd
+        expected_output: "/home/user\n"
+        expected_cwd: /home/user

@@ -1,0 +1,23 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "02"
+  id: "02_file_manage/02_cp"
+  title: "Copying Files"
+
+description: "Use cp to copy a file into another directory."
+
+task_description: |
+  <p>Copy <code>report.txt</code> into the <code>backup</code> folder. The original file should remain in place.</p>
+
+instructions:
+  - "Run <code>ls</code> to confirm <code>report.txt</code> and <code>backup</code> exist"
+  - "Run <code>cp report.txt backup/</code> to copy the file"
+  - "Run <code>ls backup</code> and confirm <code>report.txt</code> appears"
+  - "Optionally run <code>cat backup/report.txt</code> to check the contents match"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Adding <code>/</code> after the folder name makes it clear you mean inside the folder"
+  - "The original <code>report.txt</code> should still appear in <code>ls</code>"
+  - "Use the <strong>Reset</strong> button to start over if needed"

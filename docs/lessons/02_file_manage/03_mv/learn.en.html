@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 02-03: Moving and Renaming</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Moving and Renaming</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Move and Rename</h2>
+<p><code>mv</code> (move) moves a file or directory to a new location — like Cut and Paste in a GUI.</p>
+<p>It also works for <strong>renaming</strong> when source and destination are in the same folder.</p>
+
+<h2>Rename a File</h2>
+<pre><code>$ mv old_name.txt new_name.txt
+$ ls
+new_name.txt</code></pre>
+<p>The filename changes from <code>old_name.txt</code> to <code>new_name.txt</code> in the same directory.</p>
+
+<h2>Move to Another Folder</h2>
+<pre><code>$ mv new_name.txt archive/
+$ ls archive
+new_name.txt</code></pre>
+<p>The file moves into <code>archive</code> and disappears from its original location.</p>
+
+<h2>Move and Rename at Once</h2>
+<pre><code>$ mv draft.txt archive/final.txt</code></pre>
+<p><code>draft.txt</code> becomes <code>archive/final.txt</code> in one step.</p>
+
+<h2><code>cp</code> vs <code>mv</code></h2>
+<ul>
+  <li><code>cp</code> — keeps the original and creates a copy</li>
+  <li><code>mv</code> — removes the item from the old location</li>
+</ul>
+
+<h2>Next Step</h2>
+<p>Try renaming a file and moving it into another folder on the exercise page!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

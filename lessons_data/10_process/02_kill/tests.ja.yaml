@@ -1,0 +1,26 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - kill 3099
+  - ps
+
+tests:
+  - name: "kill 3099 が成功する"
+    description: "sleep プロセスを終了"
+    type: command_output
+    command: kill 3099
+    expected_output: ""
+
+  - name: "ps に 3099 が表示されない"
+    description: "終了後の ps 出力を確認"
+    type: command_sequence
+    steps:
+      - command: kill 3099
+        expected_output: ""
+      - command: ps
+        expected_output: "  PID TTY          TIME CMD\n    1 ?           00:00:01 systemd\n 1042 pts/0       00:00:00 bash\n 2048 pts/0       00:00:02 python simulator.py\n"

@@ -1,0 +1,44 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      server.log:
+        type: file
+        content: |
+          2024-06-10 INFO Service started
+          2024-06-10 ERROR Connection refused
+          2024-06-10 INFO Recovered
+          2024-06-11 ERROR Disk full
+          2024-06-11 INFO Done
+
+
+initial_cwd: /home/user
+
+solution_commands:
+  - mkdir -p project/logs
+  - cp server.log project/logs/
+  - grep ERROR project/logs/server.log > project/errors.txt
+  - wc -l project/errors.txt
+  - echo "Project complete" > project/README.txt
+
+tests:
+  - name: "project フォルダ構成が正しい"
+    description: "mkdir と cp"
+    type: command_output
+    command: ls project/logs
+    expected_output: "server.log\n"
+
+  - name: "errors.txt に ERROR 2 行"
+    description: "grep とリダイレクト"
+    type: command_output
+    command: wc -l project/errors.txt
+    expected_output: "2 project/errors.txt\n"
+
+  - name: "README.txt が作成されている"
+    description: "echo とリダイレクト"
+    type: command_sequence
+    steps:
+      - command: cat project/README.txt
+        expected_output: "Project complete\n"
+      - command: ls project
+        expected_output: "README.txt\nerrors.txt\nlogs\n"

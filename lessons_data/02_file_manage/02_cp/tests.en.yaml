@@ -1,0 +1,34 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      report.txt:
+        type: file
+        content: "Monthly sales report\nTotal: 1200\n"
+      backup:
+        type: directory
+        children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cp report.txt backup/
+
+tests:
+  - name: "report.txt copied into backup"
+    description: "Check ls backup output"
+    type: command_output
+    command: ls backup
+    expected_output: "report.txt\n"
+
+  - name: "Copied file has correct content"
+    description: "Verify content with cat"
+    type: command_output
+    command: cat backup/report.txt
+    expected_output: "Monthly sales report\nTotal: 1200\n"
+
+  - name: "Original report.txt still exists"
+    description: "Source file was not removed"
+    type: command_output
+    command: ls
+    expected_output: "backup\nreport.txt\n"

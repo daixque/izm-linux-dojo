@@ -1,0 +1,20 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "02"
+  id: "07_search/02_grep_options"
+  title: "grep のオプション"
+
+description: "grep の -n と -c オプションを使います。"
+
+task_description: |
+  <p><code>app.log</code> に対して、行番号付きの検索と件数カウントを行いましょう。</p>
+
+instructions:
+  - "<code>grep -n ERROR app.log</code> で行番号付きで ERROR 行を表示します"
+  - "<code>grep -c ERROR app.log</code> で ERROR 行の件数を確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "オプションはパターンの前に付けます: <code>grep -n パターン ファイル</code>"
+  - "-c の結果は数字 1 行だけです"

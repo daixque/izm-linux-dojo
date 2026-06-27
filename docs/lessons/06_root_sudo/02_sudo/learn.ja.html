@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 06-02: sudo とは</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">sudo とは</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>root の権限を一時的に借りる</h2>
+<p>普通のユーザーは root の領域（<code>/root</code> など）にアクセスできません。でも、管理者の作業が必要なときがあります。</p>
+<p><code>sudo</code>（"superuser do"）は、<strong>一時的に root として</strong>コマンドを実行する仕組みです。本物の Linux ではパスワードを求められますが、この道場ではパスワードなしでシミュレーションします。</p>
+
+<h2>使い方</h2>
+<pre><code>$ ls /root
+ls: cannot open directory '/root': Permission denied
+
+$ sudo ls /root
+secret.txt
+backup/</code></pre>
+<p><code>sudo</code> の後に、普通のコマンドをそのまま書きます。1 回のコマンドだけ root 権限で実行され、終わるとまた普通のユーザーに戻ります。</p>
+
+<h2>注意点</h2>
+<ul>
+  <li><strong>必要なときだけ</strong>使う — 日常のファイル操作に sudo は不要</li>
+  <li>間違えてシステムファイルを壊すと、PC 全体に影響する</li>
+  <li>macOS でも「管理者パスワード」を求める場面が sudo に近い</li>
+</ul>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>sudo ls /root</code> を試し、通常は見えない <code>/root</code> の中身を表示してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

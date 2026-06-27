@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 05-04: chmod（8進）【発展】</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">chmod（8進）【発展】</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>8進数（octal）による chmod</h2>
+<p>記号形式のほか、<code>chmod</code> では<strong>8進数</strong>（0〜7 の 3 桁）でも権限を指定できます。上級者向けですが、<code>644</code> や <code>755</code> という数字をよく見かけるので、意味を知っておくと便利です。</p>
+
+<h2>3 桁の意味</h2>
+<p>3 桁それぞれが、オーナー・グループ・その他の rwx を数字 1 つで表します。</p>
+<ul>
+  <li><code>4</code>＝r、<code>2</code>＝w、<code>1</code>＝x（足し算で組み合わせ）</li>
+  <li><code>7</code>＝4+2+1＝rwx、<code>6</code>＝rw、<code>5</code>＝rx、<code>4</code>＝r</li>
+</ul>
+<pre><code>644  →  rw- r-- r--   （ファイルによく使う: オーナー読書、その他読のみ）
+755  →  rwx r-x r-x   （ディレクトリや実行ファイルによく使う）
+600  →  rw- --- ---   （オーナーだけ読書）</code></pre>
+
+<h2>使い方</h2>
+<pre><code>$ chmod 644 report.txt
+$ chmod 755 myproject/</code></pre>
+<p>記号形式と 8 進は、同じ権限を違う書き方で指定しているだけです。どちらか慣れた方を使えば OK です。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>chmod 644</code> と <code>chmod 755</code> を試してみましょう！（スキップしても第6章以降は進められます）</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

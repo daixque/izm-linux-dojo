@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 09-01: コマンド履歴</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">コマンド履歴</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>打ったコマンドを呼び出す</h2>
+<p>第1章でターミナルを触り始めたとき、<kbd>↑</kbd>（上矢印）キーで以前のコマンドが出てくることを体験したかもしれません。ここでは<strong>コマンド履歴</strong>を正式に学びます。</p>
+
+<h2>履歴とは</h2>
+<p>シェルは、Enter で実行したコマンドを<strong>履歴</strong>として記録します。長いコマンドを毎回打ち直す必要がなくなります。</p>
+
+<h2>↑ と ↓ キー</h2>
+<ul>
+  <li><kbd>↑</kbd> — 1 つ前のコマンドを表示（さらに押すとさらに古いコマンド）</li>
+  <li><kbd>↓</kbd> — 1 つ新しいコマンドへ（↑ で戻ったあとに使う）</li>
+</ul>
+
+<h2>活用のコツ</h2>
+<ul>
+  <li>同じコマンドを何度も実行するときは ↑ で呼び出して Enter</li>
+  <li>少しだけ変えたいときは ↑ で呼び出してから編集</li>
+</ul>
+
+<h2>この道場のターミナル</h2>
+<p>IZM Linux Dojo の演習ターミナルでも ↑↓ キーが使えます。演習ページで試してみましょう。</p>
+
+<h2>次のステップ</h2>
+<p>演習では、いくつかコマンドを実行したあと ↑ キーで履歴を呼び出してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

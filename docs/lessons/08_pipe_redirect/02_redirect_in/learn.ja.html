@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 08-02: 入力リダイレクト</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">入力リダイレクト</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>ファイルから入力を受け取る</h2>
+<p><code>&gt;</code> が出力をファイルに送るのに対し、<code>&lt;</code> はファイルの内容をコマンドの<strong>入力</strong>として渡します。</p>
+
+<h2>基本の形</h2>
+<pre><code>コマンド &lt; ファイル名</code></pre>
+<p>たとえば、次の 2 つは同じ意味です。</p>
+<pre><code>grep ERROR app.log
+grep ERROR &lt; app.log</code></pre>
+<p>2 つ目は <code>app.log</code> の内容が <code>grep</code> に渡されます（この例では grep にファイル名引数がない形）。</p>
+
+<h2>よく使う場面</h2>
+<p>パイプ（次のレッスン）と組み合わせる前に、<code>&lt;</code> で「ファイルを入力源にする」イメージを押さえておきましょう。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>grep ERROR &lt; app.log</code> を試してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

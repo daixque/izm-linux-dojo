@@ -1,0 +1,40 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: 'hello
+
+              '
+      notes.txt:
+        type: file
+        content: 'memo
+
+          '
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "cd documents"
+  - "ls"
+
+tests:
+  - name: "Moved to documents"
+    description: "cwd after cd documents"
+    type: cwd
+    commands:
+      - "cd documents"
+    expected_cwd: "/home/user/documents"
+  - name: "readme.txt is listed"
+    description: "ls inside documents"
+    type: command_sequence
+    steps:
+      - command: "cd documents"
+        expected_cwd: "/home/user/documents"
+      - command: "ls"
+        expected_output: |
+          readme.txt

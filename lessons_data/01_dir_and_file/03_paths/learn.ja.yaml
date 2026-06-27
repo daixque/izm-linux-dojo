@@ -1,0 +1,68 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "03"
+  id: "01_dir_and_file/03_paths"
+  title: "パスの理解"
+
+content: |
+  <h2>パスとは？</h2>
+  <p><strong>パス</strong>（path）は、ファイルやディレクトリの「住所」を表す文字列です。第1レッスンで <code>/home/user/documents/readme.txt</code> のような例を見ました。パスの書き方には、大きく 2 種類あります。</p>
+
+  <h2>絶対パス — ルートからの完全な住所</h2>
+  <p><strong>絶対パス</strong>（absolute path）は、ファイルシステムの最上位である <strong>ルート</strong>（<code>/</code>）から、目的の場所までをすべて書いたパスです。</p>
+  <pre><code>/home/user/documents/readme.txt</code></pre>
+  <p>先頭の <code>/</code> が「ルートから始まる」印です。どこにいても、同じ絶対パスは常に同じ場所を指します。</p>
+  <pre class="tree"><code>/
+  └── home/
+      └── user/
+          ├── documents/
+          │   └── readme.txt   ← /home/user/documents/readme.txt
+          └── notes.txt        ← /home/user/notes.txt</code></pre>
+
+  <h2>相対パス — 今いる場所からの道順</h2>
+  <p><strong>相対パス</strong>（relative path）は、<strong>今いるディレクトリ</strong>（カレントディレクトリ）を起点にしたパスです。先頭に <code>/</code> は付きません。</p>
+  <p>たとえば <code>/home/user</code> にいるとき：</p>
+  <ul>
+    <li><code>documents</code> — 同じ階層の documents フォルダへ（<code>/home/user/documents</code> と同じ場所）</li>
+    <li><code>documents/readme.txt</code> — documents の中の readme.txt へ</li>
+  </ul>
+  <p>今いる場所が変わると、同じ相対パスが指す絶対的な場所も変わります。だから <code>pwd</code> で現在地を確認する習慣が大切です。</p>
+
+  <h2><code>~</code> — ホームディレクトリの省略記号</h2>
+  <p><code>~</code>（チルダ）は、あなたの<strong>ホームディレクトリ</strong>を表す省略記号です。この道場では <code>/home/user</code> がホームです。</p>
+  <ul>
+    <li><code>~</code> → <code>/home/user</code></li>
+    <li><code>~/documents</code> → <code>/home/user/documents</code></li>
+  </ul>
+  <p>プロンプトに <code>~</code> と表示されているとき、ホームにいる合図です。Mac でも同じ考え方で、ホームは <code>/Users/あなたの名前</code> になります。</p>
+
+  <h2><code>.</code> と <code>..</code> — 特殊なディレクトリ名</h2>
+  <p>すべてのディレクトリには、2 つの特殊な名前が決まっています。</p>
+  <ul>
+    <li><code>.</code>（ドット）— <strong>今いるディレクトリ自身</strong>。<code>cd .</code> は移動しない（同じ場所に留まる）ことと同じです。</li>
+    <li><code>..</code>（ドットドット）— <strong>一つ上のディレクトリ</strong>（親ディレクトリ）。<code>cd ..</code> で一階層上へ戻れます。</li>
+  </ul>
+  <p>これらは組み合わせて使えます。</p>
+  <ul>
+    <li><code>cd ../documents</code> — 一つ上に上がってから documents へ</li>
+    <li><code>cd ./documents</code> — 今の場所から documents へ（<code>cd documents</code> と同じ意味）</li>
+  </ul>
+
+  <h2>絶対パスと相対パスの使い分け</h2>
+  <p>どちらも <code>cd</code> に渡せます。</p>
+  <pre><code># 絶対パス
+  $ cd /home/user/documents
+
+  # 相対パス（/home/user にいる前提）
+  $ cd documents
+
+  # ~ を使ったパス
+  $ cd ~/documents</code></pre>
+  <p>迷ったら <code>pwd</code> で現在地を確認してから <code>cd</code> しましょう。</p>
+
+  <h2>Tab 補完とコマンド履歴</h2>
+  <p>長いパスを打つときは <strong>Tab キー</strong>でディレクトリ名を補完できます。以前使った <code>cd</code> コマンドは <strong>↑ キー</strong>で呼び出せます。第9章で詳しく学びますが、パスの練習中にぜひ試してみてください。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで、絶対パス・相対パス・<code>~</code> を使って移動し、<code>pwd</code> で正しい場所に着いたか確認しましょう！</p>

@@ -1,0 +1,19 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "02"
+  id: "09_shell_basics/02_tab_complete"
+  title: "Tab Completion"
+
+content: |
+  <h2>Complete What You Type</h2>
+  <p><strong>Tab completion</strong> lets the shell auto-complete command names and paths.</p>
+  
+  <h2>Complete Command Names</h2>
+  <pre><code>$ gr[Tab]  →  grep</code></pre>
+  
+  <h2>Complete Paths</h2>
+  <pre><code>$ cd doc[Tab]  →  cd documents/</code></pre>
+  
+  <h2>Next Step</h2>
+  <p>On the exercise page, use Tab to cd into <code>documents</code>!</p>

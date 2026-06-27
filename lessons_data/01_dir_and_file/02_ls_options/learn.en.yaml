@@ -1,0 +1,56 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "02"
+  id: "01_dir_and_file/02_ls_options"
+  title: "ls Options"
+
+content: |
+  <h2>Review</h2>
+  <p>In the previous lesson, you used <code>ls</code> to list the contents of a directory. With plain <code>ls</code>, you do <strong>not</strong> see every file.</p>
+
+  <h2>What Are Hidden Files?</h2>
+  <p>On Linux, files and directories whose names <strong>start with a dot (<code>.</code>)</strong> are called <strong>hidden files</strong>. For example, <code>.config</code> is a hidden file that often stores settings.</p>
+  <p>Hidden files are kept out of normal <code>ls</code> output so you do not accidentally delete or edit them. Many configuration files and auto-generated files use this naming style.</p>
+  <p>Example in the home directory (<code>/home/user</code>):</p>
+  <pre><code>$ ls
+  documents
+  notes.txt</code></pre>
+  <p>From this output alone, <code>.config</code> is invisible. But the actual structure may look like this:</p>
+  <pre class="tree"><code>/home/user/
+  ├── .config          ← hidden file (not shown by plain ls)
+  ├── documents/
+  └── notes.txt</code></pre>
+
+  <h2><code>ls -a</code> — Show Hidden Files Too</h2>
+  <p><code>-a</code> stands for <strong>all</strong>. When you run <code>ls -a</code>, you see <strong>every entry</strong>, including hidden ones.</p>
+  <pre><code>$ ls -a
+  .
+  ..
+  .config
+  documents
+  notes.txt</code></pre>
+  <ul>
+    <li><code>.</code> — a special name for the current directory itself</li>
+    <li><code>..</code> — a special name for the parent directory (one level up)</li>
+    <li><code>.config</code> — a hidden file starting with a dot</li>
+  </ul>
+  <p><code>.</code> and <code>..</code> are important when specifying paths (you will learn more later in Chapter 1). For now, remember that they appear when you use <code>ls -a</code>.</p>
+
+  <h2><code>ls -l</code> — Detailed Listing (a Quick Peek)</h2>
+  <p><code>ls -l</code> shows extra details such as file size, modification time, and the <strong>owner</strong>.</p>
+  <pre><code>$ ls -l
+  -rw-r--r-- 1 user user  12 Jan  1 10:00 notes.txt
+  drwxr-xr-x 2 user user  64 Jan  1 10:00 documents</code></pre>
+  <p>You will study what each column means (permissions, owner, and more) in <strong>Chapter 4</strong>. For now, it is enough to know that this richer view exists.</p>
+
+  <h2>Tab Completion and Command History</h2>
+  <p>The dojo terminal includes helpers for typing:</p>
+  <ul>
+    <li><strong>Tab key</strong> — after partial input, Tab completes command or file names (e.g. <code>ls doc</code> + Tab → <code>ls documents</code>)</li>
+    <li><strong>↑↓ keys</strong> — recall previously run commands so you do not retype them</li>
+  </ul>
+  <p>Chapter 9 covers these in depth, but feel free to try them during exercises.</p>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, run <code>ls -a</code> and confirm that the hidden file <code>.config</code> appears!</p>

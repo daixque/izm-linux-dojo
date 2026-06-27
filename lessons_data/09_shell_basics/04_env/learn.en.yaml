@@ -1,0 +1,28 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "04"
+  id: "09_shell_basics/04_env"
+  title: "Environment Variables"
+
+content: |
+  <h2>Values the Shell Remembers</h2>
+  <p><strong>Environment variables</strong> are named values that the shell and programs can read.</p>
+  
+  <h2>Display with <code>echo</code></h2>
+  <pre><code>$ echo $HOME
+  /home/user
+  
+  $ echo $USER
+  user</code></pre>
+  
+  <h2>Common Variables</h2>
+  <table>
+    <tr><th>Variable</th><th>Meaning</th></tr>
+    <tr><td><code>$HOME</code></td><td>Home directory path</td></tr>
+    <tr><td><code>$USER</code></td><td>Current username</td></tr>
+    <tr><td><code>$PATH</code></td><td>Directories searched for commands</td></tr>
+  </table>
+  
+  <h2>Next Step</h2>
+  <p>Try <code>echo $HOME</code> and <code>echo $USER</code> on the exercise page!</p>

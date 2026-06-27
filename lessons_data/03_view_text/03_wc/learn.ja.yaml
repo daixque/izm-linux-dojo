@@ -1,0 +1,33 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "03"
+  id: "03_view_text/03_wc"
+  title: "行数・語数"
+
+content: |
+  <h2>ファイルの量を数える</h2>
+  <p>テキストファイルを読むだけでなく、「何行あるか」「どれくらいの長さか」を知りたい場面もあります。レポートの行数を数えたり、ログがどれだけ増えたか調べたりするときに便利です。</p>
+  <p>Linux では <code>wc</code>（word count）コマンドを使います。</p>
+
+  <h2><code>wc -l</code> — 行数を数える</h2>
+  <p><code>-l</code> オプション（lines）で、ファイルの<strong>行数</strong>を数えます。</p>
+  <pre><code>$ wc -l essay.txt
+  3 essay.txt</code></pre>
+  <p>「3 行ある」という意味です。改行で区切られた行が 1 行として数えられます。</p>
+
+  <h2><code>wc -w</code> — 語数を数える</h2>
+  <p><code>-w</code> オプション（words）で、空白で区切られた<strong>単語の数</strong>を数えます。</p>
+  <pre><code>$ wc -w essay.txt
+  8 essay.txt</code></pre>
+
+  <h2><code>wc -c</code> — バイト数を数える</h2>
+  <p><code>-c</code> オプション（bytes）で、ファイルの<strong>文字数（バイト数）</strong>を数えます。英字中心のテキストではおおよそ文字数と同じと考えてよいです。</p>
+  <pre><code>$ wc -c essay.txt
+  52 essay.txt</code></pre>
+
+  <h2>オプションなしの <code>wc</code></h2>
+  <p>オプションを付けないと、行数・語数・バイト数をまとめて表示します（上級者向け）。この道場では <code>-l</code>・<code>-w</code>・<code>-c</code> を中心に学びます。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>wc -l</code> を使い、ファイルの行数を数えてみましょう！</p>

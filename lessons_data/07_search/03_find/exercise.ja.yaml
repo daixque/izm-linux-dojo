@@ -1,0 +1,21 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "03"
+  id: "07_search/03_find"
+  title: "find で探す"
+
+description: "find コマンドで .txt ファイルを検索します。"
+
+task_description: |
+  <p>カレントディレクトリ以下から、拡張子 <code>.txt</code> のファイルをすべて <code>find</code> で探しましょう。</p>
+
+instructions:
+  - "<code>ls</code> でホームディレクトリの構造を確認します"
+  - "<code>find . -name \"*.txt\"</code> を実行します"
+  - "3 つの .txt ファイルが見つかることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "パターンはダブルクォートで囲むと安全です: <code>\"*.txt\"</code>"
+  - "<code>.</code> は「今いるディレクトリ」を意味します"

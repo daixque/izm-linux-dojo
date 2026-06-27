@@ -1,0 +1,21 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "05"
+  id: "09_shell_basics/05_multi_command"
+  title: "Chaining Commands"
+
+description: "Chain cd and ls with && on one line."
+
+task_description: |
+  <p>Run <code>cd documents &amp;&amp; ls</code> to move and list in one line.</p>
+
+instructions:
+  - "Run <code>ls</code> to confirm documents exists"
+  - "Run <code>cd documents &amp;&amp; ls</code>"
+  - "Confirm readme.txt is displayed"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Put spaces around <code>&amp;&amp;</code>"
+  - "If cd fails, ls will not run"

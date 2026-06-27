@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 07-03: find で探す</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">find で探す</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>ファイル名で探す</h2>
+<p><code>grep</code> はファイルの<strong>中身</strong>を検索します。一方、ファイル<strong>名</strong>や場所を探すときは <code>find</code> コマンドを使います。</p>
+
+<h2>基本の形</h2>
+<pre><code>find ディレクトリ -name パターン</code></pre>
+<ul>
+  <li><strong>ディレクトリ</strong> — 検索を始める場所（<code>.</code> はカレントディレクトリ）</li>
+  <li><strong>-name</strong> — ファイル名で探すオプション</li>
+  <li><strong>パターン</strong> — ファイル名のパターン（ワイルドカード <code>*</code> が使える）</li>
+</ul>
+
+<h2>例: .txt ファイルをすべて探す</h2>
+<pre><code>$ find . -name "*.txt"
+./notes.txt
+./documents/readme.txt</code></pre>
+<p><code>*</code> は「任意の文字列」を表します。<code>*.txt</code> は「.txt で終わる名前」という意味です。</p>
+
+<h2>サブディレクトリも再帰的に探す</h2>
+<p><code>find</code> は指定したディレクトリの<strong>下の階層すべて</strong>をたどります。深いフォルダの中にあるファイルも見つかります。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>find</code> を使い、.txt ファイルを列挙してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

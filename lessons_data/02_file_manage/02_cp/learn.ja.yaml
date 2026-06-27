@@ -1,0 +1,38 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "02"
+  id: "02_file_manage/02_cp"
+  title: "コピー"
+
+content: |
+  <h2>コピーとは</h2>
+  <p>ファイルやフォルダの<strong>コピー</strong>は、元のデータを残したまま、同じ内容の別コピーを作る操作です。GUI では「コピーして貼り付け」に相当します。</p>
+  <p>Linux では <code>cp</code>（copy）コマンドを使います。</p>
+
+  <h2>ファイルをコピーする — <code>cp</code></h2>
+  <p>基本形は次のとおりです。</p>
+  <pre><code>cp コピー元 コピー先</code></pre>
+  <p>たとえば <code>report.txt</code> を <code>backup</code> フォルダの中にコピーするには:</p>
+  <pre><code>$ cp report.txt backup/
+  $ ls backup
+  report.txt</code></pre>
+  <p>元の <code>report.txt</code> はそのまま残り、<code>backup/report.txt</code> という新しいファイルができます。</p>
+
+  <h3>別名でコピーする</h3>
+  <p>コピー先にファイル名を指定すると、別名のコピーも作れます。</p>
+  <pre><code>$ cp report.txt report_backup.txt</code></pre>
+
+  <h2>ディレクトリをコピーする — <code>cp -r</code></h2>
+  <p>フォルダをコピーするときは <code>-r</code> オプション（recursive：再帰的）が必要です。フォルダの中身ごとまとめてコピーします。</p>
+  <pre><code>$ cp -r photos photos_copy
+  $ ls
+  photos
+  photos_copy</code></pre>
+  <p><code>-r</code> を付け忘れると「ディレクトリはコピーできない」というエラーになることが多いです。</p>
+
+  <h2>コピー後の確認</h2>
+  <p>第1章の <code>ls</code> や第3章で学ぶ <code>cat</code> を使って、コピー先にファイルがあるか確認しましょう。第1章の <code>cd</code> でコピー先フォルダに移動してから <code>ls</code> する方法もあります。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>cp</code> を使い、ファイルを別のフォルダへコピーしてみましょう！</p>

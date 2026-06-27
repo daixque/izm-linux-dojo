@@ -1,0 +1,58 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "04"
+  id: "01_dir_and_file/04_tree"
+  title: "ディレクトリ構造"
+
+content: |
+  <h2>ツリー構造 — フォルダの入れ子</h2>
+  <p>Linux のファイルシステムは、木（ツリー）のように<strong>枝分かれした階層</strong>になっています。ルート（<code>/</code>）が木の根元で、そこからディレクトリが枝のように伸び、先端にファイルがぶら下がるイメージです。</p>
+  <p>第1レッスンで見た例を、もう少し深くしてみましょう。</p>
+  <pre class="tree"><code>/home/user/
+  ├── projects/
+  │   └── web/
+  │       └── app/
+  │           └── config.txt
+  └── notes.txt</code></pre>
+  <p><code>projects</code> の中に <code>web</code>、その中に <code>app</code>、さらにその中に <code>config.txt</code> という<strong>3 階層の入れ子</strong>になっています。</p>
+
+  <h2>階層の数え方</h2>
+  <p>「3 階層下」とは、今いる場所から数えて 3 つディレクトリを通過することを指します。</p>
+  <p><code>/home/user</code> から <code>config.txt</code> までの道のり：</p>
+  <ol>
+    <li><code>projects</code> — 1 階層目</li>
+    <li><code>web</code> — 2 階層目</li>
+    <li><code>app</code> — 3 階層目（ここに <code>config.txt</code> がある）</li>
+  </ol>
+  <p>ファイルそのものには <code>cd</code> できません（ディレクトリだけが移動先になります）。<code>config.txt</code> の<strong>あるディレクトリ</strong>（<code>app</code>）まで移動する、というのが正しい操作です。</p>
+
+  <h2>深い階層への移動方法</h2>
+  <p>一気に移動する方法と、一つずつ移動する方法があります。</p>
+  <h3>パスをまとめて指定（おすすめ）</h3>
+  <pre><code>$ cd projects/web/app
+  $ pwd
+  /home/user/projects/web/app</code></pre>
+  <p>スラッシュ <code>/</code> でディレクトリ名をつなげれば、深い場所へ一度に移動できます。相対パスでも絶対パスでも同じ考え方です。</p>
+  <h3>一つずつ移動</h3>
+  <pre><code>$ cd projects
+  $ cd web
+  $ cd app
+  $ pwd
+  /home/user/projects/web/app</code></pre>
+  <p>階層を一つずつ確認しながら進めたいときに便利です。どちらの方法でも、最後に <code>pwd</code> で現在地を確認しましょう。</p>
+
+  <h2>ツリー図の読み方</h2>
+  <p>教材やドキュメントでは、上のような<strong>ツリー図</strong>で構造を示すことが多いです。</p>
+  <ul>
+    <li><code>├──</code> — 枝が分かれている（同じ階層に兄弟がある）</li>
+    <li><code>└──</code> — その階層の最後の項目</li>
+    <li><code>│</code> — 上の階層から枝が続いている</li>
+  </ul>
+  <p>ツリー図を見ながら「今どの階層にいるか」を意識すると、<code>cd</code> や <code>ls</code> の結果が理解しやすくなります。</p>
+
+  <h2>Tab 補完が特に便利</h2>
+  <p>深い階層ではパスが長くなります。<code>cd pro</code> と入力して Tab を押すと <code>projects/</code> まで補完され、続けて <code>w</code> + Tab で <code>web/</code> … と進められます。長いパスを全部手打ちしなくて済むので、第1章のうちに Tab に慣れておきましょう。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで、3 階層下の <code>app</code> ディレクトリまで <code>cd</code> し、<code>pwd</code> で到達を確認しましょう！</p>

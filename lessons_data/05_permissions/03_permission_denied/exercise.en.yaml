@@ -1,0 +1,22 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "03"
+  id: "05_permissions/03_permission_denied"
+  title: "When Permissions Block You"
+
+description: "Confirm that cat fails with Permission denied on a protected file."
+
+task_description: |
+  <p>Try <code>cat alice_secret.txt</code> and confirm you get a Permission denied error.</p>
+
+instructions:
+  - "Run <code>ls -l alice_secret.txt</code> (<code>-rw-------</code>, owner alice)"
+  - "Run <code>cat alice_secret.txt</code>"
+  - "Confirm the error says Permission denied"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "You are <code>user</code>, so you cannot read alice's private file"
+  - "The error is expected — security is working"
+  - "Your <code>my_notes.txt</code> can be read normally with cat"

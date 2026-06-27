@@ -1,0 +1,31 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "01"
+  id: "06_root_sudo/01_root"
+  title: "root ユーザー"
+
+content: |
+  <h2>第5章のおさらい</h2>
+  <p>第5章では、ファイルの<strong>権限（rwx）</strong>と <code>chmod</code> を学びました。他人のファイルや権限のない操作では <strong>Permission denied</strong> になることを体験しました。</p>
+
+  <h2>root（ルート）とは</h2>
+  <p>Linux には <strong>root</strong> という特別なユーザーがいます。root は<strong>スーパーユーザー</strong>（管理者）と呼ばれ、システム上のほぼすべての操作ができます。</p>
+  <ul>
+    <li>root のホームディレクトリは <code>/root</code></li>
+    <li>システム設定は <code>/etc</code> など root が管理する領域にある</li>
+    <li>普通のユーザー（<code>user</code>）は、root の領域には入れないことが多い</li>
+  </ul>
+
+  <h2>root オーナーのファイル</h2>
+  <p><code>ls -l</code> でオーナーが <code>root</code> のファイルをよく見かけます。</p>
+  <pre><code>$ ls -l /etc
+  -rw-r--r-- 1 root root  123 Jan  1 10:00 hosts
+  drwxr-xr-x 2 root root 4096 Jan  1 10:00 config.d</code></pre>
+  <p>普通のユーザーは、root のファイルを勝手に変更できません。システムを壊さないための大切な仕組みです。</p>
+
+  <h2>第6章で学ぶこと</h2>
+  <p>次のレッスンでは、必要なときだけ root の権限を<strong>一時的に借りる</strong> <code>sudo</code> コマンドを学びます。安易に使わないことが重要です。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>system</code> フォルダの <code>ls -l</code> を実行し、root オーナーのファイルを確認しましょう！</p>

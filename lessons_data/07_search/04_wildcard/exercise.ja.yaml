@@ -1,0 +1,21 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "04"
+  id: "07_search/04_wildcard"
+  title: "ワイルドカード"
+
+description: "ワイルドカードを使って特定拡張子のファイルを一覧します。"
+
+task_description: |
+  <p><code>ls *.txt</code> で、ホームディレクトリにある .txt ファイルだけを一覧表示しましょう。</p>
+
+instructions:
+  - "<code>ls</code> で全体のファイルを確認します"
+  - "<code>ls *.txt</code> を実行します"
+  - ".txt ファイルだけが表示されることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "ワイルドカード <code>*</code> はシェルが自動的に展開します"
+  - "一致するファイルがないと、パターンがそのまま表示されることがあります"

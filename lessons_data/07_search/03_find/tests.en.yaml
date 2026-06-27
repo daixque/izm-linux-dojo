@@ -1,0 +1,45 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      notes.txt:
+        type: file
+        content: 'memo
+
+          '
+      data.log:
+        type: file
+        content: 'log
+
+          '
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: 'readme
+
+              '
+          config:
+            type: directory
+            children:
+              settings.txt:
+                type: file
+                content: 'settings
+
+                  '
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "find . -name \"*.txt\""
+
+tests:
+  - name: "Three .txt files found"
+    description: "Verify find output"
+    type: command_output
+    command: "find . -name \"*.txt\""
+    expected_output: |
+      /home/user/documents/config/settings.txt
+      /home/user/documents/readme.txt
+      /home/user/notes.txt

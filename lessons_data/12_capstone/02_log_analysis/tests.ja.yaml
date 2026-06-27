@@ -1,0 +1,48 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      app.log:
+        type: file
+        content: |
+          2024-06-01 INFO Application started
+          2024-06-01 INFO User login: alice
+          2024-06-01 ERROR Database connection failed
+          2024-06-01 INFO Retry succeeded
+          2024-06-02 WARN Disk usage at 85%
+          2024-06-02 ERROR Timeout waiting for response
+          2024-06-02 ERROR Invalid token
+          2024-06-03 INFO Shutdown complete
+
+
+initial_cwd: /home/user
+
+solution_commands:
+  - grep ERROR app.log
+  - grep ERROR app.log | wc -l
+  - grep ERROR app.log > errors.txt
+
+tests:
+  - name: "grep ERROR で3行表示"
+    description: "grep ERROR output"
+    type: command_output
+    command: grep ERROR app.log
+    expected_output: |
+      2024-06-01 ERROR Database connection failed
+      2024-06-02 ERROR Timeout waiting for response
+      2024-06-02 ERROR Invalid token
+
+  - name: "ERROR 件数が 3"
+    description: "pipe to wc -l"
+    type: command_output
+    command: grep ERROR app.log | wc -l
+    expected_output: "3\n"
+
+  - name: "errors.txt に保存される"
+    description: "redirect grep output"
+    type: command_sequence
+    steps:
+      - command: grep ERROR app.log > errors.txt
+        expected_output: ""
+      - command: wc -l errors.txt
+        expected_output: "3 errors.txt\n"

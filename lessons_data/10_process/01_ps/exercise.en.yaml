@@ -1,0 +1,22 @@
+lesson:
+  chapter: "10_process"
+  chapter_number: "10"
+  number: "01"
+  id: "10_process/01_ps"
+  title: "Process List"
+
+description: "Use ps to view the list of running processes."
+
+task_description: |
+  <p>Run <code>ps</code> in the terminal to see the simulated process list. Read the CMD column to identify what is running, such as <code>bash</code> or <code>sleep 100</code>.</p>
+
+instructions:
+  - "Run <code>ps</code> to display the process list"
+  - "Confirm PID <code>1042</code> shows CMD <code>bash</code>"
+  - "Confirm PID <code>3099</code> shows CMD <code>sleep 100</code>"
+  - "Click <strong>Test</strong> when ready"
+
+hints:
+  - "Type <code>ps</code> and press Enter"
+  - "The CMD column is on the right side of the output"
+  - "Use <strong>Reset</strong> to start over if needed"

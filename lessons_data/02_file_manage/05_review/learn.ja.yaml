@@ -1,0 +1,51 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "05"
+  id: "02_file_manage/05_review"
+  title: "ファイル操作の総復習"
+
+content: |
+  <h2>第1–2章で学んだこと</h2>
+  <p>ここまでで、ターミナル上のファイル操作の基本がそろいました。振り返ってみましょう。</p>
+
+  <h3>第1章 — 場所の確認と移動</h3>
+  <table>
+    <tr><th>コマンド</th><th>意味</th></tr>
+    <tr><td><code>pwd</code></td><td>今いるディレクトリのパスを表示</td></tr>
+    <tr><td><code>ls</code></td><td>カレントディレクトリの中身を一覧</td></tr>
+    <tr><td><code>cd</code></td><td>別のディレクトリへ移動</td></tr>
+  </table>
+
+  <h3>第2章 — ファイルの作成と管理</h3>
+  <table>
+    <tr><th>コマンド</th><th>意味</th></tr>
+    <tr><td><code>mkdir</code></td><td>ディレクトリを作成</td></tr>
+    <tr><td><code>mkdir -p</code></td><td>親ディレクトリごと階層を作成</td></tr>
+    <tr><td><code>touch</code></td><td>空ファイルを作成</td></tr>
+    <tr><td><code>cp</code></td><td>ファイルをコピー（元は残る）</td></tr>
+    <tr><td><code>cp -r</code></td><td>ディレクトリをコピー</td></tr>
+    <tr><td><code>mv</code></td><td>移動・リネーム（元はなくなる）</td></tr>
+    <tr><td><code>rm</code></td><td>ファイルを削除</td></tr>
+    <tr><td><code>rm -r</code> / <code>rmdir</code></td><td>ディレクトリを削除</td></tr>
+  </table>
+
+  <h2>操作の流れを意識する</h2>
+  <p>実際の作業では、次のような流れでコマンドを組み合わせます。</p>
+  <ol>
+    <li><code>pwd</code> と <code>ls</code> で現状を把握する</li>
+    <li><code>mkdir -p</code> で必要なフォルダを用意する</li>
+    <li><code>cp</code> や <code>mv</code> でファイルを整理する</li>
+    <li><code>rm</code> で不要なものを片付ける</li>
+    <li>もう一度 <code>ls</code> で結果を確認する</li>
+  </ol>
+
+  <h2>よくある間違い</h2>
+  <ul>
+    <li><strong>場所を間違える</strong> — 作業前に <code>pwd</code> を確認</li>
+    <li><strong>cp と mv を混同する</strong> — コピーは残る、移動は消える</li>
+    <li><strong>削除を急ぐ</strong> — ファイル名とパスを必ず読む</li>
+  </ul>
+
+  <h2>次のステップ</h2>
+  <p>演習ページでは、これらのコマンドを組み合わせた整理タスクに挑戦します。第3章では、作ったファイルの<strong>中身を読む</strong>方法（<code>cat</code> など）を学びます。</p>

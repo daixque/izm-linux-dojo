@@ -1,0 +1,32 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "04"
+  id: "06_root_sudo/04_privilege_practice"
+  title: "特権操作の実践"
+
+content: |
+  <h2>第4〜6章の総まとめ</h2>
+  <p>この章までで、ユーザー・オーナーシップ・権限・root・sudo を学びました。実際の現場では、これらを<strong>組み合わせて</strong>使います。</p>
+
+  <h2>共有フォルダの整備シナリオ</h2>
+  <p>たとえば、管理者が <code>/shared</code> という共有フォルダを整備する場面を想像してください。</p>
+  <ol>
+    <li>フォルダのオーナーを利用者 <code>user</code> に変更（<code>sudo chown</code>）</li>
+    <li>メンバー全員が読めるように権限を設定（<code>sudo chmod</code>）</li>
+    <li><code>ls -l</code> で結果を確認</li>
+  </ol>
+  <pre><code>$ sudo chown user:staff /shared/data.txt
+  $ sudo chmod 664 /shared/data.txt
+  $ ls -l /shared/data.txt
+  -rw-rw-r-- 1 user staff  ... data.txt</code></pre>
+
+  <h2>大切な心構え</h2>
+  <ul>
+    <li>sudo は「最後の手段」 — まず普通の方法でできるか考える</li>
+    <li>変更前後で <code>ls -l</code> を確認する</li>
+    <li>権限は<strong>必要最小限</strong>に — 広げすぎない</li>
+  </ul>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで、共有ファイルのオーナーと権限を sudo で設定する総合課題に挑戦しましょう！</p>

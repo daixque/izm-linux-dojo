@@ -1,0 +1,24 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "04"
+  id: "06_root_sudo/04_privilege_practice"
+  title: "Privileged Operations Practice"
+
+description: "Combine sudo chown and sudo chmod to set up a shared file."
+
+task_description: |
+  <p>Change <code>shared/data.txt</code> owner to <code>user</code> and set permissions to <code>664</code>.</p>
+
+instructions:
+  - "Run <code>cd shared</code>"
+  - "Run <code>ls -l data.txt</code> — currently owned by root"
+  - "Run <code>sudo chown user data.txt</code>"
+  - "Run <code>sudo chmod 664 data.txt</code>"
+  - "Run <code>ls -l data.txt</code> — expect <code>-rw-rw-r--</code> and owner <code>user</code>"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "664 = owner rw, group rw, others read"
+  - "sudo chown then sudo chmod is a clear order"
+  - "Use the <strong>Reset</strong> button to start over if needed"

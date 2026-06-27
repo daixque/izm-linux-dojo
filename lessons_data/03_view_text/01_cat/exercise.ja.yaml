@@ -1,0 +1,21 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "01"
+  id: "03_view_text/01_cat"
+  title: "cat で表示"
+
+description: "cat コマンドでテキストファイルの内容を表示します。"
+
+task_description: |
+  <p><code>messages.txt</code> の内容を <code>cat</code> コマンドで表示しましょう。</p>
+
+instructions:
+  - "<code>ls</code> で <code>messages.txt</code> があることを確認します"
+  - "<code>cat messages.txt</code> でファイルの中身を表示します"
+  - "表示された内容を読んで、演習の確認ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>cat</code> の後にスペースを入れてファイル名を指定します"
+  - "ファイル名を間違えると「No such file or directory」と表示されます"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

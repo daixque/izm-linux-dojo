@@ -1,0 +1,43 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      admin.log:
+        type: file
+        content: "system log entry\n"
+        owner: root
+        group: root
+        mode: 644
+
+initial_cwd: /home/user
+
+solution_commands:
+  - sudo chown user admin.log
+  - ls -l admin.log
+
+tests:
+  - name: "sudo chown でオーナーが user に"
+    description: "chown 後の ls -l を確認"
+    type: command_output
+    setup_commands:
+      - sudo chown user admin.log
+    command: ls -l admin.log
+    expected_output: "-rw-r--r-- 1 user root   17 Jan  1 10:00 admin.log\n"
+
+  - name: "chown 後に cat できる"
+    description: "オーナー変更後は読める"
+    type: command_output
+    setup_commands:
+      - sudo chown user admin.log
+    command: cat admin.log
+    expected_output: "system log entry\n"
+
+  - name: "sudo なし chown は失敗"
+    description: "Operation not permitted を確認"
+    type: command_output
+    setup_commands:
+      - sudo chown root admin.log
+    command: chown user admin.log
+    expected_output: ""
+    expected_stderr: "chown: changing ownership of 'admin.log': Operation not permitted\n"
+    expected_exit_code: 1

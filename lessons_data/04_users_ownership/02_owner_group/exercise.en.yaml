@@ -1,0 +1,22 @@
+lesson:
+  chapter: "04_users_ownership"
+  chapter_number: "04"
+  number: "02"
+  id: "04_users_ownership/02_owner_group"
+  title: "Owner and Group"
+
+description: "Use ls -l to see each file's owner and group."
+
+task_description: |
+  <p>Run <code>ls -l</code> and confirm that <code>memo.txt</code> is owned by <code>user</code>.</p>
+
+instructions:
+  - "Run <code>ls -l</code> for a detailed listing"
+  - "Find the line for <code>memo.txt</code>"
+  - "Check that column 3 (owner) and column 4 (group) are <code>user</code>"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Put a space between <code>ls</code> and <code>-l</code>"
+  - "Column 3 is owner, column 4 is group"
+  - "<code>documents</code> is a directory — its line starts with <code>d</code>"

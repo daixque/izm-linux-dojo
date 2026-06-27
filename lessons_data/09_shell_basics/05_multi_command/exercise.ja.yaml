@@ -1,0 +1,21 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "05"
+  id: "09_shell_basics/05_multi_command"
+  title: "コマンド連結"
+
+description: "&& で cd と ls を1行で実行します。"
+
+task_description: |
+  <p><code>cd documents &amp;&amp; ls</code> で documents に移動してから一覧表示しましょう。</p>
+
+instructions:
+  - "<code>ls</code> で documents があることを確認します"
+  - "<code>cd documents &amp;&amp; ls</code> を実行します"
+  - "<code>readme.txt</code> が表示されることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>&amp;&amp;</code> の前後にスペースを入れます"
+  - "cd が失敗すると ls は実行されません"

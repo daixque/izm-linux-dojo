@@ -1,0 +1,28 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "04"
+  id: "05_permissions/04_chmod_octal"
+  title: "chmod（8進）【発展】"
+
+content: |
+  <h2>8進数（octal）による chmod</h2>
+  <p>記号形式のほか、<code>chmod</code> では<strong>8進数</strong>（0〜7 の 3 桁）でも権限を指定できます。上級者向けですが、<code>644</code> や <code>755</code> という数字をよく見かけるので、意味を知っておくと便利です。</p>
+
+  <h2>3 桁の意味</h2>
+  <p>3 桁それぞれが、オーナー・グループ・その他の rwx を数字 1 つで表します。</p>
+  <ul>
+    <li><code>4</code>＝r、<code>2</code>＝w、<code>1</code>＝x（足し算で組み合わせ）</li>
+    <li><code>7</code>＝4+2+1＝rwx、<code>6</code>＝rw、<code>5</code>＝rx、<code>4</code>＝r</li>
+  </ul>
+  <pre><code>644  →  rw- r-- r--   （ファイルによく使う: オーナー読書、その他読のみ）
+  755  →  rwx r-x r-x   （ディレクトリや実行ファイルによく使う）
+  600  →  rw- --- ---   （オーナーだけ読書）</code></pre>
+
+  <h2>使い方</h2>
+  <pre><code>$ chmod 644 report.txt
+  $ chmod 755 myproject/</code></pre>
+  <p>記号形式と 8 進は、同じ権限を違う書き方で指定しているだけです。どちらか慣れた方を使えば OK です。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>chmod 644</code> と <code>chmod 755</code> を試してみましょう！（スキップしても第6章以降は進められます）</p>

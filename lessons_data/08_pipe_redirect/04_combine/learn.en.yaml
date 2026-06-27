@@ -1,0 +1,19 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "04"
+  id: "08_pipe_redirect/04_combine"
+  title: "Combining Commands"
+
+content: |
+  <h2>Combine Search, Pipes, and Redirection</h2>
+  <p>Combining Chapter 7–8 features enables practical workflows.</p>
+  
+  <h2>Save Filtered Results</h2>
+  <pre><code>$ grep ERROR app.log &gt; errors.txt</code></pre>
+  
+  <h2>Pipe + Redirect</h2>
+  <pre><code>$ cat app.log | grep ERROR | wc -l &gt; error_count.txt</code></pre>
+  
+  <h2>Next Step</h2>
+  <p>Try the combined exercise!</p>

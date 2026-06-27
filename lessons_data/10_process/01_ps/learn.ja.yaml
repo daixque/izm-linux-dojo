@@ -1,0 +1,40 @@
+lesson:
+  chapter: "10_process"
+  chapter_number: "10"
+  number: "01"
+  id: "10_process/01_ps"
+  title: "プロセス一覧"
+
+content: |
+  <h2>プロセスとは？</h2>
+  <p>コンピューター上で<strong>動いているプログラム</strong>のことを<strong>プロセス</strong>（process）と呼びます。たとえば、ターミナルで <code>bash</code> を起動しているとき、Web ブラウザを開いているとき、裏で更新プログラムが動いているとき — それぞれがプロセスです。</p>
+  <p>第1章で学んだ<strong>ファイル</strong>は「保存されているデータ」、プロセスは「今まさに実行されている仕事」と考えると区別しやすいです。</p>
+
+  <h2>プロセス ID（PID）</h2>
+  <p>OS は動いているプロセスを区別するために、それぞれに<strong>プロセス ID</strong>（Process ID、略して <strong>PID</strong>）という番号を付けます。PID は数字だけで、たとえば <code>1042</code> や <code>3099</code> のようになります。</p>
+  <ul>
+    <li>同じプログラムを 2 回起動しても、PID は別々</li>
+    <li>プロセスが終了すると、その PID は別のプロセスに再利用されることがある</li>
+  </ul>
+
+  <h2><code>ps</code> — プロセス一覧を表示</h2>
+  <p><code>ps</code> コマンドで、現在動いているプロセスの一覧を確認できます。道場のシミュレータでは、学習用の固定データが表示されます。</p>
+  <pre><code>$ ps
+  PID TTY          TIME CMD
+    1 ?           00:00:01 systemd
+  1042 pts/0       00:00:00 bash
+  2048 pts/0       00:00:02 python simulator.py
+  3099 pts/0       00:00:00 sleep 100</code></pre>
+  <p>主な列の意味：</p>
+  <ul>
+    <li><strong>PID</strong> — プロセス ID</li>
+    <li><strong>TTY</strong> — どの端末に接続しているか（<code>?</code> は端末なし）</li>
+    <li><strong>TIME</strong> — CPU を使った時間の目安</li>
+    <li><strong>CMD</strong> — 実行中のコマンド名</li>
+  </ul>
+
+  <h2><code>top</code> について（参考）</h2>
+  <p>本物の Linux では <code>top</code> コマンドで、プロセス一覧をリアルタイムに更新しながら表示できます。道場では再現が難しいため、<code>ps</code> で一覧を確認する方法を中心に学びます。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>ps</code> を実行し、表示される PID とコマンド名を読み取ってみましょう。</p>

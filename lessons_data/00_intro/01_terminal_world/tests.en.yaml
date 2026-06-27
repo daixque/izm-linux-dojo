@@ -1,0 +1,16 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - clear
+
+tests:
+  - name: "clear command runs successfully"
+    description: "Check that clear executes and clears the screen"
+    type: command_output
+    command: clear
+    expected_output: ""

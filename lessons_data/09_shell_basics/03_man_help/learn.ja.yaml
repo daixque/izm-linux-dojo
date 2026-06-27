@@ -1,0 +1,31 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "03"
+  id: "09_shell_basics/03_man_help"
+  title: "ヘルプの調べ方"
+
+content: |
+  <h2>困ったときは自分で調べる</h2>
+  <p>Linux にはたくさんのコマンドがあり、すべてを暗記する必要はありません。使い方が分からなくなったら、<strong>ヘルプ</strong>を調べる習慣をつけましょう。</p>
+  
+  <h2><code>--help</code> オプション</h2>
+  <p>多くのコマンドは <code>--help</code> で簡単な説明を表示します。</p>
+  <pre><code>$ ls --help
+  Usage: ls [OPTION]... [FILE]...
+  List directory contents.
+  ...</code></pre>
+  
+  <h2><code>man</code> コマンド</h2>
+  <p><code>man</code>（manual）は、コマンドの<strong>マニュアルページ</strong>を表示します。本物の Linux では詳しい説明が読めます。</p>
+  <pre><code>$ man ls</code></pre>
+  <p>この道場のシミュレータでも、主要コマンドの man ページを読めます。</p>
+  
+  <h2>覚えておくこと</h2>
+  <ul>
+    <li>まず <code>コマンド --help</code> を試す</li>
+    <li>もっと詳しく知りたいときは <code>man コマンド</code></li>
+  </ul>
+  
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>ls --help</code> や <code>man grep</code> を試してみましょう！</p>

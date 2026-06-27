@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 05-04: chmod (Octal Mode) [Advanced]</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">chmod (Octal Mode) [Advanced]</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Octal <code>chmod</code></h2>
+<p>Besides symbolic mode, <code>chmod</code> accepts <strong>octal</strong> numbers (three digits 0–7). This is advanced, but you will often see <code>644</code> and <code>755</code>, so it helps to know what they mean.</p>
+
+<h2>Three Digits</h2>
+<p>Each digit is owner, group, and others, encoding rwx as a sum:</p>
+<ul>
+  <li><code>4</code> = r, <code>2</code> = w, <code>1</code> = x</li>
+  <li><code>7</code> = rwx, <code>6</code> = rw, <code>5</code> = rx, <code>4</code> = r</li>
+</ul>
+<pre><code>644  →  rw- r-- r--   (common for files: owner read+write, others read)
+755  →  rwx r-x r-x   (common for dirs and executables)
+600  →  rw- --- ---   (owner read+write only)</code></pre>
+
+<h2>Usage</h2>
+<pre><code>$ chmod 644 report.txt
+$ chmod 755 myproject/</code></pre>
+<p>Octal and symbolic modes express the same permissions in different notation. Use whichever you prefer.</p>
+
+<h2>Next Step</h2>
+<p>Try <code>chmod 644</code> and <code>chmod 755</code> on the exercise page! (You can skip this lesson and still continue to Chapter 6.)</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

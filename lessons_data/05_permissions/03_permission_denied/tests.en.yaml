@@ -1,0 +1,37 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      my_notes.txt:
+        type: file
+        content: "my notes\n"
+        owner: user
+        group: user
+        mode: 644
+      alice_secret.txt:
+        type: file
+        content: "alice's secret data\n"
+        owner: alice
+        group: alice
+        mode: 600
+
+initial_cwd: /home/user
+
+solution_commands:
+  - ls -l alice_secret.txt
+  - cat alice_secret.txt
+
+tests:
+  - name: "cannot cat alice_secret.txt"
+    description: "confirm Permission denied"
+    type: command_output
+    command: cat alice_secret.txt
+    expected_output: ""
+    expected_stderr: "cat: alice_secret.txt: Permission denied\n"
+    expected_exit_code: 1
+
+  - name: "can cat my_notes.txt"
+    description: "your own file is readable"
+    type: command_output
+    command: cat my_notes.txt
+    expected_output: "my notes\n"

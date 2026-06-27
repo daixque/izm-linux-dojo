@@ -1,0 +1,30 @@
+lesson:
+  chapter: "10_process"
+  chapter_number: "10"
+  number: "02"
+  id: "10_process/02_kill"
+  title: "プロセス終了"
+
+content: |
+  <h2>プロセスを止める</h2>
+  <p>前のレッスンで <code>ps</code> を使い、動いているプロセスと PID を確認する方法を学びました。不要になったプロセスや、意図せず動き続けているプロセスを止める必要があるときがあります。</p>
+  <p>Linux では <code>kill</code> コマンドで、指定した PID のプロセスに「終了しなさい」という<strong>シグナル</strong>（signal）を送ります。</p>
+
+  <h2>シグナルとは？</h2>
+  <p>シグナルは、OS がプロセスに送る「お知らせ」です。たとえば「終了して」「一時停止して」といった指示を、プログラムに伝えます。</p>
+  <p>初心者向けには、<code>kill PID</code> が「その PID のプロセスを終了させる」という意味だと覚えれば十分です。</p>
+
+  <h2><code>kill</code> の基本</h2>
+  <pre><code>$ kill 3099</code></pre>
+  <p>PID <code>3099</code> のプロセス（<code>sleep 100</code>）に終了を指示します。成功すると、通常は何も表示されません。</p>
+  <p>もう一度 <code>ps</code> を実行すると、終了したプロセスは一覧から消えます。</p>
+
+  <h2>注意点</h2>
+  <ul>
+    <li>存在しない PID を指定するとエラーになる</li>
+    <li><code>systemd</code>（PID 1）など、重要なプロセスは止められない</li>
+    <li>本番環境では、止める前に本当に不要か確認する</li>
+  </ul>
+
+  <h2>次のステップ</h2>
+  <p>演習では <code>kill 3099</code> で <code>sleep 100</code> を終了し、<code>ps</code> で消えたことを確認します。</p>

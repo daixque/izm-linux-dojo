@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 09-03: ヘルプの調べ方</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">ヘルプの調べ方</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>困ったときは自分で調べる</h2>
+<p>Linux にはたくさんのコマンドがあり、すべてを暗記する必要はありません。使い方が分からなくなったら、<strong>ヘルプ</strong>を調べる習慣をつけましょう。</p>
+
+<h2><code>--help</code> オプション</h2>
+<p>多くのコマンドは <code>--help</code> で簡単な説明を表示します。</p>
+<pre><code>$ ls --help
+Usage: ls [OPTION]... [FILE]...
+List directory contents.
+...</code></pre>
+
+<h2><code>man</code> コマンド</h2>
+<p><code>man</code>（manual）は、コマンドの<strong>マニュアルページ</strong>を表示します。本物の Linux では詳しい説明が読めます。</p>
+<pre><code>$ man ls</code></pre>
+<p>この道場のシミュレータでも、主要コマンドの man ページを読めます。</p>
+
+<h2>覚えておくこと</h2>
+<ul>
+  <li>まず <code>コマンド --help</code> を試す</li>
+  <li>もっと詳しく知りたいときは <code>man コマンド</code></li>
+</ul>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>ls --help</code> や <code>man grep</code> を試してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

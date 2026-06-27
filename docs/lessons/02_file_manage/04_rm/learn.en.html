@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 02-04: Deleting Files</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Deleting Files</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>What Is Deletion?</h2>
+<p><strong>Deletion</strong> removes files or directories you no longer need. On Linux you use <code>rm</code> (remove).</p>
+<p><strong>Important: deleted data is hard to recover.</strong> Unlike a GUI trash bin, <code>rm</code> removes items immediately. Always double-check before pressing Enter.</p>
+
+<h2>Delete a File — <code>rm</code></h2>
+<pre><code>$ rm temp.txt</code></pre>
+<p>The specified file is removed. Use <code>ls</code> afterward to confirm.</p>
+
+<h2>Delete a Directory — <code>rm -r</code></h2>
+<p>Directories require the <code>-r</code> (recursive) option to remove everything inside.</p>
+<pre><code>$ rm -r old_folder</code></pre>
+<p>For an empty folder only, you can use <code>rmdir</code> instead:</p>
+<pre><code>$ rmdir empty_dir</code></pre>
+
+<h2>Safety Tips</h2>
+<ul>
+  <li><strong>Read the filename carefully</strong> before pressing Enter</li>
+  <li><strong>Check your location</strong> with <code>pwd</code> before deleting</li>
+  <li><strong>Be extra careful with directories</strong> — <code>rm -r</code> removes all contents</li>
+</ul>
+<p>On real Linux systems, mistyped paths can cause serious damage. Build the habit of verifying paths first.</p>
+
+<h2>Next Step</h2>
+<p>Practice safely deleting unneeded files and an empty directory on the exercise page!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

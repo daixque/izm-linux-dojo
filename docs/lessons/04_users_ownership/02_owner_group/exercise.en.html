@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Lesson 04-02: Owner and Group</title>
+    <link rel="stylesheet" href="../../../lib/css/exercise.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">📝 Lesson 04-02: Owner and Group</h1>
+            <div class="header-right">
+                <div class="status">
+                    <span id="status">Loading...</span>
+                </div>
+                <div id="language-switcher">
+                        <a href="exercise.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="task-panel">
+                <div class="task-header">
+                    <h2>Task</h2>
+                    <span class="task-toggle">◀</span>
+                </div>
+                <div class="task-content">
+                    <div class="task-description">
+                        <h3>📋 Task</h3>
+                        <p>Run <code>ls -l</code> and confirm that <code>memo.txt</code> is owned by <code>user</code>.</p>
+
+                    </div>
+                    <div class="instructions">
+                        <h4>✏️ Instructions</h4>
+                        <ul>
+                            <li>Run <code>ls -l</code> for a detailed listing</li>
+                            <li>Find the line for <code>memo.txt</code></li>
+                            <li>Check that column 3 (owner) and column 4 (group) are <code>user</code></li>
+                            <li>When ready, click the <strong>Test</strong> button</li>
+                        </ul>
+                    </div>
+                    <div class="hints">
+                        <h4 class="hints-toggle">
+                            <span class="hints-icon">▶</span>
+                            💡 Hints
+                        </h4>
+                        <ul class="hints-content" style="display: none;">
+                            <li>Put a space between <code>ls</code> and <code>-l</code></li>
+                            <li>Column 3 is owner, column 4 is group</li>
+                            <li><code>documents</code> is a directory — its line starts with <code>d</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="code-panel">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-label">💻 Terminal</span>
+                        <div class="button-group">
+                            <button id="btn-test" class="btn btn-success" disabled>✓ Test</button>
+                            <button id="btn-reset" class="btn btn-secondary">🔄 Reset</button>
+                            <button id="btn-solution" class="btn btn-warning">💡 Show Solution</button>
+                            <button id="btn-clear" class="btn btn-small">Clear</button>
+                        </div>
+                    </div>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+
+            <aside id="file-explorer" class="file-explorer">
+                <div class="file-explorer-header">
+                    <span class="file-explorer-icon">📁</span>
+                    <span class="file-explorer-label">Files</span>
+                    <span class="file-explorer-toggle">◀</span>
+                </div>
+                <div class="file-explorer-body">
+                    <div id="file-tree" class="file-tree"></div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-nav">
+                <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+                <a href="learn.en.html" class="btn btn-link">📚 Back to Learn</a>
+            </div>
+            <div class="footer-next">
+                <a href="../03_multi_user/learn.en.html" class="btn btn-primary">Next Lesson →<br><small>Multiple Users and Sharing</small></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="test-results-overlay" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 16px; z-index: 1000;">
+        <div class="test-results-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="margin: 0;">Test Results</h3>
+                <button id="btn-close-results" class="btn btn-small">Close</button>
+            </div>
+            <div id="test-results"></div>
+            <div style="margin-top: 16px; text-align: right;">
+                <a href="../../../index.html" class="btn btn-link">Back to Menu</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit@0.10.0/lib/addon-fit.min.js"></script>
+
+    <script src="../../../lib/js/i18n.js"></script>
+    <script src="../../../lib/js/progress.js"></script>
+    <script src="../../../lib/js/shell/vfs.js"></script>
+    <script src="../../../lib/js/shell/commands.js"></script>
+    <script src="../../../lib/js/shell/completion.js"></script>
+    <script src="../../../lib/js/shell/simulator.js"></script>
+    <script src="../../../lib/js/terminal.js"></script>
+    <script src="../../../lib/js/tester.js"></script>
+    <script src="../../../lib/js/fileviewer.js"></script>
+    <script src="../../../lib/js/exercise-common.js"></script>
+
+    <script>
+        const LESSON_ID = "04_users_ownership/02_owner_group";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"documents": {"children": {"readme.txt": {"content": "hello\n", "group": "user", "owner": "user", "type": "file"}}, "group": "user", "owner": "user", "type": "directory"}, "memo.txt": {"content": "my memo\n", "group": "user", "owner": "user", "type": "file"}}, "type": "directory"}};
+        const INITIAL_CWD = "/home/user";
+        const TESTS = [{"command": "ls -l memo.txt", "description": "ls -l output includes memo.txt owned by user", "expected_output": "-rw-r--r-- 1 user user    8 Jan  1 10:00 memo.txt\n", "name": "ls -l shows user as owner of memo.txt", "type": "command_output"}, {"command": "ls -l documents", "description": "Confirm ls -l inside documents", "expected_output": "-rw-r--r-- 1 user user    6 Jan  1 10:00 readme.txt\n", "name": "documents is also owned by user", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["ls -l"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.i18n) window.i18n.init();
+            setupButtons();
+            initializeExercise({
+                initialFilesystem: INITIAL_FILESYSTEM,
+                initialCwd: INITIAL_CWD,
+                tests: TESTS,
+                solutionCommands: SOLUTION_COMMANDS,
+            });
+        });
+    </script>
+</body>
+</html>

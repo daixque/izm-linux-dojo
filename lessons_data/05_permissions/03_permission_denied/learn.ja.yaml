@@ -1,0 +1,31 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "03"
+  id: "05_permissions/03_permission_denied"
+  title: "権限で拒否される"
+
+content: |
+  <h2>Permission denied とは</h2>
+  <p>権限のない操作をしようとすると、Linux は<strong>Permission denied</strong>（許可されていません）と返します。エラーに見えますが、「セキュリティが正常に働いている」サインでもあります。</p>
+
+  <h2>よくある場面</h2>
+  <ul>
+    <li>他人のファイルを <code>cat</code> しようとした（読み取り権限なし）</li>
+    <li>他人のファイルを <code>rm</code> しようとした（書き込み権限なし）</li>
+    <li>権限のないディレクトリに <code>cd</code> しようとした（実行権限なし）</li>
+    <li>他人のファイルの <code>chmod</code> をしようとした（オーナーでない）</li>
+  </ul>
+  <pre><code>$ cat alice_secret.txt
+  cat: alice_secret.txt: Permission denied</code></pre>
+
+  <h2>対処の考え方</h2>
+  <ol>
+    <li><code>ls -l</code> でオーナーと権限を確認する</li>
+    <li>自分のファイルなら <code>chmod</code> で権限を調整できる（第5章）</li>
+    <li>他人のファイルやシステムファイルなら、オーナーに頼むか、第6章で学ぶ <code>sudo</code> が必要な場合がある</li>
+  </ol>
+  <p>安易に権限を緩めたり、<code>sudo</code> を使ったりしないことが大切です。まずは「なぜ拒否されたか」を理解しましょう。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで、権限のないファイルへの <code>cat</code> が Permission denied になることを確認しましょう！</p>

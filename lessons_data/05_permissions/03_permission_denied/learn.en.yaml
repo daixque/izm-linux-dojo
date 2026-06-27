@@ -1,0 +1,31 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "03"
+  id: "05_permissions/03_permission_denied"
+  title: "When Permissions Block You"
+
+content: |
+  <h2>What Is Permission Denied?</h2>
+  <p>When you try an operation without permission, Linux returns <strong>Permission denied</strong>. It looks like an error, but it also means security is working.</p>
+
+  <h2>Common Situations</h2>
+  <ul>
+    <li><code>cat</code> on someone else's file (no read permission)</li>
+    <li><code>rm</code> on someone else's file (no write permission)</li>
+    <li><code>cd</code> into a directory without execute permission</li>
+    <li><code>chmod</code> on a file you do not own</li>
+  </ul>
+  <pre><code>$ cat alice_secret.txt
+  cat: alice_secret.txt: Permission denied</code></pre>
+
+  <h2>What to Do</h2>
+  <ol>
+    <li>Run <code>ls -l</code> to check owner and permissions</li>
+    <li>On your own files, adjust with <code>chmod</code> (this chapter)</li>
+    <li>For others' or system files, ask the owner or use <code>sudo</code> (Chapter 6) when appropriate</li>
+  </ol>
+  <p>Do not loosen permissions or use <code>sudo</code> casually. First understand <strong>why</strong> you were blocked.</p>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, confirm that <code>cat</code> on a protected file returns Permission denied!</p>

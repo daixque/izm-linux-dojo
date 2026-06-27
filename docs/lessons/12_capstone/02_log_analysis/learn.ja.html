@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 12-02: ログ分析</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">ログ分析</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>総合演習：ログ分析</h2>
+<p>第7–8章で学んだ <code>grep</code>、<code>wc</code>、パイプ（<code>|</code>）を使い、ログファイルから必要な情報を取り出します。</p>
+
+<h2>ログファイルとは</h2>
+<p>プログラムやサーバーは、動作の記録を<strong>ログ</strong>（log）ファイルに書き込みます。<code>INFO</code> は通常動作、<code>ERROR</code> はエラー、<code>WARN</code> は警告を表すことが多いです。</p>
+
+<h2>よく使う組み合わせ</h2>
+<pre><code>$ grep ERROR app.log
+$ grep ERROR app.log | wc -l</code></pre>
+<p>1 行目は ERROR 行だけを表示、2 行目は ERROR の<strong>件数</strong>を数えます。</p>
+
+<h2>作業の流れ</h2>
+<ol>
+  <li><code>cat</code> や <code>head</code> でログの全体像を把握</li>
+  <li><code>grep</code> で ERROR 行を抽出</li>
+  <li>パイプで <code>wc -l</code> に渡して件数を数える</li>
+</ol>
+
+<h2>次のステップ</h2>
+<p>演習では <code>app.log</code> から ERROR の件数を集計します。</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

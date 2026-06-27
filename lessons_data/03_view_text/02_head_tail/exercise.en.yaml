@@ -1,0 +1,26 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "02"
+  id: "03_view_text/02_head_tail"
+  title: "Head and Tail"
+
+description: "Use head and tail to view the beginning and end of a log file."
+
+task_description: |
+  <p>For <code>server.log</code>, run both of the following:</p>
+  <ul>
+    <li>Show the first 5 lines with <code>head -n 5</code></li>
+    <li>Show the last 3 lines with <code>tail -n 3</code></li>
+  </ul>
+
+instructions:
+  - "Run <code>ls</code> to confirm <code>server.log</code> exists"
+  - "Run <code>head -n 5 server.log</code> to show the first 5 lines"
+  - "Run <code>tail -n 3 server.log</code> to show the last 3 lines"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Order is: <code>-n</code>, then the number, then the filename"
+  - "The newest log entries are usually at the end"
+  - "Use the <strong>Reset</strong> button to start over if needed"

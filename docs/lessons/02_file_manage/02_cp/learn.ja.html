@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 02-02: コピー</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">コピー</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>コピーとは</h2>
+<p>ファイルやフォルダの<strong>コピー</strong>は、元のデータを残したまま、同じ内容の別コピーを作る操作です。GUI では「コピーして貼り付け」に相当します。</p>
+<p>Linux では <code>cp</code>（copy）コマンドを使います。</p>
+
+<h2>ファイルをコピーする — <code>cp</code></h2>
+<p>基本形は次のとおりです。</p>
+<pre><code>cp コピー元 コピー先</code></pre>
+<p>たとえば <code>report.txt</code> を <code>backup</code> フォルダの中にコピーするには:</p>
+<pre><code>$ cp report.txt backup/
+$ ls backup
+report.txt</code></pre>
+<p>元の <code>report.txt</code> はそのまま残り、<code>backup/report.txt</code> という新しいファイルができます。</p>
+
+<h3>別名でコピーする</h3>
+<p>コピー先にファイル名を指定すると、別名のコピーも作れます。</p>
+<pre><code>$ cp report.txt report_backup.txt</code></pre>
+
+<h2>ディレクトリをコピーする — <code>cp -r</code></h2>
+<p>フォルダをコピーするときは <code>-r</code> オプション（recursive：再帰的）が必要です。フォルダの中身ごとまとめてコピーします。</p>
+<pre><code>$ cp -r photos photos_copy
+$ ls
+photos
+photos_copy</code></pre>
+<p><code>-r</code> を付け忘れると「ディレクトリはコピーできない」というエラーになることが多いです。</p>
+
+<h2>コピー後の確認</h2>
+<p>第1章の <code>ls</code> や第3章で学ぶ <code>cat</code> を使って、コピー先にファイルがあるか確認しましょう。第1章の <code>cd</code> でコピー先フォルダに移動してから <code>ls</code> する方法もあります。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>cp</code> を使い、ファイルを別のフォルダへコピーしてみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

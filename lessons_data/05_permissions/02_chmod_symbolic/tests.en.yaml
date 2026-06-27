@@ -1,0 +1,25 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      hello.sh:
+        type: file
+        content: "#!/bin/bash\necho Hello\n"
+        owner: user
+        group: user
+        mode: 644
+
+initial_cwd: /home/user
+
+solution_commands:
+  - chmod u+x hello.sh
+  - ls -l hello.sh
+
+tests:
+  - name: "hello.sh has execute permission"
+    description: "confirm ls -l after chmod u+x"
+    type: command_output
+    setup_commands:
+      - chmod u+x hello.sh
+    command: ls -l hello.sh
+    expected_output: "-rwxr--r-- 1 user user   23 Jan  1 10:00 hello.sh\n"

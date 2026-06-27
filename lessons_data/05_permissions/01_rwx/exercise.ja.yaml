@@ -1,0 +1,22 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "01"
+  id: "05_permissions/01_rwx"
+  title: "権限 rwx の読み方"
+
+description: "ls -l の権限文字列（rwx）を読み取ります。"
+
+task_description: |
+  <p><code>ls -l</code> を実行し、<code>public.txt</code> と <code>private.txt</code> の権限の違いを確認しましょう。</p>
+
+instructions:
+  - "<code>ls -l</code> で詳細一覧を表示します"
+  - "<code>public.txt</code> は <code>-rw-r--r--</code>（みんな読める）です"
+  - "<code>private.txt</code> は <code>-rw-------</code>（オーナーだけ）です"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "1列目の 10 文字が権限です"
+  - "2〜4 文字目がオーナー（user）の rwx です"
+  - "8〜10 文字目が「その他」の rwx です"

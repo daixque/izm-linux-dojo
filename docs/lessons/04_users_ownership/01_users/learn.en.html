@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 04-01: What Is a User?</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">What Is a User?</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Review</h2>
+<p>In Chapters 1–3, you learned how to <strong>operate</strong> on files and directories in the terminal — listing with <code>ls</code>, reading with <code>cat</code>, creating with <code>mkdir</code> and <code>touch</code>, and more.</p>
+<p>From here, we shift perspective. On Linux, it matters <strong>whose</strong> file something is. In Chapter 4, we learn about that "who" — the <strong>user</strong>.</p>
+
+<h2>What Is a User Account?</h2>
+<p>On Linux and macOS, each person who uses the computer gets a <strong>user account</strong>. The username you use to log in is that account.</p>
+<p>For example, if two students share a school PC, each logs in with a different username. Files created by one student are usually kept separate from the other's.</p>
+<p>In this dojo, your username is <code>user</code>, and your home directory is <code>/home/user</code> (on macOS the idea is the same — home is something like <code>/Users/yourname</code>).</p>
+
+<h2>Checking Who You Are Logged In As</h2>
+<p>The command <code>whoami</code> ("who am I") shows which user you are operating as right now.</p>
+<pre><code>$ whoami
+user</code></pre>
+<p>Your username also appears in the terminal prompt. In this dojo it looks like <code>user@dojo:~$</code> — the <code>user</code> part is your username.</p>
+
+<h2>Why Does the User Matter?</h2>
+<p>Every file has an owner. The <strong>owner</strong> you will learn about next is exactly that user.</p>
+<ul>
+  <li>Files you create → you (<code>user</code>) are the owner</li>
+  <li>Files others create → they are the owner</li>
+  <li>System files → often owned by the administrator <code>root</code></li>
+</ul>
+<p>Who owns a file affects whether you can read, write, or delete it. Chapters 5 and 6 cover that in detail. For now, remember: <strong>user = the person who owns a file</strong>.</p>
+
+<h2>Tab Completion and Command History</h2>
+<p>In this dojo's terminal, <kbd>Tab</kbd> completes command names and paths, and <kbd>↑</kbd><kbd>↓</kbd> recalls previous commands. Try them during the exercise.</p>
+
+<h2>Next Step</h2>
+<p>Run <code>whoami</code> on the exercise page to confirm your username!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

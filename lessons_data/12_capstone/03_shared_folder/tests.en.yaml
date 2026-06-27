@@ -1,0 +1,39 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children: {}
+  /shared:
+    type: directory
+    owner: root
+    group: root
+    mode: "755"
+    children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - sudo chown user:user /shared
+  - chmod u+rwx,go+rx /shared
+  - touch /shared/team.txt
+
+tests:
+  - name: "team.txt can be created"
+    description: "chown chmod touch sequence"
+    type: command_sequence
+    steps:
+      - command: sudo chown user:user /shared
+        expected_output: ""
+      - command: chmod u+rwx,go+rx /shared
+        expected_output: ""
+      - command: touch /shared/team.txt
+        expected_output: ""
+
+  - name: "team.txt exists in /shared"
+    description: "verify file in shared"
+    type: command_output
+    command: ls /shared
+    setup_commands:
+      - sudo chown user:user /shared
+      - chmod u+rwx,go+rx /shared
+      - touch /shared/team.txt
+    expected_output: "team.txt\n"

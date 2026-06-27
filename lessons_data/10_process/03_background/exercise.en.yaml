@@ -1,0 +1,22 @@
+lesson:
+  chapter: "10_process"
+  chapter_number: "10"
+  number: "03"
+  id: "10_process/03_background"
+  title: "Foreground and Background"
+
+description: "Use jobs to understand background job concepts."
+
+task_description: |
+  <p>Run <code>jobs</code> to see the list of background work. Also run <code>ps</code> to confirm the <code>sleep 100</code> process exists.</p>
+
+instructions:
+  - "Run <code>jobs</code> to display background jobs"
+  - "Confirm <code>sleep 100</code> shows as Running"
+  - "Run <code>ps</code> and confirm the sleep process is listed"
+  - "Click <strong>Test</strong> when ready"
+
+hints:
+  - "<code>jobs</code> is for checking foreground/background work"
+  - "Use <code>ps</code> CMD column to see process names"
+  - "Use <strong>Reset</strong> to start over if needed"

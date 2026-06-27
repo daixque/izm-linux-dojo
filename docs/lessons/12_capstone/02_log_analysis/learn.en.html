@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 12-02: Log Analysis</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Log Analysis</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Capstone: Log Analysis</h2>
+<p>Use <code>grep</code>, <code>wc</code>, and pipes (<code>|</code>) from Chapters 7–8 to extract information from log files.</p>
+
+<h2>What is a Log File?</h2>
+<p>Programs and servers write activity records to <strong>log</strong> files. <code>INFO</code> usually means normal operation, <code>ERROR</code> means failure, and <code>WARN</code> means warning.</p>
+
+<h2>Common Combinations</h2>
+<pre><code>$ grep ERROR app.log
+$ grep ERROR app.log | wc -l</code></pre>
+<p>The first shows only ERROR lines; the second counts how many ERROR lines exist.</p>
+
+<h2>Workflow</h2>
+<ol>
+  <li>Use <code>cat</code> or <code>head</code> to understand the log</li>
+  <li><code>grep</code> to extract ERROR lines</li>
+  <li>Pipe to <code>wc -l</code> to count them</li>
+</ol>
+
+<h2>Next Step</h2>
+<p>On the exercise page, count ERROR entries in <code>app.log</code>.</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

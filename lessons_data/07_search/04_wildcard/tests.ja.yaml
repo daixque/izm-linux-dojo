@@ -1,0 +1,38 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      notes.txt:
+        type: file
+        content: 'memo
+
+          '
+      readme.txt:
+        type: file
+        content: 'readme
+
+          '
+      data.log:
+        type: file
+        content: 'log
+
+          '
+      draft.md:
+        type: file
+        content: 'draft
+
+          '
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "ls *.txt"
+
+tests:
+  - name: "ls *.txt で .txt だけ表示"
+    description: "ワイルドカード展開後の ls 出力"
+    type: command_output
+    command: "ls *.txt"
+    expected_output: |
+      notes.txt
+      readme.txt

@@ -53,17 +53,51 @@ function runSingleTest(sim, test, testNumber) {
         if (type === 'command_output') {
             const commands = test.commands || (test.command ? [test.command] : []);
             let stdout = '';
+            let stderr = '';
+            let exitCode = 0;
             for (const cmd of commands) {
                 const result = sim.executeLine(cmd);
                 stdout += result.stdout;
+                stderr += result.stderr;
+                exitCode = result.exitCode;
             }
-            const cmp = compareOutput(stdout, test.expected_output);
+            const cmp = compareOutput(stdout, test.expected_output ?? '');
+            if (!cmp.match) {
+                return {
+                    testNumber,
+                    name,
+                    description: test.description || '',
+                    passed: false,
+                    message: `✗ Output mismatch.\n${cmp.message || ''}`,
+                };
+            }
+            if (test.expected_stderr !== undefined) {
+                const stderrCmp = compareOutput(stderr, test.expected_stderr);
+                if (!stderrCmp.match) {
+                    return {
+                        testNumber,
+                        name,
+                        description: test.description || '',
+                        passed: false,
+                        message: `✗ Stderr mismatch.\n${stderrCmp.message || ''}`,
+                    };
+                }
+            }
+            if (test.expected_exit_code !== undefined && exitCode !== test.expected_exit_code) {
+                return {
+                    testNumber,
+                    name,
+                    description: test.description || '',
+                    passed: false,
+                    message: `✗ Wrong exit code.\nExpected: ${test.expected_exit_code}\nActual: ${exitCode}`,
+                };
+            }
             return {
                 testNumber,
                 name,
                 description: test.description || '',
-                passed: cmp.match,
-                message: cmp.match ? '✓ Correct!' : `✗ Output mismatch.\n${cmp.message || ''}`,
+                passed: true,
+                message: '✓ Correct!',
             };
         }
 
@@ -100,6 +134,27 @@ function runSingleTest(sim, test, testNumber) {
                             message: `✗ Failed at command: ${step.command}\n${cmp.message || ''}`,
                         };
                     }
+                }
+                if (step.expected_stderr !== undefined) {
+                    const stderrCmp = compareOutput(result.stderr, step.expected_stderr);
+                    if (!stderrCmp.match) {
+                        return {
+                            testNumber,
+                            name,
+                            description: test.description || '',
+                            passed: false,
+                            message: `✗ Stderr failed at command: ${step.command}\n${stderrCmp.message || ''}`,
+                        };
+                    }
+                }
+                if (step.expected_exit_code !== undefined && result.exitCode !== step.expected_exit_code) {
+                    return {
+                        testNumber,
+                        name,
+                        description: test.description || '',
+                        passed: false,
+                        message: `✗ Wrong exit code at command: ${step.command}\nExpected: ${step.expected_exit_code}\nActual: ${result.exitCode}`,
+                    };
                 }
                 if (step.expected_cwd !== undefined && sim.getCwd() !== step.expected_cwd) {
                     return {
@@ -159,6 +214,9 @@ function runAllTests(simulator) {
 
     for (let i = 0; i < currentTests.length; i++) {
         const testSim = createTestSimulator(snapshot.filesystem, snapshot.cwd);
+        if (snapshot.currentUser) {
+            testSim.vfs.setCurrentUser(snapshot.currentUser);
+        }
         const result = runSingleTest(testSim, currentTests[i], i + 1);
         results.push(result);
         if (!result.passed) allPassed = false;

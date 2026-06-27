@@ -1,0 +1,19 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      notes.txt:
+        type: file
+        content: "my memo\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - whoami
+
+tests:
+  - name: "whoami prints user"
+    description: "Confirm the current username"
+    type: command_output
+    command: whoami
+    expected_output: "user\n"

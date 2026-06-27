@@ -1,0 +1,29 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "01"
+  id: "02_file_manage/01_mkdir_touch"
+  title: "作成コマンド"
+
+description: "mkdir と touch を使って、ディレクトリと空ファイルを作成します。"
+
+task_description: |
+  <p>ターミナルで次の操作を行い、ファイルとフォルダを新しく作ってみましょう。</p>
+  <ul>
+    <li><code>project</code> ディレクトリを作成する</li>
+    <li><code>project/src</code> を <code>mkdir -p</code> で一度に作成する</li>
+    <li><code>memo.txt</code> という空ファイルを作成する</li>
+  </ul>
+
+instructions:
+  - "<code>pwd</code> で <code>/home/user</code> にいることを確認します"
+  - "<code>mkdir project</code> で project フォルダを作ります"
+  - "<code>mkdir -p project/src</code> で src フォルダを作ります（project はすでにあるので src だけ追加されます）"
+  - "<code>touch memo.txt</code> で空ファイルを作ります"
+  - "<code>ls</code> で memo.txt と project が表示されることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "コマンドのあとに Enter キーを押します"
+  - "Tab キーでコマンド名やパスを補完できます"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

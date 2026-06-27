@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 05-01: Reading rwx Permissions</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Reading rwx Permissions</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Review of Chapter 4</h2>
+<p>Chapter 4 covered <strong>whose</strong> file something is (owner and group). Chapter 5 covers <strong>what is allowed</strong> — <strong>permissions</strong>.</p>
+
+<h2>Three Operations: r, w, x</h2>
+<p>Linux file permissions combine three letters:</p>
+<ul>
+  <li><strong>r</strong> (read) — read the file (<code>cat</code>, etc.)</li>
+  <li><strong>w</strong> (write) — change the file (<code>touch</code>, <code>rm</code>, etc.)</li>
+  <li><strong>x</strong> (execute) — run a file; for directories, enter it (<code>cd</code>)</li>
+</ul>
+<p>Without permission, you get <strong>Permission denied</strong>.</p>
+
+<h2>Permission String in <code>ls -l</code></h2>
+<p>Column 1 of <code>ls -l</code> is a 10-character permission string:</p>
+<pre><code>-rw-r--r-- 1 user user   12 Jan  1 10:00 notes.txt
+drwxr-xr-x 2 user user 4096 Jan  1 10:00 bin</code></pre>
+<ul>
+  <li><strong>Char 1</strong> — type (<code>-</code> file, <code>d</code> directory)</li>
+  <li><strong>Chars 2–4</strong> — owner's rwx</li>
+  <li><strong>Chars 5–7</strong> — group's rwx</li>
+  <li><strong>Chars 8–10</strong> — others' rwx</li>
+</ul>
+<p><code>-</code> means that permission is off. <code>rw-</code> means read and write, not execute.</p>
+
+<h2>Examples</h2>
+<pre><code>-rw-r--r--  … owner: read+write / group: read only / others: read only
+-rwxr-xr-x  … owner: all / group: read+execute / others: read+execute
+drwx------  … directory; only owner can read, write, and enter</code></pre>
+
+<h2>Next Step</h2>
+<p>Run <code>ls -l</code> on the exercise page and read each permission string!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

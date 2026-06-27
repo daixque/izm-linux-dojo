@@ -1,0 +1,35 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      app.log:
+        type: file
+        content: '2024-01-01 INFO Server started
+
+          2024-01-01 INFO Listening on port 8080
+
+          2024-01-02 WARN Low memory
+
+          2024-01-02 ERROR Connection failed
+
+          2024-01-03 INFO User login
+
+          2024-01-03 ERROR Disk full
+
+          2024-01-04 INFO Shutdown
+
+          '
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "grep ERROR < app.log"
+
+tests:
+  - name: "ERROR lines via input redirect"
+    description: "Output of grep < app.log"
+    type: command_output
+    command: "grep ERROR < app.log"
+    expected_output: |
+      2024-01-02 ERROR Connection failed
+      2024-01-03 ERROR Disk full

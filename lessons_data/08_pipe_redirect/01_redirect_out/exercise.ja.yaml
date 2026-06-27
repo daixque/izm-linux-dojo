@@ -1,0 +1,20 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "01"
+  id: "08_pipe_redirect/01_redirect_out"
+  title: "出力リダイレクト"
+
+description: "ls の結果をファイルにリダイレクトします。"
+
+task_description: |
+  <p><code>ls</code> の出力を <code>filelist.txt</code> に保存し、内容を確認しましょう。</p>
+
+instructions:
+  - "<code>ls &gt; filelist.txt</code> を実行します"
+  - "<code>cat filelist.txt</code> で保存された内容を確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>&gt;</code> の前後にスペースを入れます"
+  - "リダイレクト後は画面に何も表示されないのが正常です"

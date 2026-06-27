@@ -1,0 +1,27 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - curl https://dojo.example/api/status
+  - curl -o status.json https://dojo.example/api/status
+  - cat status.json
+
+tests:
+  - name: "status API の JSON が表示される"
+    description: "curl status endpoint"
+    type: command_output
+    command: curl https://dojo.example/api/status
+    expected_output: "{\"status\":\"ok\",\"uptime\":\"24h\"}\n"
+
+  - name: "status.json が正しく保存される"
+    description: "curl -o and cat"
+    type: command_sequence
+    steps:
+      - command: curl -o status.json https://dojo.example/api/status
+        expected_output: ""
+      - command: cat status.json
+        expected_output: "{\"status\":\"ok\",\"uptime\":\"24h\"}\n"

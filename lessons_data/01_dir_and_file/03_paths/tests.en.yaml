@@ -1,0 +1,63 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: "Welcome to IZM Linux Dojo!\n"
+      notes.txt:
+        type: file
+        content: "memo\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cd documents
+  - pwd
+  - cd ..
+  - cd ~/documents
+  - cd /home/user
+
+tests:
+  - name: "cd documents with relative path"
+    description: "After cd documents, cwd should be /home/user/documents"
+    type: command_sequence
+    steps:
+      - command: cd documents
+        expected_cwd: /home/user/documents
+      - command: pwd
+        expected_output: "/home/user/documents\n"
+
+  - name: "cd .. moves up one level"
+    description: "From documents, cd .. returns to /home/user"
+    type: command_sequence
+    setup_commands:
+      - cd documents
+    steps:
+      - command: cd ..
+        expected_cwd: /home/user
+      - command: pwd
+        expected_output: "/home/user\n"
+
+  - name: "cd ~/documents resolves home path"
+    description: "cd ~/documents should reach /home/user/documents"
+    type: command_sequence
+    steps:
+      - command: cd ~/documents
+        expected_cwd: /home/user/documents
+      - command: pwd
+        expected_output: "/home/user/documents\n"
+
+  - name: "cd /home/user with absolute path"
+    description: "Absolute path cd returns to home"
+    type: command_sequence
+    setup_commands:
+      - cd documents
+    steps:
+      - command: cd /home/user
+        expected_cwd: /home/user
+      - command: pwd
+        expected_output: "/home/user\n"

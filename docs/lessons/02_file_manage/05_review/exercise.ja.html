@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演習課題 - レッスン 02-05: ファイル操作の総復習</title>
+    <link rel="stylesheet" href="../../../lib/css/exercise.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">📝 レッスン 02-05: ファイル操作の総復習</h1>
+            <div class="header-right">
+                <div class="status">
+                    <span id="status">準備中...</span>
+                </div>
+                <div id="language-switcher">
+                        <a href="exercise.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="task-panel">
+                <div class="task-header">
+                    <h2>課題</h2>
+                    <span class="task-toggle">◀</span>
+                </div>
+                <div class="task-content">
+                    <div class="task-description">
+                        <h3>📋 課題内容</h3>
+                        <p>散らかったホームディレクトリを整理しましょう。次の操作を順番に行います。</p>
+<ol>
+  <li><code>work/archive</code> フォルダを <code>mkdir -p</code> で作成</li>
+  <li><code>notes.txt</code> を <code>work/</code> にコピー</li>
+  <li><code>draft.txt</code> を <code>work/archive/</code> に移動</li>
+  <li><code>trash/old.txt</code> を削除し、空になった <code>trash</code> フォルダも削除</li>
+</ol>
+
+                    </div>
+                    <div class="instructions">
+                        <h4>✏️ やること</h4>
+                        <ul>
+                            <li><code>ls</code> で最初の状態（draft.txt, notes.txt, trash/, work/）を確認します</li>
+                            <li><code>mkdir -p work/archive</code> でアーカイブ用フォルダを作ります</li>
+                            <li><code>cp notes.txt work/</code> で notes.txt を work にコピーします</li>
+                            <li><code>mv draft.txt work/archive/</code> で draft.txt を移動します</li>
+                            <li><code>rm trash/old.txt</code> で不要ファイルを削除します</li>
+                            <li><code>rmdir trash</code> で空の trash フォルダを削除します</li>
+                            <li><code>ls work</code> と <code>ls work/archive</code> で結果を確認します</li>
+                            <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
+                        </ul>
+                    </div>
+                    <div class="hints">
+                        <h4 class="hints-toggle">
+                            <span class="hints-icon">▶</span>
+                            💡 ヒント
+                        </h4>
+                        <ul class="hints-content" style="display: none;">
+                            <li>各ステップのあとに <code>ls</code> で確認すると安心です</li>
+                            <li><code>cp</code> 後も元の notes.txt はホームに残ります</li>
+                            <li>うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="code-panel">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-label">💻 ターミナル</span>
+                        <div class="button-group">
+                            <button id="btn-test" class="btn btn-success" disabled>✓ テスト</button>
+                            <button id="btn-reset" class="btn btn-secondary">🔄 リセット</button>
+                            <button id="btn-solution" class="btn btn-warning">💡 解答を見る</button>
+                            <button id="btn-clear" class="btn btn-small">クリア</button>
+                        </div>
+                    </div>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+
+            <aside id="file-explorer" class="file-explorer">
+                <div class="file-explorer-header">
+                    <span class="file-explorer-icon">📁</span>
+                    <span class="file-explorer-label">ファイル</span>
+                    <span class="file-explorer-toggle">◀</span>
+                </div>
+                <div class="file-explorer-body">
+                    <div id="file-tree" class="file-tree"></div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-nav">
+                <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+                <a href="learn.ja.html" class="btn btn-link">📚 説明に戻る</a>
+            </div>
+            <div class="footer-next">
+                <a href="../../03_view_text/01_cat/learn.ja.html" class="btn btn-primary">次のレッスンへ →<br><small>cat で表示</small></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="test-results-overlay" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 16px; z-index: 1000;">
+        <div class="test-results-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="margin: 0;">テスト結果</h3>
+                <button id="btn-close-results" class="btn btn-small">閉じる</button>
+            </div>
+            <div id="test-results"></div>
+            <div style="margin-top: 16px; text-align: right;">
+                <a href="../../../index.html" class="btn btn-link">目次に戻る</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit@0.10.0/lib/addon-fit.min.js"></script>
+
+    <script src="../../../lib/js/i18n.js"></script>
+    <script src="../../../lib/js/progress.js"></script>
+    <script src="../../../lib/js/shell/vfs.js"></script>
+    <script src="../../../lib/js/shell/commands.js"></script>
+    <script src="../../../lib/js/shell/completion.js"></script>
+    <script src="../../../lib/js/shell/simulator.js"></script>
+    <script src="../../../lib/js/terminal.js"></script>
+    <script src="../../../lib/js/tester.js"></script>
+    <script src="../../../lib/js/fileviewer.js"></script>
+    <script src="../../../lib/js/exercise-common.js"></script>
+
+    <script>
+        const LESSON_ID = "02_file_manage/05_review";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"draft.txt": {"content": "draft version\n", "type": "file"}, "notes.txt": {"content": "important notes\n", "type": "file"}, "trash": {"children": {"old.txt": {"content": "delete me\n", "type": "file"}}, "type": "directory"}, "work": {"children": {}, "type": "directory"}}, "type": "directory"}};
+        const INITIAL_CWD = "/home/user";
+        const TESTS = [{"command": "ls work", "description": "mkdir -p \u3068 cp \u306e\u7d50\u679c\u3092\u78ba\u8a8d", "expected_output": "archive\nnotes.txt\n", "name": "work \u306b archive \u3068 notes.txt \u304c\u3042\u308b", "type": "command_output"}, {"command": "ls work/archive", "description": "mv \u306e\u7d50\u679c\u3092\u78ba\u8a8d", "expected_output": "draft.txt\n", "name": "work/archive \u306b draft.txt \u304c\u3042\u308b", "type": "command_output"}, {"command": "ls", "description": "rm \u3068 rmdir \u306e\u7d50\u679c\u3092\u78ba\u8a8d", "expected_output": "notes.txt\nwork\n", "name": "trash \u30d5\u30a9\u30eb\u30c0\u304c\u524a\u9664\u3055\u308c\u3066\u3044\u308b", "type": "command_output"}, {"description": "\u30d5\u30a1\u30a4\u30eb\u5185\u5bb9\u304c\u4fdd\u305f\u308c\u3066\u3044\u308b\u304b", "name": "\u30b3\u30d4\u30fc\u3068\u79fb\u52d5\u306e\u5185\u5bb9\u304c\u6b63\u3057\u3044", "steps": [{"command": "cat work/notes.txt", "expected_output": "important notes\n"}, {"command": "cat work/archive/draft.txt", "expected_output": "draft version\n"}, {"command": "pwd", "expected_cwd": "/home/user", "expected_output": "/home/user\n"}], "type": "command_sequence"}];
+        const SOLUTION_COMMANDS = ["mkdir -p work/archive", "cp notes.txt work/", "mv draft.txt work/archive/", "rm trash/old.txt", "rmdir trash"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.i18n) window.i18n.init();
+            setupButtons();
+            initializeExercise({
+                initialFilesystem: INITIAL_FILESYSTEM,
+                initialCwd: INITIAL_CWD,
+                tests: TESTS,
+                solutionCommands: SOLUTION_COMMANDS,
+            });
+        });
+    </script>
+</body>
+</html>

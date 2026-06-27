@@ -1,0 +1,32 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "04"
+  id: "09_shell_basics/04_env"
+  title: "環境変数"
+
+content: |
+  <h2>シェルが覚えている値</h2>
+  <p><strong>環境変数</strong>は、シェルやプログラムが参照できる「名前付きの値」です。たとえば、ホームディレクトリの場所やユーザー名が環境変数として保持されています。</p>
+  
+  <h2><code>echo</code> で表示</h2>
+  <p><code>echo</code> は文字列を表示するコマンドです。環境変数は <code>$</code> を付けて参照します。</p>
+  <pre><code>$ echo $HOME
+  /home/user
+  
+  $ echo $USER
+  user</code></pre>
+  
+  <h2>主な環境変数</h2>
+  <table>
+    <tr><th>変数</th><th>意味</th></tr>
+    <tr><td><code>$HOME</code></td><td>ホームディレクトリのパス</td></tr>
+    <tr><td><code>$USER</code></td><td>ログイン中のユーザー名</td></tr>
+    <tr><td><code>$PATH</code></td><td>コマンドを探すディレクトリの一覧</td></tr>
+  </table>
+  
+  <h2>なぜ知っておくか</h2>
+  <p>スクリプトや設定ファイルで <code>$HOME</code> が使われることがあります。「自分のホームはどこか」を環境変数で確認できます。</p>
+  
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>echo $HOME</code> と <code>echo $USER</code> を試してみましょう！</p>

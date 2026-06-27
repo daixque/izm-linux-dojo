@@ -1,0 +1,38 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      essay.txt:
+        type: file
+        content: |
+          Linux is useful.
+          Commands are fun.
+          Keep learning.
+
+initial_cwd: /home/user
+
+solution_commands:
+  - wc -l essay.txt
+  - wc -w essay.txt
+
+tests:
+  - name: "行数が 3 である"
+    description: "wc -l の出力を確認"
+    type: command_output
+    command: wc -l essay.txt
+    expected_output: "3 essay.txt\n"
+
+  - name: "語数が 8 である"
+    description: "wc -w の出力を確認"
+    type: command_output
+    command: wc -w essay.txt
+    expected_output: "8 essay.txt\n"
+
+  - name: "wc -l と wc -w の連続実行"
+    description: "両方のカウントが正しいか"
+    type: command_sequence
+    steps:
+      - command: wc -l essay.txt
+        expected_output: "3 essay.txt\n"
+      - command: wc -w essay.txt
+        expected_output: "8 essay.txt\n"

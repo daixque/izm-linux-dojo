@@ -1,0 +1,22 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "01"
+  id: "06_root_sudo/01_root"
+  title: "root ユーザー"
+
+description: "ls -l で root オーナーのシステムファイルを確認します。"
+
+task_description: |
+  <p><code>system</code> ディレクトリで <code>ls -l</code> を実行し、root がオーナーの <code>hosts</code> ファイルを確認しましょう。</p>
+
+instructions:
+  - "<code>cd system</code> に移動します"
+  - "<code>ls -l</code> でファイル一覧を表示します"
+  - "<code>hosts</code> のオーナーが <code>root</code> であることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "root は管理者ユーザーです"
+  - "3列目（オーナー）が <code>root</code> のファイルはシステムファイルです"
+  - "普通のユーザーは root のファイルを変更できません"

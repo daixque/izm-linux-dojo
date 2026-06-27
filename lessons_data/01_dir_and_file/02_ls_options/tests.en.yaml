@@ -1,0 +1,34 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      .config:
+        type: file
+        content: "app_name=dojo\n"
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: "Welcome to IZM Linux Dojo!\n"
+      notes.txt:
+        type: file
+        content: "memo\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - ls -a
+
+tests:
+  - name: "ls -a shows .config"
+    description: "Check ls -a output includes hidden file .config"
+    type: command_output
+    command: ls -a
+    expected_output: ".\n..\n.config\ndocuments\nnotes.txt\n"
+
+  - name: "plain ls hides .config"
+    description: "Check that plain ls excludes hidden files"
+    type: command_output
+    command: ls
+    expected_output: "documents\nnotes.txt\n"

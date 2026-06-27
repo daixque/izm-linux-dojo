@@ -1,0 +1,45 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      report.txt:
+        type: file
+        content: "monthly report\n"
+        owner: user
+        group: user
+        mode: 666
+      tools:
+        type: directory
+        owner: user
+        group: user
+        mode: 700
+        children:
+          helper.txt:
+            type: file
+            content: "tool config\n"
+            owner: user
+            group: user
+
+initial_cwd: /home/user
+
+solution_commands:
+  - chmod 644 report.txt
+  - chmod 755 tools
+  - ls -l
+
+tests:
+  - name: "report.txt is 644"
+    description: "confirm rw-r--r--"
+    type: command_output
+    setup_commands:
+      - chmod 644 report.txt
+    command: ls -l report.txt
+    expected_output: "-rw-r--r-- 1 user user   15 Jan  1 10:00 report.txt\n"
+
+  - name: "tools is 755"
+    description: "confirm rwxr-xr-x on the directory"
+    type: command_output
+    setup_commands:
+      - chmod 755 tools
+    command: ls -ld tools
+    expected_output: "drwxr-xr-x 2 user user 4096 Jan  1 10:00 tools\n"

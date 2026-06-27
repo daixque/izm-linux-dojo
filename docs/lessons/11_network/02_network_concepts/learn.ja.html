@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 11-02: ネットワークの概念</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">ネットワークの概念</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>ネットワークコマンドの世界</h2>
+<p>Linux には、ネットワーク関連の便利なコマンドがたくさんあります。ここでは<strong>概念</strong>を押さえ、道場で実行できないものは「名前と役割」だけ覚えましょう。</p>
+
+<h2><code>wget</code> — ファイルをダウンロード</h2>
+<p><code>curl</code> と似ていますが、<strong>ファイルのダウンロード</strong>に特化したイメージです。URL を指定してファイルを保存します。道場では <code>curl -o</code> で同様の操作を学びました。</p>
+
+<h2><code>ping</code> — 接続確認</h2>
+<p>指定したサーバーに「届きますか？」と問い合わせ、応答時間を表示します。ネットワークの疎通確認に使います。道場では実際のネットワーク通信は行いません。</p>
+
+<h2><code>ssh</code> — リモートログイン</h2>
+<p>別のコンピューターに安全にログインして、ターミナル操作を行うコマンドです。サーバー管理でよく使われますが、設定や鍵が必要なため、道場の対象外です。</p>
+
+<h2><code>curl</code> の復習</h2>
+<p>第11章で学んだ <code>curl</code> は、HTTP でデータを取得する基本ツールです。</p>
+<ul>
+  <li><code>curl URL</code> — レスポンスを表示</li>
+  <li><code>curl -o ファイル URL</code> — ファイルに保存</li>
+</ul>
+<p>道場の模擬 URL：<code>https://dojo.example/api/hello</code>、<code>https://dojo.example/data/info.txt</code></p>
+
+<h2>次のステップ</h2>
+<p>演習では <code>curl</code> の復習問題に取り組み、第12章の総合演習へ進む準備をします。</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+lesson:
+  chapter: "11_network"
+  chapter_number: "11"
+  number: "01"
+  id: "11_network/01_curl"
+  title: "Fetching Web Data with curl"
+
+content: |
+  <h2>Networks and HTTP</h2>
+  <p>When you fetch data from websites or APIs on the Internet, communication usually follows <strong>HTTP</strong>. Your browser also uses HTTP behind the scenes to load pages.</p>
+  <p><strong>curl</strong> is a common terminal command for fetching web data. In the dojo, no real network connection is made — <strong>fixed mock responses</strong> are returned instead.</p>
+
+  <h2><code>curl URL</code> — Print the Response</h2>
+  <pre><code>$ curl https://dojo.example/api/hello
+  {"message":"Hello from Dojo API"}</code></pre>
+  <p>Specify a URL and the response body is printed in the terminal.</p>
+
+  <h2><code>curl -o file URL</code> — Save to a File</h2>
+  <p>The <code>-o</code> option saves the response to a file — useful together with file operations from Chapter 2.</p>
+  <pre><code>$ curl -o info.txt https://dojo.example/data/info.txt
+  $ cat info.txt
+  IZM Linux Dojo
+  Version 1.0</code></pre>
+
+  <h2>URLs Available in the Dojo</h2>
+  <ul>
+    <li><code>https://dojo.example/api/hello</code> — greeting JSON</li>
+    <li><code>https://dojo.example/data/info.txt</code> — text info</li>
+    <li><code>https://dojo.example/api/status</code> — status JSON</li>
+  </ul>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, fetch mock API data with curl and save it to a file.</p>

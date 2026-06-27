@@ -1,0 +1,36 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "03"
+  id: "02_file_manage/03_mv"
+  title: "Moving and Renaming"
+
+content: |
+  <h2>Move and Rename</h2>
+  <p><code>mv</code> (move) moves a file or directory to a new location — like Cut and Paste in a GUI.</p>
+  <p>It also works for <strong>renaming</strong> when source and destination are in the same folder.</p>
+
+  <h2>Rename a File</h2>
+  <pre><code>$ mv old_name.txt new_name.txt
+  $ ls
+  new_name.txt</code></pre>
+  <p>The filename changes from <code>old_name.txt</code> to <code>new_name.txt</code> in the same directory.</p>
+
+  <h2>Move to Another Folder</h2>
+  <pre><code>$ mv new_name.txt archive/
+  $ ls archive
+  new_name.txt</code></pre>
+  <p>The file moves into <code>archive</code> and disappears from its original location.</p>
+
+  <h2>Move and Rename at Once</h2>
+  <pre><code>$ mv draft.txt archive/final.txt</code></pre>
+  <p><code>draft.txt</code> becomes <code>archive/final.txt</code> in one step.</p>
+
+  <h2><code>cp</code> vs <code>mv</code></h2>
+  <ul>
+    <li><code>cp</code> — keeps the original and creates a copy</li>
+    <li><code>mv</code> — removes the item from the old location</li>
+  </ul>
+
+  <h2>Next Step</h2>
+  <p>Try renaming a file and moving it into another folder on the exercise page!</p>

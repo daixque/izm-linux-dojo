@@ -1,0 +1,21 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "05"
+  id: "08_pipe_redirect/05_review"
+  title: "検索・パイプの総復習"
+
+description: "grep・パイプ・リダイレクトの総合課題です。"
+
+task_description: |
+  <p>ログから ERROR 行を抽出し件数をファイルに保存する一連の操作を行いましょう。</p>
+
+instructions:
+  - "<code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code> を実行します"
+  - "<code>cat error_count.txt</code> で件数（2）を確認します"
+  - "<code>grep ERROR app.log &gt; errors.txt</code> も実行して ERROR 行を保存します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "パイプとリダイレクトは組み合わせて使えます"
+  - "最後に <code>cat</code> で結果ファイルを確認しましょう"

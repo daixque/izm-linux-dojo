@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 06-04: 特権操作の実践</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">特権操作の実践</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>第4〜6章の総まとめ</h2>
+<p>この章までで、ユーザー・オーナーシップ・権限・root・sudo を学びました。実際の現場では、これらを<strong>組み合わせて</strong>使います。</p>
+
+<h2>共有フォルダの整備シナリオ</h2>
+<p>たとえば、管理者が <code>/shared</code> という共有フォルダを整備する場面を想像してください。</p>
+<ol>
+  <li>フォルダのオーナーを利用者 <code>user</code> に変更（<code>sudo chown</code>）</li>
+  <li>メンバー全員が読めるように権限を設定（<code>sudo chmod</code>）</li>
+  <li><code>ls -l</code> で結果を確認</li>
+</ol>
+<pre><code>$ sudo chown user:staff /shared/data.txt
+$ sudo chmod 664 /shared/data.txt
+$ ls -l /shared/data.txt
+-rw-rw-r-- 1 user staff  ... data.txt</code></pre>
+
+<h2>大切な心構え</h2>
+<ul>
+  <li>sudo は「最後の手段」 — まず普通の方法でできるか考える</li>
+  <li>変更前後で <code>ls -l</code> を確認する</li>
+  <li>権限は<strong>必要最小限</strong>に — 広げすぎない</li>
+</ul>
+
+<h2>次のステップ</h2>
+<p>演習ページで、共有ファイルのオーナーと権限を sudo で設定する総合課題に挑戦しましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

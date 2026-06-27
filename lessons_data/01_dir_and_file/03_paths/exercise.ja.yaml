@@ -1,0 +1,24 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "03"
+  id: "01_dir_and_file/03_paths"
+  title: "パスの理解"
+
+description: "絶対パス・相対パス・~ を使って cd し、pwd で現在地を確認します。"
+
+task_description: |
+  <p>指定されたパスへ <code>cd</code> で移動し、<code>pwd</code> で正しい場所に着いたか確認しましょう。</p>
+
+instructions:
+  - "<code>cd documents</code> で相対パスを使って documents に移動します"
+  - "<code>pwd</code> で <code>/home/user/documents</code> であることを確認します"
+  - "<code>cd ..</code> で一つ上（/home/user）に戻ります"
+  - "<code>cd ~/documents</code> で ~ を使ったパスで documents に移動します"
+  - "<code>cd /home/user</code> で絶対パスを使ってホームに戻ります"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>pwd</code> は移動のたびに使うと安心です"
+  - "<code>~</code> は /home/user の省略形です"
+  - "<code>cd ..</code> は一つ上のディレクトリへ戻ります"

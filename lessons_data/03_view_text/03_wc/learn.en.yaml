@@ -1,0 +1,33 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "03"
+  id: "03_view_text/03_wc"
+  title: "Line and Word Counts"
+
+content: |
+  <h2>Counting File Contents</h2>
+  <p>Sometimes you need to know how much text a file contains — how many lines, words, or bytes. This helps when checking report length or log growth.</p>
+  <p>On Linux you use <code>wc</code> (word count).</p>
+
+  <h2><code>wc -l</code> — Count Lines</h2>
+  <p>The <code>-l</code> option (lines) counts how many lines the file has.</p>
+  <pre><code>$ wc -l essay.txt
+  3 essay.txt</code></pre>
+  <p>Each line separated by a newline counts as one line.</p>
+
+  <h2><code>wc -w</code> — Count Words</h2>
+  <p>The <code>-w</code> option (words) counts words separated by whitespace.</p>
+  <pre><code>$ wc -w essay.txt
+  8 essay.txt</code></pre>
+
+  <h2><code>wc -c</code> — Count Bytes</h2>
+  <p>The <code>-c</code> option (bytes) counts the file size in bytes. For mostly English text, this is roughly the character count.</p>
+  <pre><code>$ wc -c essay.txt
+  52 essay.txt</code></pre>
+
+  <h2><code>wc</code> Without Options</h2>
+  <p>With no options, <code>wc</code> shows lines, words, and bytes together (advanced). This dojo focuses on <code>-l</code>, <code>-w</code>, and <code>-c</code>.</p>
+
+  <h2>Next Step</h2>
+  <p>Use <code>wc -l</code> on the exercise page to count lines in a file!</p>

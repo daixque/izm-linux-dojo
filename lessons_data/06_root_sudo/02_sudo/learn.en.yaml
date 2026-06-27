@@ -1,0 +1,30 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "02"
+  id: "06_root_sudo/02_sudo"
+  title: "What Is sudo?"
+
+content: |
+  <h2>Borrowing root Power Temporarily</h2>
+  <p>Normal users cannot access root-only areas like <code>/root</code>. Sometimes admin-level work is still needed.</p>
+  <p><code>sudo</code> ("superuser do") runs a command <strong>as root for one shot</strong>. Real Linux asks for a password; this dojo simulates it without a password.</p>
+
+  <h2>Usage</h2>
+  <pre><code>$ ls /root
+  ls: cannot open directory '/root': Permission denied
+
+  $ sudo ls /root
+  secret.txt
+  backup/</code></pre>
+  <p>Put a normal command after <code>sudo</code>. Only that command runs as root; then you return to your normal user.</p>
+
+  <h2>Cautions</h2>
+  <ul>
+    <li>Use it <strong>only when needed</strong> — daily file work does not need sudo</li>
+    <li>Mistakes on system files can affect the whole machine</li>
+    <li>On macOS, the admin password prompt is similar to sudo</li>
+  </ul>
+
+  <h2>Next Step</h2>
+  <p>Try <code>sudo ls /root</code> on the exercise page to list a directory you normally cannot see!</p>

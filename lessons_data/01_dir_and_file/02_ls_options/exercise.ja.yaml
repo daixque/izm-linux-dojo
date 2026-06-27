@@ -1,0 +1,22 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "02"
+  id: "01_dir_and_file/02_ls_options"
+  title: "ls のオプション"
+
+description: "ls -a を使って隠しファイル .config を含む一覧を表示します。"
+
+task_description: |
+  <p><code>ls -a</code> コマンドを実行し、隠しファイル <code>.config</code> が表示されることを確認しましょう。</p>
+
+instructions:
+  - "<code>pwd</code> で現在地を確認します（<code>/home/user</code> のはず）"
+  - "通常の <code>ls</code> を実行し、<code>.config</code> が表示されないことを確認します"
+  - "<code>ls -a</code> を実行し、<code>.config</code> が表示されることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>ls</code> と <code>-a</code> の間にスペースを入れます（<code>ls -a</code>）"
+  - "隠しファイルは名前が <code>.</code> で始まります"
+  - "Tab キーで <code>ls</code> まで補完できます"

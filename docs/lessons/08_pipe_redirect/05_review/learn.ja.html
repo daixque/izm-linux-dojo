@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 08-05: 検索・パイプの総復習</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">検索・パイプの総復習</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>第7–8章のまとめ</h2>
+<p>検索とデータの流れを制御するコマンドを振り返りましょう。</p>
+
+<h3>第7章 — 検索</h3>
+<table>
+  <tr><th>コマンド</th><th>意味</th></tr>
+  <tr><td><code>grep パターン ファイル</code></td><td>テキストの中から行を検索</td></tr>
+  <tr><td><code>grep -i/-n/-v/-c</code></td><td>大文字小文字無視・行番号・反転・件数</td></tr>
+  <tr><td><code>find  dir -name パターン</code></td><td>ファイル名で再帰検索</td></tr>
+  <tr><td><code>ls *.txt</code></td><td>ワイルドカードでファイル名を指定</td></tr>
+</table>
+
+<h3>第8章 — パイプとリダイレクト</h3>
+<table>
+  <tr><th>記号</th><th>意味</th></tr>
+  <tr><td><code>&gt;</code></td><td>出力をファイルに書き込む（上書き）</td></tr>
+  <tr><td><code>&gt;&gt;</code></td><td>出力をファイルに追記</td></tr>
+  <tr><td><code>&lt;</code></td><td>ファイルを入力として渡す</td></tr>
+  <tr><td><code>|</code></td><td>コマンドの出力を次のコマンドへ</td></tr>
+</table>
+
+<h2>次のステップ</h2>
+<p>演習ページで総合課題に挑戦しましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

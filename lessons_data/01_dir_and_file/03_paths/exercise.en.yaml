@@ -1,0 +1,24 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "03"
+  id: "01_dir_and_file/03_paths"
+  title: "Understanding Paths"
+
+description: "Use cd with absolute paths, relative paths, and ~, then verify with pwd."
+
+task_description: |
+  <p>Move to the given paths with <code>cd</code> and confirm your location with <code>pwd</code>.</p>
+
+instructions:
+  - "Run <code>cd documents</code> to move using a relative path"
+  - "Run <code>pwd</code> and confirm you are at <code>/home/user/documents</code>"
+  - "Run <code>cd ..</code> to go up one level to <code>/home/user</code>"
+  - "Run <code>cd ~/documents</code> to move using a ~ path"
+  - "Run <code>cd /home/user</code> to return home using an absolute path"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Run <code>pwd</code> after each move to stay oriented"
+  - "<code>~</code> is shorthand for <code>/home/user</code>"
+  - "<code>cd ..</code> moves up one directory level"

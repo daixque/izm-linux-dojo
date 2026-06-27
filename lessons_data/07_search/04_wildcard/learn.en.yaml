@@ -1,0 +1,30 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "04"
+  id: "07_search/04_wildcard"
+  title: "Wildcards"
+
+content: |
+  <h2>Filename Patterns</h2>
+  <p>The <code>*</code> in <code>find -name "*.txt"</code> is a <strong>wildcard</strong>. The shell expands wildcards into matching filenames <strong>before</strong> running the command.</p>
+  
+  <h2>Common Wildcards</h2>
+  <table>
+    <tr><th>Symbol</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td><code>*</code></td><td>Any string (0 or more chars)</td><td><code>*.txt</code></td></tr>
+    <tr><td><code>?</code></td><td>Any single character</td><td><code>file?.txt</code></td></tr>
+  </table>
+  
+  <h2>Example: <code>ls *.txt</code></h2>
+  <pre><code>$ ls *.txt
+  notes.txt  readme.txt</code></pre>
+  
+  <h2>Wildcards vs find</h2>
+  <ul>
+    <li><strong>Wildcards</strong> — expanded by the shell (usually one directory level)</li>
+    <li><strong>find</strong> — recursive search through subdirectories</li>
+  </ul>
+  
+  <h2>Next Step</h2>
+  <p>Try <code>ls *.txt</code> on the exercise page!</p>

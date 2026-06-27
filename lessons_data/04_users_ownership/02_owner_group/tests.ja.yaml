@@ -1,0 +1,37 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      memo.txt:
+        type: file
+        content: "my memo\n"
+        owner: user
+        group: user
+      documents:
+        type: directory
+        owner: user
+        group: user
+        children:
+          readme.txt:
+            type: file
+            content: "hello\n"
+            owner: user
+            group: user
+
+initial_cwd: /home/user
+
+solution_commands:
+  - ls -l
+
+tests:
+  - name: "ls -l で memo.txt のオーナーが user"
+    description: "ls -l の出力に user オーナーの memo.txt が含まれる"
+    type: command_output
+    command: ls -l memo.txt
+    expected_output: "-rw-r--r-- 1 user user    8 Jan  1 10:00 memo.txt\n"
+
+  - name: "documents のオーナーも user"
+    description: "ディレクトリの ls -l を確認"
+    type: command_output
+    command: ls -l documents
+    expected_output: "-rw-r--r-- 1 user user    6 Jan  1 10:00 readme.txt\n"

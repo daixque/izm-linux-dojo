@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Lesson 08-03: Pipes</title>
+    <link rel="stylesheet" href="../../../lib/css/exercise.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">📝 Lesson 08-03: Pipes</h1>
+            <div class="header-right">
+                <div class="status">
+                    <span id="status">Loading...</span>
+                </div>
+                <div id="language-switcher">
+                        <a href="exercise.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="task-panel">
+                <div class="task-header">
+                    <h2>Task</h2>
+                    <span class="task-toggle">◀</span>
+                </div>
+                <div class="task-content">
+                    <div class="task-description">
+                        <h3>📋 Task</h3>
+                        <p>Run <code>cat app.log | grep ERROR | wc -l</code> to count ERROR lines.</p>
+
+                    </div>
+                    <div class="instructions">
+                        <h4>✏️ Instructions</h4>
+                        <ul>
+                            <li>Run <code>cat app.log | grep ERROR</code> to filter ERROR lines</li>
+                            <li>Run <code>cat app.log | grep ERROR | wc -l</code> to count them</li>
+                            <li>Click the <strong>Test</strong> button when ready</li>
+                        </ul>
+                    </div>
+                    <div class="hints">
+                        <h4 class="hints-toggle">
+                            <span class="hints-icon">▶</span>
+                            💡 Hints
+                        </h4>
+                        <ul class="hints-content" style="display: none;">
+                            <li>Put spaces around <code>|</code></li>
+                            <li><code>wc -l</code> counts lines</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="code-panel">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-label">💻 Terminal</span>
+                        <div class="button-group">
+                            <button id="btn-test" class="btn btn-success" disabled>✓ Test</button>
+                            <button id="btn-reset" class="btn btn-secondary">🔄 Reset</button>
+                            <button id="btn-solution" class="btn btn-warning">💡 Show Solution</button>
+                            <button id="btn-clear" class="btn btn-small">Clear</button>
+                        </div>
+                    </div>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+
+            <aside id="file-explorer" class="file-explorer">
+                <div class="file-explorer-header">
+                    <span class="file-explorer-icon">📁</span>
+                    <span class="file-explorer-label">Files</span>
+                    <span class="file-explorer-toggle">◀</span>
+                </div>
+                <div class="file-explorer-body">
+                    <div id="file-tree" class="file-tree"></div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-nav">
+                <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+                <a href="learn.en.html" class="btn btn-link">📚 Back to Learn</a>
+            </div>
+            <div class="footer-next">
+                <a href="../04_combine/learn.en.html" class="btn btn-primary">Next Lesson →<br><small>Combining Commands</small></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="test-results-overlay" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 16px; z-index: 1000;">
+        <div class="test-results-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="margin: 0;">Test Results</h3>
+                <button id="btn-close-results" class="btn btn-small">Close</button>
+            </div>
+            <div id="test-results"></div>
+            <div style="margin-top: 16px; text-align: right;">
+                <a href="../../../index.html" class="btn btn-link">Back to Menu</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit@0.10.0/lib/addon-fit.min.js"></script>
+
+    <script src="../../../lib/js/i18n.js"></script>
+    <script src="../../../lib/js/progress.js"></script>
+    <script src="../../../lib/js/shell/vfs.js"></script>
+    <script src="../../../lib/js/shell/commands.js"></script>
+    <script src="../../../lib/js/shell/completion.js"></script>
+    <script src="../../../lib/js/shell/simulator.js"></script>
+    <script src="../../../lib/js/terminal.js"></script>
+    <script src="../../../lib/js/tester.js"></script>
+    <script src="../../../lib/js/fileviewer.js"></script>
+    <script src="../../../lib/js/exercise-common.js"></script>
+
+    <script>
+        const LESSON_ID = "08_pipe_redirect/03_pipe";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"app.log": {"content": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-02 ERROR Connection failed\n2024-01-03 INFO User login\n2024-01-03 ERROR Disk full\n2024-01-04 INFO Shutdown\n", "type": "file"}}, "type": "directory"}};
+        const INITIAL_CWD = "/home/user";
+        const TESTS = [{"command": "cat app.log | grep ERROR | wc -l", "description": "Pipe + wc -l result", "expected_output": "2\n", "name": "Two ERROR lines", "type": "command_output"}, {"command": "cat app.log | grep ERROR", "description": "cat | grep output", "expected_output": "2024-01-02 ERROR Connection failed\n2024-01-03 ERROR Disk full\n", "name": "Pipe through grep", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["cat app.log | grep ERROR | wc -l"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.i18n) window.i18n.init();
+            setupButtons();
+            initializeExercise({
+                initialFilesystem: INITIAL_FILESYSTEM,
+                initialCwd: INITIAL_CWD,
+                tests: TESTS,
+                solutionCommands: SOLUTION_COMMANDS,
+            });
+        });
+    </script>
+</body>
+</html>

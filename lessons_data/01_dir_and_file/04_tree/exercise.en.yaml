@@ -1,0 +1,23 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "04"
+  id: "01_dir_and_file/04_tree"
+  title: "Directory Structure"
+
+description: "cd to the app directory three levels deep and confirm with pwd."
+
+task_description: |
+  <p>Navigate to the deep directory <code>projects/web/app</code> and confirm your location with <code>pwd</code>.</p>
+
+instructions:
+  - "Run <code>pwd</code> to check your starting location (<code>/home/user</code>)"
+  - "Run <code>cd projects/web/app</code> to reach the app directory three levels down"
+  - "Run <code>pwd</code> and confirm you are at <code>/home/user/projects/web/app</code>"
+  - "Run <code>ls</code> and confirm <code>config.txt</code> is listed"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Join path segments with <code>/</code>, like <code>projects/web/app</code>"
+  - "You can also go step by step: <code>cd projects</code>, then <code>cd web</code>, then <code>cd app</code>"
+  - "Press Tab to complete directory names"

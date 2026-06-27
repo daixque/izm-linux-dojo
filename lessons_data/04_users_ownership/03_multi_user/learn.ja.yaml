@@ -1,0 +1,32 @@
+lesson:
+  chapter: "04_users_ownership"
+  chapter_number: "04"
+  number: "03"
+  id: "04_users_ownership/03_multi_user"
+  title: "複数ユーザーと共有"
+
+content: |
+  <h2>前のレッスンのおさらい</h2>
+  <p><code>ls -l</code> の 3 列目・4 列目から、ファイルの<strong>オーナー</strong>と<strong>グループ</strong>を読めるようになりました。今回は、1 台の PC に<strong>複数のユーザー</strong>がいる世界を想像してみます。</p>
+
+  <h2>1 台の PC を複数人で使う</h2>
+  <p>学校や研究室の Linux サーバーでは、たくさんのユーザーが同じコンピューターを共有します。それぞれにホームディレクトリがあり、基本的には<strong>自分のホームの中</strong>で作業します。</p>
+  <pre class="tree"><code>/home/
+  ├── user/       ← あなた（この道場の演習ユーザー）
+  ├── alice/      ← 別のユーザー alice の領域
+  └── bob/        ← 別のユーザー bob の領域</code></pre>
+  <p>macOS でも、家族で使う Mac ならユーザーごとに <code>/Users/名前</code> が分かれているのと同じ考え方です。</p>
+
+  <h2>他人のファイルが混在する</h2>
+  <p>共有フォルダなどでは、<strong>オーナーが違うファイル</strong>が同じ場所に並ぶことがあります。</p>
+  <pre><code>$ ls -l shared/
+  -rw-r--r-- 1 user  user  10 Jan  1 10:00 my_report.txt
+  -rw-r--r-- 1 alice alice 15 Jan  1 10:00 alice_notes.txt
+  -rw-r--r-- 1 bob   bob   12 Jan  1 10:00 bob_data.txt</code></pre>
+  <p><code>whoami</code> の結果（<code>user</code>）と <code>ls -l</code> のオーナー列を比べると、「これは<strong>自分の</strong>ファイルか、<strong>他人の</strong>ファイルか」が分かります。</p>
+
+  <h2>他人のファイルは触れないことが多い</h2>
+  <p>他人がオーナーのファイルは、読めない・書けない・消せない、ということがよくあります（第5章で詳しく）。まずは <code>ls -l</code> でオーナーを見分ける練習をしましょう。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>shared</code> フォルダの <code>ls -l</code> を読み、誰のファイルか見分けてみましょう！</p>

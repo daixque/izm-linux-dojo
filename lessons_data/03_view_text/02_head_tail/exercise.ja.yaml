@@ -1,0 +1,26 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "02"
+  id: "03_view_text/02_head_tail"
+  title: "先頭・末尾"
+
+description: "head と tail を使って、ログファイルの先頭と末尾を表示します。"
+
+task_description: |
+  <p><code>server.log</code> について、次の 2 つを実行してください。</p>
+  <ul>
+    <li>先頭 5 行を <code>head -n 5</code> で表示</li>
+    <li>末尾 3 行を <code>tail -n 3</code> で表示</li>
+  </ul>
+
+instructions:
+  - "<code>ls</code> で <code>server.log</code> があることを確認します"
+  - "<code>head -n 5 server.log</code> で先頭 5 行を表示します"
+  - "<code>tail -n 3 server.log</code> で末尾 3 行を表示します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>-n</code> の後に数字、その後にファイル名の順です"
+  - "ログの末尾には最新の記録が来ることが多いです"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

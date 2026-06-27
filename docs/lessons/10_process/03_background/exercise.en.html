@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise - Lesson 10-03: Foreground and Background</title>
+    <link rel="stylesheet" href="../../../lib/css/exercise.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">📝 Lesson 10-03: Foreground and Background</h1>
+            <div class="header-right">
+                <div class="status">
+                    <span id="status">Loading...</span>
+                </div>
+                <div id="language-switcher">
+                        <a href="exercise.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="task-panel">
+                <div class="task-header">
+                    <h2>Task</h2>
+                    <span class="task-toggle">◀</span>
+                </div>
+                <div class="task-content">
+                    <div class="task-description">
+                        <h3>📋 Task</h3>
+                        <p>Run <code>jobs</code> to see the list of background work. Also run <code>ps</code> to confirm the <code>sleep 100</code> process exists.</p>
+
+                    </div>
+                    <div class="instructions">
+                        <h4>✏️ Instructions</h4>
+                        <ul>
+                            <li>Run <code>jobs</code> to display background jobs</li>
+                            <li>Confirm <code>sleep 100</code> shows as Running</li>
+                            <li>Run <code>ps</code> and confirm the sleep process is listed</li>
+                            <li>Click <strong>Test</strong> when ready</li>
+                        </ul>
+                    </div>
+                    <div class="hints">
+                        <h4 class="hints-toggle">
+                            <span class="hints-icon">▶</span>
+                            💡 Hints
+                        </h4>
+                        <ul class="hints-content" style="display: none;">
+                            <li><code>jobs</code> is for checking foreground/background work</li>
+                            <li>Use <code>ps</code> CMD column to see process names</li>
+                            <li>Use <strong>Reset</strong> to start over if needed</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="code-panel">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-label">💻 Terminal</span>
+                        <div class="button-group">
+                            <button id="btn-test" class="btn btn-success" disabled>✓ Test</button>
+                            <button id="btn-reset" class="btn btn-secondary">🔄 Reset</button>
+                            <button id="btn-solution" class="btn btn-warning">💡 Show Solution</button>
+                            <button id="btn-clear" class="btn btn-small">Clear</button>
+                        </div>
+                    </div>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+
+            <aside id="file-explorer" class="file-explorer">
+                <div class="file-explorer-header">
+                    <span class="file-explorer-icon">📁</span>
+                    <span class="file-explorer-label">Files</span>
+                    <span class="file-explorer-toggle">◀</span>
+                </div>
+                <div class="file-explorer-body">
+                    <div id="file-tree" class="file-tree"></div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-nav">
+                <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+                <a href="learn.en.html" class="btn btn-link">📚 Back to Learn</a>
+            </div>
+            <div class="footer-next">
+                <a href="../../11_network/01_curl/learn.en.html" class="btn btn-primary">Next Lesson →<br><small>Fetching Web Data with curl</small></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="test-results-overlay" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 16px; z-index: 1000;">
+        <div class="test-results-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="margin: 0;">Test Results</h3>
+                <button id="btn-close-results" class="btn btn-small">Close</button>
+            </div>
+            <div id="test-results"></div>
+            <div style="margin-top: 16px; text-align: right;">
+                <a href="../../../index.html" class="btn btn-link">Back to Menu</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit@0.10.0/lib/addon-fit.min.js"></script>
+
+    <script src="../../../lib/js/i18n.js"></script>
+    <script src="../../../lib/js/progress.js"></script>
+    <script src="../../../lib/js/shell/vfs.js"></script>
+    <script src="../../../lib/js/shell/commands.js"></script>
+    <script src="../../../lib/js/shell/completion.js"></script>
+    <script src="../../../lib/js/shell/simulator.js"></script>
+    <script src="../../../lib/js/terminal.js"></script>
+    <script src="../../../lib/js/tester.js"></script>
+    <script src="../../../lib/js/fileviewer.js"></script>
+    <script src="../../../lib/js/exercise-common.js"></script>
+
+    <script>
+        const LESSON_ID = "10_process/03_background";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {}, "type": "directory"}};
+        const INITIAL_CWD = "/home/user";
+        const TESTS = [{"command": "jobs", "description": "Verify fixed jobs output", "expected_output": "[1]+ Running sleep 100 \u0026\n", "name": "jobs shows background job", "type": "command_output"}, {"command": "ps", "description": "Cross-check with ps", "expected_output": "  PID TTY          TIME CMD\n    1 ?           00:00:01 systemd\n 1042 pts/0       00:00:00 bash\n 2048 pts/0       00:00:02 python simulator.py\n 3099 pts/0       00:00:00 sleep 100\n", "name": "ps also shows sleep", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["jobs", "ps"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.i18n) window.i18n.init();
+            setupButtons();
+            initializeExercise({
+                initialFilesystem: INITIAL_FILESYSTEM,
+                initialCwd: INITIAL_CWD,
+                tests: TESTS,
+                solutionCommands: SOLUTION_COMMANDS,
+            });
+        });
+    </script>
+</body>
+</html>

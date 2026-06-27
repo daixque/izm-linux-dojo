@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 08-03: パイプ</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">パイプ</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>コマンドをつなげる</h2>
+<p><strong>パイプ</strong>（<code>|</code>）は、あるコマンドの<strong>出力</strong>を、次のコマンドの<strong>入力</strong>に渡す仕組みです。データがパイプ（管）のように流れるイメージです。</p>
+
+<h2>基本の形</h2>
+<pre><code>コマンド1 | コマンド2</code></pre>
+
+<h2>例: ログから ERROR を数える</h2>
+<pre><code>$ cat app.log | grep ERROR | wc -l
+2</code></pre>
+<ol>
+  <li><code>cat app.log</code> — ファイル内容を出力</li>
+  <li><code>grep ERROR</code> — ERROR 行だけに絞る</li>
+  <li><code>wc -l</code> — 行数を数える</li>
+</ol>
+
+<h2>中間結果をファイルに保存しなくてよい</h2>
+<p>パイプを使えば、一時ファイルを作らずに処理をつなげられます。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページでパイプを使ったログ分析を試してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

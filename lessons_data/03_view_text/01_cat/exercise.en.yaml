@@ -1,0 +1,21 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "01"
+  id: "03_view_text/01_cat"
+  title: "Display with cat"
+
+description: "Use cat to display the contents of a text file."
+
+task_description: |
+  <p>Display the contents of <code>messages.txt</code> using the <code>cat</code> command.</p>
+
+instructions:
+  - "Run <code>ls</code> to confirm <code>messages.txt</code> exists"
+  - "Run <code>cat messages.txt</code> to display the file contents"
+  - "When you have read the output, click the <strong>Test</strong> button"
+
+hints:
+  - "Put a space after <code>cat</code>, then type the filename"
+  - "A wrong filename shows “No such file or directory”"
+  - "Use the <strong>Reset</strong> button to start over if needed"

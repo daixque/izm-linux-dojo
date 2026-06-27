@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 09-04: 環境変数</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">環境変数</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>シェルが覚えている値</h2>
+<p><strong>環境変数</strong>は、シェルやプログラムが参照できる「名前付きの値」です。たとえば、ホームディレクトリの場所やユーザー名が環境変数として保持されています。</p>
+
+<h2><code>echo</code> で表示</h2>
+<p><code>echo</code> は文字列を表示するコマンドです。環境変数は <code>$</code> を付けて参照します。</p>
+<pre><code>$ echo $HOME
+/home/user
+
+$ echo $USER
+user</code></pre>
+
+<h2>主な環境変数</h2>
+<table>
+  <tr><th>変数</th><th>意味</th></tr>
+  <tr><td><code>$HOME</code></td><td>ホームディレクトリのパス</td></tr>
+  <tr><td><code>$USER</code></td><td>ログイン中のユーザー名</td></tr>
+  <tr><td><code>$PATH</code></td><td>コマンドを探すディレクトリの一覧</td></tr>
+</table>
+
+<h2>なぜ知っておくか</h2>
+<p>スクリプトや設定ファイルで <code>$HOME</code> が使われることがあります。「自分のホームはどこか」を環境変数で確認できます。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>echo $HOME</code> と <code>echo $USER</code> を試してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

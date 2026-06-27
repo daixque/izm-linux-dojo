@@ -1,0 +1,52 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      shared:
+        type: directory
+        owner: root
+        group: root
+        mode: 755
+        children:
+          data.txt:
+            type: file
+            content: "shared data\n"
+            owner: root
+            group: root
+            mode: 600
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cd shared
+  - sudo chown user data.txt
+  - sudo chmod 664 data.txt
+  - ls -l data.txt
+
+tests:
+  - name: "moved into shared"
+    description: "confirm cd shared"
+    type: cwd
+    commands:
+      - cd shared
+    expected_cwd: /home/user/shared
+
+  - name: "data.txt owned by user with mode 664"
+    description: "ls -l after chown + chmod"
+    type: command_output
+    setup_commands:
+      - cd shared
+      - sudo chown user data.txt
+      - sudo chmod 664 data.txt
+    command: ls -l data.txt
+    expected_output: "-rw-rw-r-- 1 user root   12 Jan  1 10:00 data.txt\n"
+
+  - name: "can cat after setup"
+    description: "read the shared file"
+    type: command_output
+    setup_commands:
+      - cd shared
+      - sudo chown user data.txt
+      - sudo chmod 664 data.txt
+    command: cat data.txt
+    expected_output: "shared data\n"

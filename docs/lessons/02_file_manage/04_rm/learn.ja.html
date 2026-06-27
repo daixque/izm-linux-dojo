@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 02-04: 削除</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">削除</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>削除とは</h2>
+<p>不要になったファイルやフォルダを消す操作を<strong>削除</strong>といいます。Linux では <code>rm</code>（remove）コマンドを使います。</p>
+<p><strong>重要：削除したデータは簡単には元に戻せません。</strong> GUI のゴミ箱に入るわけではなく、コマンド一発で消えるイメージです。実行する前によく確認しましょう。</p>
+
+<h2>ファイルを削除する — <code>rm</code></h2>
+<pre><code>$ rm temp.txt</code></pre>
+<p>指定したファイルが消えます。<code>ls</code> で本当に消えたか確認する習慣をつけましょう。</p>
+
+<h2>ディレクトリを削除する — <code>rm -r</code></h2>
+<p>フォルダを削除するときは <code>-r</code> オプション（recursive）が必要です。中身ごとまとめて消します。</p>
+<pre><code>$ rm -r old_folder</code></pre>
+<p>空のフォルダだけ消す場合は <code>rmdir</code> という専用コマンドもあります（中身があると失敗します）。</p>
+<pre><code>$ rmdir empty_dir</code></pre>
+
+<h2>削除の注意点</h2>
+<ul>
+  <li><strong>本当に消していいか</strong> — ファイル名をよく読んでから Enter を押す</li>
+  <li><strong>パスを間違えない</strong> — <code>pwd</code> で現在地を確認してから削除する</li>
+  <li><strong>フォルダ削除は特に慎重に</strong> — <code>rm -r</code> は中身をすべて消します</li>
+</ul>
+<p>本物の Linux では <code>rm -rf /</code> のような危険なコマンドでシステム全体を壊してしまう事故も報告されています。パスを必ず確認する習慣を身につけましょう。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで、不要なファイルと空のディレクトリを安全に削除してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

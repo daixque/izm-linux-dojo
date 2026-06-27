@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 12-03: 共有フォルダ整備</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">共有フォルダ整備</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>総合演習：共有フォルダ</h2>
+<p>第4–6章で学んだユーザー・権限・<code>sudo</code> を使い、複数人で使う共有ディレクトリを整備します。</p>
+
+<h2>シナリオ</h2>
+<p><code>/shared</code> ディレクトリを、チームメンバー <code>user</code> が読み書きできる状態にします。初期状態では root オーナーで、一般ユーザーは書き込めません。</p>
+
+<h2>使うコマンド</h2>
+<ul>
+  <li><code>sudo chown user:user /shared</code> — オーナーとグループを user に変更</li>
+  <li><code>chmod u+rwx,go+rx /shared</code> — user は読み書き実行、他は読み取りと実行</li>
+  <li><code>ls -l /shared</code> — 変更結果を確認</li>
+</ul>
+
+<h2>なぜ sudo が必要？</h2>
+<p>他人（ここでは root）のファイルのオーナーを変える操作は、管理者権限が必要です。第6章で学んだ <code>sudo</code> を使います。</p>
+
+<h2>次のステップ</h2>
+<p>演習で <code>/shared</code> のオーナーと権限を設定し、<code>team.txt</code> を作成できるようにしましょう。</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

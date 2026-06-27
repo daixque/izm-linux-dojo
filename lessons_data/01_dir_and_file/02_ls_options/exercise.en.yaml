@@ -1,0 +1,22 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "02"
+  id: "01_dir_and_file/02_ls_options"
+  title: "ls Options"
+
+description: "Use ls -a to list all files including the hidden .config file."
+
+task_description: |
+  <p>Run <code>ls -a</code> and confirm that the hidden file <code>.config</code> appears in the listing.</p>
+
+instructions:
+  - "Run <code>pwd</code> to check your location (should be <code>/home/user</code>)"
+  - "Run plain <code>ls</code> and notice that <code>.config</code> is not shown"
+  - "Run <code>ls -a</code> and confirm <code>.config</code> appears"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Put a space between <code>ls</code> and <code>-a</code>"
+  - "Hidden file names start with <code>.</code>"
+  - "Press Tab to complete the <code>ls</code> command name"

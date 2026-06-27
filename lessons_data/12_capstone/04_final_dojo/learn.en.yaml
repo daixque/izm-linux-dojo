@@ -1,0 +1,28 @@
+lesson:
+  chapter: "12_capstone"
+  chapter_number: "12"
+  number: "04"
+  id: "12_capstone/04_final_dojo"
+  title: "Final Dojo Challenge"
+
+content: |
+  <h2>Final Challenge</h2>
+  <p>Congratulations! You have covered file operations, text viewing, permissions, search, pipes, and shell features. This last exercise uses them in one continuous workflow.</p>
+
+  <h2>Task Preview</h2>
+  <ol>
+    <li>Create a <code>project</code> folder</li>
+    <li>Copy a log, extract ERROR lines, and save them</li>
+    <li>Count lines in the result file</li>
+    <li>Create a README to mark completion</li>
+  </ol>
+
+  <h2>Tips</h2>
+  <ul>
+    <li>Verify each step with <code>ls</code> or <code>cat</code></li>
+    <li>Run commands one at a time</li>
+    <li>Remember <code>man</code> and <code>--help</code> from Chapter 9</li>
+  </ul>
+
+  <h2>Next Step</h2>
+  <p>Take on the final challenge on the exercise page and complete the core dojo course!</p>

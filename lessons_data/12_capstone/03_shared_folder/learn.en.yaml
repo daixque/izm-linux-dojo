@@ -1,0 +1,26 @@
+lesson:
+  chapter: "12_capstone"
+  chapter_number: "12"
+  number: "03"
+  id: "12_capstone/03_shared_folder"
+  title: "Shared Folder Setup"
+
+content: |
+  <h2>Capstone: Shared Folder</h2>
+  <p>Use users, permissions, and <code>sudo</code> from Chapters 4–6 to set up a shared directory.</p>
+
+  <h2>Scenario</h2>
+  <p>Prepare <code>/shared</code> so team member <code>user</code> can read and write. Initially it is owned by root and not writable by regular users.</p>
+
+  <h2>Commands Used</h2>
+  <ul>
+    <li><code>sudo chown user:user /shared</code> — change owner and group to user</li>
+    <li><code>chmod u+rwx,go+rx /shared</code> — user read/write/execute, others read/execute</li>
+    <li><code>ls -l /shared</code> — verify changes</li>
+  </ul>
+
+  <h2>Why sudo?</h2>
+  <p>Changing ownership of root-owned paths requires administrator privileges — use <code>sudo</code> from Chapter 6.</p>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, set owner and permissions on <code>/shared</code> and create <code>team.txt</code>.</p>

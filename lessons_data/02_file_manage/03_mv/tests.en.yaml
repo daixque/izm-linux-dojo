@@ -1,0 +1,44 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      old_name.txt:
+        type: file
+        content: "This file will be moved.\n"
+      archive:
+        type: directory
+        children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - mv old_name.txt new_name.txt
+  - mv new_name.txt archive/
+
+tests:
+  - name: "old_name.txt is gone"
+    description: "Original filename should no longer exist in home"
+    type: command_output
+    command: ls
+    expected_output: "archive\n"
+
+  - name: "new_name.txt is in archive"
+    description: "Check destination folder"
+    type: command_output
+    command: ls archive
+    expected_output: "new_name.txt\n"
+
+  - name: "File content preserved after move"
+    description: "mv should not change file contents"
+    type: command_output
+    command: cat archive/new_name.txt
+    expected_output: "This file will be moved.\n"
+
+  - name: "Full workflow check"
+    description: "Verify rename and move sequence"
+    type: command_sequence
+    steps:
+      - command: ls
+        expected_output: "archive\n"
+      - command: ls archive
+        expected_output: "new_name.txt\n"

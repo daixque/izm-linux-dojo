@@ -1,0 +1,20 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "03"
+  id: "09_shell_basics/03_man_help"
+  title: "Getting Help"
+
+content: |
+  <h2>Look It Up Yourself</h2>
+  <p>You do not need to memorize every Linux command. When stuck, check the <strong>help</strong>.</p>
+  
+  <h2><code>--help</code> Option</h2>
+  <pre><code>$ ls --help</code></pre>
+  
+  <h2><code>man</code> Command</h2>
+  <pre><code>$ man ls</code></pre>
+  <p>The dojo simulator includes manual pages for major commands.</p>
+  
+  <h2>Next Step</h2>
+  <p>Try <code>ls --help</code> and <code>man grep</code> on the exercise page!</p>

@@ -1,0 +1,21 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "03"
+  id: "09_shell_basics/03_man_help"
+  title: "Getting Help"
+
+description: "Look up command usage with --help and man."
+
+task_description: |
+  <p>Run <code>ls --help</code> and try <code>grep --help</code> too.</p>
+
+instructions:
+  - "Run <code>ls --help</code> to see options"
+  - "Run <code>grep --help</code> as well"
+  - "Optionally try <code>man ls</code>"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "<code>--help</code> uses two hyphens"
+  - "Help text may fill the screen"

@@ -1,0 +1,52 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      public.txt:
+        type: file
+        content: "everyone can read\n"
+        owner: user
+        group: user
+        mode: 644
+      private.txt:
+        type: file
+        content: "owner only\n"
+        owner: user
+        group: user
+        mode: 600
+      scripts:
+        type: directory
+        owner: user
+        group: user
+        mode: 755
+        children:
+          run.sh:
+            type: file
+            content: "#!/bin/bash\necho hi\n"
+            owner: user
+            group: user
+            mode: 755
+
+initial_cwd: /home/user
+
+solution_commands:
+  - ls -l
+
+tests:
+  - name: "public.txt の権限は 644"
+    description: "rw-r--r-- を確認"
+    type: command_output
+    command: ls -l public.txt
+    expected_output: "-rw-r--r-- 1 user user   18 Jan  1 10:00 public.txt\n"
+
+  - name: "private.txt の権限は 600"
+    description: "rw------- を確認"
+    type: command_output
+    command: ls -l private.txt
+    expected_output: "-rw------- 1 user user   11 Jan  1 10:00 private.txt\n"
+
+  - name: "run.sh は実行権限付き"
+    description: "rwxr-xr-x を確認"
+    type: command_output
+    command: ls -l scripts/run.sh
+    expected_output: "-rwxr-xr-x 1 user user   20 Jan  1 10:00 run.sh\n"

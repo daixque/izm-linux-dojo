@@ -1,0 +1,22 @@
+lesson:
+  chapter: "04_users_ownership"
+  chapter_number: "04"
+  number: "02"
+  id: "04_users_ownership/02_owner_group"
+  title: "オーナーとグループ"
+
+description: "ls -l でファイルのオーナーとグループを確認します。"
+
+task_description: |
+  <p><code>ls -l</code> を実行し、<code>memo.txt</code> のオーナーが <code>user</code> であることを確認しましょう。</p>
+
+instructions:
+  - "<code>ls -l</code> で詳細な一覧を表示します"
+  - "<code>memo.txt</code> の行を探します"
+  - "3列目（オーナー）と 4列目（グループ）が <code>user</code> であることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>ls</code> と <code>-l</code> の間にスペースを入れます"
+  - "3列目がオーナー、4列目がグループです"
+  - "<code>documents</code> はディレクトリなので先頭が <code>d</code> になります"

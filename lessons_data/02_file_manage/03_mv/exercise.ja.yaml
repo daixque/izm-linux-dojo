@@ -1,0 +1,24 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "03"
+  id: "02_file_manage/03_mv"
+  title: "移動とリネーム"
+
+description: "mv コマンドでファイル名を変更し、別のディレクトリへ移動します。"
+
+task_description: |
+  <p><code>old_name.txt</code> の名前を <code>new_name.txt</code> に変え、その後 <code>archive</code> フォルダへ移動しましょう。</p>
+
+instructions:
+  - "<code>ls</code> で <code>old_name.txt</code> と <code>archive</code> があることを確認します"
+  - "<code>mv old_name.txt new_name.txt</code> で名前を変更します"
+  - "<code>ls</code> で <code>new_name.txt</code> だけが表示されることを確認します"
+  - "<code>mv new_name.txt archive/</code> で archive フォルダへ移動します"
+  - "<code>ls archive</code> で <code>new_name.txt</code> があることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>mv</code> の第1引数が移動元、第2引数が移動先です"
+  - "移動後、元の場所からファイルが消えるのが正常です"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

@@ -1,0 +1,28 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "01"
+  id: "09_shell_basics/01_history"
+  title: "Command History"
+
+content: |
+  <h2>Recall Commands You Typed</h2>
+  <p>In Chapter 1 you may have noticed that the <kbd>↑</kbd> key brings back previous commands. Here we formally cover <strong>command history</strong>.</p>
+  
+  <h2>What Is History?</h2>
+  <p>The shell records commands you run. You do not need to retype long commands every time.</p>
+  
+  <h2>↑ and ↓ Keys</h2>
+  <ul>
+    <li><kbd>↑</kbd> — show the previous command (press again for older ones)</li>
+    <li><kbd>↓</kbd> — move toward newer commands</li>
+  </ul>
+  
+  <h2>Tips</h2>
+  <ul>
+    <li>Press ↑ and Enter to rerun the same command</li>
+    <li>Press ↑, edit slightly, then Enter for a small change</li>
+  </ul>
+  
+  <h2>Next Step</h2>
+  <p>On the exercise page, run a few commands and try recalling them with ↑!</p>

@@ -1,0 +1,42 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "02"
+  id: "03_view_text/02_head_tail"
+  title: "先頭・末尾"
+
+content: |
+  <h2>長いファイルの一部だけ見る</h2>
+  <p>前のレッスンで学んだ <code>cat</code> はファイル全体を表示します。ログファイルのように行数が多いファイルでは、全部を <code>cat</code> しても画面からあふれてしまいます。</p>
+  <p>そこで<strong>先頭</strong>や<strong>末尾</strong>の数行だけを取り出すコマンドを使います。</p>
+
+  <h2><code>head</code> — 先頭を表示</h2>
+  <p><code>head</code> はファイルの<strong>最初の方</strong>の行を表示します。デフォルトでは 10 行です。</p>
+  <pre><code>$ head server.log
+  2024-01-01 INFO Server started
+  2024-01-01 INFO Listening on port 8080
+  ...</code></pre>
+
+  <h3>行数を指定する — <code>head -n</code></h3>
+  <p><code>-n</code> オプションで表示する行数を変えられます。</p>
+  <pre><code>$ head -n 5 server.log</code></pre>
+  <p>先頭 5 行だけが表示されます。</p>
+
+  <h2><code>tail</code> — 末尾を表示</h2>
+  <p><code>tail</code> はファイルの<strong>最後の方</strong>の行を表示します。ログの最新エントリを確認するときによく使います。</p>
+  <pre><code>$ tail server.log
+  ...
+  2024-01-04 INFO Goodbye</code></pre>
+
+  <h3>行数を指定する — <code>tail -n</code></h3>
+  <pre><code>$ tail -n 3 server.log</code></pre>
+  <p>末尾 3 行だけが表示されます。</p>
+
+  <h2>使い分けの例</h2>
+  <ul>
+    <li><strong>ファイルの形式を知りたい</strong> → <code>head</code> で先頭数行を見る</li>
+    <li><strong>最新のエラーを確認したい</strong> → <code>tail</code> で末尾数行を見る</li>
+  </ul>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで、ログファイルの先頭 5 行と末尾 3 行を表示してみましょう！</p>

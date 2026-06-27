@@ -1,0 +1,20 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "01"
+  id: "08_pipe_redirect/01_redirect_out"
+  title: "Output Redirection"
+
+description: "Redirect ls output to a file."
+
+task_description: |
+  <p>Save <code>ls</code> output to <code>filelist.txt</code> and verify it.</p>
+
+instructions:
+  - "Run <code>ls &gt; filelist.txt</code>"
+  - "Run <code>cat filelist.txt</code> to verify the saved content"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Put spaces around <code>&gt;</code>"
+  - "No screen output after redirect is normal"

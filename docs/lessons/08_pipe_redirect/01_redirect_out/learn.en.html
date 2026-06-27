@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 08-01: Output Redirection</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Output Redirection</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Write to a File Instead of the Screen</h2>
+<p>Until now, command output (<strong>standard output</strong>) appeared on the terminal. With <code>&gt;</code> (redirection), you can <strong>write output to a file</strong>.</p>
+
+<h2><code>&gt;</code> — Write (Overwrite)</h2>
+<pre><code>$ ls &gt; filelist.txt</code></pre>
+
+<h2><code>&gt;&gt;</code> — Append</h2>
+<pre><code>$ ls documents &gt;&gt; filelist.txt</code></pre>
+
+<h2>Check the Result</h2>
+<p>Use <code>cat filelist.txt</code> to view saved content.</p>
+
+<h2>Next Step</h2>
+<p>Try <code>ls &gt; filelist.txt</code> on the exercise page!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

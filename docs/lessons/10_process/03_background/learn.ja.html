@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 10-03: フォアグラウンドとバックグラウンド</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">フォアグラウンドとバックグラウンド</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>2 つの動き方</h2>
+<p>ターミナルでコマンドを実行すると、通常はそのコマンドが終わるまで<strong>待つ</strong>必要があります。これを<strong>フォアグラウンド</strong>（foreground）で動かす、と言います。</p>
+<p>一方、コマンドの末尾に <code>&</code> を付けると、コマンドを<strong>バックグラウンド</strong>（background）で動かせます。ターミナルはすぐに使える状態に戻り、裏で処理が続きます。</p>
+<pre><code>$ sleep 100 &
+[1] 3099</code></pre>
+
+<h2><code>jobs</code> — バックグラウンドの仕事を確認</h2>
+<p><code>jobs</code> コマンドで、現在バックグラウンドで動いている仕事の一覧を見られます。道場のシミュレータでは、次のような固定出力が表示されます。</p>
+<pre><code>$ jobs
+[1]+ Running    sleep 100 &</code></pre>
+<p><code>[1]</code> はジョブ番号、<code>Running</code> は実行中であることを示します。</p>
+
+<h2><code>fg</code> について（概念）</h2>
+<p><code>fg</code>（foreground）は、バックグラウンドのジョブを再び前面に戻すコマンドです。道場では完全な再現はしませんが、「裏で動いていた仕事を、また前面で待つ状態に戻す」イメージを覚えておきましょう。</p>
+
+<h2>いつ使う？</h2>
+<ul>
+  <li>時間のかかる処理を裏で走らせ、ターミナルで別の作業を続けたいとき</li>
+  <li>サーバープログラムを起動したまま、他のコマンドを打ちたいとき</li>
+</ul>
+<p>第10章は発展編です。概念を理解できれば十分で、実際の <code>&</code> 操作は本物の Linux で試す機会があれば十分です。</p>
+
+<h2>次のステップ</h2>
+<p>演習では <code>jobs</code> を実行し、バックグラウンドジョブの表示を確認します。</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

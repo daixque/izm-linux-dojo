@@ -1,0 +1,23 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "02"
+  id: "08_pipe_redirect/02_redirect_in"
+  title: "入力リダイレクト"
+
+content: |
+  <h2>ファイルから入力を受け取る</h2>
+  <p><code>&gt;</code> が出力をファイルに送るのに対し、<code>&lt;</code> はファイルの内容をコマンドの<strong>入力</strong>として渡します。</p>
+  
+  <h2>基本の形</h2>
+  <pre><code>コマンド &lt; ファイル名</code></pre>
+  <p>たとえば、次の 2 つは同じ意味です。</p>
+  <pre><code>grep ERROR app.log
+  grep ERROR &lt; app.log</code></pre>
+  <p>2 つ目は <code>app.log</code> の内容が <code>grep</code> に渡されます（この例では grep にファイル名引数がない形）。</p>
+  
+  <h2>よく使う場面</h2>
+  <p>パイプ（次のレッスン）と組み合わせる前に、<code>&lt;</code> で「ファイルを入力源にする」イメージを押さえておきましょう。</p>
+  
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>grep ERROR &lt; app.log</code> を試してみましょう！</p>

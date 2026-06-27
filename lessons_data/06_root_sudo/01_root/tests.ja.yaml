@@ -1,0 +1,44 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      system:
+        type: directory
+        owner: root
+        group: root
+        mode: 755
+        children:
+          hosts:
+            type: file
+            content: "127.0.0.1 localhost\n"
+            owner: root
+            group: root
+            mode: 644
+          config.d:
+            type: directory
+            owner: root
+            group: root
+            mode: 755
+            children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cd system
+  - ls -l
+
+tests:
+  - name: "system ディレクトリに移動"
+    description: "cd system の確認"
+    type: cwd
+    commands:
+      - cd system
+    expected_cwd: /home/user/system
+
+  - name: "hosts のオーナーは root"
+    description: "root オーナーのファイルを確認"
+    type: command_output
+    setup_commands:
+      - cd system
+    command: ls -l hosts
+    expected_output: "-rw-r--r-- 1 root root   20 Jan  1 10:00 hosts\n"

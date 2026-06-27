@@ -1,0 +1,29 @@
+lesson:
+  chapter: "12_capstone"
+  chapter_number: "12"
+  number: "01"
+  id: "12_capstone/01_file_organize"
+  title: "ファイル整理"
+
+content: |
+  <h2>総合演習：ファイル整理</h2>
+  <p>第12章では、第1–9章で学んだコマンドを<strong>組み合わせて</strong>実践課題に取り組みます。まずは第2章のファイル操作の総仕上げです。</p>
+
+  <h2>課題のイメージ</h2>
+  <p>ホームディレクトリに散らばったファイルを、目的別のフォルダに整理します。</p>
+  <ul>
+    <li><code>mkdir -p</code> で <code>docs</code> と <code>images</code> フォルダを用意</li>
+    <li><code>mv</code> でテキスト類を <code>docs/</code>、画像を <code>images/</code> へ</li>
+    <li><code>cp</code> で重要ファイルのコピーを残す</li>
+    <li><code>rm</code> で不要ファイルを削除</li>
+  </ul>
+
+  <h2>作業の流れ</h2>
+  <ol>
+    <li><code>ls</code> で現状把握</li>
+    <li>フォルダ作成 → 移動・コピー → 削除</li>
+    <li>再度 <code>ls</code> で結果確認</li>
+  </ol>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで、散らかったファイルを指定どおりに整理してください。</p>

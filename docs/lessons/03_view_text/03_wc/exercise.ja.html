@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演習課題 - レッスン 03-03: 行数・語数</title>
+    <link rel="stylesheet" href="../../../lib/css/exercise.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">📝 レッスン 03-03: 行数・語数</h1>
+            <div class="header-right">
+                <div class="status">
+                    <span id="status">準備中...</span>
+                </div>
+                <div id="language-switcher">
+                        <a href="exercise.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="task-panel">
+                <div class="task-header">
+                    <h2>課題</h2>
+                    <span class="task-toggle">◀</span>
+                </div>
+                <div class="task-content">
+                    <div class="task-description">
+                        <h3>📋 課題内容</h3>
+                        <p><code>essay.txt</code> について、次のコマンドを実行してください。</p>
+<ul>
+  <li><code>wc -l essay.txt</code> で行数を数える</li>
+  <li><code>wc -w essay.txt</code> で語数を数える</li>
+</ul>
+
+                    </div>
+                    <div class="instructions">
+                        <h4>✏️ やること</h4>
+                        <ul>
+                            <li><code>cat essay.txt</code> で内容を確認してもよいでしょう</li>
+                            <li><code>wc -l essay.txt</code> を実行します</li>
+                            <li><code>wc -w essay.txt</code> を実行します</li>
+                            <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
+                        </ul>
+                    </div>
+                    <div class="hints">
+                        <h4 class="hints-toggle">
+                            <span class="hints-icon">▶</span>
+                            💡 ヒント
+                        </h4>
+                        <ul class="hints-content" style="display: none;">
+                            <li>行数は改行 <code>\n</code> の数に対応します</li>
+                            <li>語数はスペースで区切られた単語を数えます</li>
+                            <li>うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="code-panel">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-label">💻 ターミナル</span>
+                        <div class="button-group">
+                            <button id="btn-test" class="btn btn-success" disabled>✓ テスト</button>
+                            <button id="btn-reset" class="btn btn-secondary">🔄 リセット</button>
+                            <button id="btn-solution" class="btn btn-warning">💡 解答を見る</button>
+                            <button id="btn-clear" class="btn btn-small">クリア</button>
+                        </div>
+                    </div>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+
+            <aside id="file-explorer" class="file-explorer">
+                <div class="file-explorer-header">
+                    <span class="file-explorer-icon">📁</span>
+                    <span class="file-explorer-label">ファイル</span>
+                    <span class="file-explorer-toggle">◀</span>
+                </div>
+                <div class="file-explorer-body">
+                    <div id="file-tree" class="file-tree"></div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-nav">
+                <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+                <a href="learn.ja.html" class="btn btn-link">📚 説明に戻る</a>
+            </div>
+            <div class="footer-next">
+                <a href="../04_less_sim/learn.ja.html" class="btn btn-primary">次のレッスンへ →<br><small>長いファイル</small></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="test-results-overlay" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 16px; z-index: 1000;">
+        <div class="test-results-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="margin: 0;">テスト結果</h3>
+                <button id="btn-close-results" class="btn btn-small">閉じる</button>
+            </div>
+            <div id="test-results"></div>
+            <div style="margin-top: 16px; text-align: right;">
+                <a href="../../../index.html" class="btn btn-link">目次に戻る</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit@0.10.0/lib/addon-fit.min.js"></script>
+
+    <script src="../../../lib/js/i18n.js"></script>
+    <script src="../../../lib/js/progress.js"></script>
+    <script src="../../../lib/js/shell/vfs.js"></script>
+    <script src="../../../lib/js/shell/commands.js"></script>
+    <script src="../../../lib/js/shell/completion.js"></script>
+    <script src="../../../lib/js/shell/simulator.js"></script>
+    <script src="../../../lib/js/terminal.js"></script>
+    <script src="../../../lib/js/tester.js"></script>
+    <script src="../../../lib/js/fileviewer.js"></script>
+    <script src="../../../lib/js/exercise-common.js"></script>
+
+    <script>
+        const LESSON_ID = "03_view_text/03_wc";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"essay.txt": {"content": "Linux is useful.\nCommands are fun.\nKeep learning.\n", "type": "file"}}, "type": "directory"}};
+        const INITIAL_CWD = "/home/user";
+        const TESTS = [{"command": "wc -l essay.txt", "description": "wc -l \u306e\u51fa\u529b\u3092\u78ba\u8a8d", "expected_output": "3 essay.txt\n", "name": "\u884c\u6570\u304c 3 \u3067\u3042\u308b", "type": "command_output"}, {"command": "wc -w essay.txt", "description": "wc -w \u306e\u51fa\u529b\u3092\u78ba\u8a8d", "expected_output": "8 essay.txt\n", "name": "\u8a9e\u6570\u304c 8 \u3067\u3042\u308b", "type": "command_output"}, {"description": "\u4e21\u65b9\u306e\u30ab\u30a6\u30f3\u30c8\u304c\u6b63\u3057\u3044\u304b", "name": "wc -l \u3068 wc -w \u306e\u9023\u7d9a\u5b9f\u884c", "steps": [{"command": "wc -l essay.txt", "expected_output": "3 essay.txt\n"}, {"command": "wc -w essay.txt", "expected_output": "8 essay.txt\n"}], "type": "command_sequence"}];
+        const SOLUTION_COMMANDS = ["wc -l essay.txt", "wc -w essay.txt"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.i18n) window.i18n.init();
+            setupButtons();
+            initializeExercise({
+                initialFilesystem: INITIAL_FILESYSTEM,
+                initialCwd: INITIAL_CWD,
+                tests: TESTS,
+                solutionCommands: SOLUTION_COMMANDS,
+            });
+        });
+    </script>
+</body>
+</html>

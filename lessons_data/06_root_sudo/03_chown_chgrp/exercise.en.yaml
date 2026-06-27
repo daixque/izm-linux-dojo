@@ -1,0 +1,22 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "03"
+  id: "06_root_sudo/03_chown_chgrp"
+  title: "Changing Ownership"
+
+description: "Use sudo chown to transfer a root-owned file to user."
+
+task_description: |
+  <p>Change the owner of <code>admin.log</code> with <code>sudo chown user admin.log</code>, then verify with <code>ls -l</code>.</p>
+
+instructions:
+  - "Run <code>ls -l admin.log</code> — owner is root now"
+  - "Run <code>sudo chown user admin.log</code>"
+  - "Run <code>ls -l admin.log</code> — owner should be <code>user</code>"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "chown alone cannot change root's files"
+  - "<code>sudo</code> runs chown as root"
+  - "After the change you can cat the file too"

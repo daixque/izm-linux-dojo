@@ -1,0 +1,22 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "02"
+  id: "05_permissions/02_chmod_symbolic"
+  title: "chmod (Symbolic Mode)"
+
+description: "Use symbolic chmod to add execute permission to your file."
+
+task_description: |
+  <p>Add execute permission to <code>hello.sh</code> with <code>chmod u+x</code>, then verify with <code>ls -l</code>.</p>
+
+instructions:
+  - "Run <code>ls -l hello.sh</code> to see current permissions (no execute yet)"
+  - "Run <code>chmod u+x hello.sh</code> to add execute for the owner"
+  - "Run <code>ls -l hello.sh</code> again and confirm <code>x</code> appears"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "<code>u</code> = owner, <code>+x</code> = add execute"
+  - "After the change, character 4 should be <code>x</code> (e.g. <code>-rwxr--r--</code>)"
+  - "Use the <strong>Reset</strong> button to start over if needed"

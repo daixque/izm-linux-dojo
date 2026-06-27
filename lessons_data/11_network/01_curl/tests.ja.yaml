@@ -1,0 +1,37 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - curl https://dojo.example/api/hello
+  - curl -o info.txt https://dojo.example/data/info.txt
+  - cat info.txt
+
+tests:
+  - name: "curl で JSON が表示される"
+    description: "hello API の出力"
+    type: command_output
+    command: curl https://dojo.example/api/hello
+    expected_output: "{\"message\":\"Hello from Dojo API\"}\n"
+
+  - name: "info.txt が作成される"
+    description: "curl -o の結果"
+    type: command_sequence
+    steps:
+      - command: curl -o info.txt https://dojo.example/data/info.txt
+        expected_output: ""
+      - command: ls
+        expected_output: "info.txt\n"
+
+  - name: "保存内容が正しい"
+    description: "cat で内容確認"
+    type: command_output
+    command: cat info.txt
+    setup_commands:
+      - curl -o info.txt https://dojo.example/data/info.txt
+    expected_output: |
+      IZM Linux Dojo
+      Version 1.0

@@ -1,0 +1,26 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "03"
+  id: "03_view_text/03_wc"
+  title: "Line and Word Counts"
+
+description: "Use wc to count lines and words in a file."
+
+task_description: |
+  <p>For <code>essay.txt</code>, run the following:</p>
+  <ul>
+    <li><code>wc -l essay.txt</code> to count lines</li>
+    <li><code>wc -w essay.txt</code> to count words</li>
+  </ul>
+
+instructions:
+  - "Optionally run <code>cat essay.txt</code> to read the contents first"
+  - "Run <code>wc -l essay.txt</code>"
+  - "Run <code>wc -w essay.txt</code>"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Line count corresponds to newline characters"
+  - "Word count splits on whitespace"
+  - "Use the <strong>Reset</strong> button to start over if needed"

@@ -1,0 +1,22 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "02"
+  id: "06_root_sudo/02_sudo"
+  title: "sudo とは"
+
+description: "sudo ls /root で root 権限を借りてディレクトリを表示します。"
+
+task_description: |
+  <p>通常はアクセスできない <code>/root</code> を <code>sudo ls /root</code> で一覧表示しましょう。</p>
+
+instructions:
+  - "まず <code>ls /root</code> を試すと Permission denied になることを確認します（任意）"
+  - "<code>sudo ls /root</code> を実行します"
+  - "<code>secret.txt</code> が表示されることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>sudo</code> の後にスペースを入れてからコマンドを書きます"
+  - "sudo 中だけ root 権限で実行されます"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

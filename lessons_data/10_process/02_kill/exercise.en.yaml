@@ -1,0 +1,22 @@
+lesson:
+  chapter: "10_process"
+  chapter_number: "10"
+  number: "02"
+  id: "10_process/02_kill"
+  title: "Stopping Processes"
+
+description: "Use kill to terminate a process by PID."
+
+task_description: |
+  <p>Stop the <code>sleep 100</code> process (PID <code>3099</code>) with <code>kill</code>, then confirm it no longer appears in <code>ps</code>.</p>
+
+instructions:
+  - "Run <code>ps</code> and confirm PID <code>3099</code> exists"
+  - "Run <code>kill 3099</code>"
+  - "Run <code>ps</code> again and confirm 3099 is gone"
+  - "Click <strong>Test</strong> when ready"
+
+hints:
+  - "Type a space after <code>kill</code> before the PID"
+  - "A successful kill produces no output"
+  - "Use <strong>Reset</strong> to start over if needed"

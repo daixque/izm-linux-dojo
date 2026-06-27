@@ -1,0 +1,37 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      memo.txt:
+        type: file
+        content: "my memo\n"
+        owner: user
+        group: user
+      documents:
+        type: directory
+        owner: user
+        group: user
+        children:
+          readme.txt:
+            type: file
+            content: "hello\n"
+            owner: user
+            group: user
+
+initial_cwd: /home/user
+
+solution_commands:
+  - ls -l
+
+tests:
+  - name: "ls -l shows user as owner of memo.txt"
+    description: "ls -l output includes memo.txt owned by user"
+    type: command_output
+    command: ls -l memo.txt
+    expected_output: "-rw-r--r-- 1 user user    8 Jan  1 10:00 memo.txt\n"
+
+  - name: "documents is also owned by user"
+    description: "Confirm ls -l inside documents"
+    type: command_output
+    command: ls -l documents
+    expected_output: "-rw-r--r-- 1 user user    6 Jan  1 10:00 readme.txt\n"

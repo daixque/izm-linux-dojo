@@ -1,0 +1,16 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "02"
+  id: "08_pipe_redirect/02_redirect_in"
+  title: "Input Redirection"
+
+content: |
+  <h2>Read Input from a File</h2>
+  <p>While <code>&gt;</code> sends output to a file, <code>&lt;</code> feeds a file's contents as <strong>input</strong> to a command.</p>
+  
+  <h2>Basic Form</h2>
+  <pre><code>COMMAND &lt; FILENAME</code></pre>
+  
+  <h2>Next Step</h2>
+  <p>Try <code>grep ERROR &lt; app.log</code> on the exercise page!</p>

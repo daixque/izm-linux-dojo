@@ -1,0 +1,21 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "02"
+  id: "09_shell_basics/02_tab_complete"
+  title: "Tab 補完"
+
+description: "Tab 補完を使ってディレクトリに移動します。"
+
+task_description: |
+  <p><code>cd documents</code> で documents ディレクトリに移動し、Tab 補完も試してみましょう（<code>cd doc</code> + Tab など）。</p>
+
+instructions:
+  - "<code>ls</code> で <code>documents</code> があることを確認します"
+  - "<code>cd documents</code> で移動します（Tab 補完も試して OK）"
+  - "<code>ls</code> で中身を確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>cd doc</code> と入力して Tab を押すと documents に補完される場合があります"
+  - "Tab は入力の途中どこでも押せます"

@@ -1,0 +1,22 @@
+lesson:
+  chapter: "00_intro"
+  chapter_number: "00"
+  number: "01"
+  id: "00_intro/01_terminal_world"
+  title: "ターミナルと Linux の世界"
+
+description: "ターミナルで clear コマンドを体験し、Enter キーで命令を送る感覚に慣れます。"
+
+task_description: |
+  <p>演習ページのターミナルで、<code>clear</code> コマンドを入力して実行してみましょう。画面がきれいに消えるはずです。</p>
+
+instructions:
+  - "ターミナルのプロンプト（<code>user@dojo:~$</code>）の右側をクリックして、入力できる状態にします"
+  - "<code>clear</code> と入力し、<kbd>Enter</kbd> キーを押します"
+  - "画面がクリアされたことを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "コマンドは小文字で入力します（<code>clear</code>）"
+  - "Enter を押すまでコマンドは実行されません"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

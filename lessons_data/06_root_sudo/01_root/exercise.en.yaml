@@ -1,0 +1,22 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "01"
+  id: "06_root_sudo/01_root"
+  title: "The root User"
+
+description: "Use ls -l to inspect system files owned by root."
+
+task_description: |
+  <p>Run <code>ls -l</code> in the <code>system</code> directory and find the <code>hosts</code> file owned by root.</p>
+
+instructions:
+  - "Run <code>cd system</code>"
+  - "Run <code>ls -l</code> to list files with details"
+  - "Confirm <code>hosts</code> is owned by <code>root</code>"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "root is the administrator user"
+  - "Column 3 (owner) shows <code>root</code> for system files"
+  - "Normal users cannot change root's files"

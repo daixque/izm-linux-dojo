@@ -1,0 +1,68 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "03"
+  id: "01_dir_and_file/03_paths"
+  title: "Understanding Paths"
+
+content: |
+  <h2>What Is a Path?</h2>
+  <p>A <strong>path</strong> is a string that describes the "address" of a file or directory. In Lesson 1 you saw examples like <code>/home/user/documents/readme.txt</code>. There are two main ways to write paths.</p>
+
+  <h2>Absolute Path — Full Address from Root</h2>
+  <p>An <strong>absolute path</strong> starts at the top of the filesystem — the <strong>root</strong> (<code>/</code>) — and lists every directory down to the destination.</p>
+  <pre><code>/home/user/documents/readme.txt</code></pre>
+  <p>The leading <code>/</code> means "starting from root." No matter where you are, the same absolute path always points to the same place.</p>
+  <pre class="tree"><code>/
+  └── home/
+      └── user/
+          ├── documents/
+          │   └── readme.txt   ← /home/user/documents/readme.txt
+          └── notes.txt        ← /home/user/notes.txt</code></pre>
+
+  <h2>Relative Path — Directions from Where You Are</h2>
+  <p>A <strong>relative path</strong> starts from your <strong>current directory</strong>. It does not begin with <code>/</code>.</p>
+  <p>When you are in <code>/home/user</code>:</p>
+  <ul>
+    <li><code>documents</code> — enter the documents folder here (same as <code>/home/user/documents</code>)</li>
+    <li><code>documents/readme.txt</code> — reach readme.txt inside documents</li>
+  </ul>
+  <p>Because the starting point changes, the same relative path can lead to different absolute locations. That is why checking with <code>pwd</code> is a good habit.</p>
+
+  <h2><code>~</code> — Shorthand for Home</h2>
+  <p><code>~</code> (tilde) stands for your <strong>home directory</strong>. In this dojo, home is <code>/home/user</code>.</p>
+  <ul>
+    <li><code>~</code> → <code>/home/user</code></li>
+    <li><code>~/documents</code> → <code>/home/user/documents</code></li>
+  </ul>
+  <p>When the prompt shows <code>~</code>, you are in your home directory. On Mac, home is typically <code>/Users/yourname</code>, but the idea is the same.</p>
+
+  <h2><code>.</code> and <code>..</code> — Special Directory Names</h2>
+  <p>Every directory has two special names:</p>
+  <ul>
+    <li><code>.</code> (dot) — <strong>the current directory itself</strong>. <code>cd .</code> means stay where you are.</li>
+    <li><code>..</code> (dot-dot) — <strong>the parent directory</strong> (one level up). <code>cd ..</code> moves up one level.</li>
+  </ul>
+  <p>You can combine them:</p>
+  <ul>
+    <li><code>cd ../documents</code> — go up one level, then into documents</li>
+    <li><code>cd ./documents</code> — from here into documents (same as <code>cd documents</code>)</li>
+  </ul>
+
+  <h2>Choosing Absolute vs Relative</h2>
+  <p>Both work with <code>cd</code>:</p>
+  <pre><code># absolute path
+  $ cd /home/user/documents
+
+  # relative path (while in /home/user)
+  $ cd documents
+
+  # path with ~
+  $ cd ~/documents</code></pre>
+  <p>When unsure, run <code>pwd</code> first, then <code>cd</code>.</p>
+
+  <h2>Tab Completion and Command History</h2>
+  <p>For long paths, press <strong>Tab</strong> to complete directory names. Previously used <code>cd</code> commands can be recalled with the <strong>↑ key</strong>. Chapter 9 goes deeper, but try these while practicing paths.</p>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, move using absolute paths, relative paths, and <code>~</code>, then verify your location with <code>pwd</code>!</p>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 07-04: ワイルドカード</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">ワイルドカード</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>ファイル名のパターン指定</h2>
+<p><code>find -name "*.txt"</code> で見た <code>*</code> は<strong>ワイルドカード</strong>と呼ばれ、ファイル名の一部をざっくり指定できます。シェルはコマンドを実行する前に、ワイルドカードを<strong>実際のファイル名に展開</strong>します。</p>
+
+<h2>主なワイルドカード</h2>
+<table>
+  <tr><th>記号</th><th>意味</th><th>例</th></tr>
+  <tr><td><code>*</code></td><td>任意の文字列（0 文字以上）</td><td><code>*.txt</code> → notes.txt, readme.txt</td></tr>
+  <tr><td><code>?</code></td><td>任意の 1 文字</td><td><code>file?.txt</code> → file1.txt, fileA.txt</td></tr>
+</table>
+
+<h2><code>ls *.txt</code> の例</h2>
+<pre><code>$ ls *.txt
+notes.txt  readme.txt</code></pre>
+<p>シェルは <code>*.txt</code> を、カレントディレクトリで .txt で終わるファイル名に置き換えてから <code>ls</code> を実行します。</p>
+
+<h2>find との違い</h2>
+<ul>
+  <li><strong>ワイルドカード</strong> — シェルが展開（主に 1 階層・カレント付近）</li>
+  <li><strong>find</strong> — サブディレクトリも含めて再帰的に検索</li>
+</ul>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>ls *.txt</code> を試し、ワイルドカードの展開を確認しましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

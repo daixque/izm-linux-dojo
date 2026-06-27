@@ -1,0 +1,20 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "02"
+  id: "08_pipe_redirect/02_redirect_in"
+  title: "Input Redirection"
+
+description: "Use input redirection with grep."
+
+task_description: |
+  <p>Run <code>grep ERROR &lt; app.log</code> to search from file input.</p>
+
+instructions:
+  - "Run <code>grep ERROR &lt; app.log</code>"
+  - "Confirm ERROR lines are displayed"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Put <code>&lt;</code> before the filename"
+  - "Same result as <code>grep ERROR app.log</code>"

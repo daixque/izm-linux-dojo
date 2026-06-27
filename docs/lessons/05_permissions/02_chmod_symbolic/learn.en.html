@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 05-02: chmod (Symbolic Mode)</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">chmod (Symbolic Mode)</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Changing Permissions with <code>chmod</code></h2>
+<p>The owner (or root, covered later) can change permissions with <code>chmod</code>. Symbolic mode spells out <strong>who</strong>, <strong>what</strong>, and <strong>how</strong> in letters.</p>
+
+<h2>Symbols</h2>
+<ul>
+  <li><strong>Who</strong> — <code>u</code> owner, <code>g</code> group, <code>o</code> others, <code>a</code> all</li>
+  <li><strong>Operator</strong> — <code>+</code> add, <code>-</code> remove, <code>=</code> set exactly</li>
+  <li><strong>What</strong> — <code>r</code>, <code>w</code>, <code>x</code></li>
+</ul>
+
+<h2>Common Examples</h2>
+<pre><code>$ chmod u+x script.sh     # add execute for owner
+$ chmod go-r secret.txt   # remove read from group and others
+$ chmod a+r public.txt    # add read for everyone
+$ chmod u=rw,go=r file    # owner: rw; group and others: r only</code></pre>
+<p>Always verify with <code>ls -l</code> after changing permissions.</p>
+
+<h2>Note</h2>
+<p>You cannot <code>chmod</code> a file you do not own (Operation not permitted). Only the owner or an administrator can change permissions.</p>
+
+<h2>Next Step</h2>
+<p>On the exercise page, add execute permission to your script <code>hello.sh</code>!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

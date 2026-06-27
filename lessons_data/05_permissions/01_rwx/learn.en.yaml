@@ -1,0 +1,39 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "01"
+  id: "05_permissions/01_rwx"
+  title: "Reading rwx Permissions"
+
+content: |
+  <h2>Review of Chapter 4</h2>
+  <p>Chapter 4 covered <strong>whose</strong> file something is (owner and group). Chapter 5 covers <strong>what is allowed</strong> — <strong>permissions</strong>.</p>
+
+  <h2>Three Operations: r, w, x</h2>
+  <p>Linux file permissions combine three letters:</p>
+  <ul>
+    <li><strong>r</strong> (read) — read the file (<code>cat</code>, etc.)</li>
+    <li><strong>w</strong> (write) — change the file (<code>touch</code>, <code>rm</code>, etc.)</li>
+    <li><strong>x</strong> (execute) — run a file; for directories, enter it (<code>cd</code>)</li>
+  </ul>
+  <p>Without permission, you get <strong>Permission denied</strong>.</p>
+
+  <h2>Permission String in <code>ls -l</code></h2>
+  <p>Column 1 of <code>ls -l</code> is a 10-character permission string:</p>
+  <pre><code>-rw-r--r-- 1 user user   12 Jan  1 10:00 notes.txt
+  drwxr-xr-x 2 user user 4096 Jan  1 10:00 bin</code></pre>
+  <ul>
+    <li><strong>Char 1</strong> — type (<code>-</code> file, <code>d</code> directory)</li>
+    <li><strong>Chars 2–4</strong> — owner's rwx</li>
+    <li><strong>Chars 5–7</strong> — group's rwx</li>
+    <li><strong>Chars 8–10</strong> — others' rwx</li>
+  </ul>
+  <p><code>-</code> means that permission is off. <code>rw-</code> means read and write, not execute.</p>
+
+  <h2>Examples</h2>
+  <pre><code>-rw-r--r--  … owner: read+write / group: read only / others: read only
+  -rwxr-xr-x  … owner: all / group: read+execute / others: read+execute
+  drwx------  … directory; only owner can read, write, and enter</code></pre>
+
+  <h2>Next Step</h2>
+  <p>Run <code>ls -l</code> on the exercise page and read each permission string!</p>

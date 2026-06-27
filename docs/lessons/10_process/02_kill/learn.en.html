@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 10-02: Stopping Processes</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Stopping Processes</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Stopping a Process</h2>
+<p>In the previous lesson you used <code>ps</code> to see running processes and their PIDs. Sometimes you need to stop a process that is no longer needed or keeps running by mistake.</p>
+<p>On Linux, the <code>kill</code> command sends a <strong>signal</strong> to a process with a given PID — essentially telling it to stop.</p>
+
+<h2>What is a Signal?</h2>
+<p>A signal is a message from the OS to a process, such as "exit now" or "pause." For beginners, remember that <code>kill PID</code> means "stop the process with this PID."</p>
+
+<h2>Basic <code>kill</code></h2>
+<pre><code>$ kill 3099</code></pre>
+<p>This tells PID <code>3099</code> (the <code>sleep 100</code> process) to exit. On success, nothing is usually printed.</p>
+<p>Run <code>ps</code> again and the stopped process will no longer appear.</p>
+
+<h2>Cautions</h2>
+<ul>
+  <li>Specifying a non-existent PID produces an error</li>
+  <li>Important processes like <code>systemd</code> (PID 1) cannot be stopped</li>
+  <li>In production, always confirm before stopping a process</li>
+</ul>
+
+<h2>Next Step</h2>
+<p>On the exercise page, run <code>kill 3099</code> to stop <code>sleep 100</code>, then verify with <code>ps</code>.</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,6 +1,21 @@
 {
   "chapters": [
     {
+      "id": "00_intro",
+      "number": 0,
+      "title": "Introduction",
+      "description": "Understand the terminal and Linux before typing commands",
+      "lessons": [
+        {
+          "id": "00_intro/01_terminal_world",
+          "number": "00-01",
+          "title": "The Terminal and the Linux World",
+          "description": "Try the clear command in the terminal and get used to sending commands with Enter.",
+          "available": true
+        }
+      ]
+    },
+    {
       "id": "01_dir_and_file",
       "number": 1,
       "title": "Directories and Files",
@@ -11,6 +26,423 @@
           "number": "01-01",
           "title": "ls and cd Basics",
           "description": "Use ls and cd to navigate directories and list files.",
+          "available": true
+        },
+        {
+          "id": "01_dir_and_file/02_ls_options",
+          "number": "01-02",
+          "title": "ls Options",
+          "description": "Use ls -a to list all files including the hidden .config file.",
+          "available": true
+        },
+        {
+          "id": "01_dir_and_file/03_paths",
+          "number": "01-03",
+          "title": "Understanding Paths",
+          "description": "Use cd with absolute paths, relative paths, and ~, then verify with pwd.",
+          "available": true
+        },
+        {
+          "id": "01_dir_and_file/04_tree",
+          "number": "01-04",
+          "title": "Directory Structure",
+          "description": "cd to the app directory three levels deep and confirm with pwd.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "02_file_manage",
+      "number": 2,
+      "title": "Creating and Managing Files",
+      "description": "Learn to create, copy, move, and delete files and directories",
+      "lessons": [
+        {
+          "id": "02_file_manage/01_mkdir_touch",
+          "number": "02-01",
+          "title": "Creating Files and Directories",
+          "description": "Use mkdir and touch to create directories and empty files.",
+          "available": true
+        },
+        {
+          "id": "02_file_manage/02_cp",
+          "number": "02-02",
+          "title": "Copying Files",
+          "description": "Use cp to copy a file into another directory.",
+          "available": true
+        },
+        {
+          "id": "02_file_manage/03_mv",
+          "number": "02-03",
+          "title": "Moving and Renaming",
+          "description": "Use mv to rename a file and move it into another directory.",
+          "available": true
+        },
+        {
+          "id": "02_file_manage/04_rm",
+          "number": "02-04",
+          "title": "Deleting Files",
+          "description": "Use rm and rmdir to delete unneeded files and an empty directory.",
+          "available": true
+        },
+        {
+          "id": "02_file_manage/05_review",
+          "number": "02-05",
+          "title": "File Operations Review",
+          "description": "Combine Chapter 1–2 commands to organize files.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "03_view_text",
+      "number": 3,
+      "title": "Viewing File Contents",
+      "description": "Learn how to view and inspect text files",
+      "lessons": [
+        {
+          "id": "03_view_text/01_cat",
+          "number": "03-01",
+          "title": "Display with cat",
+          "description": "Use cat to display the contents of a text file.",
+          "available": true
+        },
+        {
+          "id": "03_view_text/02_head_tail",
+          "number": "03-02",
+          "title": "Head and Tail",
+          "description": "Use head and tail to view the beginning and end of a log file.",
+          "available": true
+        },
+        {
+          "id": "03_view_text/03_wc",
+          "number": "03-03",
+          "title": "Line and Word Counts",
+          "description": "Use wc to count lines and words in a file.",
+          "available": true
+        },
+        {
+          "id": "03_view_text/04_less_sim",
+          "number": "03-04",
+          "title": "Long Files",
+          "description": "Use head and tail to inspect parts of a long story.txt file.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "04_users_ownership",
+      "number": 4,
+      "title": "Users and Ownership",
+      "description": "Learn about users, owners, and groups",
+      "lessons": [
+        {
+          "id": "04_users_ownership/01_users",
+          "number": "04-01",
+          "title": "What Is a User?",
+          "description": "Use whoami to see which user you are logged in as.",
+          "available": true
+        },
+        {
+          "id": "04_users_ownership/02_owner_group",
+          "number": "04-02",
+          "title": "Owner and Group",
+          "description": "Use ls -l to see each file's owner and group.",
+          "available": true
+        },
+        {
+          "id": "04_users_ownership/03_multi_user",
+          "number": "04-03",
+          "title": "Multiple Users and Sharing",
+          "description": "Read ls -l output when files from different users are mixed together.",
+          "available": true
+        },
+        {
+          "id": "04_users_ownership/04_ownership_practice",
+          "number": "04-04",
+          "title": "Checking Ownership",
+          "description": "Use whoami and ls -l to tell your files from others' files.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "05_permissions",
+      "number": 5,
+      "title": "File Permissions",
+      "description": "Learn file permissions with rwx and chmod",
+      "lessons": [
+        {
+          "id": "05_permissions/01_rwx",
+          "number": "05-01",
+          "title": "Reading rwx Permissions",
+          "description": "Read permission strings (rwx) from ls -l output.",
+          "available": true
+        },
+        {
+          "id": "05_permissions/02_chmod_symbolic",
+          "number": "05-02",
+          "title": "chmod (Symbolic Mode)",
+          "description": "Use symbolic chmod to add execute permission to your file.",
+          "available": true
+        },
+        {
+          "id": "05_permissions/03_permission_denied",
+          "number": "05-03",
+          "title": "When Permissions Block You",
+          "description": "Confirm that cat fails with Permission denied on a protected file.",
+          "available": true
+        },
+        {
+          "id": "05_permissions/04_chmod_octal",
+          "number": "05-04",
+          "title": "chmod (Octal Mode) [Advanced]",
+          "description": "Set permissions with octal chmod (644, 755).",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "06_root_sudo",
+      "number": 6,
+      "title": "root and sudo",
+      "description": "Learn about the root user and privileged operations with sudo",
+      "lessons": [
+        {
+          "id": "06_root_sudo/01_root",
+          "number": "06-01",
+          "title": "The root User",
+          "description": "Use ls -l to inspect system files owned by root.",
+          "available": true
+        },
+        {
+          "id": "06_root_sudo/02_sudo",
+          "number": "06-02",
+          "title": "What Is sudo?",
+          "description": "Use sudo ls /root to list a directory with root privileges.",
+          "available": true
+        },
+        {
+          "id": "06_root_sudo/03_chown_chgrp",
+          "number": "06-03",
+          "title": "Changing Ownership",
+          "description": "Use sudo chown to transfer a root-owned file to user.",
+          "available": true
+        },
+        {
+          "id": "06_root_sudo/04_privilege_practice",
+          "number": "06-04",
+          "title": "Privileged Operations Practice",
+          "description": "Combine sudo chown and sudo chmod to set up a shared file.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "07_search",
+      "number": 7,
+      "title": "Search and Filter",
+      "description": "Learn file search and text filtering with grep and find",
+      "lessons": [
+        {
+          "id": "07_search/01_grep_basic",
+          "number": "07-01",
+          "title": "grep Basics",
+          "description": "Use grep to extract ERROR lines from a log file.",
+          "available": true
+        },
+        {
+          "id": "07_search/02_grep_options",
+          "number": "07-02",
+          "title": "grep Options",
+          "description": "Use grep -n and grep -c options.",
+          "available": true
+        },
+        {
+          "id": "07_search/03_find",
+          "number": "07-03",
+          "title": "Finding Files with find",
+          "description": "Use find to search for .txt files.",
+          "available": true
+        },
+        {
+          "id": "07_search/04_wildcard",
+          "number": "07-04",
+          "title": "Wildcards",
+          "description": "List files of a specific extension using wildcards.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "08_pipe_redirect",
+      "number": 8,
+      "title": "Pipes and Redirects",
+      "description": "Learn to connect command output with pipes and redirects",
+      "lessons": [
+        {
+          "id": "08_pipe_redirect/01_redirect_out",
+          "number": "08-01",
+          "title": "Output Redirection",
+          "description": "Redirect ls output to a file.",
+          "available": true
+        },
+        {
+          "id": "08_pipe_redirect/02_redirect_in",
+          "number": "08-02",
+          "title": "Input Redirection",
+          "description": "Use input redirection with grep.",
+          "available": true
+        },
+        {
+          "id": "08_pipe_redirect/03_pipe",
+          "number": "08-03",
+          "title": "Pipes",
+          "description": "Count ERROR lines using pipes.",
+          "available": true
+        },
+        {
+          "id": "08_pipe_redirect/04_combine",
+          "number": "08-04",
+          "title": "Combining Commands",
+          "description": "Combine grep and redirection to save ERROR lines.",
+          "available": true
+        },
+        {
+          "id": "08_pipe_redirect/05_review",
+          "number": "08-05",
+          "title": "Search and Pipes Review",
+          "description": "Combined exercise for grep, pipes, and redirection.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "09_shell_basics",
+      "number": 9,
+      "title": "Shell Basics",
+      "description": "Learn shell features like command history, Tab completion, and man/--help",
+      "lessons": [
+        {
+          "id": "09_shell_basics/01_history",
+          "number": "09-01",
+          "title": "Command History",
+          "description": "Practice command history with ↑↓ keys.",
+          "available": true
+        },
+        {
+          "id": "09_shell_basics/02_tab_complete",
+          "number": "09-02",
+          "title": "Tab Completion",
+          "description": "Use Tab completion to navigate directories.",
+          "available": true
+        },
+        {
+          "id": "09_shell_basics/03_man_help",
+          "number": "09-03",
+          "title": "Getting Help",
+          "description": "Look up command usage with --help and man.",
+          "available": true
+        },
+        {
+          "id": "09_shell_basics/04_env",
+          "number": "09-04",
+          "title": "Environment Variables",
+          "description": "Display HOME and USER environment variables with echo.",
+          "available": true
+        },
+        {
+          "id": "09_shell_basics/05_multi_command",
+          "number": "09-05",
+          "title": "Chaining Commands",
+          "description": "Chain cd and ls with && on one line.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "10_process",
+      "number": 10,
+      "title": "Processes",
+      "description": "Learn process basics including PIDs, ps, and kill",
+      "lessons": [
+        {
+          "id": "10_process/01_ps",
+          "number": "10-01",
+          "title": "Process List",
+          "description": "Use ps to view the list of running processes.",
+          "available": true
+        },
+        {
+          "id": "10_process/02_kill",
+          "number": "10-02",
+          "title": "Stopping Processes",
+          "description": "Use kill to terminate a process by PID.",
+          "available": true
+        },
+        {
+          "id": "10_process/03_background",
+          "number": "10-03",
+          "title": "Foreground and Background",
+          "description": "Use jobs to understand background job concepts.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "11_network",
+      "number": 11,
+      "title": "Network",
+      "description": "Learn network command concepts such as curl",
+      "lessons": [
+        {
+          "id": "11_network/01_curl",
+          "number": "11-01",
+          "title": "Fetching Web Data with curl",
+          "description": "Fetch data from a mock API with curl and save it to a file.",
+          "available": true
+        },
+        {
+          "id": "11_network/02_network_concepts",
+          "number": "11-02",
+          "title": "Network Concepts",
+          "description": "Review curl and network command concepts.",
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "12_capstone",
+      "number": 12,
+      "title": "Capstone",
+      "description": "Practice combining everything you've learned in hands-on exercises",
+      "lessons": [
+        {
+          "id": "12_capstone/01_file_organize",
+          "number": "12-01",
+          "title": "File Organization",
+          "description": "Combine mkdir, cp, mv, and rm to organize files.",
+          "available": true
+        },
+        {
+          "id": "12_capstone/02_log_analysis",
+          "number": "12-02",
+          "title": "Log Analysis",
+          "description": "Use grep, wc, and pipes to count ERROR lines in a log.",
+          "available": true
+        },
+        {
+          "id": "12_capstone/03_shared_folder",
+          "number": "12-03",
+          "title": "Shared Folder Setup",
+          "description": "Set shared directory permissions with chmod, chown, and sudo.",
+          "available": true
+        },
+        {
+          "id": "12_capstone/04_final_dojo",
+          "number": "12-04",
+          "title": "Final Dojo Challenge",
+          "description": "Comprehensive capstone combining core curriculum commands.",
           "available": true
         }
       ]

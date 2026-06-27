@@ -1,0 +1,37 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "03"
+  id: "02_file_manage/03_mv"
+  title: "移動とリネーム"
+
+content: |
+  <h2>移動と名前変更</h2>
+  <p><code>mv</code>（move）は、ファイルやディレクトリを<strong>別の場所へ移動</strong>するコマンドです。GUI の「切り取りして貼り付け」に近い操作です。</p>
+  <p>実は <code>mv</code> は<strong>名前の変更（リネーム）</strong>にも使えます。同じフォルダの中で名前だけ変えるときも <code>mv</code> です。</p>
+
+  <h2>名前を変える — リネーム</h2>
+  <pre><code>$ mv old_name.txt new_name.txt
+  $ ls
+  new_name.txt</code></pre>
+  <p>同じディレクトリ内で、ファイル名だけが <code>old_name.txt</code> から <code>new_name.txt</code> に変わります。</p>
+
+  <h2>別のフォルダへ移動する</h2>
+  <pre><code>$ mv new_name.txt archive/
+  $ ls archive
+  new_name.txt</code></pre>
+  <p>ファイルが <code>archive</code> フォルダの中に移動します。元の場所からは消えます。</p>
+
+  <h2>移動と名前変更を同時に</h2>
+  <p>移動先で別名を付けることもできます。</p>
+  <pre><code>$ mv draft.txt archive/final.txt</code></pre>
+  <p>これで <code>draft.txt</code> は <code>archive/final.txt</code> という名前で移動します。</p>
+
+  <h2><code>cp</code> との違い</h2>
+  <ul>
+    <li><code>cp</code> — 元を残してコピーを作る</li>
+    <li><code>mv</code> — 元の場所からなくなり、新しい場所（または新しい名前）に移る</li>
+  </ul>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで、ファイルの名前を変えてから別フォルダへ移動してみましょう！</p>

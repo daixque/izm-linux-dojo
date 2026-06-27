@@ -1,0 +1,35 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: 'hi
+
+              '
+      notes.txt:
+        type: file
+        content: 'memo
+
+          '
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "ls > filelist.txt"
+
+tests:
+  - name: "filelist.txt に ls 結果が保存される"
+    description: "リダイレクト後のファイル内容"
+    type: command_sequence
+    steps:
+      - command: "ls > filelist.txt"
+        expected_output: ""
+      - command: "cat filelist.txt"
+        expected_output: |
+          documents
+          filelist.txt
+          notes.txt

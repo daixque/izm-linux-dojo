@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 01-04: Directory Structure</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Directory Structure</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Tree Structure — Nested Folders</h2>
+<p>The Linux filesystem is organized like a <strong>branching tree</strong>. The root (<code>/</code>) is the trunk; directories branch out, and files sit at the ends of those branches.</p>
+<p>Here is a deeper version of the example from Lesson 1:</p>
+<pre class="tree"><code>/home/user/
+├── projects/
+│   └── web/
+│       └── app/
+│           └── config.txt
+└── notes.txt</code></pre>
+<p>Inside <code>projects</code> is <code>web</code>, inside that is <code>app</code>, and inside that is <code>config.txt</code> — a <strong>three-level nest</strong>.</p>
+
+<h2>Counting Levels</h2>
+<p>"Three levels down" means passing through three directories from where you start.</p>
+<p>From <code>/home/user</code> to <code>config.txt</code>:</p>
+<ol>
+  <li><code>projects</code> — level 1</li>
+  <li><code>web</code> — level 2</li>
+  <li><code>app</code> — level 3 (where <code>config.txt</code> lives)</li>
+</ol>
+<p>You cannot <code>cd</code> into a file — only into directories. The goal is to reach the <strong>directory that contains</strong> <code>config.txt</code> (that is, <code>app</code>).</p>
+
+<h2>Reaching Deep Directories</h2>
+<p>You can move in one step or one level at a time.</p>
+<h3>One combined path (recommended)</h3>
+<pre><code>$ cd projects/web/app
+$ pwd
+/home/user/projects/web/app</code></pre>
+<p>Join directory names with <code>/</code> to jump to a deep location at once. This works with both relative and absolute paths.</p>
+<h3>Step by step</h3>
+<pre><code>$ cd projects
+$ cd web
+$ cd app
+$ pwd
+/home/user/projects/web/app</code></pre>
+<p>Use this when you want to verify each level. Either way, finish with <code>pwd</code> to confirm where you are.</p>
+
+<h2>Reading Tree Diagrams</h2>
+<p>Documentation often shows structure with <strong>tree diagrams</strong> like the one above.</p>
+<ul>
+  <li><code>├──</code> — a branch with siblings at the same level</li>
+  <li><code>└──</code> — the last item at that level</li>
+  <li><code>│</code> — the branch continues from above</li>
+</ul>
+<p>Keeping track of "which level am I on?" while reading a tree makes <code>cd</code> and <code>ls</code> output easier to follow.</p>
+
+<h2>Tab Completion Shines Here</h2>
+<p>Deep paths get long. Type <code>cd pro</code> and press Tab to get <code>projects/</code>, then <code>w</code> + Tab for <code>web/</code>, and so on. You do not have to type the full path by hand — get comfortable with Tab during Chapter 1.</p>
+
+<h2>Next Step</h2>
+<p>On the exercise page, <code>cd</code> to the <code>app</code> directory three levels down and confirm with <code>pwd</code>!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

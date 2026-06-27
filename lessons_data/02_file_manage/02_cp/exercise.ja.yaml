@@ -1,0 +1,23 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "02"
+  id: "02_file_manage/02_cp"
+  title: "コピー"
+
+description: "cp コマンドでファイルを別のディレクトリへコピーします。"
+
+task_description: |
+  <p><code>report.txt</code> を <code>backup</code> フォルダの中にコピーしましょう。元のファイルはそのまま残ります。</p>
+
+instructions:
+  - "<code>ls</code> で <code>report.txt</code> と <code>backup</code> があることを確認します"
+  - "<code>cp report.txt backup/</code> でファイルをコピーします"
+  - "<code>ls backup</code> で <code>report.txt</code> が表示されることを確認します"
+  - "<code>cat backup/report.txt</code> で内容が同じか確認してもよいでしょう"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "コピー先のフォルダ名の末尾に <code>/</code> を付けると「フォルダの中」と分かりやすいです"
+  - "元の <code>report.txt</code> も <code>ls</code> に残っているはずです"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

@@ -1,0 +1,22 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "01"
+  id: "05_permissions/01_rwx"
+  title: "Reading rwx Permissions"
+
+description: "Read permission strings (rwx) from ls -l output."
+
+task_description: |
+  <p>Run <code>ls -l</code> and compare the permissions on <code>public.txt</code> and <code>private.txt</code>.</p>
+
+instructions:
+  - "Run <code>ls -l</code> for a detailed listing"
+  - "<code>public.txt</code> has <code>-rw-r--r--</code> (everyone can read)"
+  - "<code>private.txt</code> has <code>-rw-------</code> (owner only)"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "The first 10 characters are permissions"
+  - "Characters 2–4 are the owner's (user's) rwx"
+  - "Characters 8–10 are others' rwx"

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 10-01: Process List</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Process List</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>What is a Process?</h2>
+<p>A <strong>process</strong> is a program that is <strong>currently running</strong> on the computer. When you use a terminal with <code>bash</code>, open a web browser, or run a background update — each is a process.</p>
+<p>Think of <strong>files</strong> (from Chapter 1) as stored data, and processes as work happening right now.</p>
+
+<h2>Process ID (PID)</h2>
+<p>The OS assigns each running process a number called a <strong>Process ID</strong> (<strong>PID</strong>), such as <code>1042</code> or <code>3099</code>.</p>
+<ul>
+  <li>Starting the same program twice gives two different PIDs</li>
+  <li>When a process exits, its PID may later be reused</li>
+</ul>
+
+<h2><code>ps</code> — List Processes</h2>
+<p>The <code>ps</code> command shows running processes. In the dojo simulator, fixed sample data is displayed.</p>
+<pre><code>$ ps
+PID TTY          TIME CMD
+  1 ?           00:00:01 systemd
+1042 pts/0       00:00:00 bash
+2048 pts/0       00:00:02 python simulator.py
+3099 pts/0       00:00:00 sleep 100</code></pre>
+<p>Column meanings:</p>
+<ul>
+  <li><strong>PID</strong> — process ID</li>
+  <li><strong>TTY</strong> — terminal attached (<code>?</code> means none)</li>
+  <li><strong>TIME</strong> — approximate CPU time used</li>
+  <li><strong>CMD</strong> — command name</li>
+</ul>
+
+<h2>About <code>top</code> (Reference)</h2>
+<p>On real Linux, <code>top</code> shows a live-updating process list. The dojo focuses on <code>ps</code> instead.</p>
+
+<h2>Next Step</h2>
+<p>Run <code>ps</code> on the exercise page and read the PIDs and command names.</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+lesson:
+  chapter: "12_capstone"
+  chapter_number: "12"
+  number: "02"
+  id: "12_capstone/02_log_analysis"
+  title: "Log Analysis"
+
+description: "Use grep, wc, and pipes to count ERROR lines in a log."
+
+task_description: |
+  <p>Extract ERROR lines from <code>app.log</code> and count them.</p>
+  <ol>
+    <li><code>grep ERROR app.log</code> to display ERROR lines</li>
+    <li><code>grep ERROR app.log | wc -l</code> to count (should be 3)</li>
+    <li><code>grep ERROR app.log > errors.txt</code> to save ERROR lines</li>
+  </ol>
+
+instructions:
+  - "Run <code>cat app.log</code> to review the log"
+  - "Run <code>grep ERROR app.log</code>"
+  - "Run <code>grep ERROR app.log | wc -l</code> to count"
+  - "Run <code>grep ERROR app.log > errors.txt</code> to save results"
+  - "Click <strong>Test</strong> when ready"
+
+hints:
+  - "Pipe <code>|</code> sends left output to the right command"
+  - "<code>wc -l</code> counts lines"
+  - "Use <strong>Reset</strong> to start over if needed"

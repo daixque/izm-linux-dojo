@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 10-03: Foreground and Background</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Foreground and Background</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Two Ways to Run</h2>
+<p>When you run a command in the terminal, you usually <strong>wait</strong> until it finishes. This is running in the <strong>foreground</strong>.</p>
+<p>Adding <code>&</code> at the end runs the command in the <strong>background</strong>. The terminal becomes available immediately while work continues behind the scenes.</p>
+<pre><code>$ sleep 100 &
+[1] 3099</code></pre>
+
+<h2><code>jobs</code> — List Background Jobs</h2>
+<p>The <code>jobs</code> command shows background work. In the dojo simulator, you will see fixed output like:</p>
+<pre><code>$ jobs
+[1]+ Running    sleep 100 &</code></pre>
+<p><code>[1]</code> is the job number; <code>Running</code> means it is active.</p>
+
+<h2>About <code>fg</code> (Concept)</h2>
+<p><code>fg</code> brings a background job back to the foreground. The dojo does not fully simulate this, but remember: it returns background work to the state where you wait for it in front.</p>
+
+<h2>When to Use Background?</h2>
+<ul>
+  <li>Run a long task in the background while using the terminal for other work</li>
+  <li>Keep a server program running while typing other commands</li>
+</ul>
+<p>Chapter 10 is optional. Understanding the idea is enough; try <code>&</code> on a real Linux system when you can.</p>
+
+<h2>Next Step</h2>
+<p>On the exercise page, run <code>jobs</code> to see the simulated background job list.</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

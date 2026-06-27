@@ -1,0 +1,35 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      documents:
+        type: directory
+        children:
+          readme.txt:
+            type: file
+            content: 'hello
+
+              '
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "cd documents && ls"
+  - "cd /home/user"
+
+tests:
+  - name: "cd && ls が動作する"
+    description: "連結コマンドの結果"
+    type: command_sequence
+    steps:
+      - command: "cd documents && ls"
+        expected_output: |
+          readme.txt
+        expected_cwd: "/home/user/documents"
+  - name: "セミコロン連結も動作"
+    description: "pwd; ls の実行"
+    type: command_output
+    command: "pwd; ls"
+    expected_output: |
+      /home/user
+      documents

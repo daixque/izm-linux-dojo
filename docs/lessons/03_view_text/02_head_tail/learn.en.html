@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 03-02: Head and Tail</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Head and Tail</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>View Part of a Long File</h2>
+<p><code>cat</code> from the previous lesson shows the entire file. For long files like logs, that overflows the screen.</p>
+<p>Instead, use commands that show only the <strong>beginning</strong> or <strong>end</strong> of a file.</p>
+
+<h2><code>head</code> — Show the Beginning</h2>
+<p><code>head</code> prints the first lines of a file. The default is 10 lines.</p>
+<pre><code>$ head server.log
+2024-01-01 INFO Server started
+2024-01-01 INFO Listening on port 8080
+...</code></pre>
+
+<h3>Choose Line Count — <code>head -n</code></h3>
+<p>The <code>-n</code> option sets how many lines to show:</p>
+<pre><code>$ head -n 5 server.log</code></pre>
+
+<h2><code>tail</code> — Show the End</h2>
+<p><code>tail</code> prints the last lines. Useful for checking the newest log entries.</p>
+<pre><code>$ tail server.log
+...
+2024-01-04 INFO Goodbye</code></pre>
+
+<h3>Choose Line Count — <code>tail -n</code></h3>
+<pre><code>$ tail -n 3 server.log</code></pre>
+
+<h2>When to Use Which</h2>
+<ul>
+  <li><strong>Learn the file format</strong> → <code>head</code></li>
+  <li><strong>Check recent errors</strong> → <code>tail</code></li>
+</ul>
+
+<h2>Next Step</h2>
+<p>On the exercise page, show the first 5 and last 3 lines of a log file!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

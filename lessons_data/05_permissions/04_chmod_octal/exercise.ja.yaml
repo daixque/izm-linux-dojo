@@ -1,0 +1,22 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "04"
+  id: "05_permissions/04_chmod_octal"
+  title: "chmod（8進）【発展】"
+
+description: "chmod の 8進形式（644, 755）で権限を設定します。"
+
+task_description: |
+  <p><code>report.txt</code> を <code>644</code>、<code>tools</code> ディレクトリを <code>755</code> に設定しましょう。</p>
+
+instructions:
+  - "<code>chmod 644 report.txt</code> を実行します"
+  - "<code>chmod 755 tools</code> を実行します"
+  - "<code>ls -l</code> で権限が正しく設定されたことを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "644 は rw-r--r--、755 は rwxr-xr-x です"
+  - "ディレクトリにも chmod を使えます"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

@@ -1,0 +1,39 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      notes.txt:
+        type: file
+        content: "memo\n"
+  /root:
+    type: directory
+    owner: root
+    group: root
+    mode: 700
+    children:
+      secret.txt:
+        type: file
+        content: "root's secret\n"
+        owner: root
+        group: root
+        mode: 600
+
+initial_cwd: /home/user
+
+solution_commands:
+  - sudo ls /root
+
+tests:
+  - name: "sudo ls /root が成功する"
+    description: "root 権限で /root を一覧"
+    type: command_output
+    command: sudo ls /root
+    expected_output: "secret.txt\n"
+
+  - name: "通常の ls /root は失敗する"
+    description: "sudo なしでは Permission denied"
+    type: command_output
+    command: ls /root
+    expected_output: ""
+    expected_stderr: "ls: cannot open directory '/root': Permission denied\n"
+    expected_exit_code: 1

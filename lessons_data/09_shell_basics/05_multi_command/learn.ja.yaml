@@ -1,0 +1,27 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "05"
+  id: "09_shell_basics/05_multi_command"
+  title: "コマンド連結"
+
+content: |
+  <h2>1 行に複数コマンド</h2>
+  <p>シェルでは、1 行に複数のコマンドを書いて順番に実行できます。</p>
+  
+  <h2><code>;</code> — 順番に実行</h2>
+  <pre><code>$ cd documents; ls</code></pre>
+  <p>左のコマンドの<strong>成否に関係なく</strong>、右も実行されます。</p>
+  
+  <h2><code>&amp;&amp;</code> — 成功したら次を実行</h2>
+  <pre><code>$ cd documents &amp;&amp; ls</code></pre>
+  <p>左のコマンドが<strong>成功（終了コード 0）</strong>したときだけ、右を実行します。<code>cd</code> が失敗したら <code>ls</code> は実行されません。</p>
+  
+  <h2>使い分け</h2>
+  <ul>
+    <li><code>;</code> — 独立した操作を続けて実行</li>
+    <li><code>&amp;&amp;</code> — 前が成功したときだけ次へ（安全な連鎖）</li>
+  </ul>
+  
+  <h2>次のステップ</h2>
+  <p>演習ページで <code>cd documents &amp;&amp; ls</code> を試してみましょう！</p>

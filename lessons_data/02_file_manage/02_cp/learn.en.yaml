@@ -1,0 +1,38 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "02"
+  id: "02_file_manage/02_cp"
+  title: "Copying Files"
+
+content: |
+  <h2>What Is Copying?</h2>
+  <p><strong>Copying</strong> creates a duplicate while keeping the original. In a GUI this is like Copy and Paste.</p>
+  <p>On Linux you use the <code>cp</code> (copy) command.</p>
+
+  <h2>Copy a File — <code>cp</code></h2>
+  <p>The basic form is:</p>
+  <pre><code>cp source destination</code></pre>
+  <p>To copy <code>report.txt</code> into the <code>backup</code> folder:</p>
+  <pre><code>$ cp report.txt backup/
+  $ ls backup
+  report.txt</code></pre>
+  <p>The original <code>report.txt</code> stays in place, and a new file appears at <code>backup/report.txt</code>.</p>
+
+  <h3>Copy with a New Name</h3>
+  <p>You can give the copy a different filename:</p>
+  <pre><code>$ cp report.txt report_backup.txt</code></pre>
+
+  <h2>Copy a Directory — <code>cp -r</code></h2>
+  <p>Directories need the <code>-r</code> option (recursive) to copy everything inside them.</p>
+  <pre><code>$ cp -r photos photos_copy
+  $ ls
+  photos
+  photos_copy</code></pre>
+  <p>Without <code>-r</code>, you usually get an error saying directories cannot be copied.</p>
+
+  <h2>Verify the Copy</h2>
+  <p>Use <code>ls</code> from Chapter 1 or <code>cat</code> from Chapter 3 to confirm the copy exists. You can also <code>cd</code> into the destination folder first.</p>
+
+  <h2>Next Step</h2>
+  <p>Try copying a file into another folder on the exercise page!</p>

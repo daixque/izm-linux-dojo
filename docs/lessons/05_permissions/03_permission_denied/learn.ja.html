@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 05-03: 権限で拒否される</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">権限で拒否される</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Permission denied とは</h2>
+<p>権限のない操作をしようとすると、Linux は<strong>Permission denied</strong>（許可されていません）と返します。エラーに見えますが、「セキュリティが正常に働いている」サインでもあります。</p>
+
+<h2>よくある場面</h2>
+<ul>
+  <li>他人のファイルを <code>cat</code> しようとした（読み取り権限なし）</li>
+  <li>他人のファイルを <code>rm</code> しようとした（書き込み権限なし）</li>
+  <li>権限のないディレクトリに <code>cd</code> しようとした（実行権限なし）</li>
+  <li>他人のファイルの <code>chmod</code> をしようとした（オーナーでない）</li>
+</ul>
+<pre><code>$ cat alice_secret.txt
+cat: alice_secret.txt: Permission denied</code></pre>
+
+<h2>対処の考え方</h2>
+<ol>
+  <li><code>ls -l</code> でオーナーと権限を確認する</li>
+  <li>自分のファイルなら <code>chmod</code> で権限を調整できる（第5章）</li>
+  <li>他人のファイルやシステムファイルなら、オーナーに頼むか、第6章で学ぶ <code>sudo</code> が必要な場合がある</li>
+</ol>
+<p>安易に権限を緩めたり、<code>sudo</code> を使ったりしないことが大切です。まずは「なぜ拒否されたか」を理解しましょう。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで、権限のないファイルへの <code>cat</code> が Permission denied になることを確認しましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

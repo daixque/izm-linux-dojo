@@ -1,0 +1,21 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "05"
+  id: "09_shell_basics/05_multi_command"
+  title: "Chaining Commands"
+
+content: |
+  <h2>Multiple Commands on One Line</h2>
+  <p>The shell can run several commands in sequence on one line.</p>
+  
+  <h2><code>;</code> — Run in Order</h2>
+  <pre><code>$ cd documents; ls</code></pre>
+  <p>The right command runs <strong>regardless</strong> of whether the left one succeeded.</p>
+  
+  <h2><code>&amp;&amp;</code> — Run If Previous Succeeded</h2>
+  <pre><code>$ cd documents &amp;&amp; ls</code></pre>
+  <p>The right command runs only if the left one <strong>succeeded (exit code 0)</strong>.</p>
+  
+  <h2>Next Step</h2>
+  <p>Try <code>cd documents &amp;&amp; ls</code> on the exercise page!</p>

@@ -1,0 +1,51 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      report.txt:
+        type: file
+        content: "monthly report\n"
+      photo.jpg:
+        type: file
+        content: "fake image data\n"
+      memo.txt:
+        type: file
+        content: "quick memo\n"
+      old_backup.txt:
+        type: file
+        content: "outdated\n"
+      inbox:
+        type: directory
+        children:
+          letter.txt:
+            type: file
+            content: "important letter\n"
+
+
+initial_cwd: /home/user
+
+solution_commands:
+  - mkdir -p docs images
+  - mv report.txt memo.txt docs/
+  - cp inbox/letter.txt docs/letter.txt
+  - mv photo.jpg images/
+  - rm old_backup.txt
+
+tests:
+  - name: "docs にテキストファイルがある"
+    description: "mv と cp の結果"
+    type: command_output
+    command: ls docs
+    expected_output: "letter.txt\nmemo.txt\nreport.txt\n"
+
+  - name: "images に photo.jpg がある"
+    description: "mv の結果"
+    type: command_output
+    command: ls images
+    expected_output: "photo.jpg\n"
+
+  - name: "old_backup.txt が削除されている"
+    description: "rm の結果"
+    type: command_output
+    command: ls
+    expected_output: "docs\nimages\ninbox\n"

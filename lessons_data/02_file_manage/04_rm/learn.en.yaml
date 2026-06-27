@@ -1,0 +1,32 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "04"
+  id: "02_file_manage/04_rm"
+  title: "Deleting Files"
+
+content: |
+  <h2>What Is Deletion?</h2>
+  <p><strong>Deletion</strong> removes files or directories you no longer need. On Linux you use <code>rm</code> (remove).</p>
+  <p><strong>Important: deleted data is hard to recover.</strong> Unlike a GUI trash bin, <code>rm</code> removes items immediately. Always double-check before pressing Enter.</p>
+
+  <h2>Delete a File — <code>rm</code></h2>
+  <pre><code>$ rm temp.txt</code></pre>
+  <p>The specified file is removed. Use <code>ls</code> afterward to confirm.</p>
+
+  <h2>Delete a Directory — <code>rm -r</code></h2>
+  <p>Directories require the <code>-r</code> (recursive) option to remove everything inside.</p>
+  <pre><code>$ rm -r old_folder</code></pre>
+  <p>For an empty folder only, you can use <code>rmdir</code> instead:</p>
+  <pre><code>$ rmdir empty_dir</code></pre>
+
+  <h2>Safety Tips</h2>
+  <ul>
+    <li><strong>Read the filename carefully</strong> before pressing Enter</li>
+    <li><strong>Check your location</strong> with <code>pwd</code> before deleting</li>
+    <li><strong>Be extra careful with directories</strong> — <code>rm -r</code> removes all contents</li>
+  </ul>
+  <p>On real Linux systems, mistyped paths can cause serious damage. Build the habit of verifying paths first.</p>
+
+  <h2>Next Step</h2>
+  <p>Practice safely deleting unneeded files and an empty directory on the exercise page!</p>

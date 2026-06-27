@@ -1,0 +1,21 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "04"
+  id: "07_search/04_wildcard"
+  title: "Wildcards"
+
+description: "List files of a specific extension using wildcards."
+
+task_description: |
+  <p>Run <code>ls *.txt</code> to list only .txt files in the home directory.</p>
+
+instructions:
+  - "Run <code>ls</code> to see all files"
+  - "Run <code>ls *.txt</code>"
+  - "Confirm only .txt files are listed"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "The shell expands <code>*</code> automatically"
+  - "If nothing matches, the pattern may appear literally"

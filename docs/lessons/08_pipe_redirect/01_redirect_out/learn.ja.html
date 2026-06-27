@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 08-01: 出力リダイレクト</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">出力リダイレクト</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>画面の代わりにファイルへ</h2>
+<p>これまで、コマンドの結果（<strong>標準出力</strong>）はターミナル画面に表示されていました。第7章の <code>grep</code> や <code>ls</code> も同様です。</p>
+<p><code>&gt;</code>（リダイレクト）を使うと、出力を<strong>ファイルに書き込む</strong>ことができます。</p>
+
+<h2><code>&gt;</code> — ファイルに書き込む（上書き）</h2>
+<pre><code>$ ls &gt; filelist.txt</code></pre>
+<p><code>ls</code> の結果が画面ではなく <code>filelist.txt</code> に保存されます。ファイルが既にある場合は<strong>上書き</strong>されます。</p>
+
+<h2><code>&gt;&gt;</code> — ファイルに追記</h2>
+<pre><code>$ ls documents &gt;&gt; filelist.txt</code></pre>
+<p>既存の内容の<strong>末尾に追加</strong>します。上書きではありません。</p>
+
+<h2>確認方法</h2>
+<p>保存した内容は <code>cat filelist.txt</code> で確認できます。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>ls &gt; filelist.txt</code> を試してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

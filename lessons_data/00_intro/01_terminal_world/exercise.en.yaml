@@ -1,0 +1,22 @@
+lesson:
+  chapter: "00_intro"
+  chapter_number: "00"
+  number: "01"
+  id: "00_intro/01_terminal_world"
+  title: "The Terminal and the Linux World"
+
+description: "Try the clear command in the terminal and get used to sending commands with Enter."
+
+task_description: |
+  <p>On the exercise page, type and run the <code>clear</code> command in the terminal. The screen should wipe clean.</p>
+
+instructions:
+  - "Click to the right of the prompt (<code>user@dojo:~$</code>) so you can type"
+  - "Type <code>clear</code> and press <kbd>Enter</kbd>"
+  - "Confirm the screen was cleared"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Type the command in lowercase (<code>clear</code>)"
+  - "The command does not run until you press Enter"
+  - "Use the <strong>Reset</strong> button to start over if needed"

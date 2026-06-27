@@ -1,0 +1,17 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "03"
+  id: "08_pipe_redirect/03_pipe"
+  title: "Pipes"
+
+content: |
+  <h2>Connect Commands</h2>
+  <p>A <strong>pipe</strong> (<code>|</code>) sends one command's <strong>output</strong> as the next command's <strong>input</strong>.</p>
+  
+  <h2>Example: Count ERROR Lines</h2>
+  <pre><code>$ cat app.log | grep ERROR | wc -l
+  2</code></pre>
+  
+  <h2>Next Step</h2>
+  <p>Try log analysis with pipes on the exercise page!</p>

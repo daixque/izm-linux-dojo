@@ -1,0 +1,22 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "02"
+  id: "06_root_sudo/02_sudo"
+  title: "What Is sudo?"
+
+description: "Use sudo ls /root to list a directory with root privileges."
+
+task_description: |
+  <p>List <code>/root</code> — normally inaccessible — with <code>sudo ls /root</code>.</p>
+
+instructions:
+  - "Optionally try <code>ls /root</code> first and see Permission denied"
+  - "Run <code>sudo ls /root</code>"
+  - "Confirm <code>secret.txt</code> appears"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Put a space after <code>sudo</code>, then the command"
+  - "Only that command runs as root"
+  - "Use the <strong>Reset</strong> button to start over if needed"

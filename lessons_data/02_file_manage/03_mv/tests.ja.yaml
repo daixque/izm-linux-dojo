@@ -1,0 +1,44 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      old_name.txt:
+        type: file
+        content: "This file will be moved.\n"
+      archive:
+        type: directory
+        children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - mv old_name.txt new_name.txt
+  - mv new_name.txt archive/
+
+tests:
+  - name: "old_name.txt がなくなっている"
+    description: "リネーム後、元の名前のファイルが残っていないか"
+    type: command_output
+    command: ls
+    expected_output: "archive\n"
+
+  - name: "archive に new_name.txt がある"
+    description: "移動先にファイルがあるか"
+    type: command_output
+    command: ls archive
+    expected_output: "new_name.txt\n"
+
+  - name: "移動したファイルの内容が保たれている"
+    description: "mv 後も内容が変わっていないか"
+    type: command_output
+    command: cat archive/new_name.txt
+    expected_output: "This file will be moved.\n"
+
+  - name: "手順全体の確認"
+    description: "リネームから移動までの一連の操作"
+    type: command_sequence
+    steps:
+      - command: ls
+        expected_output: "archive\n"
+      - command: ls archive
+        expected_output: "new_name.txt\n"

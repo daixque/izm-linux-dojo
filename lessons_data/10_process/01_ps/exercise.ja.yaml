@@ -1,0 +1,22 @@
+lesson:
+  chapter: "10_process"
+  chapter_number: "10"
+  number: "01"
+  id: "10_process/01_ps"
+  title: "プロセス一覧"
+
+description: "ps コマンドで実行中プロセスの一覧を確認します。"
+
+task_description: |
+  <p>ターミナルで <code>ps</code> を実行し、シミュレータ上で動いているプロセス一覧を確認しましょう。<code>bash</code> や <code>sleep 100</code> など、CMD 列から何が動いているか読み取ってみてください。</p>
+
+instructions:
+  - "<code>ps</code> を実行してプロセス一覧を表示します"
+  - "PID <code>1042</code> の CMD が <code>bash</code> であることを確認します"
+  - "PID <code>3099</code> の CMD が <code>sleep 100</code> であることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>ps</code> だけ入力して Enter を押します"
+  - "出力の CMD 列が右端にあります"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

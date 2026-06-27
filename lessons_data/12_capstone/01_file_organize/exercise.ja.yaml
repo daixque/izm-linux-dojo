@@ -1,0 +1,29 @@
+lesson:
+  chapter: "12_capstone"
+  chapter_number: "12"
+  number: "01"
+  id: "12_capstone/01_file_organize"
+  title: "ファイル整理"
+
+description: "mkdir/cp/mv/rm を組み合わせてファイルを整理します。"
+
+task_description: |
+  <p>散らかったホームディレクトリを整理しましょう。</p>
+  <ol>
+    <li><code>docs</code> と <code>images</code> フォルダを <code>mkdir -p</code> で作成</li>
+    <li><code>report.txt</code> と <code>memo.txt</code> を <code>docs/</code> に移動</li>
+    <li><code>inbox/letter.txt</code> を <code>docs/letter.txt</code> にコピー</li>
+    <li><code>photo.jpg</code> を <code>images/</code> に移動</li>
+    <li><code>old_backup.txt</code> を削除</li>
+  </ol>
+
+instructions:
+  - "<code>ls</code> で最初の状態を確認します"
+  - "上記の手順を順番に実行します"
+  - "<code>ls docs</code> と <code>ls images</code> で結果を確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>mv</code> は元の場所からファイルがなくなります"
+  - "<code>cp</code> 後も <code>inbox/letter.txt</code> は残ります"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

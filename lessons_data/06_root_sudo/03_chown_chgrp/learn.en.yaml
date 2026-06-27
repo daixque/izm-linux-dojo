@@ -1,0 +1,27 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "03"
+  id: "06_root_sudo/03_chown_chgrp"
+  title: "Changing Ownership"
+
+content: |
+  <h2><code>chown</code> — Change Owner</h2>
+  <p><code>chown</code> changes a file's owner. <code>chgrp</code> changes only the group.</p>
+  <pre><code>$ chown user myfile.txt          # owner → user
+  $ chown user:staff myfile.txt    # owner and group together
+  $ chgrp staff myfile.txt         # group → staff only</code></pre>
+
+  <h2>Why sudo Is Needed</h2>
+  <p>Normal users cannot <code>chown</code> or <code>chgrp</code> files they do not own. Only root can set any owner.</p>
+  <pre><code>$ chown user admin.log
+  chown: changing ownership of 'admin.log': Operation not permitted
+
+  $ sudo chown user admin.log
+  # succeeds</code></pre>
+
+  <h2>Typical Use</h2>
+  <p>When an admin creates a file for a user — hand it over with <code>sudo chown user ...</code>.</p>
+
+  <h2>Next Step</h2>
+  <p>Run <code>sudo chown user admin.log</code> on the exercise page!</p>

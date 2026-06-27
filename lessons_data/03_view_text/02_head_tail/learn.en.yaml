@@ -1,0 +1,40 @@
+lesson:
+  chapter: "03_view_text"
+  chapter_number: "03"
+  number: "02"
+  id: "03_view_text/02_head_tail"
+  title: "Head and Tail"
+
+content: |
+  <h2>View Part of a Long File</h2>
+  <p><code>cat</code> from the previous lesson shows the entire file. For long files like logs, that overflows the screen.</p>
+  <p>Instead, use commands that show only the <strong>beginning</strong> or <strong>end</strong> of a file.</p>
+
+  <h2><code>head</code> — Show the Beginning</h2>
+  <p><code>head</code> prints the first lines of a file. The default is 10 lines.</p>
+  <pre><code>$ head server.log
+  2024-01-01 INFO Server started
+  2024-01-01 INFO Listening on port 8080
+  ...</code></pre>
+
+  <h3>Choose Line Count — <code>head -n</code></h3>
+  <p>The <code>-n</code> option sets how many lines to show:</p>
+  <pre><code>$ head -n 5 server.log</code></pre>
+
+  <h2><code>tail</code> — Show the End</h2>
+  <p><code>tail</code> prints the last lines. Useful for checking the newest log entries.</p>
+  <pre><code>$ tail server.log
+  ...
+  2024-01-04 INFO Goodbye</code></pre>
+
+  <h3>Choose Line Count — <code>tail -n</code></h3>
+  <pre><code>$ tail -n 3 server.log</code></pre>
+
+  <h2>When to Use Which</h2>
+  <ul>
+    <li><strong>Learn the file format</strong> → <code>head</code></li>
+    <li><strong>Check recent errors</strong> → <code>tail</code></li>
+  </ul>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, show the first 5 and last 3 lines of a log file!</p>

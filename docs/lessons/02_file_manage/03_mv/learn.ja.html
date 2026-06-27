@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 02-03: 移動とリネーム</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">移動とリネーム</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>移動と名前変更</h2>
+<p><code>mv</code>（move）は、ファイルやディレクトリを<strong>別の場所へ移動</strong>するコマンドです。GUI の「切り取りして貼り付け」に近い操作です。</p>
+<p>実は <code>mv</code> は<strong>名前の変更（リネーム）</strong>にも使えます。同じフォルダの中で名前だけ変えるときも <code>mv</code> です。</p>
+
+<h2>名前を変える — リネーム</h2>
+<pre><code>$ mv old_name.txt new_name.txt
+$ ls
+new_name.txt</code></pre>
+<p>同じディレクトリ内で、ファイル名だけが <code>old_name.txt</code> から <code>new_name.txt</code> に変わります。</p>
+
+<h2>別のフォルダへ移動する</h2>
+<pre><code>$ mv new_name.txt archive/
+$ ls archive
+new_name.txt</code></pre>
+<p>ファイルが <code>archive</code> フォルダの中に移動します。元の場所からは消えます。</p>
+
+<h2>移動と名前変更を同時に</h2>
+<p>移動先で別名を付けることもできます。</p>
+<pre><code>$ mv draft.txt archive/final.txt</code></pre>
+<p>これで <code>draft.txt</code> は <code>archive/final.txt</code> という名前で移動します。</p>
+
+<h2><code>cp</code> との違い</h2>
+<ul>
+  <li><code>cp</code> — 元を残してコピーを作る</li>
+  <li><code>mv</code> — 元の場所からなくなり、新しい場所（または新しい名前）に移る</li>
+</ul>
+
+<h2>次のステップ</h2>
+<p>演習ページで、ファイルの名前を変えてから別フォルダへ移動してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

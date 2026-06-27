@@ -1,0 +1,30 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "02"
+  id: "05_permissions/02_chmod_symbolic"
+  title: "chmod（記号形式）"
+
+content: |
+  <h2>権限を変更する <code>chmod</code></h2>
+  <p>オーナー（または後の章で学ぶ root）は、<code>chmod</code> コマンドで権限を変更できます。記号形式は、<strong>誰に</strong>・<strong>何を</strong>・<strong>どうする</strong>かを文字で指定する方法です。</p>
+
+  <h2>記号の意味</h2>
+  <ul>
+    <li><strong>誰に（who）</strong> — <code>u</code>＝オーナー、<code>g</code>＝グループ、<code>o</code>＝その他、<code>a</code>＝すべて</li>
+    <li><strong>操作（operator）</strong> — <code>+</code>＝追加、<code>-</code>＝削除、<code>=</code>＝その値に設定</li>
+    <li><strong>権限（what）</strong> — <code>r</code>、<code>w</code>、<code>x</code></li>
+  </ul>
+
+  <h2>よく使う例</h2>
+  <pre><code>$ chmod u+x script.sh     # オーナーに実行権限を追加
+  $ chmod go-r secret.txt   # グループとその他から読み取りを削除
+  $ chmod a+r public.txt    # すべてに読み取りを追加
+  $ chmod u=rw,go=r file    # オーナー: rw、グループとその他: r のみ</code></pre>
+  <p>変更後は <code>ls -l</code> で確認する習慣をつけましょう。</p>
+
+  <h2>注意</h2>
+  <p>自分がオーナー<strong>でない</strong>ファイルの <code>chmod</code> はできません（Operation not permitted）。他人のファイルの権限は、オーナーか管理者だけが変えられます。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで、自分のスクリプト <code>hello.sh</code> に実行権限を付けてみましょう！</p>

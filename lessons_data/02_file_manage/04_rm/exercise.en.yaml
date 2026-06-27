@@ -1,0 +1,24 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "04"
+  id: "02_file_manage/04_rm"
+  title: "Deleting Files"
+
+description: "Use rm and rmdir to delete unneeded files and an empty directory."
+
+task_description: |
+  <p>Delete <code>temp.txt</code> and <code>junk.txt</code>, then remove the empty <code>empty_dir</code> folder. Leave <code>keep.txt</code> in place.</p>
+
+instructions:
+  - "Run <code>ls</code> to see what will be deleted and what should stay"
+  - "Run <code>rm temp.txt</code> to delete temp.txt"
+  - "Run <code>rm junk.txt</code> to delete junk.txt"
+  - "Run <code>rmdir empty_dir</code> to remove the empty directory"
+  - "Run <code>ls</code> and confirm only <code>keep.txt</code> remains"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Run <code>pwd</code> before deleting to confirm your location"
+  - "Non-empty directories cannot be removed with <code>rmdir</code> (use <code>rm -r</code> instead)"
+  - "Use the <strong>Reset</strong> button to start over if needed"

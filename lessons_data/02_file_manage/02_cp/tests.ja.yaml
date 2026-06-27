@@ -1,0 +1,34 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      report.txt:
+        type: file
+        content: "Monthly sales report\nTotal: 1200\n"
+      backup:
+        type: directory
+        children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cp report.txt backup/
+
+tests:
+  - name: "backup に report.txt がコピーされている"
+    description: "ls backup の出力を確認"
+    type: command_output
+    command: ls backup
+    expected_output: "report.txt\n"
+
+  - name: "コピー先の内容が正しい"
+    description: "cat でコピーされた内容を確認"
+    type: command_output
+    command: cat backup/report.txt
+    expected_output: "Monthly sales report\nTotal: 1200\n"
+
+  - name: "元の report.txt が残っている"
+    description: "コピー元のファイルが消えていないか"
+    type: command_output
+    command: ls
+    expected_output: "backup\nreport.txt\n"

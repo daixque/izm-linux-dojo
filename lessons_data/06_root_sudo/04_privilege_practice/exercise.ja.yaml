@@ -1,0 +1,24 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "04"
+  id: "06_root_sudo/04_privilege_practice"
+  title: "特権操作の実践"
+
+description: "sudo chown と sudo chmod を組み合わせて共有ファイルを整備します。"
+
+task_description: |
+  <p><code>shared/data.txt</code> のオーナーを <code>user</code> に変更し、権限を <code>664</code> に設定しましょう。</p>
+
+instructions:
+  - "<code>cd shared</code> に移動します"
+  - "<code>ls -l data.txt</code> で現在の状態（root オーナー）を確認します"
+  - "<code>sudo chown user data.txt</code> でオーナーを変更します"
+  - "<code>sudo chmod 664 data.txt</code> で権限を設定します"
+  - "<code>ls -l data.txt</code> で <code>-rw-rw-r--</code> と <code>user</code> オーナーを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "664 = オーナー rw、グループ rw、その他 r"
+  - "sudo chown のあと sudo chmod の順が分かりやすいです"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

@@ -1,0 +1,22 @@
+lesson:
+  chapter: "04_users_ownership"
+  chapter_number: "04"
+  number: "01"
+  id: "04_users_ownership/01_users"
+  title: "ユーザーとは"
+
+description: "whoami コマンドで、今ログインしているユーザー名を確認します。"
+
+task_description: |
+  <p>ターミナルで <code>whoami</code> を実行し、自分のユーザー名を表示させましょう。</p>
+
+instructions:
+  - "<code>whoami</code> と入力して Enter を押します"
+  - "表示されたユーザー名が <code>user</code> であることを確認します"
+  - "プロンプトの <code>user@dojo</code> も同じユーザー名です"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>whoami</code> はスペルに注意（who + am + i）"
+  - "大文字・小文字を区別します"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

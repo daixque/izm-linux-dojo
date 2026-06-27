@@ -1,0 +1,32 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "02"
+  id: "07_search/02_grep_options"
+  title: "grep のオプション"
+
+content: |
+  <h2>grep をもっと便利に</h2>
+  <p>前のレッスンで <code>grep</code> の基本を学びました。オプション（フラグ）を付けると、検索の仕方を細かく調整できます。</p>
+  
+  <h3><code>-i</code> — 大文字小文字を無視</h3>
+  <pre><code>$ grep -i error app.log</code></pre>
+  <p><code>ERROR</code> も <code>error</code> も <code>Error</code> も一致します。</p>
+  
+  <h3><code>-n</code> — 行番号を表示</h3>
+  <pre><code>$ grep -n ERROR app.log
+  4:2024-01-02 ERROR Connection failed
+  6:2024-01-03 ERROR Disk full</code></pre>
+  <p>何行目に見つかったかが分かり、あとで <code>head</code> などと組み合わせやすくなります。</p>
+  
+  <h3><code>-v</code> — 一致しない行を表示（反転）</h3>
+  <pre><code>$ grep -v ERROR app.log</code></pre>
+  <p>ERROR を<strong>含まない</strong>行だけが表示されます。</p>
+  
+  <h3><code>-c</code> — 一致行数だけを表示</h3>
+  <pre><code>$ grep -c ERROR app.log
+  2</code></pre>
+  <p>件数だけ知りたいときに便利です。</p>
+  
+  <h2>次のステップ</h2>
+  <p>演習ページで、いくつかのオプションを試してみましょう！</p>

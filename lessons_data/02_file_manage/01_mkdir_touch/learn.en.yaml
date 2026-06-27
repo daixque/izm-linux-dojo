@@ -1,0 +1,43 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "01"
+  id: "02_file_manage/01_mkdir_touch"
+  title: "Creating Files and Directories"
+
+content: |
+  <h2>Review from Chapter 1</h2>
+  <p>In Chapter 1 you learned <code>pwd</code>, <code>ls</code>, and <code>cd</code> — commands to <strong>see where you are</strong>, <strong>list contents</strong>, and <strong>move around</strong>.</p>
+  <p>This chapter covers how to <strong>create</strong> new files and directories.</p>
+
+  <h2>Creating a Directory — <code>mkdir</code></h2>
+  <p><code>mkdir</code> (make directory) creates a new folder.</p>
+  <pre><code>$ mkdir project
+  $ ls
+  documents
+  notes.txt
+  project</code></pre>
+  <p>A folder named <code>project</code> appears inside your current directory.</p>
+
+  <h3>Creating nested paths — <code>mkdir -p</code></h3>
+  <p>Without <code>-p</code>, <code>mkdir project/src</code> fails if <code>project</code> does not exist yet. The <code>-p</code> option creates any missing parent directories along the way.</p>
+  <pre><code>$ mkdir -p project/src
+  $ ls project
+  src</code></pre>
+  <p>Use this when you want a deep path like <code>photos/2024/summer</code> in one step.</p>
+
+  <h2>Creating an Empty File — <code>touch</code></h2>
+  <p><code>touch</code> creates a new empty file. Think of it as preparing a blank notebook before you write in it.</p>
+  <pre><code>$ touch memo.txt
+  $ ls
+  documents
+  memo.txt
+  notes.txt
+  project</code></pre>
+  <p>If the file already exists, <code>touch</code> updates its timestamp without changing the contents.</p>
+
+  <h2>Verify with <code>ls</code></h2>
+  <p>Use <code>ls</code> from Chapter 1 to confirm your new items exist. If something looks wrong, run <code>pwd</code> — beginners often create files in the wrong directory by accident.</p>
+
+  <h2>Next Step</h2>
+  <p>Try <code>mkdir</code>, <code>mkdir -p</code>, and <code>touch</code> on the exercise page!</p>

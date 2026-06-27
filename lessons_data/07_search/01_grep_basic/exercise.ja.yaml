@@ -1,0 +1,21 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "01"
+  id: "07_search/01_grep_basic"
+  title: "grep の基本"
+
+description: "grep を使ってログファイルから ERROR 行を抽出します。"
+
+task_description: |
+  <p>ホームディレクトリにある <code>app.log</code> から、<code>ERROR</code> を含む行だけを <code>grep</code> で表示しましょう。</p>
+
+instructions:
+  - "<code>ls</code> で <code>app.log</code> があることを確認します"
+  - "<code>grep ERROR app.log</code> を実行します"
+  - "ERROR 行が 2 行表示されることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "パターン（ERROR）とファイル名の間にスペースを入れます"
+  - "大文字小文字が一致しているか確認してください"

@@ -1,0 +1,19 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      notes.txt:
+        type: file
+        content: "my memo\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - whoami
+
+tests:
+  - name: "whoami で user と表示される"
+    description: "現在のユーザー名を確認"
+    type: command_output
+    command: whoami
+    expected_output: "user\n"

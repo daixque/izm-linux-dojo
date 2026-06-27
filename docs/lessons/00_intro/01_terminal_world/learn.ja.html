@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 00-01: ターミナルと Linux の世界</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">ターミナルと Linux の世界</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>IZM Linux Dojo へようこそ</h2>
+<p>この道場では、<strong>ターミナル</strong>（端末）という画面を使って、コンピューターへの<strong>命令</strong>（コマンド）を学びます。最初は「なぜそんな古いやり方を？」と思うかもしれません。でも、コマンドがわかると、ファイルの整理や設定の確認など、さまざまな作業を<strong>正確に・素早く</strong>こなせるようになります。</p>
+<p>この第0章では、いきなり難しい操作はしません。まず「ターミナルとは何か」「Linux や macOS との関係」を、イメージを持てるように説明します。</p>
+
+<h2>Linux と macOS とは？</h2>
+<p><strong>Linux</strong>（リナックス）は、世界中で使われているオペレーティングシステム（OS）のひとつです。サーバー、スマートフォン（Android）、組み込み機器など、身の回りのコンピューターの多くが Linux 系の OS で動いています。</p>
+<p><strong>macOS</strong>（マックオーエス）は、Apple の Mac パソコンで使われている OS です。見た目は Linux とは違いますが、内部の仕組みは Linux と<strong>よく似た Unix 系</strong>です。だから、ターミナルでの基本操作やファイルの考え方は、Linux と macOS で<strong>ほとんど同じ</strong>です。</p>
+<p>この道場では Linux を主な例にしつつ、Mac をお使いの方も同じ感覚で学べるように説明します。</p>
+<p><em>※ Windows はファイルのパスや権限の仕組みが大きく異なるため、この道場の対象外です。</em></p>
+
+<h2>GUI と CUI — 2 つの操作のしかた</h2>
+<p>コンピューターを操作する方法は、大きく 2 種類あります。</p>
+<ul>
+  <li><strong>GUI</strong>（Graphical User Interface）— グラフィカル・ユーザー・インターフェース。アイコンやボタン、マウスで操作する、いつもおなじみの画面のことです。Finder（Mac）やファイルエクスプローラー（Windows）でフォルダを開くのも GUI です。</li>
+  <li><strong>CUI</strong>（Character User Interface）— キャラクター・ユーザー・インターフェース。文字（テキスト）だけの画面で、キーボードから命令を入力する方式です。<strong>ターミナル</strong>は CUI の代表例です。</li>
+</ul>
+<p>GUI は直感的でわかりやすい反面、同じ作業を何度も繰り返すときや、細かい条件を指定するときは手間がかかることがあります。CUI（ターミナル）は最初は慣れが必要ですが、<strong>短い命令で正確な操作</strong>ができるのが強みです。</p>
+
+<h2>ターミナル画面の見方</h2>
+<p>演習ページでは、画面の左側（または中央）にターミナルが表示されます。典型的なターミナルは次のような構成です。</p>
+<pre><code>Welcome to IZM Linux Dojo
+Type commands and press Enter.
+
+user@dojo:~$ _</code></pre>
+<ul>
+  <li><strong>Welcome メッセージ</strong> — 道場の挨拶です。読んで Enter を押す必要はありません。</li>
+  <li><strong>プロンプト</strong>（prompt）— <code>user@dojo:~$</code> のような、入力待ちを示す表示です。ここから右に、あなたがコマンドを入力します。</li>
+  <li><strong>カーソル</strong> — 点滅する <code>_</code> の位置に、次に入力する文字が入ります。</li>
+</ul>
+<p>プロンプトの <code>~</code> は、あなたの<strong>ホーム</strong>（自分専用のフォルダ）にいることを表す記号です。詳しくは第1章で学びます。</p>
+
+<h2>Enter キー — 命令を送る合図</h2>
+<p>コマンドを入力したら、<kbd>Enter</kbd> キーを押して実行します。Enter を押すまで、コンピューターは「まだ入力の途中」とみなします。</p>
+<p>間違えて入力したときは、<kbd>Backspace</kbd>（←）で文字を消せます。実行後に結果が表示され、また新しいプロンプトが現れて、次のコマンドを入力できます。</p>
+
+<h2>なぜコマンドを学ぶの？</h2>
+<p>ターミナルで学ぶコマンドは、次のような場面で役立ちます。</p>
+<ul>
+  <li>たくさんのファイルを整理・確認するとき</li>
+  <li>プログラムやサーバーのログ（記録）を調べるとき</li>
+  <li>設定ファイルの内容を確認するとき</li>
+  <li>Linux サーバーや Mac の開発環境で作業するとき</li>
+</ul>
+<p>第1章以降では、<code>ls</code>（一覧表示）や <code>cd</code>（移動）など、一つずつ丁寧に覚えていきます。焦らず、説明を読んでから演習に進みましょう。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページでは、画面をきれいにする <code>clear</code> コマンドだけを軽く体験します。ターミナルに文字がたくさん出たとき、「画面をクリアする」という最初の一歩です。第1章から本格的なファイル操作を始めましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

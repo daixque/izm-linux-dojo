@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 06-02: What Is sudo?</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">What Is sudo?</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Borrowing root Power Temporarily</h2>
+<p>Normal users cannot access root-only areas like <code>/root</code>. Sometimes admin-level work is still needed.</p>
+<p><code>sudo</code> ("superuser do") runs a command <strong>as root for one shot</strong>. Real Linux asks for a password; this dojo simulates it without a password.</p>
+
+<h2>Usage</h2>
+<pre><code>$ ls /root
+ls: cannot open directory '/root': Permission denied
+
+$ sudo ls /root
+secret.txt
+backup/</code></pre>
+<p>Put a normal command after <code>sudo</code>. Only that command runs as root; then you return to your normal user.</p>
+
+<h2>Cautions</h2>
+<ul>
+  <li>Use it <strong>only when needed</strong> — daily file work does not need sudo</li>
+  <li>Mistakes on system files can affect the whole machine</li>
+  <li>On macOS, the admin password prompt is similar to sudo</li>
+</ul>
+
+<h2>Next Step</h2>
+<p>Try <code>sudo ls /root</code> on the exercise page to list a directory you normally cannot see!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

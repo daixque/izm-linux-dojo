@@ -1,0 +1,23 @@
+lesson:
+  chapter: "04_users_ownership"
+  chapter_number: "04"
+  number: "03"
+  id: "04_users_ownership/03_multi_user"
+  title: "複数ユーザーと共有"
+
+description: "複数ユーザーのファイルが混在する ls -l の出力を読み取ります。"
+
+task_description: |
+  <p><code>shared</code> ディレクトリに移動し、<code>ls -l</code> で各ファイルのオーナーを確認しましょう。</p>
+
+instructions:
+  - "<code>cd shared</code> で shared ディレクトリに移動します"
+  - "<code>ls -l</code> でファイル一覧を表示します"
+  - "<code>my_report.txt</code> のオーナーは <code>user</code>（自分）です"
+  - "<code>alice_notes.txt</code> と <code>bob_data.txt</code> は他人のファイルです"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>whoami</code> の結果と ls -l の 3 列目を比べましょう"
+  - "同じオーナー名なら「自分のファイル」です"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

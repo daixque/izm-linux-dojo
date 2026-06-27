@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 07-01: grep の基本</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">grep の基本</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>テキストの中から探す</h2>
+<p>第3章で <code>cat</code> や <code>head</code>・<code>tail</code> を使い、ファイルの<strong>中身を読む</strong>方法を学びました。ログや設定ファイルは行数が多いことがあり、必要な行だけを素早く見つけたい場面があります。</p>
+<p><code>grep</code>（globally search for a regular expression and print）は、ファイルの中から<strong>指定した文字列を含む行</strong>だけを取り出すコマンドです。</p>
+
+<h2>基本の使い方</h2>
+<pre><code>grep パターン ファイル名</code></pre>
+<p>「パターン」に探したい文字列を指定します。大文字と小文字は区別されます。</p>
+<pre><code>$ grep ERROR app.log
+2024-01-02 ERROR Connection failed
+2024-01-03 ERROR Disk full</code></pre>
+<p>上の例では、<code>app.log</code> の中から <code>ERROR</code> という文字列を含む行だけが表示されています。</p>
+
+<h2>複数ファイルをまとめて検索</h2>
+<p>ファイル名を複数指定すると、それぞれのファイルを検索します。</p>
+<pre><code>grep ERROR log1.txt log2.txt</code></pre>
+
+<h2>見つからないとき</h2>
+<p>パターンに一致する行がない場合、grep は何も表示せず終了します（エラーではありません）。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで <code>grep</code> を使い、ログファイルから ERROR 行を抽出してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

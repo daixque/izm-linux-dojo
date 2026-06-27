@@ -1,0 +1,29 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "01"
+  id: "02_file_manage/01_mkdir_touch"
+  title: "Creating Files and Directories"
+
+description: "Use mkdir and touch to create directories and empty files."
+
+task_description: |
+  <p>Create the following items in the terminal:</p>
+  <ul>
+    <li>A directory named <code>project</code></li>
+    <li>A nested directory <code>project/src</code> using <code>mkdir -p</code></li>
+    <li>An empty file named <code>memo.txt</code></li>
+  </ul>
+
+instructions:
+  - "Run <code>pwd</code> to confirm you are in <code>/home/user</code>"
+  - "Run <code>mkdir project</code> to create the project folder"
+  - "Run <code>mkdir -p project/src</code> to add the src folder inside project"
+  - "Run <code>touch memo.txt</code> to create an empty file"
+  - "Run <code>ls</code> and confirm memo.txt and project appear"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Press Enter after each command"
+  - "Use Tab to autocomplete command names and paths"
+  - "Use the <strong>Reset</strong> button to start over if needed"

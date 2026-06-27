@@ -1,0 +1,36 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "ls --help"
+  - "grep --help"
+
+tests:
+  - name: "ls --help works"
+    description: "ls help output"
+    type: command_output
+    command: "ls --help"
+    expected_output: |
+      Usage: ls [OPTION]... [FILE]...
+      List directory contents.
+
+        -a, --all    do not ignore entries starting with .
+        --help       display this help and exit
+
+  - name: "grep --help works"
+    description: "grep help output"
+    type: command_output
+    command: "grep --help"
+    expected_output: |
+      Usage: grep [OPTION]... PATTERN [FILE]...
+      Search for PATTERN in each FILE.
+
+        -i           ignore case distinctions
+        -n           print line number with output lines
+        -v           select non-matching lines
+        -c           print only a count of matching lines
+        --help       display this help and exit

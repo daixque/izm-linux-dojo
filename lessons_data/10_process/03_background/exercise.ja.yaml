@@ -1,0 +1,22 @@
+lesson:
+  chapter: "10_process"
+  chapter_number: "10"
+  number: "03"
+  id: "10_process/03_background"
+  title: "フォアグラウンドとバックグラウンド"
+
+description: "jobs コマンドでバックグラウンドジョブの概念を確認します。"
+
+task_description: |
+  <p>バックグラウンドで動いているジョブの一覧を <code>jobs</code> で確認しましょう。あわせて <code>ps</code> を実行し、<code>sleep 100</code> がプロセスとして存在することも見てみてください。</p>
+
+instructions:
+  - "<code>jobs</code> を実行してバックグラウンドジョブを表示します"
+  - "<code>sleep 100</code> が Running 状態であることを確認します"
+  - "<code>ps</code> を実行し、同じく sleep プロセスがあることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>jobs</code> はフォアグラウンド/バックグラウンドの確認用です"
+  - "PID は <code>ps</code> の CMD 列で確認できます"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

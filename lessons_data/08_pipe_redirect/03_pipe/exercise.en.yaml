@@ -1,0 +1,20 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "03"
+  id: "08_pipe_redirect/03_pipe"
+  title: "Pipes"
+
+description: "Count ERROR lines using pipes."
+
+task_description: |
+  <p>Run <code>cat app.log | grep ERROR | wc -l</code> to count ERROR lines.</p>
+
+instructions:
+  - "Run <code>cat app.log | grep ERROR</code> to filter ERROR lines"
+  - "Run <code>cat app.log | grep ERROR | wc -l</code> to count them"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Put spaces around <code>|</code>"
+  - "<code>wc -l</code> counts lines"

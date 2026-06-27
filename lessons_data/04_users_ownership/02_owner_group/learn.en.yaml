@@ -1,0 +1,36 @@
+lesson:
+  chapter: "04_users_ownership"
+  chapter_number: "04"
+  number: "02"
+  id: "04_users_ownership/02_owner_group"
+  title: "Owner and Group"
+
+content: |
+  <h2>Review</h2>
+  <p>In the previous lesson, you used <code>whoami</code> to confirm you are logged in as <code>user</code>. Files record such a user as their <strong>owner</strong>.</p>
+
+  <h2>What Is an Owner?</h2>
+  <p>Every file and directory has one <strong>owner</strong> — usually the user who created it.</p>
+  <p>If <code>user</code> runs <code>touch memo.txt</code>, the owner of <code>memo.txt</code> is <code>user</code>.</p>
+
+  <h2>What Is a Group?</h2>
+  <p>Files also belong to a <strong>group</strong>. Groups bundle users who share access — for example, all students in a <code>students</code> group might use the same shared folder. For now, think of the group as "another name shown next to the owner."</p>
+
+  <h2>Detailed Listing with <code>ls -l</code></h2>
+  <p>Chapter 1 briefly introduced <code>ls -l</code>. Now we use it in earnest. The <code>-l</code> flag means <strong>long format</strong>.</p>
+  <pre><code>$ ls -l
+  -rw-r--r-- 1 user user    8 Jan  1 10:00 memo.txt
+  drwxr-xr-x 2 user user 4096 Jan  1 10:00 documents</code></pre>
+  <p>Each column (from the left):</p>
+  <ul>
+    <li><strong>Column 1</strong> — type and permissions (<code>-</code> = file, <code>d</code> = directory; permissions are covered in Chapter 5)</li>
+    <li><strong>Column 2</strong> — link count (you can ignore this for now)</li>
+    <li><strong>Column 3</strong> — <strong>owner</strong> (<code>user</code> in this example)</li>
+    <li><strong>Column 4</strong> — <strong>group</strong> (<code>user</code> here too)</li>
+    <li><strong>Column 5</strong> — file size in bytes</li>
+    <li><strong>Rest</strong> — date, time, and name</li>
+  </ul>
+  <p>In the exercise, focus on the <strong>owner</strong> (column 3) and <strong>group</strong> (column 4).</p>
+
+  <h2>Next Step</h2>
+  <p>Run <code>ls -l</code> on the exercise page and read each file's owner and group!</p>

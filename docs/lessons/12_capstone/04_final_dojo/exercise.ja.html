@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演習課題 - レッスン 12-04: 道場最終試練</title>
+    <link rel="stylesheet" href="../../../lib/css/exercise.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">📝 レッスン 12-04: 道場最終試練</h1>
+            <div class="header-right">
+                <div class="status">
+                    <span id="status">準備中...</span>
+                </div>
+                <div id="language-switcher">
+                        <a href="exercise.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="task-panel">
+                <div class="task-header">
+                    <h2>課題</h2>
+                    <span class="task-toggle">◀</span>
+                </div>
+                <div class="task-content">
+                    <div class="task-description">
+                        <h3>📋 課題内容</h3>
+                        <p>最終試練です。次の操作を順番に完了してください。</p>
+<ol>
+  <li><code>mkdir -p project/logs</code> でフォルダを作成</li>
+  <li><code>cp server.log project/logs/</code> でログをコピー</li>
+  <li><code>grep ERROR project/logs/server.log > project/errors.txt</code> で ERROR を保存</li>
+  <li><code>wc -l project/errors.txt</code> で行数を確認（2 行）</li>
+  <li><code>echo "Project complete" > project/README.txt</code> で README を作成</li>
+</ol>
+
+                    </div>
+                    <div class="instructions">
+                        <h4>✏️ やること</h4>
+                        <ul>
+                            <li><code>ls</code> で <code>server.log</code> があることを確認します</li>
+                            <li>上記 5 ステップを順番に実行します</li>
+                            <li><code>ls project</code> で README.txt と errors.txt があることを確認します</li>
+                            <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
+                        </ul>
+                    </div>
+                    <div class="hints">
+                        <h4 class="hints-toggle">
+                            <span class="hints-icon">▶</span>
+                            💡 ヒント
+                        </h4>
+                        <ul class="hints-content" style="display: none;">
+                            <li><code>></code> は grep の結果をファイルに書き込みます（第8章）</li>
+                            <li>最後に <code>cat project/README.txt</code> で確認してもよいです</li>
+                            <li>うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="code-panel">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-label">💻 ターミナル</span>
+                        <div class="button-group">
+                            <button id="btn-test" class="btn btn-success" disabled>✓ テスト</button>
+                            <button id="btn-reset" class="btn btn-secondary">🔄 リセット</button>
+                            <button id="btn-solution" class="btn btn-warning">💡 解答を見る</button>
+                            <button id="btn-clear" class="btn btn-small">クリア</button>
+                        </div>
+                    </div>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+
+            <aside id="file-explorer" class="file-explorer">
+                <div class="file-explorer-header">
+                    <span class="file-explorer-icon">📁</span>
+                    <span class="file-explorer-label">ファイル</span>
+                    <span class="file-explorer-toggle">◀</span>
+                </div>
+                <div class="file-explorer-body">
+                    <div id="file-tree" class="file-tree"></div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-nav">
+                <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+                <a href="learn.ja.html" class="btn btn-link">📚 説明に戻る</a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="test-results-overlay" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 16px; z-index: 1000;">
+        <div class="test-results-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="margin: 0;">テスト結果</h3>
+                <button id="btn-close-results" class="btn btn-small">閉じる</button>
+            </div>
+            <div id="test-results"></div>
+            <div style="margin-top: 16px; text-align: right;">
+                <a href="../../../index.html" class="btn btn-link">目次に戻る</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit@0.10.0/lib/addon-fit.min.js"></script>
+
+    <script src="../../../lib/js/i18n.js"></script>
+    <script src="../../../lib/js/progress.js"></script>
+    <script src="../../../lib/js/shell/vfs.js"></script>
+    <script src="../../../lib/js/shell/commands.js"></script>
+    <script src="../../../lib/js/shell/completion.js"></script>
+    <script src="../../../lib/js/shell/simulator.js"></script>
+    <script src="../../../lib/js/terminal.js"></script>
+    <script src="../../../lib/js/tester.js"></script>
+    <script src="../../../lib/js/fileviewer.js"></script>
+    <script src="../../../lib/js/exercise-common.js"></script>
+
+    <script>
+        const LESSON_ID = "12_capstone/04_final_dojo";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"server.log": {"content": "2024-06-10 INFO Service started\n2024-06-10 ERROR Connection refused\n2024-06-10 INFO Recovered\n2024-06-11 ERROR Disk full\n2024-06-11 INFO Done\n", "type": "file"}}, "type": "directory"}};
+        const INITIAL_CWD = "/home/user";
+        const TESTS = [{"command": "ls project/logs", "description": "mkdir \u3068 cp", "expected_output": "server.log\n", "name": "project \u30d5\u30a9\u30eb\u30c0\u69cb\u6210\u304c\u6b63\u3057\u3044", "type": "command_output"}, {"command": "wc -l project/errors.txt", "description": "grep \u3068\u30ea\u30c0\u30a4\u30ec\u30af\u30c8", "expected_output": "2 project/errors.txt\n", "name": "errors.txt \u306b ERROR 2 \u884c", "type": "command_output"}, {"description": "echo \u3068\u30ea\u30c0\u30a4\u30ec\u30af\u30c8", "name": "README.txt \u304c\u4f5c\u6210\u3055\u308c\u3066\u3044\u308b", "steps": [{"command": "cat project/README.txt", "expected_output": "Project complete\n"}, {"command": "ls project", "expected_output": "README.txt\nerrors.txt\nlogs\n"}], "type": "command_sequence"}];
+        const SOLUTION_COMMANDS = ["mkdir -p project/logs", "cp server.log project/logs/", "grep ERROR project/logs/server.log \u003e project/errors.txt", "wc -l project/errors.txt", "echo \"Project complete\" \u003e project/README.txt"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.i18n) window.i18n.init();
+            setupButtons();
+            initializeExercise({
+                initialFilesystem: INITIAL_FILESYSTEM,
+                initialCwd: INITIAL_CWD,
+                tests: TESTS,
+                solutionCommands: SOLUTION_COMMANDS,
+            });
+        });
+    </script>
+</body>
+</html>

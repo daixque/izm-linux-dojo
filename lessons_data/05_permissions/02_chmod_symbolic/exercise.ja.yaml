@@ -1,0 +1,22 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "02"
+  id: "05_permissions/02_chmod_symbolic"
+  title: "chmod（記号形式）"
+
+description: "chmod の記号形式で、自分のファイルに実行権限を付与します。"
+
+task_description: |
+  <p><code>hello.sh</code> に <code>chmod u+x</code> で実行権限を付け、<code>ls -l</code> で確認しましょう。</p>
+
+instructions:
+  - "<code>ls -l hello.sh</code> で現在の権限を確認します（実行権限なし）"
+  - "<code>chmod u+x hello.sh</code> でオーナーに実行権限を追加します"
+  - "<code>ls -l hello.sh</code> で <code>x</code> が付いたことを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>u</code> は user（オーナー）、<code>+x</code> は実行権限を追加"
+  - "変更後は <code>-rwxr--r--</code> のように 4 文字目が <code>x</code> になります"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

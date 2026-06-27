@@ -1,0 +1,34 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children:
+      messages.txt:
+        type: file
+        content: |
+          Hello!
+          Welcome to IZM Linux Dojo.
+          This is a text file.
+      notes.txt:
+        type: file
+        content: "other file\n"
+
+initial_cwd: /home/user
+
+solution_commands:
+  - cat messages.txt
+
+tests:
+  - name: "messages.txt の内容が表示できる"
+    description: "cat の出力を確認"
+    type: command_output
+    command: cat messages.txt
+    expected_output: |
+      Hello!
+      Welcome to IZM Linux Dojo.
+      This is a text file.
+
+  - name: "ファイルが存在する"
+    description: "ls で messages.txt を確認"
+    type: command_output
+    command: ls
+    expected_output: "messages.txt\nnotes.txt\n"

@@ -1,0 +1,21 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "01"
+  id: "07_search/01_grep_basic"
+  title: "grep Basics"
+
+description: "Use grep to extract ERROR lines from a log file."
+
+task_description: |
+  <p>Use <code>grep</code> to show only lines containing <code>ERROR</code> in <code>app.log</code>.</p>
+
+instructions:
+  - "Run <code>ls</code> to confirm <code>app.log</code> exists"
+  - "Run <code>grep ERROR app.log</code>"
+  - "Confirm that two ERROR lines are displayed"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Put a space between the pattern (ERROR) and the filename"
+  - "Check that uppercase and lowercase match exactly"

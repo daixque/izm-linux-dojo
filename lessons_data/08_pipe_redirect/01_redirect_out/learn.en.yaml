@@ -1,0 +1,22 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "01"
+  id: "08_pipe_redirect/01_redirect_out"
+  title: "Output Redirection"
+
+content: |
+  <h2>Write to a File Instead of the Screen</h2>
+  <p>Until now, command output (<strong>standard output</strong>) appeared on the terminal. With <code>&gt;</code> (redirection), you can <strong>write output to a file</strong>.</p>
+  
+  <h2><code>&gt;</code> — Write (Overwrite)</h2>
+  <pre><code>$ ls &gt; filelist.txt</code></pre>
+  
+  <h2><code>&gt;&gt;</code> — Append</h2>
+  <pre><code>$ ls documents &gt;&gt; filelist.txt</code></pre>
+  
+  <h2>Check the Result</h2>
+  <p>Use <code>cat filelist.txt</code> to view saved content.</p>
+  
+  <h2>Next Step</h2>
+  <p>Try <code>ls &gt; filelist.txt</code> on the exercise page!</p>

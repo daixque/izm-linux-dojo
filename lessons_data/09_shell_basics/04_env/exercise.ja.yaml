@@ -1,0 +1,20 @@
+lesson:
+  chapter: "09_shell_basics"
+  chapter_number: "09"
+  number: "04"
+  id: "09_shell_basics/04_env"
+  title: "環境変数"
+
+description: "echo で環境変数 HOME と USER を表示します。"
+
+task_description: |
+  <p><code>echo $HOME</code> と <code>echo $USER</code> を実行して、値を確認しましょう。</p>
+
+instructions:
+  - "<code>echo $HOME</code> を実行します（/home/user と表示されるはず）"
+  - "<code>echo $USER</code> を実行します（user と表示されるはず）"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "変数名の前に <code>$</code> を付けます"
+  - "<code>echo $PATH</code> も試してみましょう（任意）"

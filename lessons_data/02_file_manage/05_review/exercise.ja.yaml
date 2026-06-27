@@ -1,0 +1,32 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "05"
+  id: "02_file_manage/05_review"
+  title: "ファイル操作の総復習"
+
+description: "第1–2章のコマンドを組み合わせて、ファイルを整理します。"
+
+task_description: |
+  <p>散らかったホームディレクトリを整理しましょう。次の操作を順番に行います。</p>
+  <ol>
+    <li><code>work/archive</code> フォルダを <code>mkdir -p</code> で作成</li>
+    <li><code>notes.txt</code> を <code>work/</code> にコピー</li>
+    <li><code>draft.txt</code> を <code>work/archive/</code> に移動</li>
+    <li><code>trash/old.txt</code> を削除し、空になった <code>trash</code> フォルダも削除</li>
+  </ol>
+
+instructions:
+  - "<code>ls</code> で最初の状態（draft.txt, notes.txt, trash/, work/）を確認します"
+  - "<code>mkdir -p work/archive</code> でアーカイブ用フォルダを作ります"
+  - "<code>cp notes.txt work/</code> で notes.txt を work にコピーします"
+  - "<code>mv draft.txt work/archive/</code> で draft.txt を移動します"
+  - "<code>rm trash/old.txt</code> で不要ファイルを削除します"
+  - "<code>rmdir trash</code> で空の trash フォルダを削除します"
+  - "<code>ls work</code> と <code>ls work/archive</code> で結果を確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "各ステップのあとに <code>ls</code> で確認すると安心です"
+  - "<code>cp</code> 後も元の notes.txt はホームに残ります"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

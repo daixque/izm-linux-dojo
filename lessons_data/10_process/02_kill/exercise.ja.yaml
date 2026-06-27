@@ -1,0 +1,22 @@
+lesson:
+  chapter: "10_process"
+  chapter_number: "10"
+  number: "02"
+  id: "10_process/02_kill"
+  title: "プロセス終了"
+
+description: "kill コマンドで指定 PID のプロセスを終了します。"
+
+task_description: |
+  <p>PID <code>3099</code> で動いている <code>sleep 100</code> プロセスを <code>kill</code> で終了させ、<code>ps</code> で一覧から消えたことを確認しましょう。</p>
+
+instructions:
+  - "<code>ps</code> で PID <code>3099</code> があることを確認します"
+  - "<code>kill 3099</code> を実行します"
+  - "もう一度 <code>ps</code> を実行し、3099 が表示されないことを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "<code>kill</code> の後にスペースを入れて PID を入力します"
+  - "成功すると kill 自体は何も表示しません"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

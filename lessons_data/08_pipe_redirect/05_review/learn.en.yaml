@@ -1,0 +1,30 @@
+lesson:
+  chapter: "08_pipe_redirect"
+  chapter_number: "08"
+  number: "05"
+  id: "08_pipe_redirect/05_review"
+  title: "Search and Pipes Review"
+
+content: |
+  <h2>Chapters 7–8 Summary</h2>
+  <p>Review search and data-flow commands.</p>
+  
+  <h3>Chapter 7 — Search</h3>
+  <table>
+    <tr><th>Command</th><th>Meaning</th></tr>
+    <tr><td><code>grep PATTERN FILE</code></td><td>Search lines in text</td></tr>
+    <tr><td><code>find dir -name PATTERN</code></td><td>Recursive filename search</td></tr>
+    <tr><td><code>ls *.txt</code></td><td>Wildcard filename matching</td></tr>
+  </table>
+  
+  <h3>Chapter 8 — Pipes and Redirection</h3>
+  <table>
+    <tr><th>Symbol</th><th>Meaning</th></tr>
+    <tr><td><code>&gt;</code></td><td>Write output to file (overwrite)</td></tr>
+    <tr><td><code>&gt;&gt;</code></td><td>Append output to file</td></tr>
+    <tr><td><code>&lt;</code></td><td>Use file as input</td></tr>
+    <tr><td><code>|</code></td><td>Pipe output to next command</td></tr>
+  </table>
+  
+  <h2>Next Step</h2>
+  <p>Try the combined review exercise!</p>

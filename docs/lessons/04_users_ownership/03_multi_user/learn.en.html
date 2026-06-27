@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 04-03: Multiple Users and Sharing</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Multiple Users and Sharing</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Review</h2>
+<p>You can read a file's <strong>owner</strong> and <strong>group</strong> from columns 3 and 4 of <code>ls -l</code>. Now imagine a world where <strong>many users</strong> share one computer.</p>
+
+<h2>One PC, Many Users</h2>
+<p>On a school or lab Linux server, many users share the same machine. Each has a home directory and usually works inside it.</p>
+<pre class="tree"><code>/home/
+├── user/       ← you (the dojo exercise user)
+├── alice/      ← another user alice
+└── bob/        ← another user bob</code></pre>
+<p>On macOS, a family Mac works the same way — each person gets something like <code>/Users/name</code>.</p>
+
+<h2>Files from Different Owners Together</h2>
+<p>In shared folders, files with <strong>different owners</strong> may sit side by side:</p>
+<pre><code>$ ls -l shared/
+-rw-r--r-- 1 user  user  10 Jan  1 10:00 my_report.txt
+-rw-r--r-- 1 alice alice 15 Jan  1 10:00 alice_notes.txt
+-rw-r--r-- 1 bob   bob   12 Jan  1 10:00 bob_data.txt</code></pre>
+<p>Compare <code>whoami</code> (which prints <code>user</code>) with the owner column in <code>ls -l</code> to tell <strong>your</strong> files from <strong>someone else's</strong>.</p>
+
+<h2>Others' Files Are Often Off Limits</h2>
+<p>Files owned by someone else are often unreadable, unwritable, or undeletable (Chapter 5 explains why). For now, practice spotting owners with <code>ls -l</code>.</p>
+
+<h2>Next Step</h2>
+<p>Run <code>ls -l</code> on the <code>shared</code> folder in the exercise and identify who owns each file!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

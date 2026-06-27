@@ -1,0 +1,21 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "03"
+  id: "07_search/03_find"
+  title: "Finding Files with find"
+
+description: "Use find to search for .txt files."
+
+task_description: |
+  <p>Find all files ending in <code>.txt</code> under the current directory.</p>
+
+instructions:
+  - "Run <code>ls</code> to see the home directory structure"
+  - "Run <code>find . -name \"*.txt\"</code>"
+  - "Confirm that three .txt files are found"
+  - "Click the <strong>Test</strong> button when ready"
+
+hints:
+  - "Quote the pattern: <code>\"*.txt\"</code>"
+  - "<code>.</code> means the current directory"

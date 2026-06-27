@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 06-03: Changing Ownership</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Changing Ownership</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2><code>chown</code> — Change Owner</h2>
+<p><code>chown</code> changes a file's owner. <code>chgrp</code> changes only the group.</p>
+<pre><code>$ chown user myfile.txt          # owner → user
+$ chown user:staff myfile.txt    # owner and group together
+$ chgrp staff myfile.txt         # group → staff only</code></pre>
+
+<h2>Why sudo Is Needed</h2>
+<p>Normal users cannot <code>chown</code> or <code>chgrp</code> files they do not own. Only root can set any owner.</p>
+<pre><code>$ chown user admin.log
+chown: changing ownership of 'admin.log': Operation not permitted
+
+$ sudo chown user admin.log
+# succeeds</code></pre>
+
+<h2>Typical Use</h2>
+<p>When an admin creates a file for a user — hand it over with <code>sudo chown user ...</code>.</p>
+
+<h2>Next Step</h2>
+<p>Run <code>sudo chown user admin.log</code> on the exercise page!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "02"
+  id: "07_search/02_grep_options"
+  title: "grep Options"
+
+content: |
+  <h2>More Useful grep</h2>
+  <p>In the previous lesson you learned grep basics. Options let you fine-tune how searching works.</p>
+  
+  <h3><code>-i</code> — Ignore Case</h3>
+  <pre><code>$ grep -i error app.log</code></pre>
+  
+  <h3><code>-n</code> — Show Line Numbers</h3>
+  <pre><code>$ grep -n ERROR app.log
+  4:2024-01-02 ERROR Connection failed
+  6:2024-01-03 ERROR Disk full</code></pre>
+  
+  <h3><code>-v</code> — Invert Match</h3>
+  <p>Show lines that do <strong>not</strong> contain the pattern.</p>
+  
+  <h3><code>-c</code> — Count Matches</h3>
+  <pre><code>$ grep -c ERROR app.log
+  2</code></pre>
+  
+  <h2>Next Step</h2>
+  <p>Try several options on the exercise page!</p>

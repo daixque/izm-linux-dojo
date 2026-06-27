@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>説明 - レッスン 09-02: Tab 補完</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">Tab 補完</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 説明</span>
+                <div id="language-switcher">
+                        <a href="learn.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>入力を補完する</h2>
+<p>第1章でも触れた <strong>Tab 補完</strong>を、ここで正式に学びます。Tab キーを押すと、シェルがコマンド名やパスを<strong>自動で補完</strong>してくれます。</p>
+
+<h2>コマンド名の補完</h2>
+<p>コマンドの最初の数文字を入力して Tab を押すと、候補が一意なら自動で補完されます。</p>
+<pre><code>$ gr[Tab]  →  grep （候補が grep だけなら）</code></pre>
+
+<h2>パスの補完</h2>
+<p>ディレクトリ名やファイル名も Tab で補完できます。</p>
+<pre><code>$ cd doc[Tab]  →  cd documents/</code></pre>
+<p>ディレクトリの場合、末尾に <code>/</code> が付くことがあります。</p>
+
+<h2>候補が複数あるとき</h2>
+<p>Tab を 2 回押すと、可能な候補の一覧が表示されることがあります。</p>
+
+<h2>次のステップ</h2>
+<p>演習ページで Tab を使って <code>documents</code> ディレクトリに移動してみましょう！</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.ja.html" class="btn btn-primary">
+                    演習を始める →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

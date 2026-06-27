@@ -1,0 +1,24 @@
+initial_filesystem:
+  /home/user:
+    type: directory
+    children: {}
+
+initial_cwd: /home/user
+
+solution_commands:
+  - "echo $HOME"
+  - "echo $USER"
+
+tests:
+  - name: "HOME is displayed"
+    description: "echo $HOME output"
+    type: command_output
+    command: "echo $HOME"
+    expected_output: |
+      /home/user
+  - name: "USER is displayed"
+    description: "echo $USER output"
+    type: command_output
+    command: "echo $USER"
+    expected_output: |
+      user

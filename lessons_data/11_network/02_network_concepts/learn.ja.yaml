@@ -1,0 +1,30 @@
+lesson:
+  chapter: "11_network"
+  chapter_number: "11"
+  number: "02"
+  id: "11_network/02_network_concepts"
+  title: "ネットワークの概念"
+
+content: |
+  <h2>ネットワークコマンドの世界</h2>
+  <p>Linux には、ネットワーク関連の便利なコマンドがたくさんあります。ここでは<strong>概念</strong>を押さえ、道場で実行できないものは「名前と役割」だけ覚えましょう。</p>
+
+  <h2><code>wget</code> — ファイルをダウンロード</h2>
+  <p><code>curl</code> と似ていますが、<strong>ファイルのダウンロード</strong>に特化したイメージです。URL を指定してファイルを保存します。道場では <code>curl -o</code> で同様の操作を学びました。</p>
+
+  <h2><code>ping</code> — 接続確認</h2>
+  <p>指定したサーバーに「届きますか？」と問い合わせ、応答時間を表示します。ネットワークの疎通確認に使います。道場では実際のネットワーク通信は行いません。</p>
+
+  <h2><code>ssh</code> — リモートログイン</h2>
+  <p>別のコンピューターに安全にログインして、ターミナル操作を行うコマンドです。サーバー管理でよく使われますが、設定や鍵が必要なため、道場の対象外です。</p>
+
+  <h2><code>curl</code> の復習</h2>
+  <p>第11章で学んだ <code>curl</code> は、HTTP でデータを取得する基本ツールです。</p>
+  <ul>
+    <li><code>curl URL</code> — レスポンスを表示</li>
+    <li><code>curl -o ファイル URL</code> — ファイルに保存</li>
+  </ul>
+  <p>道場の模擬 URL：<code>https://dojo.example/api/hello</code>、<code>https://dojo.example/data/info.txt</code></p>
+
+  <h2>次のステップ</h2>
+  <p>演習では <code>curl</code> の復習問題に取り組み、第12章の総合演習へ進む準備をします。</p>

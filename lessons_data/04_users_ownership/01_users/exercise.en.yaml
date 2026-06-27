@@ -1,0 +1,22 @@
+lesson:
+  chapter: "04_users_ownership"
+  chapter_number: "04"
+  number: "01"
+  id: "04_users_ownership/01_users"
+  title: "What Is a User?"
+
+description: "Use whoami to see which user you are logged in as."
+
+task_description: |
+  <p>Run <code>whoami</code> in the terminal to display your username.</p>
+
+instructions:
+  - "Type <code>whoami</code> and press Enter"
+  - "Confirm the output is <code>user</code>"
+  - "The prompt <code>user@dojo</code> shows the same username"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "Spell whoami carefully: who + am + i"
+  - "Usernames are case-sensitive"
+  - "Use the <strong>Reset</strong> button to start over if needed"

@@ -1,0 +1,22 @@
+lesson:
+  chapter: "05_permissions"
+  chapter_number: "05"
+  number: "04"
+  id: "05_permissions/04_chmod_octal"
+  title: "chmod (Octal Mode) [Advanced]"
+
+description: "Set permissions with octal chmod (644, 755)."
+
+task_description: |
+  <p>Set <code>report.txt</code> to <code>644</code> and the <code>tools</code> directory to <code>755</code>.</p>
+
+instructions:
+  - "Run <code>chmod 644 report.txt</code>"
+  - "Run <code>chmod 755 tools</code>"
+  - "Run <code>ls -l</code> to verify the permissions"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "644 is rw-r--r--, 755 is rwxr-xr-x"
+  - "chmod works on directories too"
+  - "Use the <strong>Reset</strong> button to start over if needed"

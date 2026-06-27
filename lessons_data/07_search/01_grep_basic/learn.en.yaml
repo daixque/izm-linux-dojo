@@ -1,0 +1,27 @@
+lesson:
+  chapter: "07_search"
+  chapter_number: "07"
+  number: "01"
+  id: "07_search/01_grep_basic"
+  title: "grep Basics"
+
+content: |
+  <h2>Search Inside Text</h2>
+  <p>In Chapter 3 you learned to read file contents with <code>cat</code>, <code>head</code>, and <code>tail</code>. Logs and config files can be long, and you often need to find specific lines quickly.</p>
+  <p><code>grep</code> prints only the lines that <strong>contain a given string</strong>.</p>
+  
+  <h2>Basic Usage</h2>
+  <pre><code>grep PATTERN FILENAME</code></pre>
+  <p>Specify the text you want to find as the pattern. Matching is case-sensitive by default.</p>
+  <pre><code>$ grep ERROR app.log
+  2024-01-02 ERROR Connection failed
+  2024-01-03 ERROR Disk full</code></pre>
+  
+  <h2>Search Multiple Files</h2>
+  <pre><code>grep ERROR log1.txt log2.txt</code></pre>
+  
+  <h2>When Nothing Matches</h2>
+  <p>If no line matches, grep prints nothing and exits (this is not an error).</p>
+  
+  <h2>Next Step</h2>
+  <p>On the exercise page, use <code>grep</code> to extract ERROR lines from a log file!</p>

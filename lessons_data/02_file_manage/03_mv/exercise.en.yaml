@@ -1,0 +1,24 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "03"
+  id: "02_file_manage/03_mv"
+  title: "Moving and Renaming"
+
+description: "Use mv to rename a file and move it into another directory."
+
+task_description: |
+  <p>Rename <code>old_name.txt</code> to <code>new_name.txt</code>, then move it into the <code>archive</code> folder.</p>
+
+instructions:
+  - "Run <code>ls</code> to confirm <code>old_name.txt</code> and <code>archive</code> exist"
+  - "Run <code>mv old_name.txt new_name.txt</code> to rename the file"
+  - "Run <code>ls</code> and confirm only <code>new_name.txt</code> appears (not old_name.txt)"
+  - "Run <code>mv new_name.txt archive/</code> to move it into archive"
+  - "Run <code>ls archive</code> and confirm <code>new_name.txt</code> is there"
+  - "When ready, click the <strong>Test</strong> button"
+
+hints:
+  - "The first argument to <code>mv</code> is the source, the second is the destination"
+  - "After moving, the file should disappear from its original location"
+  - "Use the <strong>Reset</strong> button to start over if needed"

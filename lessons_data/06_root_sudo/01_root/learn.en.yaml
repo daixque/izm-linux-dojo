@@ -1,0 +1,31 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "01"
+  id: "06_root_sudo/01_root"
+  title: "The root User"
+
+content: |
+  <h2>Review of Chapter 5</h2>
+  <p>Chapter 5 covered <strong>permissions (rwx)</strong> and <code>chmod</code>. You saw <strong>Permission denied</strong> when trying operations without permission.</p>
+
+  <h2>What Is root?</h2>
+  <p>Linux has a special user called <strong>root</strong> — the <strong>superuser</strong> (administrator) who can do almost anything on the system.</p>
+  <ul>
+    <li>root's home directory is <code>/root</code></li>
+    <li>System settings live in areas like <code>/etc</code>, managed by root</li>
+    <li>Normal users like <code>user</code> often cannot enter root-only areas</li>
+  </ul>
+
+  <h2>Files Owned by root</h2>
+  <p><code>ls -l</code> often shows files whose owner is <code>root</code>:</p>
+  <pre><code>$ ls -l /etc
+  -rw-r--r-- 1 root root  123 Jan  1 10:00 hosts
+  drwxr-xr-x 2 root root 4096 Jan  1 10:00 config.d</code></pre>
+  <p>Normal users cannot change root's files freely — that protects the system.</p>
+
+  <h2>What This Chapter Covers</h2>
+  <p>Next you will learn <code>sudo</code>, which lets you <strong>temporarily borrow</strong> root power when truly needed. Use it carefully, not casually.</p>
+
+  <h2>Next Step</h2>
+  <p>Run <code>ls -l</code> on the <code>system</code> folder in the exercise and find files owned by root!</p>

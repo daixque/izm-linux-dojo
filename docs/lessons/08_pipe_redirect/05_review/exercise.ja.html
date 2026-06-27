@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演習課題 - レッスン 08-05: 検索・パイプの総復習</title>
+    <link rel="stylesheet" href="../../../lib/css/exercise.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
+            </div>
+            <h1 id="lesson-title">📝 レッスン 08-05: 検索・パイプの総復習</h1>
+            <div class="header-right">
+                <div class="status">
+                    <span id="status">準備中...</span>
+                </div>
+                <div id="language-switcher">
+                        <a href="exercise.en.html" class="language-link">English</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="task-panel">
+                <div class="task-header">
+                    <h2>課題</h2>
+                    <span class="task-toggle">◀</span>
+                </div>
+                <div class="task-content">
+                    <div class="task-description">
+                        <h3>📋 課題内容</h3>
+                        <p>ログから ERROR 行を抽出し件数をファイルに保存する一連の操作を行いましょう。</p>
+
+                    </div>
+                    <div class="instructions">
+                        <h4>✏️ やること</h4>
+                        <ul>
+                            <li><code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code> を実行します</li>
+                            <li><code>cat error_count.txt</code> で件数（2）を確認します</li>
+                            <li><code>grep ERROR app.log &gt; errors.txt</code> も実行して ERROR 行を保存します</li>
+                            <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
+                        </ul>
+                    </div>
+                    <div class="hints">
+                        <h4 class="hints-toggle">
+                            <span class="hints-icon">▶</span>
+                            💡 ヒント
+                        </h4>
+                        <ul class="hints-content" style="display: none;">
+                            <li>パイプとリダイレクトは組み合わせて使えます</li>
+                            <li>最後に <code>cat</code> で結果ファイルを確認しましょう</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="code-panel">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <span class="terminal-label">💻 ターミナル</span>
+                        <div class="button-group">
+                            <button id="btn-test" class="btn btn-success" disabled>✓ テスト</button>
+                            <button id="btn-reset" class="btn btn-secondary">🔄 リセット</button>
+                            <button id="btn-solution" class="btn btn-warning">💡 解答を見る</button>
+                            <button id="btn-clear" class="btn btn-small">クリア</button>
+                        </div>
+                    </div>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+
+            <aside id="file-explorer" class="file-explorer">
+                <div class="file-explorer-header">
+                    <span class="file-explorer-icon">📁</span>
+                    <span class="file-explorer-label">ファイル</span>
+                    <span class="file-explorer-toggle">◀</span>
+                </div>
+                <div class="file-explorer-body">
+                    <div id="file-tree" class="file-tree"></div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-nav">
+                <a href="../../../index.html" class="btn btn-secondary">← 目次に戻る</a>
+                <a href="learn.ja.html" class="btn btn-link">📚 説明に戻る</a>
+            </div>
+            <div class="footer-next">
+                <a href="../../09_shell_basics/01_history/learn.ja.html" class="btn btn-primary">次のレッスンへ →<br><small>コマンド履歴</small></a>
+            </div>
+        </footer>
+    </div>
+
+    <div id="test-results-overlay" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 16px; z-index: 1000;">
+        <div class="test-results-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="margin: 0;">テスト結果</h3>
+                <button id="btn-close-results" class="btn btn-small">閉じる</button>
+            </div>
+            <div id="test-results"></div>
+            <div style="margin-top: 16px; text-align: right;">
+                <a href="../../../index.html" class="btn btn-link">目次に戻る</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit@0.10.0/lib/addon-fit.min.js"></script>
+
+    <script src="../../../lib/js/i18n.js"></script>
+    <script src="../../../lib/js/progress.js"></script>
+    <script src="../../../lib/js/shell/vfs.js"></script>
+    <script src="../../../lib/js/shell/commands.js"></script>
+    <script src="../../../lib/js/shell/completion.js"></script>
+    <script src="../../../lib/js/shell/simulator.js"></script>
+    <script src="../../../lib/js/terminal.js"></script>
+    <script src="../../../lib/js/tester.js"></script>
+    <script src="../../../lib/js/fileviewer.js"></script>
+    <script src="../../../lib/js/exercise-common.js"></script>
+
+    <script>
+        const LESSON_ID = "08_pipe_redirect/05_review";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"app.log": {"content": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-02 ERROR Connection failed\n2024-01-03 INFO User login\n2024-01-03 ERROR Disk full\n2024-01-04 INFO Shutdown\n", "type": "file"}}, "type": "directory"}};
+        const INITIAL_CWD = "/home/user";
+        const TESTS = [{"description": "\u30d1\u30a4\u30d7 + \u30ea\u30c0\u30a4\u30ec\u30af\u30c8\u306e\u4ef6\u6570", "name": "error_count.txt \u306b\u4ef6\u6570 2", "steps": [{"command": "cat app.log | grep ERROR | wc -l \u003e error_count.txt", "expected_output": ""}, {"command": "cat error_count.txt", "expected_output": "2\n"}], "type": "command_sequence"}, {"description": "grep + \u30ea\u30c0\u30a4\u30ec\u30af\u30c8", "name": "errors.txt \u306b ERROR \u884c", "steps": [{"command": "grep ERROR app.log \u003e errors.txt", "expected_output": ""}, {"command": "cat errors.txt", "expected_output": "2024-01-02 ERROR Connection failed\n2024-01-03 ERROR Disk full\n"}], "type": "command_sequence"}];
+        const SOLUTION_COMMANDS = ["cat app.log | grep ERROR | wc -l \u003e error_count.txt", "grep ERROR app.log \u003e errors.txt"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.i18n) window.i18n.init();
+            setupButtons();
+            initializeExercise({
+                initialFilesystem: INITIAL_FILESYSTEM,
+                initialCwd: INITIAL_CWD,
+                tests: TESTS,
+                solutionCommands: SOLUTION_COMMANDS,
+            });
+        });
+    </script>
+</body>
+</html>

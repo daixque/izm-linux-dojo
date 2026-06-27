@@ -1,0 +1,28 @@
+lesson:
+  chapter: "12_capstone"
+  chapter_number: "12"
+  number: "04"
+  id: "12_capstone/04_final_dojo"
+  title: "道場最終試練"
+
+content: |
+  <h2>最終試練へ</h2>
+  <p>おめでとうございます！ ここまでで、ファイル操作・テキスト表示・権限・検索・パイプ・シェル機能の必修範囲を学びました。最後の演習では、これらを<strong>一連の流れ</strong>で使いこなします。</p>
+
+  <h2>課題の流れ（プレビュー）</h2>
+  <ol>
+    <li>プロジェクト用フォルダ <code>project</code> を作成</li>
+    <li>ログをコピーし、ERROR 行だけを抽出して保存</li>
+    <li>結果ファイルの行数を確認</li>
+    <li>README を作成して作業完了</li>
+  </ol>
+
+  <h2>心がけ</h2>
+  <ul>
+    <li>各ステップのあと <code>ls</code> や <code>cat</code> で確認</li>
+    <li>コマンドは一つずつ確実に</li>
+    <li>困ったら <code>man</code> や <code>--help</code> を思い出す（第9章）</li>
+  </ul>
+
+  <h2>次のステップ</h2>
+  <p>演習ページで最終試練に挑戦し、道場の必修コースを完了しましょう！</p>

@@ -1,0 +1,22 @@
+lesson:
+  chapter: "06_root_sudo"
+  chapter_number: "06"
+  number: "03"
+  id: "06_root_sudo/03_chown_chgrp"
+  title: "オーナー変更"
+
+description: "sudo chown で root オーナーのファイルを user に変更します。"
+
+task_description: |
+  <p><code>admin.log</code> のオーナーを <code>sudo chown user admin.log</code> で変更し、<code>ls -l</code> で確認しましょう。</p>
+
+instructions:
+  - "<code>ls -l admin.log</code> で現在のオーナー（root）を確認します"
+  - "<code>sudo chown user admin.log</code> を実行します"
+  - "<code>ls -l admin.log</code> でオーナーが <code>user</code> になったことを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "chown だけでは root のファイルは変更できません"
+  - "<code>sudo</code> を付けると root として chown が実行されます"
+  - "変更後は cat もできるようになります"

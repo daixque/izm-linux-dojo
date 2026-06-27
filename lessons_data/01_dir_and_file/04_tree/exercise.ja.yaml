@@ -1,0 +1,23 @@
+lesson:
+  chapter: "01_dir_and_file"
+  chapter_number: "01"
+  number: "04"
+  id: "01_dir_and_file/04_tree"
+  title: "ディレクトリ構造"
+
+description: "3 階層下の app ディレクトリまで cd し、pwd で到達を確認します。"
+
+task_description: |
+  <p>深い階層にある <code>projects/web/app</code> ディレクトリまで移動し、<code>pwd</code> で正しい場所に着いたか確認しましょう。</p>
+
+instructions:
+  - "<code>pwd</code> で現在地（<code>/home/user</code>）を確認します"
+  - "<code>cd projects/web/app</code> で 3 階層下の app ディレクトリへ移動します"
+  - "<code>pwd</code> で <code>/home/user/projects/web/app</code> であることを確認します"
+  - "<code>ls</code> で <code>config.txt</code> があることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "パスは <code>projects/web/app</code> のように / でつなぎます"
+  - "一つずつ <code>cd projects</code> → <code>cd web</code> → <code>cd app</code> でも到達できます"
+  - "Tab キーでディレクトリ名を補完できます"

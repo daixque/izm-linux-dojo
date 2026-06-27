@@ -1,0 +1,22 @@
+lesson:
+  chapter: "11_network"
+  chapter_number: "11"
+  number: "02"
+  id: "11_network/02_network_concepts"
+  title: "Network Concepts"
+
+description: "Review curl and network command concepts."
+
+task_description: |
+  <p>Review <code>curl</code> from the previous lesson. Fetch status JSON from the mock API and save it as <code>status.json</code>.</p>
+
+instructions:
+  - "Run <code>curl https://dojo.example/api/status</code> to display status"
+  - "Run <code>curl -o status.json https://dojo.example/api/status</code> to save"
+  - "Run <code>cat status.json</code> to verify content"
+  - "Click <strong>Test</strong> when ready"
+
+hints:
+  - "Same <code>-o</code> usage as the previous lesson"
+  - "JSON text often starts with <code>{</code>"
+  - "Use <strong>Reset</strong> to start over if needed"

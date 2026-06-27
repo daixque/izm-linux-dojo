@@ -1,0 +1,24 @@
+lesson:
+  chapter: "02_file_manage"
+  chapter_number: "02"
+  number: "04"
+  id: "02_file_manage/04_rm"
+  title: "削除"
+
+description: "rm と rmdir を使って、不要なファイルと空のディレクトリを削除します。"
+
+task_description: |
+  <p><code>temp.txt</code> と <code>junk.txt</code> を削除し、空の <code>empty_dir</code> も削除しましょう。<code>keep.txt</code> は残してください。</p>
+
+instructions:
+  - "<code>ls</code> で削除対象と <code>keep.txt</code> を確認します"
+  - "<code>rm temp.txt</code> で temp.txt を削除します"
+  - "<code>rm junk.txt</code> で junk.txt を削除します"
+  - "<code>rmdir empty_dir</code> で空のディレクトリを削除します"
+  - "<code>ls</code> で <code>keep.txt</code> だけが残っていることを確認します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "削除する前に <code>pwd</code> で現在地を確認しましょう"
+  - "空でないフォルダは <code>rmdir</code> では消せません（その場合は <code>rm -r</code>）"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

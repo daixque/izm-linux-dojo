@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 07-03: Finding Files with find</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Finding Files with find</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Search by Filename</h2>
+<p><code>grep</code> searches file <strong>contents</strong>. To search by file <strong>name</strong>, use <code>find</code>.</p>
+
+<h2>Basic Form</h2>
+<pre><code>find DIRECTORY -name PATTERN</code></pre>
+<ul>
+  <li><strong>DIRECTORY</strong> — where to start (<code>.</code> means current directory)</li>
+  <li><strong>-name</strong> — search by filename</li>
+  <li><strong>PATTERN</strong> — filename pattern (wildcards like <code>*</code> work)</li>
+</ul>
+
+<h2>Example: Find All .txt Files</h2>
+<pre><code>$ find . -name "*.txt"
+./notes.txt
+./documents/readme.txt</code></pre>
+
+<h2>Searches Subdirectories Too</h2>
+<p><code>find</code> walks the entire tree under the given directory.</p>
+
+<h2>Next Step</h2>
+<p>On the exercise page, use <code>find</code> to list .txt files!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

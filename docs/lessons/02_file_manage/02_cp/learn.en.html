@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Lesson 02-02: Copying Files</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="site-title">
+                <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+            </div>
+            <h1 id="lesson-title">Copying Files</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>What Is Copying?</h2>
+<p><strong>Copying</strong> creates a duplicate while keeping the original. In a GUI this is like Copy and Paste.</p>
+<p>On Linux you use the <code>cp</code> (copy) command.</p>
+
+<h2>Copy a File — <code>cp</code></h2>
+<p>The basic form is:</p>
+<pre><code>cp source destination</code></pre>
+<p>To copy <code>report.txt</code> into the <code>backup</code> folder:</p>
+<pre><code>$ cp report.txt backup/
+$ ls backup
+report.txt</code></pre>
+<p>The original <code>report.txt</code> stays in place, and a new file appears at <code>backup/report.txt</code>.</p>
+
+<h3>Copy with a New Name</h3>
+<p>You can give the copy a different filename:</p>
+<pre><code>$ cp report.txt report_backup.txt</code></pre>
+
+<h2>Copy a Directory — <code>cp -r</code></h2>
+<p>Directories need the <code>-r</code> option (recursive) to copy everything inside them.</p>
+<pre><code>$ cp -r photos photos_copy
+$ ls
+photos
+photos_copy</code></pre>
+<p>Without <code>-r</code>, you usually get an error saying directories cannot be copied.</p>
+
+<h2>Verify the Copy</h2>
+<p>Use <code>ls</code> from Chapter 1 or <code>cat</code> from Chapter 3 to confirm the copy exists. You can also <code>cd</code> into the destination folder first.</p>
+
+<h2>Next Step</h2>
+<p>Try copying a file into another folder on the exercise page!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
