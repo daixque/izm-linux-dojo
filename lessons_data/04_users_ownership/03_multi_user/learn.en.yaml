@@ -26,7 +26,23 @@ content: |
   <p>Compare <code>whoami</code> (which prints <code>user</code>) with the owner column in <code>ls -l</code> to tell <strong>your</strong> files from <strong>someone else's</strong>.</p>
 
   <h2>Others' Files Are Often Off Limits</h2>
-  <p>Files owned by someone else are often unreadable, unwritable, or undeletable (Chapter 5 explains why). For now, practice spotting owners with <code>ls -l</code>.</p>
+  <p>Files owned by someone else are often unreadable, unwritable, or undeletable. Before touching a file, compare <code>whoami</code> with the owner column from <code>ls -l</code>.</p>
+
+  <h2>Chapter Summary</h2>
+  <table>
+    <thead>
+      <tr><th>Command / concept</th><th>What it tells you</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>whoami</code></td><td>Your current username</td></tr>
+      <tr><td><code>ls -l</code> column 3</td><td>Owner</td></tr>
+      <tr><td><code>ls -l</code> column 4</td><td>Group</td></tr>
+      <tr><td>Multiple users</td><td>Different owners' files can share the same folder</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Next Chapter — Permissions</h2>
+  <p>Beyond the owner, Linux grants access to the group and to everyone else. That is what <strong>permissions</strong> are. In the next chapter you will read <code>rwx</code> and change permissions with <code>chmod</code>.</p>
 
   <h2>Next Step</h2>
   <p>Run <code>ls -l</code> on the <code>shared</code> folder in the exercise and identify who owns each file!</p>

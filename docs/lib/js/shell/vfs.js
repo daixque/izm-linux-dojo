@@ -236,6 +236,24 @@ class VirtualFilesystem {
         return { ok: true };
     }
 
+    /** ディレクトリからエントリを削除する権限（rm / mv の unlink 相当） */
+    _checkUnlink(path, displayPath) {
+        if (this.currentUser === 'root') return { ok: true };
+
+        const normalized = this.normalizePath(path);
+        const result = this._getNode(normalized);
+        if (!result) return { ok: true };
+
+        const parentPerm = this._checkParentWrite(path, displayPath);
+        if (!parentPerm.ok) return parentPerm;
+
+        const targetPerm = this._checkPermission(path, false, true, false);
+        if (!targetPerm.ok) {
+            return { ok: false, path: displayPath ?? result.path };
+        }
+        return { ok: true };
+    }
+
     _permissionDenied(path) {
         return { ok: false, path: this.normalizePath(path) };
     }
@@ -315,6 +333,10 @@ class VirtualFilesystem {
 
     _removeRecursive(node, basePath) {
         if (node.type === 'file') {
+            const perm = this._checkUnlink(basePath, basePath);
+            if (!perm.ok) {
+                throw new Error(`rm: cannot remove '${basePath}': Permission denied`);
+            }
             this._removeNode(basePath);
             return;
         }
@@ -322,6 +344,10 @@ class VirtualFilesystem {
         for (const childName of Object.keys(children)) {
             const childPath = basePath === '/' ? `/${childName}` : `${basePath}/${childName}`;
             this._removeRecursive(children[childName], childPath);
+        }
+        const perm = this._checkUnlink(basePath, basePath);
+        if (!perm.ok) {
+            throw new Error(`rm: cannot remove '${basePath}': Permission denied`);
         }
         this._removeNode(basePath);
     }
@@ -471,8 +497,8 @@ class VirtualFilesystem {
         if (Object.keys(children).length > 0) {
             throw new Error(`rmdir: failed to remove '${path}': Directory not empty`);
         }
-        const parentPerm = this._checkParentWrite(path, path);
-        if (!parentPerm.ok) {
+        const unlinkPerm = this._checkUnlink(path, path);
+        if (!unlinkPerm.ok) {
             throw new Error(`rmdir: failed to remove '${path}': Permission denied`);
         }
         this._removeNode(path);
@@ -485,9 +511,11 @@ class VirtualFilesystem {
             throw new Error(`rm: cannot remove '${path}': No such file or directory`);
         }
 
-        const parentPerm = this._checkParentWrite(path, path);
-        if (!parentPerm.ok) {
-            throw new Error(`rm: cannot remove '${path}': Permission denied`);
+        if (!recursive) {
+            const unlinkPerm = this._checkUnlink(path, path);
+            if (!unlinkPerm.ok) {
+                throw new Error(`rm: cannot remove '${path}': Permission denied`);
+            }
         }
 
         if (result.node.type === 'file') {
@@ -563,12 +591,9 @@ class VirtualFilesystem {
             throw new Error(`mv: cannot stat '${src}': No such file or directory`);
         }
 
-        const srcPerm = this._checkPermission(src, false, true, false);
-        if (!srcPerm.ok && this.currentUser !== 'root') {
-            const parentPerm = this._checkParentWrite(src, src);
-            if (!parentPerm.ok) {
-                throw new Error(`mv: cannot stat '${src}': Permission denied`);
-            }
+        const srcUnlinkPerm = this._checkUnlink(src, src);
+        if (!srcUnlinkPerm.ok) {
+            throw new Error(`mv: cannot move '${src}': Permission denied`);
         }
 
         let destParentChildren;
@@ -601,11 +626,6 @@ class VirtualFilesystem {
 
         if (destNorm === srcNorm || destNorm.startsWith(srcNorm + '/')) {
             throw new Error(`mv: cannot move '${src}' to '${dest}': Invalid argument`);
-        }
-
-        const srcParentPerm = this._checkParentWrite(src, src);
-        if (!srcParentPerm.ok) {
-            throw new Error(`mv: cannot move '${src}' to '${dest}': Permission denied`);
         }
 
         destParentChildren[destName] = srcResult.node;

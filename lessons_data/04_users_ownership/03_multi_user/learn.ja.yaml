@@ -23,7 +23,23 @@ content: |
   <p><code>whoami</code> の結果（<code>user</code>）と <code>ls -l</code> の 3 列目（オーナー）を比べると、「これは<strong>自分の</strong>ファイルか、<strong>他人の</strong>ファイルか」が分かります。</p>
 
   <h2>他人のファイルは触れないことが多い</h2>
-  <p>他人がオーナーのファイルは、読めない・書けない・消せない、ということがよくあります。権限の詳しい話は次の章で扱いますが、まずは <code>ls -l</code> でオーナーを見分ける練習をしましょう。</p>
+  <p>他人がオーナーのファイルは、読めない・書けない・消せない、ということがよくあります。ファイルを触る前に <code>whoami</code> と <code>ls -l</code> のオーナー列を比べる習慣をつけましょう。</p>
+
+  <h2>この章のポイント</h2>
+  <table>
+    <thead>
+      <tr><th>コマンド・概念</th><th>内容</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>whoami</code></td><td>今のユーザー名を確認</td></tr>
+      <tr><td><code>ls -l</code> の 3 列目</td><td>オーナー（持ち主）</td></tr>
+      <tr><td><code>ls -l</code> の 4 列目</td><td>グループ</td></tr>
+      <tr><td>複数ユーザー</td><td>同じフォルダに他人のファイルが混在することがある</td></tr>
+    </tbody>
+  </table>
+
+  <h2>次の章 — 権限</h2>
+  <p>オーナー以外にも、「グループ」や「その他のユーザー」に許可を与える仕組みがあります。それが<strong>権限（permissions）</strong>です。次の章では <code>rwx</code> の読み方と <code>chmod</code> による変更方法を扱います。</p>
 
   <h2>次のステップ</h2>
   <p>演習ページで <code>shared</code> フォルダの <code>ls -l</code> を読み、誰のファイルか見分けてみましょう。</p>

@@ -149,13 +149,6 @@
           "title": "Sharing a Computer Among Users",
           "description": "Read ls -l output when files from different users are mixed together.",
           "available": true
-        },
-        {
-          "id": "04_users_ownership/04_ownership_practice",
-          "number": "04-04",
-          "title": "Seeing How Ownership Affects Access",
-          "description": "Use whoami and ls -l to tell your files from others' files.",
-          "available": true
         }
       ]
     },

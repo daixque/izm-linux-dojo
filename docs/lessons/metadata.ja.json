@@ -149,13 +149,6 @@
           "title": "複数ユーザー環境を理解する",
           "description": "複数ユーザーのファイルが混在する ls -l の出力を読み取ります。",
           "available": true
-        },
-        {
-          "id": "04_users_ownership/04_ownership_practice",
-          "number": "04-04",
-          "title": "オーナーシップによる違いを確認する",
-          "description": "whoami と ls -l を使い、自分のファイルと他人のファイルを見分けます。",
-          "available": true
         }
       ]
     },
