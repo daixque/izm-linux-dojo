@@ -55,7 +55,7 @@ python test.py
 2. `chapters_data/chapters.ja.yaml` に章定義を追加（新章の場合）
 3. `python build.py` で HTML を生成
 
-執筆・改稿時の注意事項は [`AGENT.md`](AGENT.md) を参照。
+執筆・改稿時の注意事項は [`AGENTS.md`](AGENTS.md) を参照。
 
 ## ライセンス
 
