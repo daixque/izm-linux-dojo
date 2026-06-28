@@ -171,14 +171,15 @@ class TerminalUI {
     _insertText(text) {
         if (!text) return;
 
-        const oldLine = this.currentLine;
-        const oldCursorPos = this.cursorPos;
+        const atEnd = this.cursorPos === this.currentLine.length;
         this.currentLine =
-            this.currentLine.slice(0, this.cursorPos) +
-            text +
-            this.currentLine.slice(this.cursorPos);
+            this.currentLine.slice(0, this.cursorPos) + text + this.currentLine.slice(this.cursorPos);
         this.cursorPos += text.length;
-        this._applyLineUpdate(oldLine, oldCursorPos);
+        if (atEnd) {
+            this.term.write(text);
+        } else {
+            this._writeInsertMode(text);
+        }
     }
 
     writeWelcome() {
@@ -212,18 +213,15 @@ class TerminalUI {
 
         if (domEvent.keyCode === 8) {
             if (this.cursorPos > 0) {
-                const oldLine = this.currentLine;
-                const oldCursorPos = this.cursorPos;
-                this.currentLine =
-                    this.currentLine.slice(0, this.cursorPos - 1) +
-                    this.currentLine.slice(this.cursorPos);
-                this.cursorPos--;
                 if (this.cursorPos === this.currentLine.length) {
+                    this.currentLine = this.currentLine.slice(0, -1);
+                    this.cursorPos--;
                     this.term.write('\b \b');
                 } else {
-                    this._applyLineUpdate(oldLine, oldCursorPos);
+                    this._deleteCharBeforeCursor();
                 }
             }
+            domEvent.preventDefault();
             return;
         }
 
@@ -260,6 +258,7 @@ class TerminalUI {
         }
 
         if (printable && key.length === 1) {
+            domEvent.preventDefault();
             this._ignoreNextEnter = false;
             this._enterCommitPending = false;
             this._imeProcessEnterPending = false;
@@ -268,16 +267,31 @@ class TerminalUI {
                 this.cursorPos++;
                 this.term.write(key);
             } else {
-                const oldLine = this.currentLine;
-                const oldCursorPos = this.cursorPos;
-                this.currentLine =
-                    this.currentLine.slice(0, this.cursorPos) +
-                    key +
-                    this.currentLine.slice(this.cursorPos);
-                this.cursorPos++;
-                this._applyLineUpdate(oldLine, oldCursorPos);
+                this._insertCharAtCursor(key);
             }
         }
+    }
+
+    _insertCharAtCursor(key) {
+        this.currentLine =
+            this.currentLine.slice(0, this.cursorPos) +
+            key +
+            this.currentLine.slice(this.cursorPos);
+        this.cursorPos++;
+        this._writeInsertMode(key);
+    }
+
+    _writeInsertMode(text) {
+        // SMIR: 挿入モードで書くと右側の文字を押し出せる（行末へカーソルを飛ばす必要がない）
+        this.term.write('\x1b[4h' + text + '\x1b[4l');
+    }
+
+    _deleteCharBeforeCursor() {
+        this.currentLine =
+            this.currentLine.slice(0, this.cursorPos - 1) +
+            this.currentLine.slice(this.cursorPos);
+        this.cursorPos--;
+        this.term.write('\x1b[D\x1b[P');
     }
 
     _isCtrlShortcut(domEvent, letter) {
@@ -357,13 +371,13 @@ class TerminalUI {
             this.term.write(this.currentLine.slice(oldLine.length));
             return;
         }
-        this._redrawInput(oldCursorPos);
+        this._redrawInput();
     }
 
-    _redrawInput(previousCursorPos) {
-        this.term.write('\x1b[' + previousCursorPos + 'D');
-        this.term.write('\x1b[K');
-        this.term.write(this.currentLine);
+    _redrawInput() {
+        this.term.write(
+            '\r' + this.simulator.getPrompt() + this.currentLine + '\x1b[K'
+        );
         const tail = this.currentLine.length - this.cursorPos;
         if (tail > 0) {
             this.term.write('\x1b[' + tail + 'D');
