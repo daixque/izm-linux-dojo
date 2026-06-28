@@ -1,3 +1,11 @@
+{% macro chapter_lesson(lesson) -%}
+{{ ui.header.chapter_prefix }}{{ lesson.chapter_number|default('')|int }}{{ ui.header.chapter_suffix }} {{ ui.header.lesson_prefix }}{{ lesson.number|int }}
+{%- endmacro %}
+
+{% macro title_only(lesson, prefix='') -%}
+{{ prefix }}{{ lesson.title }}
+{%- endmacro %}
+
 {% macro heading(lesson, prefix='') -%}
 {{ prefix }}{{ ui.header.chapter_prefix }}{{ lesson.chapter_number|default('')|int }}{{ ui.header.chapter_suffix }} {{ ui.header.lesson_prefix }}{{ lesson.number|int }}: {{ lesson.title }}
 {%- endmacro %}

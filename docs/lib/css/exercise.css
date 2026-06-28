@@ -34,9 +34,25 @@ body {
     border-top: 3px solid #4F7FE7;
 }
 
-.site-title {
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     width: 100%;
-    margin-bottom: 4px;
+    flex-basis: 100%;
+}
+
+.site-title {
+    width: auto;
+    margin-bottom: 0;
+}
+
+.chapter-lesson {
+    font-size: 13px;
+    color: #666;
+    font-weight: 400;
+    white-space: nowrap;
 }
 
 .site-link {

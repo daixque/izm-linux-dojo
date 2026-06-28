@@ -28,8 +28,23 @@ body {
     padding: 32px 40px;
 }
 
-.site-title {
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
     margin-bottom: 16px;
+}
+
+.site-title {
+    margin-bottom: 0;
+}
+
+.chapter-lesson {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    white-space: nowrap;
 }
 
 .site-link {

@@ -1,4 +1,4 @@
-{% from '_lesson_heading.html' import heading with context %}
+{% from '_lesson_heading.html' import heading, chapter_lesson, title_only with context %}
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
@@ -11,10 +11,13 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="site-title">
-                <a href="../../../index.html" class="site-link">🐧 {{ ui.appTitle }}</a>
+            <div class="header-top">
+                <div class="site-title">
+                    <a href="../../../index.html" class="site-link">🐧 {{ ui.appTitle }}</a>
+                </div>
+                <span class="chapter-lesson">{{ chapter_lesson(lesson) }}</span>
             </div>
-            <h1 id="lesson-title">{{ heading(lesson, '📝 ') }}</h1>
+            <h1 id="lesson-title">{{ title_only(lesson, '📝 ') }}</h1>
             <div class="header-right">
                 <div class="status">
                     <span id="status">{{ ui.exercise.status_preparing }}</span>
