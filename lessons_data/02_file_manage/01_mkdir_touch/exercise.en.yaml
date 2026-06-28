@@ -10,17 +10,17 @@ description: "Use mkdir and touch to create directories and empty files."
 task_description: |
   <p>Create the following items in the terminal:</p>
   <ul>
-    <li>A directory named <code>project</code></li>
-    <li>A nested directory <code>project/src</code> using <code>mkdir -p</code></li>
+    <li>A directory named <code>workspace</code></li>
+    <li>A nested path <code>project/src</code> using <code>mkdir -p</code> (both folders at once)</li>
     <li>An empty file named <code>memo.txt</code></li>
   </ul>
 
 instructions:
   - "Run <code>pwd</code> to confirm you are in <code>/home/user</code>"
-  - "Run <code>mkdir project</code> to create the project folder"
-  - "Run <code>mkdir -p project/src</code> to add the src folder inside project"
+  - "Run <code>mkdir workspace</code> to create the workspace folder"
+  - "Run <code>mkdir -p project/src</code> to create project and src in one step"
   - "Run <code>touch memo.txt</code> to create an empty file"
-  - "Run <code>ls</code> and confirm memo.txt and project appear"
+  - "Run <code>ls</code> and confirm memo.txt, project, and workspace appear"
   - "When ready, click the <strong>Test</strong> button"
 
 hints:

@@ -38,7 +38,7 @@
                         <h3>📋 課題内容</h3>
                         <p>ターミナルで次の操作を行い、ファイルとフォルダを新しく作ってみましょう。</p>
 <ul>
-  <li><code>project</code> ディレクトリを作成する</li>
+  <li><code>workspace</code> ディレクトリを作成する</li>
   <li><code>project/src</code> を <code>mkdir -p</code> で一度に作成する</li>
   <li><code>memo.txt</code> という空ファイルを作成する</li>
 </ul>
@@ -48,10 +48,10 @@
                         <h4>✏️ やること</h4>
                         <ul>
                             <li><code>pwd</code> で <code>/home/user</code> にいることを確認します</li>
-                            <li><code>mkdir project</code> で project フォルダを作ります</li>
-                            <li><code>mkdir -p project/src</code> で src フォルダを作ります（project はすでにあるので src だけ追加されます）</li>
+                            <li><code>mkdir workspace</code> で workspace フォルダを作ります</li>
+                            <li><code>mkdir -p project/src</code> で project と src を一度に作ります</li>
                             <li><code>touch memo.txt</code> で空ファイルを作ります</li>
-                            <li><code>ls</code> で memo.txt と project が表示されることを確認します</li>
+                            <li><code>ls</code> で memo.txt、project、workspace が表示されることを確認します</li>
                             <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
                         </ul>
                     </div>
@@ -138,8 +138,8 @@
         const LESSON_ID = "02_file_manage/01_mkdir_touch";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"documents": {"children": {"readme.txt": {"content": "Welcome to IZM Linux Dojo!\n", "type": "file"}}, "type": "directory"}, "notes.txt": {"content": "memo\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "ls", "description": "ls \u3067\u65b0\u3057\u304f\u4f5c\u3063\u305f\u30d5\u30a1\u30a4\u30eb\u3068\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u3092\u78ba\u8a8d", "expected_output": "documents\nmemo.txt\nnotes.txt\nproject\n", "name": "memo.txt \u3068 project \u304c\u4f5c\u6210\u3055\u308c\u3066\u3044\u308b", "type": "command_output"}, {"command": "ls project", "description": "project \u306e\u4e2d\u306b src \u304c\u3042\u308b\u304b", "expected_output": "src\n", "name": "project/src \u304c\u4f5c\u6210\u3055\u308c\u3066\u3044\u308b", "type": "command_output"}, {"command": "ls project/src", "description": "mkdir -p \u3067\u4f5c\u3063\u305f src \u304c\u5b58\u5728\u3059\u308b\u304b", "expected_output": "", "name": "project/src \u306f\u7a7a\u306e\u30c7\u30a3\u30ec\u30af\u30c8\u30ea", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["mkdir project", "mkdir -p project/src", "touch memo.txt"];
+        const TESTS = [{"command": "ls", "description": "ls \u3067\u65b0\u3057\u304f\u4f5c\u3063\u305f\u30d5\u30a1\u30a4\u30eb\u3068\u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u3092\u78ba\u8a8d", "expected_output": "documents\nmemo.txt\nnotes.txt\nproject\nworkspace\n", "name": "memo.txt\u3001project\u3001workspace \u304c\u4f5c\u6210\u3055\u308c\u3066\u3044\u308b", "type": "command_output"}, {"command": "ls project", "description": "project \u306e\u4e2d\u306b src \u304c\u3042\u308b\u304b", "expected_output": "src\n", "name": "project/src \u304c\u4f5c\u6210\u3055\u308c\u3066\u3044\u308b", "type": "command_output"}, {"command": "ls project/src", "description": "mkdir -p \u3067\u4f5c\u3063\u305f src \u304c\u5b58\u5728\u3059\u308b\u304b", "expected_output": "", "name": "project/src \u306f\u7a7a\u306e\u30c7\u30a3\u30ec\u30af\u30c8\u30ea", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["mkdir workspace", "mkdir -p project/src", "touch memo.txt"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

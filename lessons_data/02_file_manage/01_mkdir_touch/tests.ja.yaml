@@ -15,16 +15,16 @@ initial_filesystem:
 initial_cwd: /home/user
 
 solution_commands:
-  - mkdir project
+  - mkdir workspace
   - mkdir -p project/src
   - touch memo.txt
 
 tests:
-  - name: "memo.txt と project が作成されている"
+  - name: "memo.txt、project、workspace が作成されている"
     description: "ls で新しく作ったファイルとディレクトリを確認"
     type: command_output
     command: ls
-    expected_output: "documents\nmemo.txt\nnotes.txt\nproject\n"
+    expected_output: "documents\nmemo.txt\nnotes.txt\nproject\nworkspace\n"
 
   - name: "project/src が作成されている"
     description: "project の中に src があるか"

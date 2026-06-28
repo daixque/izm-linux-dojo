@@ -38,8 +38,8 @@
                         <h3>📋 Task</h3>
                         <p>Create the following items in the terminal:</p>
 <ul>
-  <li>A directory named <code>project</code></li>
-  <li>A nested directory <code>project/src</code> using <code>mkdir -p</code></li>
+  <li>A directory named <code>workspace</code></li>
+  <li>A nested path <code>project/src</code> using <code>mkdir -p</code> (both folders at once)</li>
   <li>An empty file named <code>memo.txt</code></li>
 </ul>
 
@@ -48,10 +48,10 @@
                         <h4>✏️ Instructions</h4>
                         <ul>
                             <li>Run <code>pwd</code> to confirm you are in <code>/home/user</code></li>
-                            <li>Run <code>mkdir project</code> to create the project folder</li>
-                            <li>Run <code>mkdir -p project/src</code> to add the src folder inside project</li>
+                            <li>Run <code>mkdir workspace</code> to create the workspace folder</li>
+                            <li>Run <code>mkdir -p project/src</code> to create project and src in one step</li>
                             <li>Run <code>touch memo.txt</code> to create an empty file</li>
-                            <li>Run <code>ls</code> and confirm memo.txt and project appear</li>
+                            <li>Run <code>ls</code> and confirm memo.txt, project, and workspace appear</li>
                             <li>When ready, click the <strong>Test</strong> button</li>
                         </ul>
                     </div>
@@ -138,8 +138,8 @@
         const LESSON_ID = "02_file_manage/01_mkdir_touch";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"documents": {"children": {"readme.txt": {"content": "Welcome to IZM Linux Dojo!\n", "type": "file"}}, "type": "directory"}, "notes.txt": {"content": "memo\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "ls", "description": "Check ls shows the new file and directory", "expected_output": "documents\nmemo.txt\nnotes.txt\nproject\n", "name": "memo.txt and project were created", "type": "command_output"}, {"command": "ls project", "description": "Check src exists inside project", "expected_output": "src\n", "name": "project/src was created", "type": "command_output"}, {"command": "ls project/src", "description": "Verify src exists inside project", "expected_output": "", "name": "project/src is an empty directory", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["mkdir project", "mkdir -p project/src", "touch memo.txt"];
+        const TESTS = [{"command": "ls", "description": "Check ls shows the new file and directories", "expected_output": "documents\nmemo.txt\nnotes.txt\nproject\nworkspace\n", "name": "memo.txt, project, and workspace were created", "type": "command_output"}, {"command": "ls project", "description": "Check src exists inside project", "expected_output": "src\n", "name": "project/src was created", "type": "command_output"}, {"command": "ls project/src", "description": "Verify src exists inside project", "expected_output": "", "name": "project/src is an empty directory", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["mkdir workspace", "mkdir -p project/src", "touch memo.txt"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

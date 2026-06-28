@@ -15,16 +15,16 @@ initial_filesystem:
 initial_cwd: /home/user
 
 solution_commands:
-  - mkdir project
+  - mkdir workspace
   - mkdir -p project/src
   - touch memo.txt
 
 tests:
-  - name: "memo.txt and project were created"
-    description: "Check ls shows the new file and directory"
+  - name: "memo.txt, project, and workspace were created"
+    description: "Check ls shows the new file and directories"
     type: command_output
     command: ls
-    expected_output: "documents\nmemo.txt\nnotes.txt\nproject\n"
+    expected_output: "documents\nmemo.txt\nnotes.txt\nproject\nworkspace\n"
 
   - name: "project/src was created"
     description: "Check src exists inside project"
