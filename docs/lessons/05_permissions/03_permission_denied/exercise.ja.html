@@ -36,15 +36,24 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 課題内容</h3>
-                        <p><code>alice_secret.txt</code> に <code>cat</code> を試し、Permission denied エラーを確認しましょう。</p>
+                        <p>説明で学んだとおり、権限のない操作を試してエラーを確認しましょう。<code>alice_secret.txt</code> と <code>alice_private</code> は alice のものです。</p>
+<ul>
+  <li><code>cat</code> — 読み取り権限なし → Permission denied</li>
+  <li><code>rm</code> — 書き込み権限なし → Permission denied</li>
+  <li><code>cd</code> — 実行権限なし → Permission denied</li>
+  <li><code>chmod</code> — オーナーでない → Operation not permitted</li>
+</ul>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ やること</h4>
                         <ul>
-                            <li><code>ls -l alice_secret.txt</code> で権限を確認します（<code>-rw-------</code>、オーナーは alice）</li>
-                            <li><code>cat alice_secret.txt</code> を実行します</li>
-                            <li><code>Permission denied</code> というエラーが表示されることを確認します</li>
+                            <li><code>ls -l</code> で <code>alice_secret.txt</code> と <code>alice_private</code> の権限を確認します</li>
+                            <li><code>cat alice_secret.txt</code> を試し、Permission denied を確認します</li>
+                            <li><code>rm alice_secret.txt</code> を試し、Permission denied を確認します</li>
+                            <li><code>cd alice_private</code> を試し、Permission denied を確認します</li>
+                            <li><code>chmod o+r alice_secret.txt</code> を試し、Operation not permitted を確認します</li>
+                            <li>自分の <code>my_notes.txt</code> は <code>cat</code> できることを確認します</li>
                             <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
                         </ul>
                     </div>
@@ -54,9 +63,11 @@
                             💡 ヒント
                         </h4>
                         <ul class="hints-content" style="display: none;">
-                            <li>あなたは <code>user</code> なので、alice の private ファイルは読めません</li>
+                            <li>あなたは <code>user</code> なので、alice のファイルは読めません（<code>cat</code>）</li>
+                            <li>他人のファイルを <code>rm</code> するには、ファイルの書き込み権限が必要です</li>
+                            <li>ディレクトリに <code>cd</code> するには、実行（x）権限が必要です</li>
+                            <li><code>chmod</code> はオーナー（または root）だけができます</li>
                             <li>エラーは正常な動作です — セキュリティが働いています</li>
-                            <li>自分の <code>my_notes.txt</code> は普通に cat できます</li>
                         </ul>
                     </div>
                 </div>
@@ -129,10 +140,10 @@
 
     <script>
         const LESSON_ID = "05_permissions/03_permission_denied";
-        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"alice_secret.txt": {"content": "alice\u0027s secret data\n", "group": "alice", "mode": 600, "owner": "alice", "type": "file"}, "my_notes.txt": {"content": "my notes\n", "group": "user", "mode": 644, "owner": "user", "type": "file"}}, "type": "directory"}};
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"alice_private": {"children": {"secret.txt": {"content": "hidden\n", "group": "alice", "mode": 600, "owner": "alice", "type": "file"}}, "group": "alice", "mode": 700, "owner": "alice", "type": "directory"}, "alice_secret.txt": {"content": "alice\u0027s secret data\n", "group": "alice", "mode": 600, "owner": "alice", "type": "file"}, "my_notes.txt": {"content": "my notes\n", "group": "user", "mode": 644, "owner": "user", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "cat alice_secret.txt", "description": "Permission denied \u3092\u78ba\u8a8d", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "cat: alice_secret.txt: Permission denied\n", "name": "alice_secret.txt \u306f cat \u3067\u304d\u306a\u3044", "type": "command_output"}, {"command": "cat my_notes.txt", "description": "\u81ea\u5206\u306e\u30d5\u30a1\u30a4\u30eb\u306f\u8aad\u3081\u308b", "expected_output": "my notes\n", "name": "my_notes.txt \u306f cat \u3067\u304d\u308b", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["ls -l alice_secret.txt", "cat alice_secret.txt"];
+        const TESTS = [{"command": "cat alice_secret.txt", "description": "\u8aad\u307f\u53d6\u308a\u6a29\u9650\u306a\u3057\u3067 Permission denied", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "cat: alice_secret.txt: Permission denied\n", "name": "alice_secret.txt \u306f cat \u3067\u304d\u306a\u3044", "type": "command_output"}, {"command": "rm alice_secret.txt", "description": "\u66f8\u304d\u8fbc\u307f\u6a29\u9650\u306a\u3057\u3067 Permission denied", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "rm: cannot remove \u0027alice_secret.txt\u0027: Permission denied\n", "name": "alice_secret.txt \u306f rm \u3067\u304d\u306a\u3044", "type": "command_output"}, {"command": "cd alice_private", "description": "\u5b9f\u884c\u6a29\u9650\u306a\u3057\u3067 Permission denied", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "cd: alice_private: Permission denied\n", "name": "alice_private \u306b cd \u3067\u304d\u306a\u3044", "type": "command_output"}, {"command": "chmod o+r alice_secret.txt", "description": "\u30aa\u30fc\u30ca\u30fc\u3067\u306a\u3044\u305f\u3081 Operation not permitted", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "chmod: changing permissions of \u0027alice_secret.txt\u0027: Operation not permitted\n", "name": "\u4ed6\u4eba\u306e\u30d5\u30a1\u30a4\u30eb\u306f chmod \u3067\u304d\u306a\u3044", "type": "command_output"}, {"command": "cat my_notes.txt", "description": "\u81ea\u5206\u306e\u30d5\u30a1\u30a4\u30eb\u306f\u8aad\u3081\u308b", "expected_output": "my notes\n", "name": "my_notes.txt \u306f cat \u3067\u304d\u308b", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["ls -l", "cat alice_secret.txt", "rm alice_secret.txt", "cd alice_private", "chmod o+r alice_secret.txt", "cat my_notes.txt"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

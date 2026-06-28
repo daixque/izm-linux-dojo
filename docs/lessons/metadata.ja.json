@@ -176,7 +176,7 @@
           "id": "05_permissions/03_permission_denied",
           "number": "05-03",
           "title": "アクセス拒否の原因を理解する",
-          "description": "権限のないファイルで cat が Permission denied になることを確認します。",
+          "description": "権限のない操作で cat・rm・cd・chmod が拒否されることを確認します。",
           "available": true
         },
         {

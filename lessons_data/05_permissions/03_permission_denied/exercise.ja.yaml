@@ -5,18 +5,29 @@ lesson:
   id: "05_permissions/03_permission_denied"
   title: "アクセス拒否の原因を理解する"
 
-description: "権限のないファイルで cat が Permission denied になることを確認します。"
+description: "権限のない操作で cat・rm・cd・chmod が拒否されることを確認します。"
 
 task_description: |
-  <p><code>alice_secret.txt</code> に <code>cat</code> を試し、Permission denied エラーを確認しましょう。</p>
+  <p>説明で学んだとおり、権限のない操作を試してエラーを確認しましょう。<code>alice_secret.txt</code> と <code>alice_private</code> は alice のものです。</p>
+  <ul>
+    <li><code>cat</code> — 読み取り権限なし → Permission denied</li>
+    <li><code>rm</code> — 書き込み権限なし → Permission denied</li>
+    <li><code>cd</code> — 実行権限なし → Permission denied</li>
+    <li><code>chmod</code> — オーナーでない → Operation not permitted</li>
+  </ul>
 
 instructions:
-  - "<code>ls -l alice_secret.txt</code> で権限を確認します（<code>-rw-------</code>、オーナーは alice）"
-  - "<code>cat alice_secret.txt</code> を実行します"
-  - "<code>Permission denied</code> というエラーが表示されることを確認します"
+  - "<code>ls -l</code> で <code>alice_secret.txt</code> と <code>alice_private</code> の権限を確認します"
+  - "<code>cat alice_secret.txt</code> を試し、Permission denied を確認します"
+  - "<code>rm alice_secret.txt</code> を試し、Permission denied を確認します"
+  - "<code>cd alice_private</code> を試し、Permission denied を確認します"
+  - "<code>chmod o+r alice_secret.txt</code> を試し、Operation not permitted を確認します"
+  - "自分の <code>my_notes.txt</code> は <code>cat</code> できることを確認します"
   - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
 
 hints:
-  - "あなたは <code>user</code> なので、alice の private ファイルは読めません"
+  - "あなたは <code>user</code> なので、alice のファイルは読めません（<code>cat</code>）"
+  - "他人のファイルを <code>rm</code> するには、ファイルの書き込み権限が必要です"
+  - "ディレクトリに <code>cd</code> するには、実行（x）権限が必要です"
+  - "<code>chmod</code> はオーナー（または root）だけができます"
   - "エラーは正常な動作です — セキュリティが働いています"
-  - "自分の <code>my_notes.txt</code> は普通に cat できます"

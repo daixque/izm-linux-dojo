@@ -29,4 +29,4 @@ content: |
   <p>安易に権限を緩めたり、<code>sudo</code> を使ったりしないことが大切です。まずは「なぜ拒否されたか」を <code>ls -l</code> で確かめましょう。</p>
 
   <h2>次のステップ</h2>
-  <p>演習ページで、権限のないファイルへの <code>cat</code> が Permission denied になることを確認しましょう。</p>
+  <p>演習ページで、<code>cat</code>・<code>rm</code>・<code>cd</code>・<code>chmod</code> など権限のない操作が拒否されることを確認しましょう。</p>

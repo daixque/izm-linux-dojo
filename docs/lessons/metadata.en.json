@@ -176,7 +176,7 @@
           "id": "05_permissions/03_permission_denied",
           "number": "05-03",
           "title": "Understanding Access Denied Errors",
-          "description": "Confirm that cat fails with Permission denied on a protected file.",
+          "description": "Confirm that cat, rm, cd, and chmod are blocked without permission.",
           "available": true
         },
         {

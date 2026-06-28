@@ -5,18 +5,29 @@ lesson:
   id: "05_permissions/03_permission_denied"
   title: "Understanding Access Denied Errors"
 
-description: "Confirm that cat fails with Permission denied on a protected file."
+description: "Confirm that cat, rm, cd, and chmod are blocked without permission."
 
 task_description: |
-  <p>Try <code>cat alice_secret.txt</code> and confirm you get a Permission denied error.</p>
+  <p>As in the lesson, try operations you are not allowed to do and confirm the errors. <code>alice_secret.txt</code> and <code>alice_private</code> belong to alice.</p>
+  <ul>
+    <li><code>cat</code> — no read permission → Permission denied</li>
+    <li><code>rm</code> — no write permission → Permission denied</li>
+    <li><code>cd</code> — no execute permission → Permission denied</li>
+    <li><code>chmod</code> — not the owner → Operation not permitted</li>
+  </ul>
 
 instructions:
-  - "Run <code>ls -l alice_secret.txt</code> (<code>-rw-------</code>, owner alice)"
-  - "Run <code>cat alice_secret.txt</code>"
-  - "Confirm the error says Permission denied"
+  - "Run <code>ls -l</code> to inspect <code>alice_secret.txt</code> and <code>alice_private</code>"
+  - "Try <code>cat alice_secret.txt</code> and confirm Permission denied"
+  - "Try <code>rm alice_secret.txt</code> and confirm Permission denied"
+  - "Try <code>cd alice_private</code> and confirm Permission denied"
+  - "Try <code>chmod o+r alice_secret.txt</code> and confirm Operation not permitted"
+  - "Confirm your own <code>my_notes.txt</code> can be read with <code>cat</code>"
   - "When ready, click the <strong>Test</strong> button"
 
 hints:
-  - "You are <code>user</code>, so you cannot read alice's private file"
-  - "The error is expected — security is working"
-  - "Your <code>my_notes.txt</code> can be read normally with cat"
+  - "You are <code>user</code>, so you cannot read alice's files (<code>cat</code>)"
+  - "Removing someone else's file with <code>rm</code> requires write permission on that file"
+  - "Entering a directory with <code>cd</code> requires execute (<code>x</code>) permission"
+  - "Only the owner (or root) can run <code>chmod</code>"
+  - "These errors are expected — security is working"

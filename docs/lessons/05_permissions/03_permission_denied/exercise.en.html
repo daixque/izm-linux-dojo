@@ -36,15 +36,24 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 Task</h3>
-                        <p>Try <code>cat alice_secret.txt</code> and confirm you get a Permission denied error.</p>
+                        <p>As in the lesson, try operations you are not allowed to do and confirm the errors. <code>alice_secret.txt</code> and <code>alice_private</code> belong to alice.</p>
+<ul>
+  <li><code>cat</code> — no read permission → Permission denied</li>
+  <li><code>rm</code> — no write permission → Permission denied</li>
+  <li><code>cd</code> — no execute permission → Permission denied</li>
+  <li><code>chmod</code> — not the owner → Operation not permitted</li>
+</ul>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ Instructions</h4>
                         <ul>
-                            <li>Run <code>ls -l alice_secret.txt</code> (<code>-rw-------</code>, owner alice)</li>
-                            <li>Run <code>cat alice_secret.txt</code></li>
-                            <li>Confirm the error says Permission denied</li>
+                            <li>Run <code>ls -l</code> to inspect <code>alice_secret.txt</code> and <code>alice_private</code></li>
+                            <li>Try <code>cat alice_secret.txt</code> and confirm Permission denied</li>
+                            <li>Try <code>rm alice_secret.txt</code> and confirm Permission denied</li>
+                            <li>Try <code>cd alice_private</code> and confirm Permission denied</li>
+                            <li>Try <code>chmod o+r alice_secret.txt</code> and confirm Operation not permitted</li>
+                            <li>Confirm your own <code>my_notes.txt</code> can be read with <code>cat</code></li>
                             <li>When ready, click the <strong>Test</strong> button</li>
                         </ul>
                     </div>
@@ -54,9 +63,11 @@
                             💡 Hints
                         </h4>
                         <ul class="hints-content" style="display: none;">
-                            <li>You are <code>user</code>, so you cannot read alice's private file</li>
-                            <li>The error is expected — security is working</li>
-                            <li>Your <code>my_notes.txt</code> can be read normally with cat</li>
+                            <li>You are <code>user</code>, so you cannot read alice's files (<code>cat</code>)</li>
+                            <li>Removing someone else's file with <code>rm</code> requires write permission on that file</li>
+                            <li>Entering a directory with <code>cd</code> requires execute (<code>x</code>) permission</li>
+                            <li>Only the owner (or root) can run <code>chmod</code></li>
+                            <li>These errors are expected — security is working</li>
                         </ul>
                     </div>
                 </div>
@@ -129,10 +140,10 @@
 
     <script>
         const LESSON_ID = "05_permissions/03_permission_denied";
-        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"alice_secret.txt": {"content": "alice\u0027s secret data\n", "group": "alice", "mode": 600, "owner": "alice", "type": "file"}, "my_notes.txt": {"content": "my notes\n", "group": "user", "mode": 644, "owner": "user", "type": "file"}}, "type": "directory"}};
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"alice_private": {"children": {"secret.txt": {"content": "hidden\n", "group": "alice", "mode": 600, "owner": "alice", "type": "file"}}, "group": "alice", "mode": 700, "owner": "alice", "type": "directory"}, "alice_secret.txt": {"content": "alice\u0027s secret data\n", "group": "alice", "mode": 600, "owner": "alice", "type": "file"}, "my_notes.txt": {"content": "my notes\n", "group": "user", "mode": 644, "owner": "user", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "cat alice_secret.txt", "description": "confirm Permission denied", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "cat: alice_secret.txt: Permission denied\n", "name": "cannot cat alice_secret.txt", "type": "command_output"}, {"command": "cat my_notes.txt", "description": "your own file is readable", "expected_output": "my notes\n", "name": "can cat my_notes.txt", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["ls -l alice_secret.txt", "cat alice_secret.txt"];
+        const TESTS = [{"command": "cat alice_secret.txt", "description": "Permission denied without read permission", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "cat: alice_secret.txt: Permission denied\n", "name": "cannot cat alice_secret.txt", "type": "command_output"}, {"command": "rm alice_secret.txt", "description": "Permission denied without write permission", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "rm: cannot remove \u0027alice_secret.txt\u0027: Permission denied\n", "name": "cannot rm alice_secret.txt", "type": "command_output"}, {"command": "cd alice_private", "description": "Permission denied without execute permission", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "cd: alice_private: Permission denied\n", "name": "cannot cd into alice_private", "type": "command_output"}, {"command": "chmod o+r alice_secret.txt", "description": "Operation not permitted when not the owner", "expected_exit_code": 1, "expected_output": "", "expected_stderr": "chmod: changing permissions of \u0027alice_secret.txt\u0027: Operation not permitted\n", "name": "cannot chmod someone else\u0027s file", "type": "command_output"}, {"command": "cat my_notes.txt", "description": "your own file is readable", "expected_output": "my notes\n", "name": "can cat my_notes.txt", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["ls -l", "cat alice_secret.txt", "rm alice_secret.txt", "cd alice_private", "chmod o+r alice_secret.txt", "cat my_notes.txt"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

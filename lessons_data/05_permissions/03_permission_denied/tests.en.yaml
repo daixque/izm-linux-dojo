@@ -14,20 +14,60 @@ initial_filesystem:
         owner: alice
         group: alice
         mode: 600
+      alice_private:
+        type: directory
+        owner: alice
+        group: alice
+        mode: 700
+        children:
+          secret.txt:
+            type: file
+            content: "hidden\n"
+            owner: alice
+            group: alice
+            mode: 600
 
 initial_cwd: /home/user
 
 solution_commands:
-  - ls -l alice_secret.txt
+  - ls -l
   - cat alice_secret.txt
+  - rm alice_secret.txt
+  - cd alice_private
+  - chmod o+r alice_secret.txt
+  - cat my_notes.txt
 
 tests:
   - name: "cannot cat alice_secret.txt"
-    description: "confirm Permission denied"
+    description: "Permission denied without read permission"
     type: command_output
     command: cat alice_secret.txt
     expected_output: ""
     expected_stderr: "cat: alice_secret.txt: Permission denied\n"
+    expected_exit_code: 1
+
+  - name: "cannot rm alice_secret.txt"
+    description: "Permission denied without write permission"
+    type: command_output
+    command: rm alice_secret.txt
+    expected_output: ""
+    expected_stderr: "rm: cannot remove 'alice_secret.txt': Permission denied\n"
+    expected_exit_code: 1
+
+  - name: "cannot cd into alice_private"
+    description: "Permission denied without execute permission"
+    type: command_output
+    command: cd alice_private
+    expected_output: ""
+    expected_stderr: "cd: alice_private: Permission denied\n"
+    expected_exit_code: 1
+
+  - name: "cannot chmod someone else's file"
+    description: "Operation not permitted when not the owner"
+    type: command_output
+    command: chmod o+r alice_secret.txt
+    expected_output: ""
+    expected_stderr: "chmod: changing permissions of 'alice_secret.txt': Operation not permitted\n"
     expected_exit_code: 1
 
   - name: "can cat my_notes.txt"
