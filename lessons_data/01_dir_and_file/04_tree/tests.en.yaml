@@ -21,11 +21,41 @@ initial_filesystem:
 initial_cwd: /home/user
 
 solution_commands:
+  - tree
+  - tree projects
   - cd projects/web/app
   - pwd
   - ls
 
 tests:
+  - name: "tree shows layout under home"
+    description: "tree lists the full layout including projects and notes.txt"
+    type: command_output
+    setup_commands:
+      - cd /home/user
+    commands:
+      - tree
+    expected_output: |
+      .
+      ├── notes.txt
+      └── projects/
+          └── web/
+              └── app/
+                  └── config.txt
+
+  - name: "tree projects shows subtree"
+    description: "tree projects lists only under projects"
+    type: command_output
+    setup_commands:
+      - cd /home/user
+    commands:
+      - tree projects
+    expected_output: |
+      projects/
+      └── web/
+          └── app/
+              └── config.txt
+
   - name: "Reach app directory three levels deep"
     description: "cd projects/web/app navigates to the deep directory"
     type: cwd

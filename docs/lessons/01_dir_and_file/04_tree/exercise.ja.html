@@ -33,13 +33,14 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 課題内容</h3>
-                        <p>深い階層にある <code>projects/web/app</code> ディレクトリまで移動し、<code>pwd</code> で正しい場所に着いたか確認しましょう。</p>
+                        <p><code>tree</code> でディレクトリ構造を確認し、深い階層にある <code>projects/web/app</code> まで移動しましょう。</p>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ やること</h4>
                         <ul>
-                            <li><code>pwd</code> で現在地（<code>/home/user</code>）を確認します</li>
+                            <li><code>tree</code> でホームディレクトリ以下の構造を確認します</li>
+                            <li><code>tree projects</code> で projects 以下を絞り込んで見ます</li>
                             <li><code>cd projects/web/app</code> で 3 階層下の app ディレクトリへ移動します</li>
                             <li><code>pwd</code> で <code>/home/user/projects/web/app</code> であることを確認します</li>
                             <li><code>ls</code> で <code>config.txt</code> があることを確認します</li>
@@ -52,8 +53,8 @@
                             💡 ヒント
                         </h4>
                         <ul class="hints-content" style="display: none;">
+                            <li><code>tree</code> は引数なしで現在のディレクトリ以下を表示します</li>
                             <li>パスは <code>projects/web/app</code> のように / でつなぎます</li>
-                            <li>一つずつ <code>cd projects</code> → <code>cd web</code> → <code>cd app</code> でも到達できます</li>
                             <li>Tab キーでディレクトリ名を補完できます</li>
                         </ul>
                     </div>
@@ -129,8 +130,8 @@
         const LESSON_ID = "01_dir_and_file/04_tree";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"notes.txt": {"content": "memo\n", "type": "file"}, "projects": {"children": {"web": {"children": {"app": {"children": {"config.txt": {"content": "debug=false\n", "type": "file"}}, "type": "directory"}}, "type": "directory"}}, "type": "directory"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"commands": ["cd projects/web/app"], "description": "cd projects/web/app \u3067\u6df1\u3044\u968e\u5c64\u3078\u79fb\u52d5\u3067\u304d\u308b\u304b", "expected_cwd": "/home/user/projects/web/app", "name": "3 \u968e\u5c64\u4e0b\u306e app \u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306b\u5230\u9054\u3067\u304d\u308b", "type": "cwd"}, {"description": "\u5230\u9054\u5f8c\u306e pwd \u51fa\u529b\u3092\u78ba\u8a8d", "name": "pwd \u3067\u6df1\u3044\u968e\u5c64\u306e\u30d1\u30b9\u304c\u8868\u793a\u3055\u308c\u308b", "steps": [{"command": "cd projects/web/app", "expected_cwd": "/home/user/projects/web/app"}, {"command": "pwd", "expected_output": "/home/user/projects/web/app\n"}], "type": "command_sequence"}, {"description": "3 \u968e\u5c64\u4e0b\u306e\u30d5\u30a1\u30a4\u30eb\u304c ls \u3067\u898b\u3048\u308b\u304b", "name": "\u6df1\u3044\u968e\u5c64\u3067 ls \u304c config.txt \u3092\u8868\u793a\u3059\u308b", "steps": [{"command": "cd projects/web/app", "expected_cwd": "/home/user/projects/web/app"}, {"command": "ls", "expected_output": "config.txt\n"}], "type": "command_sequence"}];
-        const SOLUTION_COMMANDS = ["cd projects/web/app", "pwd", "ls"];
+        const TESTS = [{"commands": ["tree"], "description": "tree \u304c projects \u3068 notes.txt \u3092\u542b\u3080\u5168\u4f53\u50cf\u3092\u8868\u793a\u3059\u308b\u304b", "expected_output": ".\n\u251c\u2500\u2500 notes.txt\n\u2514\u2500\u2500 projects/\n    \u2514\u2500\u2500 web/\n        \u2514\u2500\u2500 app/\n            \u2514\u2500\u2500 config.txt\n", "name": "tree \u3067\u30db\u30fc\u30e0\u4ee5\u4e0b\u306e\u69cb\u9020\u304c\u8868\u793a\u3055\u308c\u308b", "setup_commands": ["cd /home/user"], "type": "command_output"}, {"commands": ["tree projects"], "description": "tree projects \u304c projects \u4ee5\u4e0b\u3060\u3051\u3092\u8868\u793a\u3059\u308b\u304b", "expected_output": "projects/\n\u2514\u2500\u2500 web/\n    \u2514\u2500\u2500 app/\n        \u2514\u2500\u2500 config.txt\n", "name": "tree projects \u3067\u90e8\u5206\u69cb\u9020\u304c\u8868\u793a\u3055\u308c\u308b", "setup_commands": ["cd /home/user"], "type": "command_output"}, {"commands": ["cd projects/web/app"], "description": "cd projects/web/app \u3067\u6df1\u3044\u968e\u5c64\u3078\u79fb\u52d5\u3067\u304d\u308b\u304b", "expected_cwd": "/home/user/projects/web/app", "name": "3 \u968e\u5c64\u4e0b\u306e app \u30c7\u30a3\u30ec\u30af\u30c8\u30ea\u306b\u5230\u9054\u3067\u304d\u308b", "type": "cwd"}, {"description": "\u5230\u9054\u5f8c\u306e pwd \u51fa\u529b\u3092\u78ba\u8a8d", "name": "pwd \u3067\u6df1\u3044\u968e\u5c64\u306e\u30d1\u30b9\u304c\u8868\u793a\u3055\u308c\u308b", "steps": [{"command": "cd projects/web/app", "expected_cwd": "/home/user/projects/web/app"}, {"command": "pwd", "expected_output": "/home/user/projects/web/app\n"}], "type": "command_sequence"}, {"description": "3 \u968e\u5c64\u4e0b\u306e\u30d5\u30a1\u30a4\u30eb\u304c ls \u3067\u898b\u3048\u308b\u304b", "name": "\u6df1\u3044\u968e\u5c64\u3067 ls \u304c config.txt \u3092\u8868\u793a\u3059\u308b", "steps": [{"command": "cd projects/web/app", "expected_cwd": "/home/user/projects/web/app"}, {"command": "ls", "expected_output": "config.txt\n"}], "type": "command_sequence"}];
+        const SOLUTION_COMMANDS = ["tree", "tree projects", "cd projects/web/app", "pwd", "ls"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

@@ -46,7 +46,7 @@
           "id": "01_dir_and_file/04_tree",
           "number": "01-04",
           "title": "ディレクトリ構造",
-          "description": "3 階層下の app ディレクトリまで cd し、pwd で到達を確認します。",
+          "description": "tree で構造を確認し、3 階層下の app ディレクトリまで cd します。",
           "available": true
         }
       ]

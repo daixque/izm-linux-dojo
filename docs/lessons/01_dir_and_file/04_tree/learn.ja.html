@@ -28,7 +28,7 @@
         <main class="content" id="content">
             <h2>ツリー構造 — フォルダの入れ子</h2>
 <p>Linux のファイルシステムは、木（ツリー）のように<strong>枝分かれした階層</strong>になっています。ルート（<code>/</code>）が木の根元で、そこからディレクトリが枝のように伸び、先端にファイルがぶら下がるイメージです。</p>
-<p>Mac の Finder サイドバーや、演習ページ右側の<strong>ファイルエクスプローラー</strong>も、同じ階層を別の見え方で示しています。ツリー図を読めると、どの表示でも「今どの階層にいるか」がわかりやすくなります。</p>
+<p>Mac の Finder サイドバーや、演習ページ右側の<strong>ファイルエクスプローラー</strong>も、同じ階層を別の見え方で示しています。</p>
 <p>第1レッスンで見た例を、もう少し深くしてみましょう。</p>
 <pre class="tree"><code>/home/user/
 ├── projects/
@@ -63,20 +63,24 @@ $ pwd
 /home/user/projects/web/app</code></pre>
 <p>階層を一つずつ確認しながら進めたいときに便利です。どちらの方法でも、最後に <code>pwd</code> で現在地を確認しましょう。</p>
 
-<h2>ツリー図の読み方</h2>
-<p>教材やドキュメントでは、上のような<strong>ツリー図</strong>で構造を示すことが多いです。</p>
-<ul>
-  <li><code>├──</code> — 枝が分かれている（同じ階層に兄弟がある）</li>
-  <li><code>└──</code> — その階層の最後の項目</li>
-  <li><code>│</code> — 上の階層から枝が続いている</li>
-</ul>
-<p>ツリー図を見ながら「今どの階層にいるか」を意識すると、<code>cd</code> や <code>ls</code> の結果が理解しやすくなります。</p>
+<h2>tree コマンド — 構造を一覧表示</h2>
+<p>ターミナルからディレクトリ構造をツリー形式で表示したいときは、<code>tree</code> コマンドを使います。多くの Linux 環境には最初から入っています。macOS では Homebrew などで別途インストールする場合があります。</p>
+<pre><code>$ tree
+.
+├── projects/
+│   └── web/
+│       └── app/
+│           └── config.txt
+└── notes.txt</code></pre>
+<p>引数なしで実行すると、現在のディレクトリ以下をまとめて表示します。特定のディレクトリを指定することもできます。</p>
+<pre><code>$ tree projects</code></pre>
+<p><code>ls</code> はその場の一覧、<code>tree</code> は全体像——GUI のファイルエクスプローラーに近い見え方です。</p>
 
 <h2>Tab 補完が特に便利</h2>
 <p>深い階層ではパスが長くなります。<code>cd pro</code> と入力して Tab を押すと <code>projects/</code> まで補完され、続けて <code>w</code> + Tab で <code>web/</code> … と進められます。長いパスを全部手打ちしなくて済むので、Tab に慣れておきましょう。</p>
 
 <h2>次のステップ</h2>
-<p>演習ページで、3 階層下の <code>app</code> ディレクトリまで <code>cd</code> し、<code>pwd</code> で到達を確認しましょう。</p>
+<p>演習ページで <code>tree</code> コマンドで構造を確認し、3 階層下の <code>app</code> ディレクトリまで <code>cd</code> しましょう。</p>
 
         </main>
 

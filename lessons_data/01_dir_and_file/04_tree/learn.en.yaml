@@ -8,7 +8,7 @@ lesson:
 content: |
   <h2>Tree Structure — Folders Inside Folders</h2>
   <p>The Linux file system is organized as a <strong>branching hierarchy</strong>, like a tree. The root (<code>/</code>) is the trunk; directories branch out, and files sit at the ends of those branches.</p>
-  <p>Mac Finder's sidebar and the <strong>file explorer</strong> on the exercise page show the same hierarchy in a different view. Being able to read a tree diagram makes it easier to tell "which level am I on?" in any display.</p>
+  <p>Mac Finder's sidebar and the <strong>file explorer</strong> on the exercise page show the same hierarchy in a different view.</p>
   <p>Here is a deeper version of the example from Lesson 1:</p>
   <pre class="tree"><code>/home/user/
   ├── projects/
@@ -43,17 +43,21 @@ content: |
   /home/user/projects/web/app</code></pre>
   <p>Use this when you want to verify each level. Either way, finish with <code>pwd</code> to confirm where you are.</p>
 
-  <h2>Reading Tree Diagrams</h2>
-  <p>Documentation often shows structure with <strong>tree diagrams</strong> like the one above.</p>
-  <ul>
-    <li><code>├──</code> — a branch with siblings at the same level</li>
-    <li><code>└──</code> — the last item at that level</li>
-    <li><code>│</code> — the branch continues from above</li>
-  </ul>
-  <p>Keeping track of "which level am I on?" while reading a tree makes <code>cd</code> and <code>ls</code> output easier to follow.</p>
+  <h2>The tree Command — See the Whole Layout</h2>
+  <p>To print a directory hierarchy in tree form from the terminal, use the <code>tree</code> command. It is included on most Linux systems. On macOS you may need to install it separately (for example with Homebrew).</p>
+  <pre><code>$ tree
+  .
+  ├── projects/
+  │   └── web/
+  │       └── app/
+  │           └── config.txt
+  └── notes.txt</code></pre>
+  <p>With no arguments, it lists everything under the current directory. You can also pass a specific directory.</p>
+  <pre><code>$ tree projects</code></pre>
+  <p><code>ls</code> shows what is here; <code>tree</code> shows the big picture — closer to a GUI file explorer.</p>
 
   <h2>Tab Completion Shines Here</h2>
   <p>Deep paths get long. Type <code>cd pro</code> and press Tab to get <code>projects/</code>, then <code>w</code> + Tab for <code>web/</code>, and so on. You do not have to type the full path by hand — get comfortable with Tab.</p>
 
   <h2>Next Step</h2>
-  <p>On the exercise page, <code>cd</code> to the <code>app</code> directory three levels down and confirm with <code>pwd</code>!</p>
+  <p>On the exercise page, use <code>tree</code> to inspect the layout, then <code>cd</code> to the <code>app</code> directory three levels down!</p>

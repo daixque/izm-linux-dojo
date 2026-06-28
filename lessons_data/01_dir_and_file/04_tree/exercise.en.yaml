@@ -5,19 +5,20 @@ lesson:
   id: "01_dir_and_file/04_tree"
   title: "Directory Structure"
 
-description: "cd to the app directory three levels deep and confirm with pwd."
+description: "Use tree to inspect the layout, then cd to the app directory three levels deep."
 
 task_description: |
-  <p>Navigate to the deep directory <code>projects/web/app</code> and confirm your location with <code>pwd</code>.</p>
+  <p>Use <code>tree</code> to inspect the directory layout, then navigate to the deep path <code>projects/web/app</code>.</p>
 
 instructions:
-  - "Run <code>pwd</code> to check your starting location (<code>/home/user</code>)"
+  - "Run <code>tree</code> to see the layout under your home directory"
+  - "Run <code>tree projects</code> to focus on the projects subtree"
   - "Run <code>cd projects/web/app</code> to reach the app directory three levels down"
   - "Run <code>pwd</code> and confirm you are at <code>/home/user/projects/web/app</code>"
   - "Run <code>ls</code> and confirm <code>config.txt</code> is listed"
   - "When ready, click the <strong>Test</strong> button"
 
 hints:
+  - "<code>tree</code> with no arguments lists everything under the current directory"
   - "Join path segments with <code>/</code>, like <code>projects/web/app</code>"
-  - "You can also go step by step: <code>cd projects</code>, then <code>cd web</code>, then <code>cd app</code>"
   - "Press Tab to complete directory names"

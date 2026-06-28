@@ -46,7 +46,7 @@
           "id": "01_dir_and_file/04_tree",
           "number": "01-04",
           "title": "Directory Structure",
-          "description": "cd to the app directory three levels deep and confirm with pwd.",
+          "description": "Use tree to inspect the layout, then cd to the app directory three levels deep.",
           "available": true
         }
       ]

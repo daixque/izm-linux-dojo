@@ -84,6 +84,9 @@ Move or rename files.
     man: `Usage: man COMMAND
 Display the manual page for COMMAND.
 `,
+    tree: `Usage: tree [DIRECTORY]...
+List contents of directories in a tree-like format.
+`,
 };
 
 function registerCommand(name, handler) {
@@ -612,6 +615,93 @@ registerCommand('pwd', (_args, vfs) => ({
     stderr: '',
     exitCode: 0,
 }));
+
+function formatTreeLabel(name, isDir) {
+    return isDir ? `${name}/` : name;
+}
+
+function collectTreeChildren(vfs, dirPath) {
+    return vfs.listDir(dirPath).map((name) => {
+        const fullPath = dirPath === '/' ? `/${name}` : `${dirPath}/${name}`;
+        const isDir = vfs.isDirectory(fullPath);
+        return { name, isDir, fullPath };
+    });
+}
+
+function buildTreeLines(vfs, dirPath, prefix) {
+    const entries = collectTreeChildren(vfs, dirPath);
+    const lines = [];
+    for (let i = 0; i < entries.length; i++) {
+        const entry = entries[i];
+        const isLast = i === entries.length - 1;
+        const connector = isLast ? '└── ' : '├── ';
+        lines.push(prefix + connector + formatTreeLabel(entry.name, entry.isDir));
+        if (entry.isDir) {
+            const extension = isLast ? '    ' : '│   ';
+            lines.push(...buildTreeLines(vfs, entry.fullPath, prefix + extension));
+        }
+    }
+    return lines;
+}
+
+function renderTree(vfs, targetPath, displayLabel) {
+    const resolved = vfs.normalizePath(targetPath);
+    if (!vfs.exists(resolved)) {
+        return {
+            stdout: '',
+            stderr: `tree: ${displayLabel}: No such file or directory\n`,
+            exitCode: 1,
+        };
+    }
+
+    if (vfs.isFile(resolved)) {
+        const name = resolved.split('/').filter(Boolean).pop() || displayLabel;
+        return { stdout: name + '\n', stderr: '', exitCode: 0 };
+    }
+
+    const perm = vfs._checkPermission(resolved, true, false, true);
+    if (!perm.ok) {
+        return {
+            stdout: '',
+            stderr: `tree: ${displayLabel}: Permission denied\n`,
+            exitCode: 1,
+        };
+    }
+
+    const rootLabel = displayLabel === '.'
+        ? '.'
+        : formatTreeLabel(
+            displayLabel.split('/').filter(Boolean).pop() || displayLabel,
+            true,
+        );
+    const lines = [rootLabel];
+    lines.push(...buildTreeLines(vfs, resolved, ''));
+    return { stdout: lines.join('\n') + '\n', stderr: '', exitCode: 0 };
+}
+
+registerCommand('tree', (args, vfs) => {
+    if (args.includes('--help')) {
+        return { stdout: HELP_PAGES.tree, stderr: '', exitCode: 0 };
+    }
+
+    const targets = args.length > 0 ? args : ['.'];
+    let stdout = '';
+    let stderr = '';
+    let exitCode = 0;
+
+    for (let i = 0; i < targets.length; i++) {
+        const target = targets[i];
+        const displayLabel = target === '.' ? '.' : target.replace(/\/$/, '');
+        const result = renderTree(vfs, target, displayLabel);
+        stdout += result.stdout;
+        stderr += result.stderr;
+        if (result.exitCode !== 0) {
+            exitCode = result.exitCode;
+        }
+    }
+
+    return { stdout, stderr, exitCode };
+});
 
 registerCommand('clear', () => ({
     stdout: '',

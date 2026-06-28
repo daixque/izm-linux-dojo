@@ -21,11 +21,41 @@ initial_filesystem:
 initial_cwd: /home/user
 
 solution_commands:
+  - tree
+  - tree projects
   - cd projects/web/app
   - pwd
   - ls
 
 tests:
+  - name: "tree でホーム以下の構造が表示される"
+    description: "tree が projects と notes.txt を含む全体像を表示するか"
+    type: command_output
+    setup_commands:
+      - cd /home/user
+    commands:
+      - tree
+    expected_output: |
+      .
+      ├── notes.txt
+      └── projects/
+          └── web/
+              └── app/
+                  └── config.txt
+
+  - name: "tree projects で部分構造が表示される"
+    description: "tree projects が projects 以下だけを表示するか"
+    type: command_output
+    setup_commands:
+      - cd /home/user
+    commands:
+      - tree projects
+    expected_output: |
+      projects/
+      └── web/
+          └── app/
+              └── config.txt
+
   - name: "3 階層下の app ディレクトリに到達できる"
     description: "cd projects/web/app で深い階層へ移動できるか"
     type: cwd

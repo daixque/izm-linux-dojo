@@ -1,6 +1,10 @@
 # IZM Linux Dojo
 
-ターミナルで Linux コマンドを学ぶ Web 学習サイトです。[IZM Python 道場](https://github.com/daixque/izm-python-dojo) と同じ静的サイト + YAML ビルド構成を採用しています。
+[https://daixque.github.io/izm-linux-dojo](https://daixque.github.io/izm-linux-dojo)
+
+ターミナルで Linux コマンドを学ぶ Web 学習サイトです。上記URLで公開しています。
+
+[IZM Python 道場](https://github.com/daixque/izm-python-dojo) と同じ静的サイト + YAML ビルド構成を採用しています。
 
 ## 特徴
 
