@@ -286,13 +286,6 @@
           "title": "Combining Pipes and Redirection",
           "description": "Combine pipes and redirection to save the ERROR line count to a file.",
           "available": true
-        },
-        {
-          "id": "08_pipe_redirect/05_review",
-          "number": "08-05",
-          "title": "Search and Pipes Review",
-          "description": "Combined exercise for grep, pipes, and redirection.",
-          "available": true
         }
       ]
     },

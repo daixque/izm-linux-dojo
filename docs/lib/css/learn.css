@@ -173,15 +173,18 @@ body {
 }
 
 .content p,
-.content ul {
+.content ul,
+.content ol {
     line-height: 1.8;
     color: #444;
     margin-bottom: 16px;
     font-size: 16px;
 }
 
-.content ul {
-    margin-left: 24px;
+.content ul,
+.content ol {
+    padding-left: 1.75em;
+    list-style-position: outside;
 }
 
 .content li {

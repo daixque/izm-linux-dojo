@@ -286,13 +286,6 @@
           "title": "パイプとリダイレクトを組み合わせる",
           "description": "パイプとリダイレクトを組み合わせて ERROR 件数をファイルに保存します。",
           "available": true
-        },
-        {
-          "id": "08_pipe_redirect/05_review",
-          "number": "08-05",
-          "title": "検索・パイプの総復習",
-          "description": "grep・パイプ・リダイレクトの総合課題です。",
-          "available": true
         }
       ]
     },

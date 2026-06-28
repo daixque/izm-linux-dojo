@@ -6,8 +6,24 @@ lesson:
   title: "Reusing Previous Commands"
 
 content: |
+  <h2>Terminal and Shell</h2>
+  <p>The <strong>terminal</strong> you've used since Chapter 0 is the text-based screen itself. It is the <strong>window for input and output</strong>—it receives what you type and shows the results.</p>
+  <p>Behind the terminal runs a program that reads what you type and passes commands to the computer. That program is called the <strong>shell</strong>.</p>
+
+  <h2>What the Shell Does</h2>
+  <p>When you press <kbd>Enter</kbd>, the shell follows these steps:</p>
+  <ol>
+    <li>Read the text you typed (the command)</li>
+    <li>Replace wildcards with actual file names</li>
+    <li>Find and run the matching program (such as <code>ls</code> or <code>grep</code>)</li>
+    <li>Send the output back to the terminal screen</li>
+  </ol>
+  <p>For example, when you type <code>ls *.txt</code>, the shell first expands wildcards such as <code>*</code> and <code>?</code> in <code>*.txt</code> to something like <code>notes.txt readme.txt</code>, then runs <code>ls</code> (the expansion you learned in Chapter 7). Wildcard expansion is the <strong>shell's job</strong>, not the command's.</p>
+  <p>When you ran <code>ls</code> or <code>cd</code> since Chapter 0, the shell handled everything from reading your input to showing the result. Remember: the terminal is the <strong>screen</strong>; the shell is the <strong>program that processes commands</strong>.</p>
+  <p>The shell does more than run commands—it also offers features that help you type. Here we start with <strong>command history</strong>, which lets you recall commands you typed before.</p>
+
   <h2>Recall Commands You Typed</h2>
-  <p>When you started using the terminal in Chapter 1, you may have noticed that the <kbd>↑</kbd> key brings back previous commands. Here we formally cover <strong>command history</strong>.</p>
+  <p>When you started using the terminal in Chapter 1, you may have noticed that the <kbd>↑</kbd> key brings back previous commands. Here we cover that feature in more detail.</p>
 
   <h2>What Is History?</h2>
   <p>The shell records commands you run after pressing Enter as <strong>history</strong>. You do not need to retype long commands every time.</p>
