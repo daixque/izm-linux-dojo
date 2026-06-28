@@ -23,16 +23,15 @@ initial_filesystem:
 initial_cwd: /home/user
 
 solution_commands:
-  - "grep ERROR app.log > errors.txt"
+  - "cat app.log | grep ERROR | wc -l > error_count.txt"
 
 tests:
-  - name: "ERROR lines saved to errors.txt"
-    description: "grep + redirect result"
+  - name: "error_count.txt contains count 2"
+    description: "pipe + redirect result"
     type: command_sequence
     steps:
-      - command: "grep ERROR app.log > errors.txt"
+      - command: "cat app.log | grep ERROR | wc -l > error_count.txt"
         expected_output: ""
-      - command: "cat errors.txt"
+      - command: "cat error_count.txt"
         expected_output: |
-          2024-01-02 ERROR Connection failed
-          2024-01-03 ERROR Disk full
+          2

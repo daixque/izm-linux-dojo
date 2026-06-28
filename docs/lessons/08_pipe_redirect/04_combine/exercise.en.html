@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Chapter 8 Lesson 4: Combining Search and Redirection</title>
+    <title>Exercise - Chapter 8 Lesson 4: Combining Pipes and Redirection</title>
     <link rel="stylesheet" href="../../../lib/css/exercise.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
 </head>
@@ -16,7 +16,7 @@
                 </div>
                 <span class="chapter-lesson">Chapter 8 Lesson 4</span>
             </div>
-            <h1 id="lesson-title">📝 Combining Search and Redirection</h1>
+            <h1 id="lesson-title">📝 Combining Pipes and Redirection</h1>
             <div class="header-right">
                 <div class="status">
                     <span id="status">Loading...</span>
@@ -36,14 +36,14 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 Task</h3>
-                        <p>Run <code>grep ERROR app.log &gt; errors.txt</code> and verify with <code>cat</code>.</p>
+                        <p>Run <code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code> to count ERROR lines and save the result.</p>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ Instructions</h4>
                         <ul>
-                            <li>Run <code>grep ERROR app.log &gt; errors.txt</code></li>
-                            <li>Run <code>cat errors.txt</code> to verify</li>
+                            <li>Run <code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code></li>
+                            <li>Run <code>cat error_count.txt</code> to verify the count (2)</li>
                             <li>Click the <strong>Test</strong> button when ready</li>
                         </ul>
                     </div>
@@ -53,8 +53,8 @@
                             💡 Hints
                         </h4>
                         <ul class="hints-content" style="display: none;">
-                            <li><code>&gt;</code> applies to the whole command's output</li>
-                            <li>Two lines in errors.txt means success</li>
+                            <li>Chain commands with <code>|</code>, then save the final output with <code>&gt;</code></li>
+                            <li>Success if <code>cat error_count.txt</code> shows <code>2</code></li>
                         </ul>
                     </div>
                 </div>
@@ -129,8 +129,8 @@
         const LESSON_ID = "08_pipe_redirect/04_combine";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"app.log": {"content": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-02 ERROR Connection failed\n2024-01-03 INFO User login\n2024-01-03 ERROR Disk full\n2024-01-04 INFO Shutdown\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"description": "grep + redirect result", "name": "ERROR lines saved to errors.txt", "steps": [{"command": "grep ERROR app.log \u003e errors.txt", "expected_output": ""}, {"command": "cat errors.txt", "expected_output": "2024-01-02 ERROR Connection failed\n2024-01-03 ERROR Disk full\n"}], "type": "command_sequence"}];
-        const SOLUTION_COMMANDS = ["grep ERROR app.log \u003e errors.txt"];
+        const TESTS = [{"description": "pipe + redirect result", "name": "error_count.txt contains count 2", "steps": [{"command": "cat app.log | grep ERROR | wc -l \u003e error_count.txt", "expected_output": ""}, {"command": "cat error_count.txt", "expected_output": "2\n"}], "type": "command_sequence"}];
+        const SOLUTION_COMMANDS = ["cat app.log | grep ERROR | wc -l \u003e error_count.txt"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

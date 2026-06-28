@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>演習課題 - 第8章 レッスン4: 検索とリダイレクトを組み合わせる</title>
+    <title>演習課題 - 第8章 レッスン4: パイプとリダイレクトを組み合わせる</title>
     <link rel="stylesheet" href="../../../lib/css/exercise.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
 </head>
@@ -16,7 +16,7 @@
                 </div>
                 <span class="chapter-lesson">第8章 レッスン4</span>
             </div>
-            <h1 id="lesson-title">📝 検索とリダイレクトを組み合わせる</h1>
+            <h1 id="lesson-title">📝 パイプとリダイレクトを組み合わせる</h1>
             <div class="header-right">
                 <div class="status">
                     <span id="status">準備中...</span>
@@ -36,14 +36,14 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 課題内容</h3>
-                        <p><code>grep ERROR app.log &gt; errors.txt</code> で ERROR 行をファイルに保存し、内容を確認しましょう。</p>
+                        <p><code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code> で ERROR 行の件数を数え、ファイルに保存しましょう。</p>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ やること</h4>
                         <ul>
-                            <li><code>grep ERROR app.log &gt; errors.txt</code> を実行します</li>
-                            <li><code>cat errors.txt</code> で保存内容を確認します</li>
+                            <li><code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code> を実行します</li>
+                            <li><code>cat error_count.txt</code> で保存した件数（2）を確認します</li>
                             <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
                         </ul>
                     </div>
@@ -53,8 +53,8 @@
                             💡 ヒント
                         </h4>
                         <ul class="hints-content" style="display: none;">
-                            <li>リダイレクト <code>&gt;</code> はコマンド全体の出力先を指定します</li>
-                            <li><code>cat errors.txt</code> で 2 行表示されれば成功です</li>
+                            <li>パイプ <code>|</code> で処理をつなぎ、最後に <code>&gt;</code> でファイルに保存します</li>
+                            <li><code>cat error_count.txt</code> で <code>2</code> と表示されれば成功です</li>
                         </ul>
                     </div>
                 </div>
@@ -129,8 +129,8 @@
         const LESSON_ID = "08_pipe_redirect/04_combine";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"app.log": {"content": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-02 ERROR Connection failed\n2024-01-03 INFO User login\n2024-01-03 ERROR Disk full\n2024-01-04 INFO Shutdown\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"description": "grep + \u30ea\u30c0\u30a4\u30ec\u30af\u30c8\u306e\u7d50\u679c", "name": "errors.txt \u306b ERROR \u884c\u304c\u4fdd\u5b58\u3055\u308c\u308b", "steps": [{"command": "grep ERROR app.log \u003e errors.txt", "expected_output": ""}, {"command": "cat errors.txt", "expected_output": "2024-01-02 ERROR Connection failed\n2024-01-03 ERROR Disk full\n"}], "type": "command_sequence"}];
-        const SOLUTION_COMMANDS = ["grep ERROR app.log \u003e errors.txt"];
+        const TESTS = [{"description": "\u30d1\u30a4\u30d7 + \u30ea\u30c0\u30a4\u30ec\u30af\u30c8\u306e\u7d50\u679c", "name": "error_count.txt \u306b\u4ef6\u6570 2", "steps": [{"command": "cat app.log | grep ERROR | wc -l \u003e error_count.txt", "expected_output": ""}, {"command": "cat error_count.txt", "expected_output": "2\n"}], "type": "command_sequence"}];
+        const SOLUTION_COMMANDS = ["cat app.log | grep ERROR | wc -l \u003e error_count.txt"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

@@ -3,18 +3,18 @@ lesson:
   chapter_number: "08"
   number: "04"
   id: "08_pipe_redirect/04_combine"
-  title: "Combining Search and Redirection"
+  title: "Combining Pipes and Redirection"
 
-description: "Combine grep and redirection to save ERROR lines."
+description: "Combine pipes and redirection to save the ERROR line count to a file."
 
 task_description: |
-  <p>Run <code>grep ERROR app.log &gt; errors.txt</code> and verify with <code>cat</code>.</p>
+  <p>Run <code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code> to count ERROR lines and save the result.</p>
 
 instructions:
-  - "Run <code>grep ERROR app.log &gt; errors.txt</code>"
-  - "Run <code>cat errors.txt</code> to verify"
+  - "Run <code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code>"
+  - "Run <code>cat error_count.txt</code> to verify the count (2)"
   - "Click the <strong>Test</strong> button when ready"
 
 hints:
-  - "<code>&gt;</code> applies to the whole command's output"
-  - "Two lines in errors.txt means success"
+  - "Chain commands with <code>|</code>, then save the final output with <code>&gt;</code>"
+  - "Success if <code>cat error_count.txt</code> shows <code>2</code>"

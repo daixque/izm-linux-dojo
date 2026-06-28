@@ -283,8 +283,8 @@
         {
           "id": "08_pipe_redirect/04_combine",
           "number": "08-04",
-          "title": "Combining Search and Redirection",
-          "description": "Combine grep and redirection to save ERROR lines.",
+          "title": "Combining Pipes and Redirection",
+          "description": "Combine pipes and redirection to save the ERROR line count to a file.",
           "available": true
         },
         {

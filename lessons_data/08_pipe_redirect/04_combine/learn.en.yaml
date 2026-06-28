@@ -3,7 +3,7 @@ lesson:
   chapter_number: "08"
   number: "04"
   id: "08_pipe_redirect/04_combine"
-  title: "Combining Search and Redirection"
+  title: "Combining Pipes and Redirection"
 
 content: |
   <h2>Combine Search, Pipes, and Redirection</h2>

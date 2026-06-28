@@ -3,18 +3,18 @@ lesson:
   chapter_number: "08"
   number: "04"
   id: "08_pipe_redirect/04_combine"
-  title: "検索とリダイレクトを組み合わせる"
+  title: "パイプとリダイレクトを組み合わせる"
 
-description: "grep とリダイレクトを組み合わせて ERROR 行を保存します。"
+description: "パイプとリダイレクトを組み合わせて ERROR 件数をファイルに保存します。"
 
 task_description: |
-  <p><code>grep ERROR app.log &gt; errors.txt</code> で ERROR 行をファイルに保存し、内容を確認しましょう。</p>
+  <p><code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code> で ERROR 行の件数を数え、ファイルに保存しましょう。</p>
 
 instructions:
-  - "<code>grep ERROR app.log &gt; errors.txt</code> を実行します"
-  - "<code>cat errors.txt</code> で保存内容を確認します"
+  - "<code>cat app.log | grep ERROR | wc -l &gt; error_count.txt</code> を実行します"
+  - "<code>cat error_count.txt</code> で保存した件数（2）を確認します"
   - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
 
 hints:
-  - "リダイレクト <code>&gt;</code> はコマンド全体の出力先を指定します"
-  - "<code>cat errors.txt</code> で 2 行表示されれば成功です"
+  - "パイプ <code>|</code> で処理をつなぎ、最後に <code>&gt;</code> でファイルに保存します"
+  - "<code>cat error_count.txt</code> で <code>2</code> と表示されれば成功です"

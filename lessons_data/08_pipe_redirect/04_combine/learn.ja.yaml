@@ -3,7 +3,7 @@ lesson:
   chapter_number: "08"
   number: "04"
   id: "08_pipe_redirect/04_combine"
-  title: "検索とリダイレクトを組み合わせる"
+  title: "パイプとリダイレクトを組み合わせる"
 
 content: |
   <h2>検索・パイプ・リダイレクトを組み合わせる</h2>
