@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Chapter 11 Lesson 4: Final Dojo Challenge</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="site-title">
+                    <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+                </div>
+                <span class="chapter-lesson">Chapter 11 Lesson 4</span>
+            </div>
+            <h1 id="lesson-title">Final Dojo Challenge</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Goal of This Exercise</h2>
+<p>Create a project folder, extract ERROR lines from a log and save them, and write a README — completing the full workflow on your own. This is the final required task of the dojo, combining file operations, search, pipes, and redirection from Chapters 1–9.</p>
+
+<h2>Task Flow</h2>
+<ol>
+  <li>Create a project folder <code>project</code></li>
+  <li>Copy the log and extract ERROR lines to a file</li>
+  <li>Check the line count of the result file</li>
+  <li>Create a README to mark completion</li>
+</ol>
+
+<h2>Main Commands</h2>
+<table>
+  <thead>
+    <tr><th>Step</th><th>Example command</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Create folder</td><td><code>mkdir -p project/logs</code></td></tr>
+    <tr><td>Copy log</td><td><code>cp server.log project/logs/</code></td></tr>
+    <tr><td>Extract and save ERROR</td><td><code>grep ERROR ... &gt; project/errors.txt</code></td></tr>
+    <tr><td>Check line count</td><td><code>wc -l project/errors.txt</code></td></tr>
+    <tr><td>Create README</td><td><code>echo "Project complete" &gt; project/README.txt</code></td></tr>
+  </tbody>
+</table>
+
+<h2>Mindset</h2>
+<ul>
+  <li>After each step, verify with <code>ls</code> or <code>cat</code></li>
+  <li>Run commands one at a time, carefully</li>
+  <li>When stuck, check <code>man</code> or <code>--help</code> (Chapter 9)</li>
+</ul>
+<p>This exercise does not use <code>rm</code>, but when you delete files in the future, confirm the target with <code>ls</code> first — deleted files cannot be easily restored.</p>
+
+<h2>Next Step</h2>
+<p>On the exercise page, take on the final challenge and complete the core dojo course!</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

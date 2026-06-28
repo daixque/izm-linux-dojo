@@ -1,0 +1,37 @@
+lesson:
+  chapter: "11_capstone"
+  chapter_number: "11"
+  number: "01"
+  id: "11_capstone/01_file_organize"
+  title: "Organizing Scattered Files"
+
+content: |
+  <h2>Goal of This Exercise</h2>
+  <p>Organize scattered files into purpose-specific folders and clean up unneeded files. You will combine <code>mkdir</code>, <code>mv</code>, <code>cp</code>, and <code>rm</code> from Chapter 2 in a real organizing task.</p>
+
+  <h2>Task Overview</h2>
+  <p>Organize files scattered in the home directory like this:</p>
+  <ul>
+    <li><code>mkdir -p</code> to create <code>docs</code> and <code>images</code> folders</li>
+    <li><code>mv</code> text files into <code>docs/</code>, images into <code>images/</code></li>
+    <li><code>cp</code> to keep a copy of an important file</li>
+    <li><code>rm</code> to remove unneeded files</li>
+  </ul>
+
+  <h2>Workflow</h2>
+  <ol>
+    <li><code>ls</code> to see the starting state</li>
+    <li>Create folders → move/copy → delete</li>
+    <li><code>ls</code> again to verify</li>
+  </ol>
+
+  <h2>Caution When Using <code>rm</code></h2>
+  <p>Files deleted with <code>rm</code> do not go to a trash bin and <strong>cannot be easily restored</strong>. Before deleting, confirm:</p>
+  <ul>
+    <li>With <code>ls</code>, that it is really the file you intend to delete</li>
+    <li>That the filename is typed correctly (watch for typos)</li>
+  </ul>
+  <p>In the dojo you can use the <strong>Reset</strong> button to start over, but on real Linux deletion is permanent — proceed carefully.</p>
+
+  <h2>Next Step</h2>
+  <p>On the exercise page, organize the messy files as specified.</p>

@@ -1,0 +1,28 @@
+lesson:
+  chapter: "11_capstone"
+  chapter_number: "11"
+  number: "02"
+  id: "11_capstone/02_log_analysis"
+  title: "ログからエラーを集計する"
+
+description: "grep と wc とパイプでログから ERROR 件数を集計します。"
+
+task_description: |
+  <p><code>app.log</code> から ERROR 行を抽出し、件数を数えましょう。</p>
+  <ol>
+    <li><code>grep ERROR app.log</code> で ERROR 行を表示</li>
+    <li><code>grep ERROR app.log | wc -l</code> で件数を確認（3 件のはず）</li>
+    <li><code>grep ERROR app.log > errors.txt</code> で ERROR 行だけをファイルに保存</li>
+  </ol>
+
+instructions:
+  - "<code>cat app.log</code> でログ全体を確認します"
+  - "<code>grep ERROR app.log</code> を実行します"
+  - "<code>grep ERROR app.log | wc -l</code> で件数を数えます"
+  - "<code>grep ERROR app.log > errors.txt</code> で結果を保存します"
+  - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
+
+hints:
+  - "パイプ <code>|</code> は左の出力を右のコマンドに渡します"
+  - "<code>wc -l</code> は行数を数えます"
+  - "うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます"

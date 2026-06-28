@@ -1184,12 +1184,6 @@ registerCommand('man', (args) => {
     };
 });
 
-const CURL_RESPONSES = {
-    'https://dojo.example/api/hello': '{"message":"Hello from Dojo API"}\n',
-    'https://dojo.example/data/info.txt': 'IZM Linux Dojo\nVersion 1.0\n',
-    'https://dojo.example/api/status': '{"status":"ok","uptime":"24h"}\n',
-};
-
 registerCommand('ps', () => {
     const pm = window.shellRuntime?.processManager;
     if (!pm) {
@@ -1227,46 +1221,6 @@ registerCommand('jobs', () => {
         return { stdout: '', stderr: 'jobs: process manager unavailable\n', exitCode: 1 };
     }
     return { stdout: pm.formatJobs(), stderr: '', exitCode: 0 };
-});
-
-registerCommand('curl', (args, vfs) => {
-    let outputFile = null;
-    const urls = [];
-    for (let i = 0; i < args.length; i++) {
-        const arg = args[i];
-        if (arg === '-o') {
-            if (i + 1 >= args.length) {
-                return { stdout: '', stderr: 'curl: option -o requires an argument\n', exitCode: 2 };
-            }
-            outputFile = args[++i];
-        } else if (arg.startsWith('-')) {
-            continue;
-        } else {
-            urls.push(arg);
-        }
-    }
-    if (urls.length === 0) {
-        return { stdout: '', stderr: 'curl: no URL specified\n', exitCode: 2 };
-    }
-    const url = urls[0];
-    const body = CURL_RESPONSES[url];
-    if (body === undefined) {
-        const host = url.replace(/^https?:\/\//, '').split('/')[0];
-        return {
-            stdout: '',
-            stderr: `curl: (6) Could not resolve host: ${host}\n`,
-            exitCode: 6,
-        };
-    }
-    if (outputFile) {
-        try {
-            vfs.writeFile(outputFile, body);
-        } catch (err) {
-            return { stdout: '', stderr: `curl: ${err.message}\n`, exitCode: 23 };
-        }
-        return { stdout: '', stderr: '', exitCode: 0 };
-    }
-    return { stdout: body, stderr: '', exitCode: 0 };
 });
 
 window.shellCommands = {

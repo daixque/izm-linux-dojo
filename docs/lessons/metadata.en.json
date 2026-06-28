@@ -362,57 +362,35 @@
       ]
     },
     {
-      "id": "11_network",
+      "id": "11_capstone",
       "number": 11,
-      "title": "Network",
-      "description": "Learn network command concepts such as curl",
-      "lessons": [
-        {
-          "id": "11_network/01_curl",
-          "number": "11-01",
-          "title": "Fetching Data from the Web",
-          "description": "Fetch data from a mock API with curl and save it to a file.",
-          "available": true
-        },
-        {
-          "id": "11_network/02_network_concepts",
-          "number": "11-02",
-          "title": "Network Command Concepts",
-          "description": "Review curl and network command concepts.",
-          "available": true
-        }
-      ]
-    },
-    {
-      "id": "12_capstone",
-      "number": 12,
       "title": "Capstone",
       "description": "Practice combining everything you've learned in hands-on exercises",
       "lessons": [
         {
-          "id": "12_capstone/01_file_organize",
-          "number": "12-01",
+          "id": "11_capstone/01_file_organize",
+          "number": "11-01",
           "title": "Organizing Scattered Files",
           "description": "Combine mkdir, cp, mv, and rm to organize files.",
           "available": true
         },
         {
-          "id": "12_capstone/02_log_analysis",
-          "number": "12-02",
+          "id": "11_capstone/02_log_analysis",
+          "number": "11-02",
           "title": "Analyzing Logs for Errors",
           "description": "Use grep, wc, and pipes to count ERROR lines in a log.",
           "available": true
         },
         {
-          "id": "12_capstone/03_shared_folder",
-          "number": "12-03",
+          "id": "11_capstone/03_shared_folder",
+          "number": "11-03",
           "title": "Setting Up a Shared Folder",
           "description": "Set shared directory permissions with chmod, chown, and sudo.",
           "available": true
         },
         {
-          "id": "12_capstone/04_final_dojo",
-          "number": "12-04",
+          "id": "11_capstone/04_final_dojo",
+          "number": "11-04",
           "title": "Final Dojo Challenge",
           "description": "Comprehensive capstone combining core curriculum commands.",
           "available": true

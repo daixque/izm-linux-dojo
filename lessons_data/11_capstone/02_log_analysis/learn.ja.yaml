@@ -1,0 +1,39 @@
+lesson:
+  chapter: "11_capstone"
+  chapter_number: "11"
+  number: "02"
+  id: "11_capstone/02_log_analysis"
+  title: "ログからエラーを集計する"
+
+content: |
+  <h2>この演習のゴール</h2>
+  <p>ログファイルから ERROR の行だけを取り出し、件数を数えます。第7–8章で学んだ <code>grep</code>、<code>wc</code>、パイプ（<code>|</code>）を組み合わせて、実務でよくある「エラーが何件あったか調べる」作業を体験します。</p>
+
+  <h2>ログファイルとは</h2>
+  <p>プログラムやサーバーは、動作の記録を<strong>ログ</strong>（log）ファイルに書き込みます。問題が起きたとき、いつ・何が起きたかを後から調べる材料になります。</p>
+  <p>ログの各行には、重要度を示すラベルが付いていることが多いです。</p>
+  <table>
+    <thead>
+      <tr><th>ラベル</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>INFO</code></td><td>通常の動作記録</td></tr>
+      <tr><td><code>WARN</code></td><td>警告（問題の可能性）</td></tr>
+      <tr><td><code>ERROR</code></td><td>エラー（処理が失敗した）</td></tr>
+    </tbody>
+  </table>
+
+  <h2>よく使う組み合わせ</h2>
+  <pre><code>$ grep ERROR app.log
+  $ grep ERROR app.log | wc -l</code></pre>
+  <p>1 行目は ERROR 行だけを表示、2 行目は ERROR の<strong>件数</strong>を数えます。パイプ（<code>|</code>）は、前のコマンドの出力を次のコマンドに渡す記号です。</p>
+
+  <h2>作業の流れ</h2>
+  <ol>
+    <li><code>cat</code> や <code>head</code> でログの全体像を把握</li>
+    <li><code>grep</code> で ERROR 行を抽出</li>
+    <li>パイプで <code>wc -l</code> に渡して件数を数える</li>
+  </ol>
+
+  <h2>次のステップ</h2>
+  <p>演習では <code>app.log</code> から ERROR の件数を集計します。</p>

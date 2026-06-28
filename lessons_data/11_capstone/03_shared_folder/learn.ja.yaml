@@ -1,0 +1,33 @@
+lesson:
+  chapter: "11_capstone"
+  chapter_number: "11"
+  number: "03"
+  id: "11_capstone/03_shared_folder"
+  title: "共有フォルダの権限を整備する"
+
+content: |
+  <h2>この演習のゴール</h2>
+  <p><code>/shared</code> ディレクトリのオーナーと権限を変更し、チームメンバー <code>user</code> が読み書きできる状態にします。第4–6章で学んだ <code>chown</code>、<code>chmod</code>、<code>sudo</code> を組み合わせて、複数人で使うフォルダを整備する体験をします。</p>
+
+  <h2>シナリオ</h2>
+  <p><code>/shared</code> ディレクトリを、チームメンバー <code>user</code> が読み書きできる状態にします。初期状態では root がオーナーで、一般ユーザーは書き込めません。</p>
+  <p>演習の最後では、<code>user</code> として <code>team.txt</code> を作成できることを確認します。</p>
+
+  <h2>使うコマンド</h2>
+  <table>
+    <thead>
+      <tr><th>コマンド</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>sudo chown user:user /shared</code></td><td>オーナーとグループを user に変更</td></tr>
+      <tr><td><code>chmod u+rwx,go+rx /shared</code></td><td>user は読み書き実行、他は読み取りと実行</td></tr>
+      <tr><td><code>ls -l /shared</code></td><td>変更結果を確認</td></tr>
+    </tbody>
+  </table>
+
+  <h2>なぜ sudo が必要？</h2>
+  <p>他人（ここでは root）のファイルのオーナーを変える操作は、管理者権限が必要です。第6章で学んだ <code>sudo</code> を使います。</p>
+  <p>権限の変更は、他のユーザーのアクセスに影響するため、本番環境では変更前に <code>ls -l</code> で現状を確認し、変更後も結果を確かめましょう。</p>
+
+  <h2>次のステップ</h2>
+  <p>演習で <code>/shared</code> のオーナーと権限を設定し、<code>team.txt</code> を作成できるようにしましょう。</p>

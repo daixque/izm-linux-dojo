@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Chapter 11 Lesson 3: Setting Up a Shared Folder</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="site-title">
+                    <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+                </div>
+                <span class="chapter-lesson">Chapter 11 Lesson 3</span>
+            </div>
+            <h1 id="lesson-title">Setting Up a Shared Folder</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Goal of This Exercise</h2>
+<p>Change the owner and permissions of the <code>/shared</code> directory so team member <code>user</code> can read and write. You will combine <code>chown</code>, <code>chmod</code>, and <code>sudo</code> from Chapters 4–6 to set up a folder shared by multiple people.</p>
+
+<h2>Scenario</h2>
+<p>Prepare <code>/shared</code> so team member <code>user</code> can read and write. Initially it is owned by root and regular users cannot write to it.</p>
+<p>At the end of the exercise, confirm that as <code>user</code> you can create <code>team.txt</code>.</p>
+
+<h2>Commands Used</h2>
+<table>
+  <thead>
+    <tr><th>Command</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>sudo chown user:user /shared</code></td><td>Change owner and group to user</td></tr>
+    <tr><td><code>chmod u+rwx,go+rx /shared</code></td><td>user read/write/execute; others read/execute</td></tr>
+    <tr><td><code>ls -l /shared</code></td><td>Verify the changes</td></tr>
+  </tbody>
+</table>
+
+<h2>Why sudo?</h2>
+<p>Changing ownership of someone else's files (here, root's) requires administrator privileges — use <code>sudo</code> from Chapter 6.</p>
+<p>Permission changes affect other users' access. In production, check the current state with <code>ls -l</code> before changing, and verify the result afterward.</p>
+
+<h2>Next Step</h2>
+<p>On the exercise page, set owner and permissions on <code>/shared</code> so you can create <code>team.txt</code>.</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

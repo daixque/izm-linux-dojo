@@ -362,57 +362,35 @@
       ]
     },
     {
-      "id": "11_network",
+      "id": "11_capstone",
       "number": 11,
-      "title": "ネットワーク",
-      "description": "curl などネットワークコマンドの概念を学びます",
-      "lessons": [
-        {
-          "id": "11_network/01_curl",
-          "number": "11-01",
-          "title": "Web からデータを取得する",
-          "description": "curl で模擬 API からデータを取得し、ファイルに保存します。",
-          "available": true
-        },
-        {
-          "id": "11_network/02_network_concepts",
-          "number": "11-02",
-          "title": "ネットワークコマンドの概念",
-          "description": "curl の復習と、ネットワークコマンドの概念確認。",
-          "available": true
-        }
-      ]
-    },
-    {
-      "id": "12_capstone",
-      "number": 12,
       "title": "総合演習",
       "description": "これまでのコマンドを組み合わせた実践課題に取り組みます",
       "lessons": [
         {
-          "id": "12_capstone/01_file_organize",
-          "number": "12-01",
+          "id": "11_capstone/01_file_organize",
+          "number": "11-01",
           "title": "散らばったファイルを整理する",
           "description": "mkdir/cp/mv/rm を組み合わせてファイルを整理します。",
           "available": true
         },
         {
-          "id": "12_capstone/02_log_analysis",
-          "number": "12-02",
+          "id": "11_capstone/02_log_analysis",
+          "number": "11-02",
           "title": "ログからエラーを集計する",
           "description": "grep と wc とパイプでログから ERROR 件数を集計します。",
           "available": true
         },
         {
-          "id": "12_capstone/03_shared_folder",
-          "number": "12-03",
+          "id": "11_capstone/03_shared_folder",
+          "number": "11-03",
           "title": "共有フォルダの権限を整備する",
           "description": "chmod、chown、sudo で共有ディレクトリの権限を設定します。",
           "available": true
         },
         {
-          "id": "12_capstone/04_final_dojo",
-          "number": "12-04",
+          "id": "11_capstone/04_final_dojo",
+          "number": "11-04",
           "title": "道場最終試練",
           "description": "必修範囲のコマンドを組み合わせた総合課題。",
           "available": true

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - Chapter 11 Lesson 2: Analyzing Logs for Errors</title>
+    <link rel="stylesheet" href="../../../lib/css/learn.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <div class="site-title">
+                    <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
+                </div>
+                <span class="chapter-lesson">Chapter 11 Lesson 2</span>
+            </div>
+            <h1 id="lesson-title">Analyzing Logs for Errors</h1>
+            <div class="lesson-meta">
+                <span id="lesson-type">📚 Learn</span>
+                <div id="language-switcher">
+                        <a href="learn.ja.html" class="language-link">日本語</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content" id="content">
+            <h2>Goal of This Exercise</h2>
+<p>Extract only ERROR lines from a log file and count them. You will combine <code>grep</code>, <code>wc</code>, and pipes (<code>|</code>) from Chapters 7–8 in a task common in real work: "how many errors were there?"</p>
+
+<h2>What Is a Log File?</h2>
+<p>Programs and servers write activity records to <strong>log</strong> files. When something goes wrong, logs help you investigate what happened and when.</p>
+<p>Each line in a log often has a label showing severity:</p>
+<table>
+  <thead>
+    <tr><th>Label</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>INFO</code></td><td>Normal operation record</td></tr>
+    <tr><td><code>WARN</code></td><td>Warning (possible problem)</td></tr>
+    <tr><td><code>ERROR</code></td><td>Error (processing failed)</td></tr>
+  </tbody>
+</table>
+
+<h2>Common Combinations</h2>
+<pre><code>$ grep ERROR app.log
+$ grep ERROR app.log | wc -l</code></pre>
+<p>The first shows only ERROR lines; the second counts how many ERROR lines exist. The pipe (<code>|</code>) passes the output of the previous command to the next one.</p>
+
+<h2>Workflow</h2>
+<ol>
+  <li>Use <code>cat</code> or <code>head</code> to understand the log</li>
+  <li><code>grep</code> to extract ERROR lines</li>
+  <li>Pipe to <code>wc -l</code> to count them</li>
+</ol>
+
+<h2>Next Step</h2>
+<p>On the exercise page, count ERROR entries in <code>app.log</code>.</p>
+
+        </main>
+
+        <footer class="footer">
+            <a href="../../../index.html" class="btn btn-secondary">← Back to Menu</a>
+            <div style="display: flex; gap: 12px;">
+                <a href="exercise.en.html" class="btn btn-primary">
+                    Start Exercise →
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

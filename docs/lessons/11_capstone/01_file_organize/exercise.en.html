@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise - Chapter 10 Lesson 3: Running Programs in the Background</title>
+    <title>Exercise - Chapter 11 Lesson 1: Organizing Scattered Files</title>
     <link rel="stylesheet" href="../../../lib/css/exercise.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
 </head>
@@ -14,9 +14,9 @@
                 <div class="site-title">
                     <a href="../../../index.html" class="site-link">🐧 IZM Linux Dojo</a>
                 </div>
-                <span class="chapter-lesson">Chapter 10 Lesson 3</span>
+                <span class="chapter-lesson">Chapter 11 Lesson 1</span>
             </div>
-            <h1 id="lesson-title">📝 Running Programs in the Background</h1>
+            <h1 id="lesson-title">📝 Organizing Scattered Files</h1>
             <div class="header-right">
                 <div class="status">
                     <span id="status">Loading...</span>
@@ -36,15 +36,22 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 Task</h3>
-                        <p>Run <code>jobs</code> to see the list of background work. Also run <code>ps</code> to confirm the <code>sleep 100</code> process exists.</p>
+                        <p>Organize the messy home directory:</p>
+<ol>
+  <li>Create <code>docs</code> and <code>images</code> with <code>mkdir -p</code></li>
+  <li>Move <code>report.txt</code> and <code>memo.txt</code> into <code>docs/</code></li>
+  <li>Copy <code>inbox/letter.txt</code> to <code>docs/letter.txt</code></li>
+  <li>Move <code>photo.jpg</code> into <code>images/</code></li>
+  <li>Delete <code>old_backup.txt</code></li>
+</ol>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ Instructions</h4>
                         <ul>
-                            <li>Run <code>jobs</code> to display background jobs</li>
-                            <li>Confirm <code>sleep 100</code> shows as Running</li>
-                            <li>Run <code>ps</code> and confirm the sleep process is listed</li>
+                            <li>Run <code>ls</code> to see the starting state</li>
+                            <li>Follow the steps above in order</li>
+                            <li>Run <code>ls docs</code> and <code>ls images</code> to verify</li>
                             <li>Click <strong>Test</strong> when ready</li>
                         </ul>
                     </div>
@@ -54,8 +61,8 @@
                             💡 Hints
                         </h4>
                         <ul class="hints-content" style="display: none;">
-                            <li><code>jobs</code> is for checking foreground/background work</li>
-                            <li>Use <code>ps</code> CMD column to see process names</li>
+                            <li><code>mv</code> removes the file from its original location</li>
+                            <li>After <code>cp</code>, <code>inbox/letter.txt</code> still exists</li>
                             <li>Use <strong>Reset</strong> to start over if needed</li>
                         </ul>
                     </div>
@@ -95,7 +102,7 @@
                 <a href="learn.en.html" class="btn btn-link">📚 Back to Learn</a>
             </div>
             <div class="footer-next">
-                <a href="../../11_capstone/01_file_organize/learn.en.html" class="btn btn-primary">Next Lesson →<br><small>Organizing Scattered Files</small></a>
+                <a href="../02_log_analysis/learn.en.html" class="btn btn-primary">Next Lesson →<br><small>Analyzing Logs for Errors</small></a>
             </div>
         </footer>
     </div>
@@ -128,11 +135,11 @@
     <script src="../../../lib/js/exercise-common.js"></script>
 
     <script>
-        const LESSON_ID = "10_process/03_background";
-        const INITIAL_FILESYSTEM = {"/home/user": {"children": {}, "type": "directory"}};
+        const LESSON_ID = "11_capstone/01_file_organize";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"inbox": {"children": {"letter.txt": {"content": "important letter\n", "type": "file"}}, "type": "directory"}, "memo.txt": {"content": "quick memo\n", "type": "file"}, "old_backup.txt": {"content": "outdated\n", "type": "file"}, "photo.jpg": {"content": "fake image data\n", "type": "file"}, "report.txt": {"content": "monthly report\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "jobs", "description": "Verify fixed jobs output", "expected_output": "[1]+ Running sleep 100 \u0026\n", "name": "jobs shows background job", "type": "command_output"}, {"command": "ps", "description": "Cross-check with ps", "expected_output": "  PID TTY          TIME CMD\n    1 ?           00:00:01 systemd\n 1042 pts/0       00:00:00 bash\n 2048 pts/0       00:00:02 python simulator.py\n 3099 pts/0       00:00:00 sleep 100\n", "name": "ps also shows sleep", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["jobs", "ps"];
+        const TESTS = [{"command": "ls docs", "description": "mv and cp results", "expected_output": "letter.txt\nmemo.txt\nreport.txt\n", "name": "docs contains text files", "type": "command_output"}, {"command": "ls images", "description": "mv result", "expected_output": "photo.jpg\n", "name": "images contains photo.jpg", "type": "command_output"}, {"command": "ls", "description": "rm result", "expected_output": "docs\nimages\ninbox\n", "name": "old_backup.txt was removed", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["mkdir -p docs images", "mv report.txt memo.txt docs/", "cp inbox/letter.txt docs/letter.txt", "mv photo.jpg images/", "rm old_backup.txt"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

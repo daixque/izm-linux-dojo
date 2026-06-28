@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>演習課題 - 第10章 レッスン3: バックグラウンドでプログラムを実行する</title>
+    <title>演習課題 - 第11章 レッスン1: 散らばったファイルを整理する</title>
     <link rel="stylesheet" href="../../../lib/css/exercise.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
 </head>
@@ -14,9 +14,9 @@
                 <div class="site-title">
                     <a href="../../../index.html" class="site-link">🐧 IZM Linux 道場</a>
                 </div>
-                <span class="chapter-lesson">第10章 レッスン3</span>
+                <span class="chapter-lesson">第11章 レッスン1</span>
             </div>
-            <h1 id="lesson-title">📝 バックグラウンドでプログラムを実行する</h1>
+            <h1 id="lesson-title">📝 散らばったファイルを整理する</h1>
             <div class="header-right">
                 <div class="status">
                     <span id="status">準備中...</span>
@@ -36,15 +36,22 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 課題内容</h3>
-                        <p>バックグラウンドで動いているジョブの一覧を <code>jobs</code> で確認しましょう。あわせて <code>ps</code> を実行し、<code>sleep 100</code> がプロセスとして存在することも見てみてください。</p>
+                        <p>散らかったホームディレクトリを整理しましょう。</p>
+<ol>
+  <li><code>docs</code> と <code>images</code> フォルダを <code>mkdir -p</code> で作成</li>
+  <li><code>report.txt</code> と <code>memo.txt</code> を <code>docs/</code> に移動</li>
+  <li><code>inbox/letter.txt</code> を <code>docs/letter.txt</code> にコピー</li>
+  <li><code>photo.jpg</code> を <code>images/</code> に移動</li>
+  <li><code>old_backup.txt</code> を削除</li>
+</ol>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ やること</h4>
                         <ul>
-                            <li><code>jobs</code> を実行してバックグラウンドジョブを表示します</li>
-                            <li><code>sleep 100</code> が Running 状態であることを確認します</li>
-                            <li><code>ps</code> を実行し、同じく sleep プロセスがあることを確認します</li>
+                            <li><code>ls</code> で最初の状態を確認します</li>
+                            <li>上記の手順を順番に実行します</li>
+                            <li><code>ls docs</code> と <code>ls images</code> で結果を確認します</li>
                             <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
                         </ul>
                     </div>
@@ -54,8 +61,8 @@
                             💡 ヒント
                         </h4>
                         <ul class="hints-content" style="display: none;">
-                            <li><code>jobs</code> はフォアグラウンド/バックグラウンドの確認用です</li>
-                            <li>PID は <code>ps</code> の CMD 列で確認できます</li>
+                            <li><code>mv</code> は元の場所からファイルがなくなります</li>
+                            <li><code>cp</code> 後も <code>inbox/letter.txt</code> は残ります</li>
                             <li>うまくいかないときは <strong>リセット</strong> ボタンで最初からやり直せます</li>
                         </ul>
                     </div>
@@ -95,7 +102,7 @@
                 <a href="learn.ja.html" class="btn btn-link">📚 説明に戻る</a>
             </div>
             <div class="footer-next">
-                <a href="../../11_capstone/01_file_organize/learn.ja.html" class="btn btn-primary">次のレッスンへ →<br><small>散らばったファイルを整理する</small></a>
+                <a href="../02_log_analysis/learn.ja.html" class="btn btn-primary">次のレッスンへ →<br><small>ログからエラーを集計する</small></a>
             </div>
         </footer>
     </div>
@@ -128,11 +135,11 @@
     <script src="../../../lib/js/exercise-common.js"></script>
 
     <script>
-        const LESSON_ID = "10_process/03_background";
-        const INITIAL_FILESYSTEM = {"/home/user": {"children": {}, "type": "directory"}};
+        const LESSON_ID = "11_capstone/01_file_organize";
+        const INITIAL_FILESYSTEM = {"/home/user": {"children": {"inbox": {"children": {"letter.txt": {"content": "important letter\n", "type": "file"}}, "type": "directory"}, "memo.txt": {"content": "quick memo\n", "type": "file"}, "old_backup.txt": {"content": "outdated\n", "type": "file"}, "photo.jpg": {"content": "fake image data\n", "type": "file"}, "report.txt": {"content": "monthly report\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "jobs", "description": "jobs \u306e\u56fa\u5b9a\u51fa\u529b", "expected_output": "[1]+ Running sleep 100 \u0026\n", "name": "jobs \u3067\u30d0\u30c3\u30af\u30b0\u30e9\u30a6\u30f3\u30c9\u30b8\u30e7\u30d6\u304c\u8868\u793a\u3055\u308c\u308b", "type": "command_output"}, {"command": "ps", "description": "ps \u3068\u306e\u5bfe\u5fdc", "expected_output": "  PID TTY          TIME CMD\n    1 ?           00:00:01 systemd\n 1042 pts/0       00:00:00 bash\n 2048 pts/0       00:00:02 python simulator.py\n 3099 pts/0       00:00:00 sleep 100\n", "name": "ps \u3067\u3082 sleep \u304c\u78ba\u8a8d\u3067\u304d\u308b", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["jobs", "ps"];
+        const TESTS = [{"command": "ls docs", "description": "mv \u3068 cp \u306e\u7d50\u679c", "expected_output": "letter.txt\nmemo.txt\nreport.txt\n", "name": "docs \u306b\u30c6\u30ad\u30b9\u30c8\u30d5\u30a1\u30a4\u30eb\u304c\u3042\u308b", "type": "command_output"}, {"command": "ls images", "description": "mv \u306e\u7d50\u679c", "expected_output": "photo.jpg\n", "name": "images \u306b photo.jpg \u304c\u3042\u308b", "type": "command_output"}, {"command": "ls", "description": "rm \u306e\u7d50\u679c", "expected_output": "docs\nimages\ninbox\n", "name": "old_backup.txt \u304c\u524a\u9664\u3055\u308c\u3066\u3044\u308b", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["mkdir -p docs images", "mv report.txt memo.txt docs/", "cp inbox/letter.txt docs/letter.txt", "mv photo.jpg images/", "rm old_backup.txt"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();
