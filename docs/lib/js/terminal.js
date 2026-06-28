@@ -16,6 +16,7 @@ class TerminalUI {
         this._enterHandledOnKeydown = false;
         this._imeProcessEnterPending = false;
         this.onStateChange = null;
+        this.pagerMode = null;
     }
 
     init() {
@@ -49,6 +50,12 @@ class TerminalUI {
         this._setupImeInput();
         this.term.onKey(({ domEvent, key }) => this._handleKey(domEvent, key));
         this.term.attachCustomKeyEventHandler((domEvent) => {
+            if (this.pagerMode) {
+                if (domEvent.type === 'keydown') {
+                    return this._handlePagerKeyEvent(domEvent);
+                }
+                return false;
+            }
             if (domEvent.type === 'keydown') {
                 if (domEvent.isComposing || this._isComposing) {
                     return false;
@@ -157,6 +164,11 @@ class TerminalUI {
     }
 
     _consumeEnter(e) {
+        if (this.pagerMode) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return true;
+        }
         e.preventDefault();
         e.stopImmediatePropagation();
 
@@ -195,6 +207,11 @@ class TerminalUI {
     }
 
     _handleKey(domEvent, key) {
+        if (this.pagerMode) {
+            this._handlePagerKeyEvent(domEvent);
+            return;
+        }
+
         if (domEvent.isComposing || this._isComposing) {
             return;
         }
@@ -384,16 +401,128 @@ class TerminalUI {
         }
     }
 
+    _getPagerLayout() {
+        const rows = this.term.rows || 24;
+        const cols = this.term.cols || 80;
+        const footerLines = 1;
+        return {
+            rows,
+            cols,
+            contentLines: Math.max(1, rows - footerLines),
+        };
+    }
+
+    _enterPager(pager) {
+        const lines = pager.content.replace(/\r\n/g, '\n').replace(/\n$/, '').split('\n');
+        const { contentLines } = this._getPagerLayout();
+        this.pagerMode = {
+            command: pager.command,
+            lines,
+            offset: 0,
+            pageSize: contentLines,
+        };
+        this.currentLine = '';
+        this.cursorPos = 0;
+        this._renderPager();
+    }
+
+    _renderPager() {
+        const { lines, offset } = this.pagerMode;
+        const { rows, cols, contentLines } = this._getPagerLayout();
+        this.pagerMode.pageSize = contentLines;
+
+        this.term.write('\x1b[2J\x1b[H');
+
+        const visible = lines.slice(offset, offset + contentLines);
+        for (const line of visible) {
+            this.term.writeln(line);
+        }
+
+        const atEnd = offset + contentLines >= lines.length;
+        const status = atEnd
+            ? '(END) Press q to quit'
+            : 'Space: next page  Arrow keys: scroll  q: quit';
+        const padded = ` ${status} `.padEnd(cols, ' ').slice(0, cols);
+        this.term.write(`\x1b[${rows};1H\x1b[7m${padded}\x1b[0m`);
+    }
+
+    _scrollPager(delta) {
+        const { lines, pageSize } = this.pagerMode;
+        const maxOffset = Math.max(0, lines.length - pageSize);
+        this.pagerMode.offset = Math.max(0, Math.min(this.pagerMode.offset + delta, maxOffset));
+        this._renderPager();
+    }
+
+    _exitPager() {
+        this.pagerMode = null;
+        this.term.write('\r\n');
+        this.writePrompt();
+        if (this.onStateChange) {
+            this.onStateChange();
+        }
+    }
+
+    _handlePagerKeyEvent(domEvent) {
+        domEvent.preventDefault();
+
+        const key = domEvent.key;
+        if (key === 'q' || key === 'Q') {
+            this._exitPager();
+            return false;
+        }
+        if (key === ' ' || key === 'PageDown' || key === 'f') {
+            this._scrollPager(this.pagerMode.pageSize);
+            return false;
+        }
+        if (key === 'PageUp' || key === 'b') {
+            this._scrollPager(-this.pagerMode.pageSize);
+            return false;
+        }
+        if (domEvent.keyCode === 38) {
+            this._scrollPager(-1);
+            return false;
+        }
+        if (domEvent.keyCode === 40) {
+            this._scrollPager(1);
+            return false;
+        }
+        return false;
+    }
+
+    _applyCommandResult(result, { interactive = true } = {}) {
+        if (result.clear) {
+            this.clear();
+            return;
+        }
+
+        if (result.stderr) {
+            this.term.write('\x1b[31m' + result.stderr.replace(/\n/g, '\r\n') + '\x1b[0m');
+        }
+
+        if (result.pager) {
+            if (interactive) {
+                this._enterPager(result.pager);
+                return;
+            }
+            if (result.pager.content) {
+                this.term.write(result.pager.content.replace(/\n/g, '\r\n'));
+            }
+            return;
+        }
+
+        if (result.stdout) {
+            this.term.write(result.stdout.replace(/\n/g, '\r\n'));
+        }
+    }
+
     _executeCurrentLine() {
         const line = this.currentLine;
         this.term.write('\r\n');
         const result = this.simulator.executeLine(line);
 
-        if (result.clear) {
-            this.clear();
-        } else {
-            if (result.stdout) this.term.write(result.stdout.replace(/\n/g, '\r\n'));
-            if (result.stderr) this.term.write('\x1b[31m' + result.stderr.replace(/\n/g, '\r\n') + '\x1b[0m');
+        this._applyCommandResult(result, { interactive: true });
+        if (result.pager) {
+            return;
         }
 
         if (this.onStateChange) {
@@ -407,12 +536,7 @@ class TerminalUI {
         for (const cmd of commands) {
             this.term.writeln(this.simulator.getPrompt() + cmd);
             const result = this.simulator.executeLine(cmd);
-            if (result.clear) {
-                this.clear();
-            } else {
-                if (result.stdout) this.term.writeln(result.stdout.replace(/\n$/, ''));
-                if (result.stderr) this.term.writeln('\x1b[31m' + result.stderr.replace(/\n$/, '') + '\x1b[0m');
-            }
+            this._applyCommandResult(result, { interactive: false });
         }
         if (this.onStateChange) this.onStateChange();
         this.writePrompt();
@@ -424,6 +548,7 @@ class TerminalUI {
     }
 
     reset() {
+        this.pagerMode = null;
         this.simulator.reset();
         this.clear();
         this.writePrompt();

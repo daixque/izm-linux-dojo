@@ -1,4 +1,4 @@
-lesson:
+おlesson:
   chapter: "09_shell_basics"
   chapter_number: "09"
   number: "03"
@@ -13,7 +13,7 @@ task_description: |
 instructions:
   - "<code>ls --help</code> を実行してオプション一覧を確認します"
   - "<code>grep --help</code> も実行してみます"
-  - "<code>man ls</code> でマニュアルページも読めます（任意）"
+  - "<code>man ls</code> でマニュアルページも読めます（任意）。閲覧中は <kbd>q</kbd> で終了します"
   - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
 
 hints:

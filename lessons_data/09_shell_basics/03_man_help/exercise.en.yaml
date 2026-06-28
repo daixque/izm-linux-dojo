@@ -13,7 +13,7 @@ task_description: |
 instructions:
   - "Run <code>ls --help</code> to see options"
   - "Run <code>grep --help</code> as well"
-  - "Optionally try <code>man ls</code>"
+  - "Optionally try <code>man ls</code>. Press <kbd>q</kbd> to exit the manual viewer"
   - "Click the <strong>Test</strong> button when ready"
 
 hints:

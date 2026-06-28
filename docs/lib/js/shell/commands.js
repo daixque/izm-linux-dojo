@@ -89,6 +89,29 @@ List contents of directories in a tree-like format.
 `,
 };
 
+function getManPageText(command) {
+    const help = HELP_PAGES[command];
+    if (!help) return null;
+
+    const lines = help.trimEnd().split('\n');
+    const usage = lines[0] || '';
+    const body = lines.slice(1).join('\n').trimEnd();
+    const synopsis = usage.replace(/^Usage:\s*/, '');
+    const upper = command.toUpperCase();
+
+    return `${upper}(1)                          User Commands                          ${upper}(1)
+
+NAME
+       ${command}
+
+SYNOPSIS
+       ${synopsis}
+
+DESCRIPTION
+${body}
+`;
+}
+
 function registerCommand(name, handler) {
     shellCommands[name] = handler;
 }
@@ -506,6 +529,7 @@ function executeCommand(line, vfs) {
             stderr: result.stderr + segmentResult.stderr,
             exitCode: segmentResult.exitCode,
             clear: result.clear || segmentResult.clear,
+            pager: segmentResult.pager || result.pager,
         };
     }
 
@@ -1134,18 +1158,30 @@ registerCommand('echo', (args) => {
 });
 
 registerCommand('man', (args) => {
+    if (args.includes('--help') || args.includes('-h')) {
+        return { stdout: HELP_PAGES.man, stderr: '', exitCode: 0 };
+    }
     if (args.length === 0) {
         return { stdout: '', stderr: 'What manual page do you want?\n', exitCode: 1 };
     }
-    const page = HELP_PAGES[args[0]];
+    const command = args[0];
+    const page = getManPageText(command);
     if (!page) {
         return {
             stdout: '',
-            stderr: `No manual entry for ${args[0]}\n`,
+            stderr: `No manual entry for ${command}\n`,
             exitCode: 1,
         };
     }
-    return { stdout: page, stderr: '', exitCode: 0 };
+    return {
+        stdout: '',
+        stderr: '',
+        exitCode: 0,
+        pager: {
+            command,
+            content: page,
+        },
+    };
 });
 
 const CURL_RESPONSES = {
