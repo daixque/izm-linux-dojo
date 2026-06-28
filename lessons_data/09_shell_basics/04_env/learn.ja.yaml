@@ -32,7 +32,7 @@ content: |
   </table>
   <p><code>$PATH</code> には、<code>ls</code> や <code>grep</code> などのコマンドがどのフォルダから探されるかが書かれています。</p>
 
-  <h2>なぜ知っておくか</h2>
+  <h2><code>~</code> と <code>$HOME</code> の関係</h2>
   <p>設定ファイルやスクリプトで <code>$HOME</code> が使われることがあります。「自分のホームはどこか」を環境変数で確認できます。第1章で学んだ <code>~</code>（ホームを表す記号）も、内部的には <code>$HOME</code> と同じ場所を指します。</p>
 
   <h2>次のステップ</h2>
