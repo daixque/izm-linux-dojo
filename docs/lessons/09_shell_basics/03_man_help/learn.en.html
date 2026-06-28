@@ -34,10 +34,11 @@
 
 <h2>The <code>--help</code> / <code>-h</code> Option</h2>
 <p>Many commands show a brief description with <code>--help</code>. This is a quick place to start.</p>
-<p><code>-h</code> is the short form of <code>--help</code>. In the terminal, <code>-h</code> is used more often. On many commands, both show the same help text.</p>
-<pre><code>$ ls --help
-Usage: ls [OPTION]... [FILE]...
-List directory contents.
+<p><code>-h</code> is the short form of <code>--help</code>. In the terminal, <code>-h</code> is used more often on some commands. On many commands, both show the same help text.</p>
+<p>However, <code>-h</code> does <strong>not</strong> always mean help. For example, <code>ls -h</code> shows file sizes in a human-readable format—it is not the help page. When you want help, try <code>--help</code> first.</p>
+<pre><code>$ grep --help
+Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE.
 ...</code></pre>
 
 <h2>The <code>man</code> Command</h2>
@@ -47,7 +48,7 @@ List directory contents.
 
 <h2>What to Remember</h2>
 <ul>
-  <li>Try <code>command --help</code> or <code>command -h</code> first</li>
+  <li>Try <code>command --help</code> first (or <code>command -h</code> on many commands)</li>
   <li>Use <code>man command</code> when you want more detail</li>
 </ul>
 

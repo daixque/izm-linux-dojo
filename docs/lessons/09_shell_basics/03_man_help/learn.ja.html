@@ -35,10 +35,11 @@
 
 <h2><code>--help</code> / <code>-h</code> オプション</h2>
 <p>多くのコマンドは <code>--help</code> を付けると、短い使い方の説明を表示します。まずこちらを試すのが手軽です。</p>
-<p><code>--help</code> の短い形として <code>-h</code> があります。ターミナルでは <code>-h</code> の方がよく使われます。多くのコマンドではどちらも同じヘルプを表示します。</p>
-<pre><code>$ ls --help
-Usage: ls [OPTION]... [FILE]...
-List directory contents.
+<p><code>--help</code> の短い形として <code>-h</code> があります。ターミナルでは <code>-h</code> の方がよく使われることもあります。多くのコマンドではどちらも同じヘルプを表示します。</p>
+<p>ただし <code>-h</code> は、コマンドによっては<strong>別の意味</strong>を持つことがあります。例えば <code>ls -h</code> はヘルプではなく、ファイルサイズを読みやすい単位で表示するオプションです。ヘルプを見たいときは、まず <code>--help</code> を試すと確実です。</p>
+<pre><code>$ grep --help
+Usage: grep [OPTION]... PATTERN [FILE]...
+Search for PATTERN in each FILE.
 ...</code></pre>
 <p>オプションの一覧や簡単な説明が表示されます。画面が長くなることもありますが、スクロールして読めます。</p>
 
@@ -54,7 +55,7 @@ List directory contents.
     <tr><th>方法</th><th>いつ使うか</th></tr>
   </thead>
   <tbody>
-    <tr><td><code>コマンド --help</code> または <code>コマンド -h</code></td><td>まず試す。短い説明で十分なとき</td></tr>
+    <tr><td><code>コマンド --help</code>（または <code>コマンド -h</code>）</td><td>まず試す。短い説明で十分なとき</td></tr>
     <tr><td><code>man コマンド</code></td><td>もっと詳しく知りたいとき</td></tr>
   </tbody>
 </table>
