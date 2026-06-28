@@ -57,6 +57,9 @@ class TerminalUI {
                 if (domEvent.key === 'Enter' || domEvent.keyCode === 13) {
                     return false;
                 }
+                if (this._tryCursorShortcut(domEvent)) {
+                    return false;
+                }
             }
             return true;
         });
@@ -195,6 +198,10 @@ class TerminalUI {
             return;
         }
 
+        if (this._tryCursorShortcut(domEvent)) {
+            return;
+        }
+
         const printable = !domEvent.altKey && !domEvent.ctrlKey && !domEvent.metaKey;
 
         if (domEvent.keyCode === 9) {
@@ -271,6 +278,42 @@ class TerminalUI {
                 this._applyLineUpdate(oldLine, oldCursorPos);
             }
         }
+    }
+
+    _isCtrlShortcut(domEvent, letter) {
+        if (!domEvent.ctrlKey || domEvent.metaKey || domEvent.altKey) {
+            return false;
+        }
+        const key = domEvent.key;
+        return key === letter || key === letter.toUpperCase();
+    }
+
+    _moveCursorTo(newPos) {
+        const target = Math.max(0, Math.min(newPos, this.currentLine.length));
+        const delta = target - this.cursorPos;
+        if (delta === 0) {
+            return;
+        }
+        if (delta < 0) {
+            this.term.write('\x1b[' + (-delta) + 'D');
+        } else {
+            this.term.write('\x1b[' + delta + 'C');
+        }
+        this.cursorPos = target;
+    }
+
+    _tryCursorShortcut(domEvent) {
+        if (this._isCtrlShortcut(domEvent, 'a')) {
+            domEvent.preventDefault();
+            this._moveCursorTo(0);
+            return true;
+        }
+        if (this._isCtrlShortcut(domEvent, 'e')) {
+            domEvent.preventDefault();
+            this._moveCursorTo(this.currentLine.length);
+            return true;
+        }
+        return false;
     }
 
     _handleTab() {
