@@ -36,13 +36,14 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 課題内容</h3>
-                        <p><code>app.log</code> に対して、行番号付きの検索と件数カウントを行いましょう。</p>
+                        <p><code>app.log</code> に対して、行番号付きの検索、除外検索、件数カウントを行いましょう。</p>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ やること</h4>
                         <ul>
                             <li><code>grep -n ERROR app.log</code> で行番号付きで ERROR 行を表示します</li>
+                            <li><code>grep -v ERROR app.log</code> で ERROR を含まない行を表示します</li>
                             <li><code>grep -c ERROR app.log</code> で ERROR 行の件数を確認します</li>
                             <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
                         </ul>
@@ -54,6 +55,7 @@
                         </h4>
                         <ul class="hints-content" style="display: none;">
                             <li>オプションはパターンの前に付けます: <code>grep -n パターン ファイル</code></li>
+                            <li>-v はパターンに一致しない行だけを表示します</li>
                             <li>-c の結果は数字 1 行だけです</li>
                         </ul>
                     </div>
@@ -129,8 +131,8 @@
         const LESSON_ID = "07_search/02_grep_options";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"app.log": {"content": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-02 ERROR Connection failed\n2024-01-03 INFO User login\n2024-01-03 ERROR Disk full\n2024-01-04 INFO Shutdown\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "grep -n ERROR app.log", "description": "grep -n \u306e\u51fa\u529b\u3092\u78ba\u8a8d", "expected_output": "4:2024-01-02 ERROR Connection failed\n6:2024-01-03 ERROR Disk full\n", "name": "\u884c\u756a\u53f7\u4ed8\u304d grep", "type": "command_output"}, {"command": "grep -c ERROR app.log", "description": "grep -c \u306e\u51fa\u529b\u3092\u78ba\u8a8d", "expected_output": "2\n", "name": "\u4ef6\u6570\u30ab\u30a6\u30f3\u30c8", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["grep -n ERROR app.log", "grep -c ERROR app.log"];
+        const TESTS = [{"command": "grep -n ERROR app.log", "description": "grep -n \u306e\u51fa\u529b\u3092\u78ba\u8a8d", "expected_output": "4:2024-01-02 ERROR Connection failed\n6:2024-01-03 ERROR Disk full\n", "name": "\u884c\u756a\u53f7\u4ed8\u304d grep", "type": "command_output"}, {"command": "grep -v ERROR app.log", "description": "grep -v \u306e\u51fa\u529b\u3092\u78ba\u8a8d", "expected_output": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-03 INFO User login\n2024-01-04 INFO Shutdown\n", "name": "\u9664\u5916\u691c\u7d22", "type": "command_output"}, {"command": "grep -c ERROR app.log", "description": "grep -c \u306e\u51fa\u529b\u3092\u78ba\u8a8d", "expected_output": "2\n", "name": "\u4ef6\u6570\u30ab\u30a6\u30f3\u30c8", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["grep -n ERROR app.log", "grep -v ERROR app.log", "grep -c ERROR app.log"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

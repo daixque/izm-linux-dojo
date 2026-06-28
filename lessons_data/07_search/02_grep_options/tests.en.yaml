@@ -24,6 +24,7 @@ initial_cwd: /home/user
 
 solution_commands:
   - "grep -n ERROR app.log"
+  - "grep -v ERROR app.log"
   - "grep -c ERROR app.log"
 
 tests:
@@ -34,6 +35,16 @@ tests:
     expected_output: |
       4:2024-01-02 ERROR Connection failed
       6:2024-01-03 ERROR Disk full
+  - name: "Inverted match"
+    description: "Verify grep -v output"
+    type: command_output
+    command: "grep -v ERROR app.log"
+    expected_output: |
+      2024-01-01 INFO Server started
+      2024-01-01 INFO Listening on port 8080
+      2024-01-02 WARN Low memory
+      2024-01-03 INFO User login
+      2024-01-04 INFO Shutdown
   - name: "Match count"
     description: "Verify grep -c output"
     type: command_output

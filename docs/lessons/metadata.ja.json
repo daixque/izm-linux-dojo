@@ -234,7 +234,7 @@
           "id": "07_search/02_grep_options",
           "number": "07-02",
           "title": "検索条件を細かく指定する",
-          "description": "grep の -n と -c オプションを使います。",
+          "description": "grep の -n、-v、-c オプションを使います。",
           "available": true
         },
         {

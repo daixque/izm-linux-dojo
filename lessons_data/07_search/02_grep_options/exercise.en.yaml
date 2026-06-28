@@ -5,16 +5,18 @@ lesson:
   id: "07_search/02_grep_options"
   title: "Refining Text Search"
 
-description: "Use grep -n and grep -c options."
+description: "Use grep -n, -v, and -c options."
 
 task_description: |
-  <p>Search <code>app.log</code> with line numbers and count matches.</p>
+  <p>Search <code>app.log</code> with line numbers, exclude matches, and count results.</p>
 
 instructions:
   - "Run <code>grep -n ERROR app.log</code> to show ERROR lines with line numbers"
+  - "Run <code>grep -v ERROR app.log</code> to show lines that do not contain ERROR"
   - "Run <code>grep -c ERROR app.log</code> to count ERROR lines"
   - "Click the <strong>Test</strong> button when ready"
 
 hints:
   - "Put options before the pattern: <code>grep -n PATTERN FILE</code>"
+  - "-v shows only lines that do not match the pattern"
   - "-c prints a single number"

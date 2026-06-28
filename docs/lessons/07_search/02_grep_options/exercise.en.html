@@ -36,13 +36,14 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 Task</h3>
-                        <p>Search <code>app.log</code> with line numbers and count matches.</p>
+                        <p>Search <code>app.log</code> with line numbers, exclude matches, and count results.</p>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ Instructions</h4>
                         <ul>
                             <li>Run <code>grep -n ERROR app.log</code> to show ERROR lines with line numbers</li>
+                            <li>Run <code>grep -v ERROR app.log</code> to show lines that do not contain ERROR</li>
                             <li>Run <code>grep -c ERROR app.log</code> to count ERROR lines</li>
                             <li>Click the <strong>Test</strong> button when ready</li>
                         </ul>
@@ -54,6 +55,7 @@
                         </h4>
                         <ul class="hints-content" style="display: none;">
                             <li>Put options before the pattern: <code>grep -n PATTERN FILE</code></li>
+                            <li>-v shows only lines that do not match the pattern</li>
                             <li>-c prints a single number</li>
                         </ul>
                     </div>
@@ -129,8 +131,8 @@
         const LESSON_ID = "07_search/02_grep_options";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"app.log": {"content": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-02 ERROR Connection failed\n2024-01-03 INFO User login\n2024-01-03 ERROR Disk full\n2024-01-04 INFO Shutdown\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "grep -n ERROR app.log", "description": "Verify grep -n output", "expected_output": "4:2024-01-02 ERROR Connection failed\n6:2024-01-03 ERROR Disk full\n", "name": "grep with line numbers", "type": "command_output"}, {"command": "grep -c ERROR app.log", "description": "Verify grep -c output", "expected_output": "2\n", "name": "Match count", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["grep -n ERROR app.log", "grep -c ERROR app.log"];
+        const TESTS = [{"command": "grep -n ERROR app.log", "description": "Verify grep -n output", "expected_output": "4:2024-01-02 ERROR Connection failed\n6:2024-01-03 ERROR Disk full\n", "name": "grep with line numbers", "type": "command_output"}, {"command": "grep -v ERROR app.log", "description": "Verify grep -v output", "expected_output": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-03 INFO User login\n2024-01-04 INFO Shutdown\n", "name": "Inverted match", "type": "command_output"}, {"command": "grep -c ERROR app.log", "description": "Verify grep -c output", "expected_output": "2\n", "name": "Match count", "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["grep -n ERROR app.log", "grep -v ERROR app.log", "grep -c ERROR app.log"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

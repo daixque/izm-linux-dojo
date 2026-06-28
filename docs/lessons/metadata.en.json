@@ -234,7 +234,7 @@
           "id": "07_search/02_grep_options",
           "number": "07-02",
           "title": "Refining Text Search",
-          "description": "Use grep -n and grep -c options.",
+          "description": "Use grep -n, -v, and -c options.",
           "available": true
         },
         {
