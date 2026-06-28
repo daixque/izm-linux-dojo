@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "02"
   id: "05_permissions/02_chmod_symbolic"
-  title: "記号形式で権限を変更する"
+  title: "ファイルの権限を変更する"
 
 content: |
   <h2>権限を変更する理由</h2>

@@ -168,7 +168,7 @@
         {
           "id": "05_permissions/02_chmod_symbolic",
           "number": "05-02",
-          "title": "記号形式で権限を変更する",
+          "title": "ファイルの権限を変更する",
           "description": "chmod の記号形式で、自分のファイルに実行権限を付与します。",
           "available": true
         },

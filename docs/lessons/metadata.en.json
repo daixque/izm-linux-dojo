@@ -168,7 +168,7 @@
         {
           "id": "05_permissions/02_chmod_symbolic",
           "number": "05-02",
-          "title": "Changing Permissions with Symbolic Mode",
+          "title": "Changing File Permissions",
           "description": "Use symbolic chmod to add execute permission to your file.",
           "available": true
         },
