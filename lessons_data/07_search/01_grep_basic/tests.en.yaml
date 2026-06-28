@@ -23,6 +23,7 @@ initial_filesystem:
 initial_cwd: /home/user
 
 solution_commands:
+  - "cat app.log"
   - "grep ERROR app.log"
 
 tests:

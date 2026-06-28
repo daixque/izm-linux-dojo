@@ -36,13 +36,14 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 課題内容</h3>
-                        <p>ホームディレクトリにある <code>app.log</code> から、<code>ERROR</code> を含む行だけを <code>grep</code> で表示しましょう。</p>
+                        <p>ホームディレクトリにある <code>app.log</code> の内容を <code>cat</code> で確認してから、<code>ERROR</code> を含む行だけを <code>grep</code> で表示しましょう。</p>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ やること</h4>
                         <ul>
                             <li><code>ls</code> で <code>app.log</code> があることを確認します</li>
+                            <li><code>cat app.log</code> でファイル全体を確認します</li>
                             <li><code>grep ERROR app.log</code> を実行します</li>
                             <li>ERROR 行が 2 行表示されることを確認します</li>
                             <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
@@ -131,7 +132,7 @@
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"app.log": {"content": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-02 ERROR Connection failed\n2024-01-03 INFO User login\n2024-01-03 ERROR Disk full\n2024-01-04 INFO Shutdown\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
         const TESTS = [{"command": "grep ERROR app.log", "description": "grep ERROR app.log \u306e\u51fa\u529b\u3092\u78ba\u8a8d", "expected_output": "2024-01-02 ERROR Connection failed\n2024-01-03 ERROR Disk full\n", "name": "ERROR \u884c\u304c 2 \u884c\u8868\u793a\u3055\u308c\u308b", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["grep ERROR app.log"];
+        const SOLUTION_COMMANDS = ["cat app.log", "grep ERROR app.log"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

@@ -36,13 +36,14 @@
                 <div class="task-content">
                     <div class="task-description">
                         <h3>📋 Task</h3>
-                        <p>Use <code>grep</code> to show only lines containing <code>ERROR</code> in <code>app.log</code>.</p>
+                        <p>Run <code>cat</code> to view the full contents of <code>app.log</code>, then use <code>grep</code> to show only lines containing <code>ERROR</code>.</p>
 
                     </div>
                     <div class="instructions">
                         <h4>✏️ Instructions</h4>
                         <ul>
                             <li>Run <code>ls</code> to confirm <code>app.log</code> exists</li>
+                            <li>Run <code>cat app.log</code> to view the entire file</li>
                             <li>Run <code>grep ERROR app.log</code></li>
                             <li>Confirm that two ERROR lines are displayed</li>
                             <li>Click the <strong>Test</strong> button when ready</li>
@@ -131,7 +132,7 @@
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"app.log": {"content": "2024-01-01 INFO Server started\n2024-01-01 INFO Listening on port 8080\n2024-01-02 WARN Low memory\n2024-01-02 ERROR Connection failed\n2024-01-03 INFO User login\n2024-01-03 ERROR Disk full\n2024-01-04 INFO Shutdown\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
         const TESTS = [{"command": "grep ERROR app.log", "description": "Verify grep ERROR app.log output", "expected_output": "2024-01-02 ERROR Connection failed\n2024-01-03 ERROR Disk full\n", "name": "Two ERROR lines are displayed", "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["grep ERROR app.log"];
+        const SOLUTION_COMMANDS = ["cat app.log", "grep ERROR app.log"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

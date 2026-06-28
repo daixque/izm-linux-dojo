@@ -8,10 +8,11 @@ lesson:
 description: "grep を使ってログファイルから ERROR 行を抽出します。"
 
 task_description: |
-  <p>ホームディレクトリにある <code>app.log</code> から、<code>ERROR</code> を含む行だけを <code>grep</code> で表示しましょう。</p>
+  <p>ホームディレクトリにある <code>app.log</code> の内容を <code>cat</code> で確認してから、<code>ERROR</code> を含む行だけを <code>grep</code> で表示しましょう。</p>
 
 instructions:
   - "<code>ls</code> で <code>app.log</code> があることを確認します"
+  - "<code>cat app.log</code> でファイル全体を確認します"
   - "<code>grep ERROR app.log</code> を実行します"
   - "ERROR 行が 2 行表示されることを確認します"
   - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"

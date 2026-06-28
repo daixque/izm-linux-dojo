@@ -8,10 +8,11 @@ lesson:
 description: "Use grep to extract ERROR lines from a log file."
 
 task_description: |
-  <p>Use <code>grep</code> to show only lines containing <code>ERROR</code> in <code>app.log</code>.</p>
+  <p>Run <code>cat</code> to view the full contents of <code>app.log</code>, then use <code>grep</code> to show only lines containing <code>ERROR</code>.</p>
 
 instructions:
   - "Run <code>ls</code> to confirm <code>app.log</code> exists"
+  - "Run <code>cat app.log</code> to view the entire file"
   - "Run <code>grep ERROR app.log</code>"
   - "Confirm that two ERROR lines are displayed"
   - "Click the <strong>Test</strong> button when ready"
