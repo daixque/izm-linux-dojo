@@ -30,7 +30,7 @@
 
         <main class="content" id="content">
             <h2>Filename Patterns</h2>
-<p>The <code>*</code> in <code>find -name "*.txt"</code> is called a <strong>wildcard</strong>. It lets you specify part of a filename loosely. Before running the command, the shell <strong>expands wildcards into actual filenames</strong>.</p>
+<p>The <code>*</code> in <code>find -name "*.txt"</code> is called a <strong>wildcard</strong>. It lets you specify part of a filename loosely. Before the command runs, wildcards are <strong>replaced with actual filenames</strong>. This replacement is called <strong>expansion</strong>.</p>
 
 <h2>Common Wildcards</h2>
 <table>
@@ -46,11 +46,11 @@
 <h2>Example: <code>ls *.txt</code></h2>
 <pre><code>$ ls *.txt
 notes.txt  readme.txt</code></pre>
-<p>The shell replaces <code>*.txt</code> with matching filenames in the current directory, then runs <code>ls</code>.</p>
+<p>Before the command runs, <code>*.txt</code> is replaced with filenames ending in .txt in the current directory, and then <code>ls</code> runs. It is the same as running <code>ls notes.txt readme.txt</code>.</p>
 
 <h2>Wildcards vs find</h2>
 <ul>
-  <li><strong>Wildcards</strong> — expanded by the shell (usually one directory level, near the current folder)</li>
+  <li><strong>Wildcards</strong> — expanded automatically before the command runs (usually one directory level, in the current folder)</li>
   <li><strong>find</strong> — searches through subdirectories too</li>
 </ul>
 

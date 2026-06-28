@@ -8,7 +8,7 @@ lesson:
 content: |
   <h2>ファイル名の一部をざっくり指定する</h2>
   <p>前のレッスンで <code>find -name "*.txt"</code> を使いました。この <code>*</code> のような記号を<strong>ワイルドカード</strong>と呼びます。ファイル名の一部を「ここは何でもよい」とざっくり指定できます。</p>
-  <p>シェルはコマンドを実行する<strong>前</strong>に、ワイルドカードを<strong>実際のファイル名に置き換え</strong>ます。この置き換えを「展開」と呼びます。</p>
+  <p>コマンドを実行する<strong>前</strong>に、ワイルドカードが<strong>実際のファイル名に置き換え</strong>られます。この置き換えを「展開」と呼びます。</p>
 
   <h2>主なワイルドカード</h2>
   <table>
@@ -24,7 +24,7 @@ content: |
   <h2><code>ls *.txt</code> の例</h2>
   <pre><code>$ ls *.txt
   notes.txt  readme.txt</code></pre>
-  <p>シェルは <code>*.txt</code> を、今いるディレクトリで .txt で終わるファイル名に置き換えてから <code>ls</code> を実行します。実際には <code>ls notes.txt readme.txt</code> と同じ意味になります。</p>
+  <p>コマンドを実行する前に <code>*.txt</code> が、今いるディレクトリで .txt で終わるファイル名に置き換えられ、そのあと <code>ls</code> が実行されます。実際には <code>ls notes.txt readme.txt</code> と同じ意味になります。</p>
 
   <h2>ワイルドカードと find の違い</h2>
   <table>
@@ -32,7 +32,7 @@ content: |
       <tr><th>方法</th><th>動き</th></tr>
     </thead>
     <tbody>
-      <tr><td><strong>ワイルドカード</strong></td><td>シェルが展開する。主に今いるディレクトリの 1 階層で使う</td></tr>
+      <tr><td><strong>ワイルドカード</strong></td><td>実行前に自動で展開される。主に今いるディレクトリの 1 階層で使う</td></tr>
       <tr><td><strong>find</strong></td><td>指定したフォルダの下の階層すべてをたどって探す</td></tr>
     </tbody>
   </table>

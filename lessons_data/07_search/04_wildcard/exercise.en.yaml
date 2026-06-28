@@ -17,5 +17,5 @@ instructions:
   - "Click the <strong>Test</strong> button when ready"
 
 hints:
-  - "The shell expands <code>*</code> automatically"
+  - "Wildcards such as <code>*</code> are expanded automatically before the command runs"
   - "If nothing matches, the pattern may appear literally"

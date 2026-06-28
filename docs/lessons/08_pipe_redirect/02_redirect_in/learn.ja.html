@@ -45,10 +45,10 @@
   </thead>
   <tbody>
     <tr><td><code>grep ERROR app.log</code></td><td>grep に「このファイルを読んで」と<strong>ファイル名を渡す</strong></td></tr>
-    <tr><td><code>grep ERROR &lt; app.log</code></td><td>シェルが app.log の内容を読み、grep の<strong>標準入力に流し込む</strong></td></tr>
+    <tr><td><code>grep ERROR &lt; app.log</code></td><td><code>&lt;</code> により app.log の内容が grep の<strong>標準入力に流し込まれる</strong></td></tr>
   </tbody>
 </table>
-<p>どちらも grep は app.log の内容を調べます。表示される結果は同じです。違いは「grep 自身がファイルを開く」のか「シェルが内容を渡す」のか、という点です。</p>
+<p>どちらも grep は app.log の内容を調べます。表示される結果は同じです。違いは「grep 自身がファイルを開く」のか「<code>&lt;</code> で内容が渡される」のか、という点です。</p>
 
 <h2>入力リダイレクトの例</h2>
 <pre><code>$ grep ERROR &lt; app.log
