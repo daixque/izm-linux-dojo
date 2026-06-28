@@ -120,13 +120,6 @@
           "title": "Counting Lines and Words in Files",
           "description": "Use wc to count lines and words in a file.",
           "available": true
-        },
-        {
-          "id": "03_view_text/04_less_sim",
-          "number": "03-04",
-          "title": "Reading Parts of Long Files",
-          "description": "Use head and tail to inspect parts of a long story.txt file.",
-          "available": true
         }
       ]
     },

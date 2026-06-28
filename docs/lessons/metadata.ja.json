@@ -120,13 +120,6 @@
           "title": "ファイルの行数や語数を数える",
           "description": "wc コマンドでファイルの行数・語数を数えます。",
           "available": true
-        },
-        {
-          "id": "03_view_text/04_less_sim",
-          "number": "03-04",
-          "title": "長いファイルの必要な部分を読む",
-          "description": "長い story.txt から head と tail で必要な部分だけ確認します。",
-          "available": true
         }
       ]
     },

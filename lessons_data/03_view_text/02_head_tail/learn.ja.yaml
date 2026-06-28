@@ -41,5 +41,9 @@ content: |
   </ul>
   <p>たとえばログファイルなら、<code>head</code> で項目の並びを確認し、<code>tail</code> で直近のエラーやメッセージを確認する、という使い方が現場でもよくあります。</p>
 
+  <h2>本物の Linux では <code>less</code> も使う</h2>
+  <p>本物の Linux では <code>less</code> や <code>more</code> というコマンドがあり、長いファイルを<strong>1 画面ずつ</strong>めくりながら読めます。<kbd>Space</kbd> キーで次のページへ進み、<kbd>q</kbd> キーで終了します。</p>
+  <p>ブラウザ上のシミュレータでは <code>less</code> のページ操作を再現していません。この道場では <code>head</code> と <code>tail</code> で必要な部分だけ確認する方法を使います。</p>
+
   <h2>次のステップ</h2>
   <p>演習ページで、ログファイルの先頭 5 行と末尾 3 行を表示してみましょう。</p>
