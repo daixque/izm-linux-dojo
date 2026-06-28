@@ -37,16 +37,22 @@
 <pre><code>コマンド1 | コマンド2</code></pre>
 <p>左のコマンドの標準出力が、右のコマンドの標準入力に渡されます。</p>
 
-<h2>例: ログから ERROR を数える</h2>
-<pre><code>$ cat app.log | grep ERROR | wc -l
-2</code></pre>
-<p>3 つのコマンドが左から順に処理されます。</p>
+<h2>例: ログから ERROR を絞り込む</h2>
+<p>まずは 2 つのコマンドをつなげてみましょう。</p>
+<pre><code>$ cat app.log | grep ERROR
+2024-01-01 ERROR: connection failed
+2024-01-02 ERROR: timeout</code></pre>
 <ol>
   <li><code>cat app.log</code> — ファイルの内容を出力する</li>
   <li><code>grep ERROR</code> — ERROR を含む行だけに絞る</li>
-  <li><code>wc -l</code> — 行数を数える（第3章で学んだ <code>wc</code>）</li>
 </ol>
-<p>最終的に「ERROR 行が 2 行ある」という結果が表示されます。</p>
+<p>左の出力がそのまま右の入力になるので、ERROR 行だけが表示されます。</p>
+
+<h2>3 つ以上もつなげられる</h2>
+<p>パイプは 2 つだけに限りません。さらに右へつなげて、件数まで数えることもできます。</p>
+<pre><code>$ cat app.log | grep ERROR | wc -l
+2</code></pre>
+<p>3 つ目の <code>wc -l</code>（第3章で学んだ <code>wc</code>）が行数を数え、「ERROR 行が 2 行ある」という結果が表示されます。</p>
 
 <h2>パイプの利点</h2>
 <p>パイプを使えば、一時的なファイルを作らずに処理をつなげられます。データが左から右へ流れていくので、処理の流れも読みやすくなります。</p>

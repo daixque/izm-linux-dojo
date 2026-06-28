@@ -35,14 +35,22 @@
 <h2>Basic Form</h2>
 <pre><code>command1 | command2</code></pre>
 
-<h2>Example: Count ERROR Lines in a Log</h2>
-<pre><code>$ cat app.log | grep ERROR | wc -l
-2</code></pre>
+<h2>Example: Filter ERROR Lines from a Log</h2>
+<p>Start by connecting two commands.</p>
+<pre><code>$ cat app.log | grep ERROR
+2024-01-01 ERROR: connection failed
+2024-01-02 ERROR: timeout</code></pre>
 <ol>
   <li><code>cat app.log</code> — outputs the file contents</li>
   <li><code>grep ERROR</code> — keeps only ERROR lines</li>
-  <li><code>wc -l</code> — counts the lines</li>
 </ol>
+<p>The left command's output becomes the right command's input, so only ERROR lines are shown.</p>
+
+<h2>Chain Three or More Commands</h2>
+<p>Pipes are not limited to two commands. You can keep chaining to the right—for example, to count the lines.</p>
+<pre><code>$ cat app.log | grep ERROR | wc -l
+2</code></pre>
+<p>The third command, <code>wc -l</code> (covered in Chapter 3), counts the lines and shows that there are 2 ERROR lines.</p>
 
 <h2>No Need for Intermediate Files</h2>
 <p>With pipes, you can chain processing without creating temporary files in between.</p>
