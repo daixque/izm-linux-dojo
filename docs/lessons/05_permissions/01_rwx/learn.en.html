@@ -51,6 +51,16 @@ drwxr-xr-x 2 user user 4096 Jan  1 10:00 bin</code></pre>
   <li><strong>Chars 5–7</strong> — group's rwx</li>
   <li><strong>Chars 8–10</strong> — others' rwx</li>
 </ul>
+<p>The 10 characters are split into four sections:</p>
+<table>
+  <thead>
+    <tr><th>Example</th><th>Char 1 (type)</th><th>Chars 2–4 (owner)</th><th>Chars 5–7 (group)</th><th>Chars 8–10 (others)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>notes.txt</code></td><td><code>-</code></td><td><code>rw-</code></td><td><code>r--</code></td><td><code>r--</code></td></tr>
+    <tr><td><code>bin</code></td><td><code>d</code></td><td><code>rwx</code></td><td><code>r-x</code></td><td><code>r-x</code></td></tr>
+  </tbody>
+</table>
 <p><code>-</code> means that permission is off. <code>rw-</code> means read and write, not execute.</p>
 
 <h2>Examples</h2>

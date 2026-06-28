@@ -45,6 +45,7 @@
                             <li><code>ls -l hello.sh</code> で現在の権限を確認します（実行権限なし）</li>
                             <li><code>chmod u+x hello.sh</code> でオーナーに実行権限を追加します</li>
                             <li><code>ls -l hello.sh</code> で <code>x</code> が付いたことを確認します</li>
+                            <li><code>./hello.sh</code> を実行して <code>Hello</code> と表示されることを確認します</li>
                             <li>準備ができたら <strong>テスト</strong> ボタンをクリックしてください</li>
                         </ul>
                     </div>
@@ -131,8 +132,8 @@
         const LESSON_ID = "05_permissions/02_chmod_symbolic";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"hello.sh": {"content": "#!/bin/bash\necho Hello\n", "group": "user", "mode": 644, "owner": "user", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "ls -l hello.sh", "description": "chmod u+x \u5f8c\u306e ls -l \u3092\u78ba\u8a8d", "expected_output": "-rwxr--r-- 1 user user   23 Jan  1 10:00 hello.sh\n", "name": "hello.sh \u306b\u5b9f\u884c\u6a29\u9650\u304c\u4ed8\u3044\u3066\u3044\u308b", "setup_commands": ["chmod u+x hello.sh"], "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["chmod u+x hello.sh", "ls -l hello.sh"];
+        const TESTS = [{"command": "ls -l hello.sh", "description": "chmod u+x \u5f8c\u306e ls -l \u3092\u78ba\u8a8d", "expected_output": "-rwxr--r-- 1 user user   23 Jan  1 10:00 hello.sh\n", "name": "hello.sh \u306b\u5b9f\u884c\u6a29\u9650\u304c\u4ed8\u3044\u3066\u3044\u308b", "setup_commands": ["chmod u+x hello.sh"], "type": "command_output"}, {"command": "./hello.sh", "description": "chmod u+x \u5f8c\u306b ./hello.sh \u3092\u5b9f\u884c", "expected_output": "Hello\n", "name": "hello.sh \u3092\u5b9f\u884c\u3067\u304d\u308b", "setup_commands": ["chmod u+x hello.sh"], "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["chmod u+x hello.sh", "ls -l hello.sh", "./hello.sh"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

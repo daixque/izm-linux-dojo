@@ -14,6 +14,7 @@ initial_cwd: /home/user
 solution_commands:
   - chmod u+x hello.sh
   - ls -l hello.sh
+  - ./hello.sh
 
 tests:
   - name: "hello.sh has execute permission"
@@ -23,3 +24,11 @@ tests:
       - chmod u+x hello.sh
     command: ls -l hello.sh
     expected_output: "-rwxr--r-- 1 user user   23 Jan  1 10:00 hello.sh\n"
+
+  - name: "hello.sh runs successfully"
+    description: "run ./hello.sh after chmod u+x"
+    type: command_output
+    setup_commands:
+      - chmod u+x hello.sh
+    command: ./hello.sh
+    expected_output: "Hello\n"

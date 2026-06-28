@@ -23,6 +23,20 @@ content: |
   $ chmod u=rw,go=r file    # owner: rw; group and others: r only</code></pre>
   <p>Always verify with <code>ls -l</code> after changing permissions.</p>
 
+  <h2>Example — Add Execute for the Owner</h2>
+  <p>Make the script <code>hello.sh</code> runnable:</p>
+  <pre><code>$ ls -l hello.sh
+  -rw-r--r-- 1 user user  20 Jan  1 10:00 hello.sh
+
+  $ chmod u+x hello.sh
+
+  $ ls -l hello.sh
+  -rwxr--r-- 1 user user  20 Jan  1 10:00 hello.sh
+
+  $ ./hello.sh
+  Hello</code></pre>
+  <p><code>u+x</code> means add execute (<code>x</code>) for the owner (<code>u</code>). After the change, the owner triplet becomes <code>rwx</code>.</p>
+
   <h2>Note</h2>
   <p>You cannot <code>chmod</code> a file you do not own (Operation not permitted). Only the owner or an administrator can change permissions.</p>
 

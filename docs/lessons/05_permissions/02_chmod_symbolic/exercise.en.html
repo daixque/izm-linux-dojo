@@ -45,6 +45,7 @@
                             <li>Run <code>ls -l hello.sh</code> to see current permissions (no execute yet)</li>
                             <li>Run <code>chmod u+x hello.sh</code> to add execute for the owner</li>
                             <li>Run <code>ls -l hello.sh</code> again and confirm <code>x</code> appears</li>
+                            <li>Run <code>./hello.sh</code> and confirm it prints <code>Hello</code></li>
                             <li>When ready, click the <strong>Test</strong> button</li>
                         </ul>
                     </div>
@@ -131,8 +132,8 @@
         const LESSON_ID = "05_permissions/02_chmod_symbolic";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"hello.sh": {"content": "#!/bin/bash\necho Hello\n", "group": "user", "mode": 644, "owner": "user", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"command": "ls -l hello.sh", "description": "confirm ls -l after chmod u+x", "expected_output": "-rwxr--r-- 1 user user   23 Jan  1 10:00 hello.sh\n", "name": "hello.sh has execute permission", "setup_commands": ["chmod u+x hello.sh"], "type": "command_output"}];
-        const SOLUTION_COMMANDS = ["chmod u+x hello.sh", "ls -l hello.sh"];
+        const TESTS = [{"command": "ls -l hello.sh", "description": "confirm ls -l after chmod u+x", "expected_output": "-rwxr--r-- 1 user user   23 Jan  1 10:00 hello.sh\n", "name": "hello.sh has execute permission", "setup_commands": ["chmod u+x hello.sh"], "type": "command_output"}, {"command": "./hello.sh", "description": "run ./hello.sh after chmod u+x", "expected_output": "Hello\n", "name": "hello.sh runs successfully", "setup_commands": ["chmod u+x hello.sh"], "type": "command_output"}];
+        const SOLUTION_COMMANDS = ["chmod u+x hello.sh", "ls -l hello.sh", "./hello.sh"];
 
         window.addEventListener('DOMContentLoaded', () => {
             if (window.i18n) window.i18n.init();

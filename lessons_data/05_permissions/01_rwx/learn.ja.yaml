@@ -28,6 +28,16 @@ content: |
     <li><strong>5〜7文字目</strong> — グループの rwx</li>
     <li><strong>8〜10文字目</strong> — その他（others）の rwx</li>
   </ul>
+  <p>10 文字は、次の 4 つのセクションに分かれます。</p>
+  <table>
+    <thead>
+      <tr><th>例</th><th>1文字目（種類）</th><th>2〜4文字目（オーナー）</th><th>5〜7文字目（グループ）</th><th>8〜10文字目（その他）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>notes.txt</code></td><td><code>-</code></td><td><code>rw-</code></td><td><code>r--</code></td><td><code>r--</code></td></tr>
+      <tr><td><code>bin</code></td><td><code>d</code></td><td><code>rwx</code></td><td><code>r-x</code></td><td><code>r-x</code></td></tr>
+    </tbody>
+  </table>
   <p><code>-</code> は「その権限なし」を意味します。たとえば <code>rw-</code> は「読める・書ける・実行不可」です。</p>
 
   <h2>具体例</h2>

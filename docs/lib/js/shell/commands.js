@@ -322,6 +322,73 @@ function getHelpText(command) {
     return HELP_PAGES[command] || null;
 }
 
+function parseScriptLines(content) {
+    const lines = [];
+    for (const rawLine of content.split('\n')) {
+        const line = rawLine.trim();
+        if (!line) continue;
+        if (line.startsWith('#!')) continue;
+        if (line.startsWith('#')) continue;
+        lines.push(line);
+    }
+    return lines;
+}
+
+function runScriptFile(vfs, scriptPath, options = {}) {
+    const displayPath = scriptPath;
+    const requireExecute = options.requireExecute !== false;
+
+    if (requireExecute) {
+        const check = vfs.checkExecuteFilePermission(scriptPath, displayPath);
+        if (!check.ok) {
+            if (check.notFound) {
+                return {
+                    stdout: '',
+                    stderr: `${displayPath}: No such file or directory\n`,
+                    exitCode: 127,
+                };
+            }
+            if (check.isDirectory) {
+                return {
+                    stdout: '',
+                    stderr: `${displayPath}: Is a directory\n`,
+                    exitCode: 126,
+                };
+            }
+            if (check.denied) {
+                return {
+                    stdout: '',
+                    stderr: `${displayPath}: Permission denied\n`,
+                    exitCode: 126,
+                };
+            }
+        }
+    }
+
+    let content;
+    try {
+        content = vfs.readFile(scriptPath);
+    } catch (err) {
+        const prefix = requireExecute ? '' : 'bash: ';
+        return {
+            stdout: '',
+            stderr: `${prefix}${err.message}\n`,
+            exitCode: requireExecute ? 127 : 1,
+        };
+    }
+
+    let stdout = '';
+    let stderr = '';
+    let exitCode = 0;
+    for (const line of parseScriptLines(content)) {
+        const result = executeCommand(line, vfs);
+        stdout += result.stdout;
+        stderr += result.stderr;
+        exitCode = result.exitCode;
+    }
+    return { stdout, stderr, exitCode };
+}
+
 function executeSingleCommand(command, args, vfs, context = {}) {
     if (!command) {
         return { stdout: '', stderr: '', exitCode: 0 };
@@ -332,6 +399,10 @@ function executeSingleCommand(command, args, vfs, context = {}) {
         if (help) {
             return { stdout: help, stderr: '', exitCode: 0 };
         }
+    }
+
+    if (command.includes('/')) {
+        return runScriptFile(vfs, command, { requireExecute: true });
     }
 
     const handler = shellCommands[command];
@@ -546,6 +617,13 @@ registerCommand('whoami', (_args, vfs) => ({
     stderr: '',
     exitCode: 0,
 }));
+
+registerCommand('bash', (args, vfs) => {
+    if (args.length === 0) {
+        return { stdout: '', stderr: '', exitCode: 0 };
+    }
+    return runScriptFile(vfs, args[0], { requireExecute: false });
+});
 
 registerCommand('chmod', (args, vfs) => {
     if (args.length < 2) {

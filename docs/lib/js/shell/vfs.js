@@ -659,6 +659,21 @@ class VirtualFilesystem {
         return { ok: true, resolved };
     }
 
+    checkExecuteFilePermission(path, displayPath) {
+        const resolved = this.normalizePath(path);
+        if (!this.exists(resolved)) {
+            return { ok: false, notFound: true, display: displayPath };
+        }
+        if (this.isDirectory(resolved)) {
+            return { ok: false, isDirectory: true, display: displayPath };
+        }
+        const perm = this._checkPermission(resolved, false, false, true);
+        if (!perm.ok) {
+            return { ok: false, denied: true, display: displayPath };
+        }
+        return { ok: true, resolved };
+    }
+
     chmod(path, modeSpec) {
         const result = this._getNode(path);
         if (!result) {

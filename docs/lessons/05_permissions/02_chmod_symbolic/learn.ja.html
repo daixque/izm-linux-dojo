@@ -78,7 +78,10 @@
 $ chmod u+x hello.sh
 
 $ ls -l hello.sh
--rwxr-xr-x 1 user user  20 Jan  1 10:00 hello.sh</code></pre>
+-rwxr--r-- 1 user user  20 Jan  1 10:00 hello.sh
+
+$ ./hello.sh
+Hello</code></pre>
 <p><code>u+x</code> は「オーナー（u）に実行権限（x）を追加（+）」という意味です。2 文字目が <code>w</code> から <code>x</code> に変わり、<code>rwx</code> になりました。</p>
 
 <h2>例 2 — グループとその他から読み取りを削除</h2>

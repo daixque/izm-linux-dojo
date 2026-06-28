@@ -17,6 +17,10 @@ function isFirstToken(line, wordStart) {
     return line.slice(0, wordStart).trim() === '';
 }
 
+function looksLikePath(word) {
+    return word.includes('/') || word.startsWith('~');
+}
+
 function splitPathWord(word) {
     const lastSlash = word.lastIndexOf('/');
     if (lastSlash === -1) {
@@ -90,7 +94,7 @@ function formatPathReplacement(dirPart, match) {
 
 function completeLine(line, cursorPos, vfs, options = {}) {
     const { start, end, word } = getWordBounds(line, cursorPos);
-    const completingCommand = isFirstToken(line, start);
+    const completingCommand = isFirstToken(line, start) && !looksLikePath(word);
 
     let matches;
     let partial;

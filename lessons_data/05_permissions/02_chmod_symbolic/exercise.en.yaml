@@ -14,6 +14,7 @@ instructions:
   - "Run <code>ls -l hello.sh</code> to see current permissions (no execute yet)"
   - "Run <code>chmod u+x hello.sh</code> to add execute for the owner"
   - "Run <code>ls -l hello.sh</code> again and confirm <code>x</code> appears"
+  - "Run <code>./hello.sh</code> and confirm it prints <code>Hello</code>"
   - "When ready, click the <strong>Test</strong> button"
 
 hints:

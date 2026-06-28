@@ -14,6 +14,7 @@ instructions:
   - "<code>ls -l hello.sh</code> で現在の権限を確認します（実行権限なし）"
   - "<code>chmod u+x hello.sh</code> でオーナーに実行権限を追加します"
   - "<code>ls -l hello.sh</code> で <code>x</code> が付いたことを確認します"
+  - "<code>./hello.sh</code> を実行して <code>Hello</code> と表示されることを確認します"
   - "準備ができたら <strong>テスト</strong> ボタンをクリックしてください"
 
 hints:
