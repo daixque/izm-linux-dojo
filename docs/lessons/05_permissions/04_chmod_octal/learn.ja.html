@@ -29,35 +29,160 @@
         </header>
 
         <main class="content" id="content">
-            <h2>数字で権限を指定する方法</h2>
-<p>記号形式のほか、<code>chmod</code> では<strong>8進数</strong>（0〜7 の 3 桁）でも権限を指定できます。<code>644</code> や <code>755</code> という数字をよく見かけるので、意味を知っておくと便利です。</p>
+            <h2>数字でも権限を書ける</h2>
+<p>前のレッスンでは <code>chmod u+x</code> のような<strong>記号形式</strong>で権限を変えました。ほかに、<code>chmod 644</code> のように<strong>数字 3 桁</strong>で指定する方法もあります。</p>
+<p>Web や書籍で <code>644</code> や <code>755</code> という数字をよく見かけます。記号形式と同じ権限を、別の書き方で表しているだけです。このレッスンでは、その数字の意味を<strong>1 から順に</strong>説明します。</p>
 
-<h2>3 桁の意味</h2>
-<p>3 桁それぞれが、オーナー・グループ・その他の rwx を数字 1 つで表します。</p>
+<h2>まず復習 — <code>ls -l</code> の権限文字列</h2>
+<p><code>ls -l</code> の 1 列目は、次の 10 文字で権限を表します（この章の最初のレッスンで学びました）。</p>
+<pre><code>-rw-r--r-- 1 user user  ... report.txt</code></pre>
 <ul>
-  <li><code>4</code>＝r（読む）、<code>2</code>＝w（書く）、<code>1</code>＝x（実行）</li>
-  <li>足し算で組み合わせます — <code>7</code>＝4+2+1＝rwx、<code>6</code>＝rw、<code>5</code>＝rx、<code>4</code>＝r</li>
+  <li><strong>1 文字目</strong> — 種類（<code>-</code>＝ファイル、<code>d</code>＝ディレクトリ）</li>
+  <li><strong>2〜4 文字目</strong> — オーナーの rwx</li>
+  <li><strong>5〜7 文字目</strong> — グループの rwx</li>
+  <li><strong>8〜10 文字目</strong> — その他（others）の rwx</li>
 </ul>
+<p>たとえば <code>rw-</code> は「読める・書ける・実行不可」、<code>r--</code> は「読めるだけ」です。数字形式は、この <code>r</code> <code>w</code> <code>x</code> の ON/OFF を 1 桁の数字にまとめたものです。</p>
 
-<h2>よく使う数字</h2>
+<h2>3 つの権限を「スイッチ」で考える</h2>
+<p>1 人分（オーナー、グループ、その他のどれか 1 つ）の権限は、次の 3 つのスイッチで表せます。</p>
 <table>
   <thead>
-    <tr><th>8進数</th><th>権限文字列</th><th>用途の例</th></tr>
+    <tr><th>スイッチ</th><th>文字</th><th>意味</th></tr>
   </thead>
   <tbody>
-    <tr><td><code>644</code></td><td><code>rw- r-- r--</code></td><td>普通のテキストファイル（オーナーは読書、その他は読みのみ）</td></tr>
-    <tr><td><code>755</code></td><td><code>rwx r-x r-x</code></td><td>ディレクトリや実行ファイル</td></tr>
-    <tr><td><code>600</code></td><td><code>rw- --- ---</code></td><td>オーナーだけが読書できるファイル</td></tr>
+    <tr><td>読む</td><td><code>r</code></td><td>内容を読める</td></tr>
+    <tr><td>書く</td><td><code>w</code></td><td>内容を変更できる</td></tr>
+    <tr><td>実行</td><td><code>x</code></td><td>プログラムとして実行できる（ディレクトリなら中に入れる）</td></tr>
+  </tbody>
+</table>
+<p>スイッチが ON なら文字が表示され、OFF なら <code>-</code> になります。</p>
+<pre><code>r  ON  /  OFF  →  r  または  -
+w  ON  /  OFF  →  w  または  -
+x  ON  /  OFF  →  x  または  -</code></pre>
+<p>たとえば「読める・書ける・実行不可」は <code>rw-</code> です（r と w が ON、x が OFF）。</p>
+
+<h2>2 進数 — 0 と 1 の 3 ビット</h2>
+<p>コンピュータは ON/OFF を <strong>1</strong> と <strong>0</strong> で表します。3 つのスイッチなら、<strong>3 ビット</strong>（3 桁の 0 と 1）になります。</p>
+<p>左から順に「読む・書く・実行」に対応させます。</p>
+<table>
+  <thead>
+    <tr><th>位置</th><th>対応する権限</th><th>ON のとき</th><th>OFF のとき</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>左</td><td>読む <code>r</code></td><td><code>1</code></td><td><code>0</code></td></tr>
+    <tr><td>中</td><td>書く <code>w</code></td><td><code>1</code></td><td><code>0</code></td></tr>
+    <tr><td>右</td><td>実行 <code>x</code></td><td><code>1</code></td><td><code>0</code></td></tr>
+  </tbody>
+</table>
+<p>具体例:</p>
+<ul>
+  <li><code>rw-</code> → r=ON, w=ON, x=OFF → 2 進数 <code>110</code></li>
+  <li><code>r-x</code> → r=ON, w=OFF, x=ON → 2 進数 <code>101</code></li>
+  <li><code>r--</code> → r=ON, w=OFF, x=OFF → 2 進数 <code>100</code></li>
+  <li><code>---</code> → 全部 OFF → 2 進数 <code>000</code></li>
+</ul>
+
+<h2>2 進数の「桁」には重みがある</h2>
+<p>2 進数では、<strong>桁の位置</strong>によって 1 の価値が変わります。たとえば 10 進数の「一の位・十の位」と同じ考え方です。</p>
+<p>2 進数では、<strong>右端から左へ 1 桁ずつ、重みが 2 倍</strong>になります。3 桁だけ使う場合は次のとおりです。</p>
+<table>
+  <thead>
+    <tr><th>桁の位置</th><th>重み</th><th>この桁が <code>1</code> のとき足される値</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>右</td><td>1</td><td>1</td></tr>
+    <tr><td>中</td><td>2</td><td>2</td></tr>
+    <tr><td>左</td><td>4</td><td>4</td></tr>
+  </tbody>
+</table>
+<p>左端は <code>1</code> でも 1 ではなく 4 です。左に 1 桁増えるたびに重みが 2 倍になる、というルールから <strong>4・2・1</strong> が決まります。権限専用の決まりではありません。</p>
+<p>前の表で「左＝r、中＝w、右＝x」と対応づけたので、重みも次のように読めます。</p>
+<ul>
+  <li>左の桁（<code>r</code>）の重み … <strong>4</strong></li>
+  <li>中の桁（<code>w</code>）の重み … <strong>2</strong></li>
+  <li>右の桁（<code>x</code>）の重み … <strong>1</strong></li>
+</ul>
+
+<h2>重みを足して 1 桁の数字にする</h2>
+<p>ON になっているスイッチの重みだけを足します。OFF の桁は 0 なので足しません。</p>
+<p>たとえば <code>110</code>（<code>rw-</code>）なら、左が 1 なので 4、中が 1 なので 2、右が 0 なので 0 → <code>4+2+0=6</code> です。</p>
+<p>3 ビットで表せる組み合わせは 2×2×2＝8 通り（0〜7）だけです。この 1 桁の数字を<strong>8 進数</strong>と呼び、<code>chmod</code> ではこの 0〜7 を 1 桁として使います。</p>
+<table>
+  <thead>
+    <tr><th>2 進数</th><th>権限文字列</th><th>重みの足し算</th><th>1 桁の数字</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>000</code></td><td><code>---</code></td><td>0+0+0</td><td><code>0</code></td></tr>
+    <tr><td><code>001</code></td><td><code>--x</code></td><td>0+0+1</td><td><code>1</code></td></tr>
+    <tr><td><code>010</code></td><td><code>-w-</code></td><td>0+2+0</td><td><code>2</code></td></tr>
+    <tr><td><code>011</code></td><td><code>-wx</code></td><td>0+2+1</td><td><code>3</code></td></tr>
+    <tr><td><code>100</code></td><td><code>r--</code></td><td>4+0+0</td><td><code>4</code></td></tr>
+    <tr><td><code>101</code></td><td><code>r-x</code></td><td>4+0+1</td><td><code>5</code></td></tr>
+    <tr><td><code>110</code></td><td><code>rw-</code></td><td>4+2+0</td><td><code>6</code></td></tr>
+    <tr><td><code>111</code></td><td><code>rwx</code></td><td>4+2+1</td><td><code>7</code></td></tr>
   </tbody>
 </table>
 
+<h2>文字列と数字の変換</h2>
+<p><strong>文字列 → 数字</strong>（たとえば <code>r-x</code> を 1 桁にする）:</p>
+<ol>
+  <li><code>r</code> <code>w</code> <code>x</code> の ON/OFF を確認する</li>
+  <li>ON の桁の重み（4・2・1）を足す → <code>4+0+1=5</code></li>
+</ol>
+<p><strong>数字 → 文字列</strong>（たとえば <code>6</code> を文字列にする）:</p>
+<ol>
+  <li>4・2・1 のうち、足してその数字になる組み合わせを探す → <code>6=4+2</code></li>
+  <li>含まれる重みの桁を ON、それ以外を OFF → <code>rw-</code></li>
+</ol>
+
+<h2>3 桁の数字 — 3 つのグループ</h2>
+<p><code>chmod</code> の数字は<strong>3 桁</strong>です。左から順に、オーナー・グループ・その他について、上で求めた 1 桁ずつを並べます。</p>
+<pre><code>  6    4    4
+│    │    │
+│    │    └── その他: r-- → 4
+│    └─────── グループ: r-- → 4
+└──────────── オーナー: rw- → 6</code></pre>
+<p><code>644</code> は、<code>ls -l</code> では次のように見えます。</p>
+<pre><code>-rw-r--r--  ... report.txt
+ ^^^ ^^^ ^^^
+ 6   4   4</code></pre>
+<p>各桁の計算:</p>
+<table>
+  <thead>
+    <tr><th>桁</th><th>対象</th><th>計算</th><th>権限文字列</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>6</td><td>オーナー</td><td>4+2</td><td><code>rw-</code></td></tr>
+    <tr><td>4</td><td>グループ</td><td>4</td><td><code>r--</code></td></tr>
+    <tr><td>4</td><td>その他</td><td>4</td><td><code>r--</code></td></tr>
+  </tbody>
+</table>
+<p>普通のテキストファイルによく使われます。</p>
+<p>もう 1 つの例: <code>755</code> → オーナー <code>7=4+2+1</code>（<code>rwx</code>）、グループとその他 <code>5=4+1</code>（<code>r-x</code>）→ <code>rwx r-x r-x</code>。ディレクトリや実行ファイルによく使います。</p>
+
+<h2>よく使う数字の一覧</h2>
+<table>
+  <thead>
+    <tr><th>8 進数</th><th>権限文字列</th><th>用途の例</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>644</code></td><td><code>rw- r-- r--</code></td><td>普通のテキストファイル</td></tr>
+    <tr><td><code>755</code></td><td><code>rwx r-x r-x</code></td><td>ディレクトリや実行ファイル</td></tr>
+    <tr><td><code>600</code></td><td><code>rw- --- ---</code></td><td>オーナーだけが読み書きできるファイル</td></tr>
+    <tr><td><code>700</code></td><td><code>rwx --- ---</code></td><td>オーナーだけが触れるディレクトリ</td></tr>
+  </tbody>
+</table>
+<p>記号形式との対応: <code>chmod u=rw,go=r file</code> と <code>chmod 644 file</code> は同じ権限です。</p>
+
 <h2>使い方</h2>
 <pre><code>$ chmod 644 report.txt
-$ chmod 755 myproject/</code></pre>
-<p>記号形式と 8 進数は、同じ権限を違う書き方で指定しているだけです。どちらか慣れた方を使えば OK です。</p>
+$ chmod 755 myproject/
+$ ls -l report.txt myproject/</code></pre>
+<p>実行後は <code>ls -l</code> で 1 列目を確認し、意図した <code>rw-</code> や <code>rwx</code> になっているか確かめましょう。</p>
 
 <h2>次のステップ</h2>
-<p>演習ページで <code>chmod 644</code> と <code>chmod 755</code> を試してみましょう。</p>
+<p>演習ページで <code>chmod 644</code> と <code>chmod 755</code> を試し、数字と <code>ls -l</code> の表示が一致するか確認してみましょう。</p>
 
         </main>
 

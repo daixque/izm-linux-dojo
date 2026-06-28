@@ -29,26 +29,160 @@
         </header>
 
         <main class="content" id="content">
-            <h2>Octal <code>chmod</code></h2>
-<p>Besides symbolic mode, <code>chmod</code> accepts <strong>octal</strong> numbers (three digits 0–7). This is advanced, but you will often see <code>644</code> and <code>755</code>, so it helps to know what they mean.</p>
+            <h2>Permissions as Three Digits</h2>
+<p>In the previous lesson you changed permissions with <strong>symbolic mode</strong>, for example <code>chmod u+x</code>. You can also write <code>chmod 644</code> — three digits instead of letters.</p>
+<p>Numbers like <code>644</code> and <code>755</code> appear often in tutorials and scripts. They express the same permissions as symbolic mode, just in a different notation. This lesson breaks down what those digits mean, step by step.</p>
 
-<h2>Three Digits</h2>
-<p>Each digit is owner, group, and others, encoding rwx as a sum:</p>
+<h2>Review — the <code>ls -l</code> Permission String</h2>
+<p>The first column of <code>ls -l</code> is a 10-character permission string (you learned this in the first lesson of this chapter):</p>
+<pre><code>-rw-r--r-- 1 user user  ... report.txt</code></pre>
 <ul>
-  <li><code>4</code> = r, <code>2</code> = w, <code>1</code> = x</li>
-  <li><code>7</code> = rwx, <code>6</code> = rw, <code>5</code> = rx, <code>4</code> = r</li>
+  <li><strong>Character 1</strong> — type (<code>-</code> = file, <code>d</code> = directory)</li>
+  <li><strong>Characters 2–4</strong> — owner rwx</li>
+  <li><strong>Characters 5–7</strong> — group rwx</li>
+  <li><strong>Characters 8–10</strong> — others rwx</li>
 </ul>
-<pre><code>644  →  rw- r-- r--   (common for files: owner read+write, others read)
-755  →  rwx r-x r-x   (common for dirs and executables)
-600  →  rw- --- ---   (owner read+write only)</code></pre>
+<p>For example, <code>rw-</code> means “read and write, no execute”; <code>r--</code> means “read only”. Octal mode packs each group’s r/w/x on/off state into one digit.</p>
+
+<h2>Three Switches: r, w, and x</h2>
+<p>For one subject (owner, group, or others), permissions are three switches:</p>
+<table>
+  <thead>
+    <tr><th>Switch</th><th>Letter</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Read</td><td><code>r</code></td><td>Can read the contents</td></tr>
+    <tr><td>Write</td><td><code>w</code></td><td>Can change the contents</td></tr>
+    <tr><td>Execute</td><td><code>x</code></td><td>Can run as a program (for directories: can enter with <code>cd</code>)</td></tr>
+  </tbody>
+</table>
+<p>When a switch is ON, its letter appears; when OFF, you see <code>-</code>.</p>
+<pre><code>r  ON / OFF  →  r  or  -
+w  ON / OFF  →  w  or  -
+x  ON / OFF  →  x  or  -</code></pre>
+<p>“Read and write, no execute” is <code>rw-</code> (r and w ON, x OFF).</p>
+
+<h2>Binary — Three Bits of 0 and 1</h2>
+<p>Computers represent ON/OFF with <strong>1</strong> and <strong>0</strong>. Three switches become <strong>3 bits</strong> (three digits of 0 and 1).</p>
+<p>From left to right: read, write, execute.</p>
+<table>
+  <thead>
+    <tr><th>Position</th><th>Permission</th><th>When ON</th><th>When OFF</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Left</td><td>read <code>r</code></td><td><code>1</code></td><td><code>0</code></td></tr>
+    <tr><td>Middle</td><td>write <code>w</code></td><td><code>1</code></td><td><code>0</code></td></tr>
+    <tr><td>Right</td><td>execute <code>x</code></td><td><code>1</code></td><td><code>0</code></td></tr>
+  </tbody>
+</table>
+<p>Examples:</p>
+<ul>
+  <li><code>rw-</code> → r ON, w ON, x OFF → binary <code>110</code></li>
+  <li><code>r-x</code> → r ON, w OFF, x ON → binary <code>101</code></li>
+  <li><code>r--</code> → r ON, w OFF, x OFF → binary <code>100</code></li>
+  <li><code>---</code> → all OFF → binary <code>000</code></li>
+</ul>
+
+<h2>Place Values in Binary</h2>
+<p>In binary, <strong>the position of a digit</strong> determines what a <code>1</code> is worth — just like ones/tens places in decimal.</p>
+<p>Moving one place to the left <strong>doubles the weight</strong>. With three digits:</p>
+<table>
+  <thead>
+    <tr><th>Position</th><th>Weight</th><th>Value added when this digit is <code>1</code></th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Right</td><td>1</td><td>1</td></tr>
+    <tr><td>Middle</td><td>2</td><td>2</td></tr>
+    <tr><td>Left</td><td>4</td><td>4</td></tr>
+  </tbody>
+</table>
+<p>The leftmost digit is worth 4, not 1. The weights <strong>4, 2, 1</strong> come from this doubling rule — they are not arbitrary numbers chosen for permissions.</p>
+<p>Because we mapped left = r, middle = w, right = x earlier, the weights read as:</p>
+<ul>
+  <li>Left bit (<code>r</code>) … weight <strong>4</strong></li>
+  <li>Middle bit (<code>w</code>) … weight <strong>2</strong></li>
+  <li>Right bit (<code>x</code>) … weight <strong>1</strong></li>
+</ul>
+
+<h2>Sum the Weights to Get One Digit</h2>
+<p>Add the weights of every ON switch. OFF digits contribute 0.</p>
+<p>For <code>110</code> (<code>rw-</code>): left is 1 → add 4, middle is 1 → add 2, right is 0 → add 0 → <code>4+2+0=6</code>.</p>
+<p>Three bits give exactly eight combinations (0–7). <code>chmod</code> uses this range as one octal digit.</p>
+<table>
+  <thead>
+    <tr><th>Binary</th><th>Permission string</th><th>Sum of weights</th><th>One digit</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>000</code></td><td><code>---</code></td><td>0+0+0</td><td><code>0</code></td></tr>
+    <tr><td><code>001</code></td><td><code>--x</code></td><td>0+0+1</td><td><code>1</code></td></tr>
+    <tr><td><code>010</code></td><td><code>-w-</code></td><td>0+2+0</td><td><code>2</code></td></tr>
+    <tr><td><code>011</code></td><td><code>-wx</code></td><td>0+2+1</td><td><code>3</code></td></tr>
+    <tr><td><code>100</code></td><td><code>r--</code></td><td>4+0+0</td><td><code>4</code></td></tr>
+    <tr><td><code>101</code></td><td><code>r-x</code></td><td>4+0+1</td><td><code>5</code></td></tr>
+    <tr><td><code>110</code></td><td><code>rw-</code></td><td>4+2+0</td><td><code>6</code></td></tr>
+    <tr><td><code>111</code></td><td><code>rwx</code></td><td>4+2+1</td><td><code>7</code></td></tr>
+  </tbody>
+</table>
+
+<h2>Converting Between String and Digit</h2>
+<p><strong>String → digit</strong> (e.g. turn <code>r-x</code> into one digit):</p>
+<ol>
+  <li>Check which of r, w, x are ON or OFF</li>
+  <li>Add the weights (4, 2, 1) for each ON bit → <code>4+0+1=5</code></li>
+</ol>
+<p><strong>Digit → string</strong> (e.g. turn <code>6</code> into a string):</p>
+<ol>
+  <li>Find which weights add up to the digit → <code>6=4+2</code></li>
+  <li>Turn those bits ON, the rest OFF → <code>rw-</code></li>
+</ol>
+
+<h2>Three Digits — Three Groups</h2>
+<p><code>chmod</code> uses <strong>three digits</strong>. From left to right: owner, group, others — one digit each, computed the same way.</p>
+<pre><code>  6    4    4
+│    │    │
+│    │    └── others: r-- → 4
+│    └─────── group: r-- → 4
+└──────────── owner: rw- → 6</code></pre>
+<p><code>644</code> looks like this in <code>ls -l</code>:</p>
+<pre><code>-rw-r--r--  ... report.txt
+ ^^^ ^^^ ^^^
+ 6   4   4</code></pre>
+<p>Each digit:</p>
+<table>
+  <thead>
+    <tr><th>Digit</th><th>Who</th><th>Calculation</th><th>String</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>6</td><td>owner</td><td>4+2</td><td><code>rw-</code></td></tr>
+    <tr><td>4</td><td>group</td><td>4</td><td><code>r--</code></td></tr>
+    <tr><td>4</td><td>others</td><td>4</td><td><code>r--</code></td></tr>
+  </tbody>
+</table>
+<p>Common for ordinary text files.</p>
+<p>Another example: <code>755</code> → owner <code>7=4+2+1</code> (<code>rwx</code>), group and others <code>5=4+1</code> (<code>r-x</code>) → <code>rwx r-x r-x</code>. Common for directories and executables.</p>
+
+<h2>Common Values</h2>
+<table>
+  <thead>
+    <tr><th>Octal</th><th>Permission string</th><th>Typical use</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>644</code></td><td><code>rw- r-- r--</code></td><td>ordinary text files</td></tr>
+    <tr><td><code>755</code></td><td><code>rwx r-x r-x</code></td><td>directories and executables</td></tr>
+    <tr><td><code>600</code></td><td><code>rw- --- ---</code></td><td>owner read/write only</td></tr>
+    <tr><td><code>700</code></td><td><code>rwx --- ---</code></td><td>owner-only directory</td></tr>
+  </tbody>
+</table>
+<p>Symbolic equivalent: <code>chmod u=rw,go=r file</code> sets the same permissions as <code>chmod 644 file</code>.</p>
 
 <h2>Usage</h2>
 <pre><code>$ chmod 644 report.txt
-$ chmod 755 myproject/</code></pre>
-<p>Octal and symbolic modes express the same permissions in different notation. Use whichever you prefer.</p>
+$ chmod 755 myproject/
+$ ls -l report.txt myproject/</code></pre>
+<p>After running <code>chmod</code>, use <code>ls -l</code> and check that the first column matches what you expected.</p>
 
 <h2>Next Step</h2>
-<p>Try <code>chmod 644</code> and <code>chmod 755</code> on the exercise page! (You can skip this lesson and still continue to Chapter 6.)</p>
+<p>On the exercise page, try <code>chmod 644</code> and <code>chmod 755</code>, then confirm the numbers match what <code>ls -l</code> shows.</p>
 
         </main>
 
