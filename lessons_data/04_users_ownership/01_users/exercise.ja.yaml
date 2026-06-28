@@ -3,7 +3,7 @@ lesson:
   chapter_number: "04"
   number: "01"
   id: "04_users_ownership/01_users"
-  title: "ユーザーとは"
+  title: "ユーザーアカウントを理解する"
 
 description: "whoami コマンドで、今ログインしているユーザー名を確認します。"
 

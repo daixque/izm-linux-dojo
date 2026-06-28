@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "03"
   id: "05_permissions/03_permission_denied"
-  title: "権限で拒否される"
+  title: "アクセス拒否の原因を理解する"
 
 description: "権限のないファイルで cat が Permission denied になることを確認します。"
 

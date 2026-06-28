@@ -3,7 +3,7 @@ lesson:
   chapter_number: "06"
   number: "02"
   id: "06_root_sudo/02_sudo"
-  title: "What Is sudo?"
+  title: "Running Commands with Elevated Privileges"
 
 content: |
   <h2>Borrowing root Power Temporarily</h2>

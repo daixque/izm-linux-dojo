@@ -3,7 +3,7 @@ lesson:
   chapter_number: "12"
   number: "02"
   id: "12_capstone/02_log_analysis"
-  title: "Log Analysis"
+  title: "Analyzing Logs for Errors"
 
 content: |
   <h2>Goal of This Exercise</h2>

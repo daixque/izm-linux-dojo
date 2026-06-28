@@ -3,7 +3,7 @@ lesson:
   chapter_number: "06"
   number: "03"
   id: "06_root_sudo/03_chown_chgrp"
-  title: "Changing Ownership"
+  title: "Changing File Ownership"
 
 content: |
   <h2><code>chown</code> — Change Owner</h2>

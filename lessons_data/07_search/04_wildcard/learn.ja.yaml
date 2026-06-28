@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "04"
   id: "07_search/04_wildcard"
-  title: "ワイルドカード"
+  title: "パターンでファイル名を指定する"
 
 content: |
   <h2>ファイル名の一部をざっくり指定する</h2>

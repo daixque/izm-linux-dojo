@@ -3,7 +3,7 @@ lesson:
   chapter_number: "10"
   number: "02"
   id: "10_process/02_kill"
-  title: "プロセス終了"
+  title: "実行中のプログラムを止める"
 
 description: "kill コマンドで指定 PID のプロセスを終了します。"
 

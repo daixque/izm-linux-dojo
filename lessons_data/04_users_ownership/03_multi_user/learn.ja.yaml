@@ -3,7 +3,7 @@ lesson:
   chapter_number: "04"
   number: "03"
   id: "04_users_ownership/03_multi_user"
-  title: "複数ユーザーと共有"
+  title: "複数ユーザー環境を理解する"
 
 content: |
   <h2>1 台の PC を複数人で使う</h2>

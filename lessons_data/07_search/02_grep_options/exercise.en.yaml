@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "02"
   id: "07_search/02_grep_options"
-  title: "grep Options"
+  title: "Refining Text Search"
 
 description: "Use grep -n and grep -c options."
 

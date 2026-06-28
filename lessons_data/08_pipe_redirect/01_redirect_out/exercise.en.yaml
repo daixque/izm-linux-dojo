@@ -3,7 +3,7 @@ lesson:
   chapter_number: "08"
   number: "01"
   id: "08_pipe_redirect/01_redirect_out"
-  title: "Output Redirection"
+  title: "Saving Command Output to Files"
 
 description: "Redirect ls output to a file."
 

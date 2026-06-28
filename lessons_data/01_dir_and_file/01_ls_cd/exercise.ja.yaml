@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "01"
   id: "01_dir_and_file/01_ls_cd"
-  title: "ls と cd の基本"
+  title: "フォルダの中身を見て移動する"
 
 description: "ファイルシステムの階層を意識しながら、ls と cd でディレクトリを移動し、中身を確認します。"
 

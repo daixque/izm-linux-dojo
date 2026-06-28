@@ -3,7 +3,7 @@ lesson:
   chapter_number: "08"
   number: "03"
   id: "08_pipe_redirect/03_pipe"
-  title: "Pipes"
+  title: "Connecting Commands with Pipes"
 
 description: "Count ERROR lines using pipes."
 

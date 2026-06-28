@@ -3,7 +3,7 @@ lesson:
   chapter_number: "11"
   number: "01"
   id: "11_network/01_curl"
-  title: "Fetching Web Data with curl"
+  title: "Fetching Data from the Web"
 
 content: |
   <h2>Fetching Data from the Web</h2>

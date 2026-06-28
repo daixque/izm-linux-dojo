@@ -3,7 +3,7 @@ lesson:
   chapter_number: "04"
   number: "04"
   id: "04_users_ownership/04_ownership_practice"
-  title: "オーナーシップの確認"
+  title: "オーナーシップによる違いを確認する"
 
 description: "whoami と ls -l を使い、自分のファイルと他人のファイルを見分けます。"
 

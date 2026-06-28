@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "04"
   id: "05_permissions/04_chmod_octal"
-  title: "chmod（8進）【発展】"
+  title: "8進数で権限を設定する【発展】"
 
 description: "chmod の 8進形式（644, 755）で権限を設定します。"
 

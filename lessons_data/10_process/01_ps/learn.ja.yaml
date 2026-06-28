@@ -3,7 +3,7 @@ lesson:
   chapter_number: "10"
   number: "01"
   id: "10_process/01_ps"
-  title: "プロセス一覧"
+  title: "実行中のプログラムを確認する"
 
 content: |
   <h2>プロセスとは？</h2>

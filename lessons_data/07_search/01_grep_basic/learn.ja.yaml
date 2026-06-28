@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "01"
   id: "07_search/01_grep_basic"
-  title: "grep の基本"
+  title: "ファイル内の文字列を検索する"
 
 content: |
   <h2>ファイルの中から行を探す</h2>

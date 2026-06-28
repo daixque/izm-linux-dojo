@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "02"
   id: "07_search/02_grep_options"
-  title: "grep のオプション"
+  title: "検索条件を細かく指定する"
 
 content: |
   <h2>検索の条件を細かく変える</h2>

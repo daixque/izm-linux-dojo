@@ -3,7 +3,7 @@ lesson:
   chapter_number: "02"
   number: "03"
   id: "02_file_manage/03_mv"
-  title: "移動とリネーム"
+  title: "ファイルの移動と名前の変更"
 
 description: "mv コマンドでファイル名を変更し、別のディレクトリへ移動します。"
 

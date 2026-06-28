@@ -3,7 +3,7 @@ lesson:
   chapter_number: "04"
   number: "01"
   id: "04_users_ownership/01_users"
-  title: "What Is a User?"
+  title: "Understanding User Accounts"
 
 description: "Use whoami to see which user you are logged in as."
 

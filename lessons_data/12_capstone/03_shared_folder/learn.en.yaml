@@ -3,7 +3,7 @@ lesson:
   chapter_number: "12"
   number: "03"
   id: "12_capstone/03_shared_folder"
-  title: "Shared Folder Setup"
+  title: "Setting Up a Shared Folder"
 
 content: |
   <h2>Goal of This Exercise</h2>

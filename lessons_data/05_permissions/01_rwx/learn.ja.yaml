@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "01"
   id: "05_permissions/01_rwx"
-  title: "権限 rwx の読み方"
+  title: "ファイルのアクセス権限を読み取る"
 
 content: |
   <h2>「何が許されているか」</h2>

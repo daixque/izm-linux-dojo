@@ -3,7 +3,7 @@ lesson:
   chapter_number: "02"
   number: "04"
   id: "02_file_manage/04_rm"
-  title: "Deleting Files"
+  title: "Deleting Files and Directories"
 
 content: |
   <h2>What Is Deletion?</h2>

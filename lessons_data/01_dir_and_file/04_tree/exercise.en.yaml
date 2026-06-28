@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "04"
   id: "01_dir_and_file/04_tree"
-  title: "Directory Structure"
+  title: "Understanding Directory Hierarchy"
 
 description: "Use tree to inspect the layout, then cd to the app directory three levels deep."
 

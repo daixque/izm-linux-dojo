@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "01"
   id: "09_shell_basics/01_history"
-  title: "コマンド履歴"
+  title: "過去のコマンドを再利用する"
 
 content: |
   <h2>打ったコマンドを呼び出す</h2>

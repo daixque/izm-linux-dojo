@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "03"
   id: "07_search/03_find"
-  title: "find で探す"
+  title: "ファイル名からファイルを探す"
 
 content: |
   <h2>ファイル名で探す</h2>

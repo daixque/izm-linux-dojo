@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "01"
   id: "01_dir_and_file/01_ls_cd"
-  title: "ls and cd Basics"
+  title: "Listing and Navigating Directories"
 
 content: |
   <h2>Chapter 1 — Files and Directories</h2>

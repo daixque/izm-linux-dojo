@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "02"
   id: "01_dir_and_file/02_ls_options"
-  title: "ls Options"
+  title: "Showing Hidden Files and Details"
 
 description: "Use ls -a to list all files including the hidden .config file."
 

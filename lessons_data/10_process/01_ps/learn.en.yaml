@@ -3,7 +3,7 @@ lesson:
   chapter_number: "10"
   number: "01"
   id: "10_process/01_ps"
-  title: "Process List"
+  title: "Viewing Running Programs"
 
 content: |
   <h2>What Is a Process?</h2>

@@ -24,28 +24,28 @@
         {
           "id": "01_dir_and_file/01_ls_cd",
           "number": "01-01",
-          "title": "ls and cd Basics",
+          "title": "Listing and Navigating Directories",
           "description": "Use ls and cd to explore the file hierarchy and list directory contents.",
           "available": true
         },
         {
           "id": "01_dir_and_file/02_ls_options",
           "number": "01-02",
-          "title": "ls Options",
+          "title": "Showing Hidden Files and Details",
           "description": "Use ls -a to list all files including the hidden .config file.",
           "available": true
         },
         {
           "id": "01_dir_and_file/03_paths",
           "number": "01-03",
-          "title": "Understanding Paths",
+          "title": "Specifying Locations with Paths",
           "description": "Use cd with absolute paths, relative paths, and ~, then verify with pwd.",
           "available": true
         },
         {
           "id": "01_dir_and_file/04_tree",
           "number": "01-04",
-          "title": "Directory Structure",
+          "title": "Understanding Directory Hierarchy",
           "description": "Use tree to inspect the layout, then cd to the app directory three levels deep.",
           "available": true
         }
@@ -67,21 +67,21 @@
         {
           "id": "02_file_manage/02_cp",
           "number": "02-02",
-          "title": "Copying Files",
+          "title": "Copying Files and Directories",
           "description": "Use cp to copy a file into another directory.",
           "available": true
         },
         {
           "id": "02_file_manage/03_mv",
           "number": "02-03",
-          "title": "Moving and Renaming",
+          "title": "Moving and Renaming Files",
           "description": "Use mv to rename a file and move it into another directory.",
           "available": true
         },
         {
           "id": "02_file_manage/04_rm",
           "number": "02-04",
-          "title": "Deleting Files",
+          "title": "Deleting Files and Directories",
           "description": "Use rm and rmdir to delete unneeded files and an empty directory.",
           "available": true
         },
@@ -103,28 +103,28 @@
         {
           "id": "03_view_text/01_cat",
           "number": "03-01",
-          "title": "Display with cat",
+          "title": "Displaying File Contents",
           "description": "Use cat to display the contents of a text file.",
           "available": true
         },
         {
           "id": "03_view_text/02_head_tail",
           "number": "03-02",
-          "title": "Head and Tail",
+          "title": "Reading the Beginning and End of Files",
           "description": "Use head and tail to view the beginning and end of a log file.",
           "available": true
         },
         {
           "id": "03_view_text/03_wc",
           "number": "03-03",
-          "title": "Line and Word Counts",
+          "title": "Counting Lines and Words in Files",
           "description": "Use wc to count lines and words in a file.",
           "available": true
         },
         {
           "id": "03_view_text/04_less_sim",
           "number": "03-04",
-          "title": "Long Files",
+          "title": "Reading Parts of Long Files",
           "description": "Use head and tail to inspect parts of a long story.txt file.",
           "available": true
         }
@@ -139,28 +139,28 @@
         {
           "id": "04_users_ownership/01_users",
           "number": "04-01",
-          "title": "What Is a User?",
+          "title": "Understanding User Accounts",
           "description": "Use whoami to see which user you are logged in as.",
           "available": true
         },
         {
           "id": "04_users_ownership/02_owner_group",
           "number": "04-02",
-          "title": "Owner and Group",
+          "title": "Identifying File Owners and Groups",
           "description": "Use ls -l to see each file's owner and group.",
           "available": true
         },
         {
           "id": "04_users_ownership/03_multi_user",
           "number": "04-03",
-          "title": "Multiple Users and Sharing",
+          "title": "Sharing a Computer Among Users",
           "description": "Read ls -l output when files from different users are mixed together.",
           "available": true
         },
         {
           "id": "04_users_ownership/04_ownership_practice",
           "number": "04-04",
-          "title": "Checking Ownership",
+          "title": "Seeing How Ownership Affects Access",
           "description": "Use whoami and ls -l to tell your files from others' files.",
           "available": true
         }
@@ -175,28 +175,28 @@
         {
           "id": "05_permissions/01_rwx",
           "number": "05-01",
-          "title": "Reading rwx Permissions",
+          "title": "Reading File Access Permissions",
           "description": "Read permission strings (rwx) from ls -l output.",
           "available": true
         },
         {
           "id": "05_permissions/02_chmod_symbolic",
           "number": "05-02",
-          "title": "chmod (Symbolic Mode)",
+          "title": "Changing Permissions with Symbolic Mode",
           "description": "Use symbolic chmod to add execute permission to your file.",
           "available": true
         },
         {
           "id": "05_permissions/03_permission_denied",
           "number": "05-03",
-          "title": "When Permissions Block You",
+          "title": "Understanding Access Denied Errors",
           "description": "Confirm that cat fails with Permission denied on a protected file.",
           "available": true
         },
         {
           "id": "05_permissions/04_chmod_octal",
           "number": "05-04",
-          "title": "chmod (Octal Mode) [Advanced]",
+          "title": "Setting Permissions with Octal Mode [Advanced]",
           "description": "Set permissions with octal chmod (644, 755).",
           "available": true
         }
@@ -211,21 +211,21 @@
         {
           "id": "06_root_sudo/01_root",
           "number": "06-01",
-          "title": "The root User",
+          "title": "Understanding the root Administrator",
           "description": "Use ls -l to inspect system files owned by root.",
           "available": true
         },
         {
           "id": "06_root_sudo/02_sudo",
           "number": "06-02",
-          "title": "What Is sudo?",
+          "title": "Running Commands with Elevated Privileges",
           "description": "Use sudo ls /root to list a directory with root privileges.",
           "available": true
         },
         {
           "id": "06_root_sudo/03_chown_chgrp",
           "number": "06-03",
-          "title": "Changing Ownership",
+          "title": "Changing File Ownership",
           "description": "Use sudo chown to transfer a root-owned file to user.",
           "available": true
         },
@@ -247,28 +247,28 @@
         {
           "id": "07_search/01_grep_basic",
           "number": "07-01",
-          "title": "grep Basics",
+          "title": "Searching Text Within Files",
           "description": "Use grep to extract ERROR lines from a log file.",
           "available": true
         },
         {
           "id": "07_search/02_grep_options",
           "number": "07-02",
-          "title": "grep Options",
+          "title": "Refining Text Search",
           "description": "Use grep -n and grep -c options.",
           "available": true
         },
         {
           "id": "07_search/03_find",
           "number": "07-03",
-          "title": "Finding Files with find",
+          "title": "Finding Files by Name",
           "description": "Use find to search for .txt files.",
           "available": true
         },
         {
           "id": "07_search/04_wildcard",
           "number": "07-04",
-          "title": "Wildcards",
+          "title": "Matching Filenames with Patterns",
           "description": "List files of a specific extension using wildcards.",
           "available": true
         }
@@ -283,28 +283,28 @@
         {
           "id": "08_pipe_redirect/01_redirect_out",
           "number": "08-01",
-          "title": "Output Redirection",
+          "title": "Saving Command Output to Files",
           "description": "Redirect ls output to a file.",
           "available": true
         },
         {
           "id": "08_pipe_redirect/02_redirect_in",
           "number": "08-02",
-          "title": "Input Redirection",
+          "title": "Feeding File Contents to Commands",
           "description": "Use input redirection with grep.",
           "available": true
         },
         {
           "id": "08_pipe_redirect/03_pipe",
           "number": "08-03",
-          "title": "Pipes",
+          "title": "Connecting Commands with Pipes",
           "description": "Count ERROR lines using pipes.",
           "available": true
         },
         {
           "id": "08_pipe_redirect/04_combine",
           "number": "08-04",
-          "title": "Combining Commands",
+          "title": "Combining Search and Redirection",
           "description": "Combine grep and redirection to save ERROR lines.",
           "available": true
         },
@@ -326,35 +326,35 @@
         {
           "id": "09_shell_basics/01_history",
           "number": "09-01",
-          "title": "Command History",
+          "title": "Reusing Previous Commands",
           "description": "Practice command history with ↑↓ keys.",
           "available": true
         },
         {
           "id": "09_shell_basics/02_tab_complete",
           "number": "09-02",
-          "title": "Tab Completion",
+          "title": "Completing Commands and Paths with Tab",
           "description": "Use Tab completion to navigate directories.",
           "available": true
         },
         {
           "id": "09_shell_basics/03_man_help",
           "number": "09-03",
-          "title": "Getting Help",
+          "title": "Looking Up Command Documentation",
           "description": "Look up command usage with --help and man.",
           "available": true
         },
         {
           "id": "09_shell_basics/04_env",
           "number": "09-04",
-          "title": "Environment Variables",
+          "title": "Inspecting Settings with Environment Variables",
           "description": "Display HOME and USER environment variables with echo.",
           "available": true
         },
         {
           "id": "09_shell_basics/05_multi_command",
           "number": "09-05",
-          "title": "Chaining Commands",
+          "title": "Running Multiple Commands at Once",
           "description": "Chain cd and ls with && on one line.",
           "available": true
         }
@@ -369,21 +369,21 @@
         {
           "id": "10_process/01_ps",
           "number": "10-01",
-          "title": "Process List",
+          "title": "Viewing Running Programs",
           "description": "Use ps to view the list of running processes.",
           "available": true
         },
         {
           "id": "10_process/02_kill",
           "number": "10-02",
-          "title": "Stopping Processes",
+          "title": "Stopping Running Programs",
           "description": "Use kill to terminate a process by PID.",
           "available": true
         },
         {
           "id": "10_process/03_background",
           "number": "10-03",
-          "title": "Foreground and Background",
+          "title": "Running Programs in the Background",
           "description": "Use jobs to understand background job concepts.",
           "available": true
         }
@@ -398,14 +398,14 @@
         {
           "id": "11_network/01_curl",
           "number": "11-01",
-          "title": "Fetching Web Data with curl",
+          "title": "Fetching Data from the Web",
           "description": "Fetch data from a mock API with curl and save it to a file.",
           "available": true
         },
         {
           "id": "11_network/02_network_concepts",
           "number": "11-02",
-          "title": "Network Concepts",
+          "title": "Network Command Concepts",
           "description": "Review curl and network command concepts.",
           "available": true
         }
@@ -420,21 +420,21 @@
         {
           "id": "12_capstone/01_file_organize",
           "number": "12-01",
-          "title": "File Organization",
+          "title": "Organizing Scattered Files",
           "description": "Combine mkdir, cp, mv, and rm to organize files.",
           "available": true
         },
         {
           "id": "12_capstone/02_log_analysis",
           "number": "12-02",
-          "title": "Log Analysis",
+          "title": "Analyzing Logs for Errors",
           "description": "Use grep, wc, and pipes to count ERROR lines in a log.",
           "available": true
         },
         {
           "id": "12_capstone/03_shared_folder",
           "number": "12-03",
-          "title": "Shared Folder Setup",
+          "title": "Setting Up a Shared Folder",
           "description": "Set shared directory permissions with chmod, chown, and sudo.",
           "available": true
         },

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "04"
   id: "01_dir_and_file/04_tree"
-  title: "Directory Structure"
+  title: "Understanding Directory Hierarchy"
 
 content: |
   <h2>Tree Structure — Folders Inside Folders</h2>

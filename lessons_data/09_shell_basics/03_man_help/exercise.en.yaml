@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "03"
   id: "09_shell_basics/03_man_help"
-  title: "Getting Help"
+  title: "Looking Up Command Documentation"
 
 description: "Look up command usage with --help and man."
 

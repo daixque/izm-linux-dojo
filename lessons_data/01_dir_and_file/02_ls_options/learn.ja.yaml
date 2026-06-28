@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "02"
   id: "01_dir_and_file/02_ls_options"
-  title: "ls のオプション"
+  title: "隠しファイルや詳細情報を表示する"
 
 content: |
   <h2>一覧表示の限界</h2>

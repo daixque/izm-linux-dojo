@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "04"
   id: "07_search/04_wildcard"
-  title: "Wildcards"
+  title: "Matching Filenames with Patterns"
 
 description: "List files of a specific extension using wildcards."
 

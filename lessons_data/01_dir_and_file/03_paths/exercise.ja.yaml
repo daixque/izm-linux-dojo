@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "03"
   id: "01_dir_and_file/03_paths"
-  title: "パスの理解"
+  title: "ファイルの場所をパスで指定する"
 
 description: "絶対パス・相対パス・~ を使って cd し、pwd で現在地を確認します。"
 

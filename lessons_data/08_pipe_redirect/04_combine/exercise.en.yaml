@@ -3,7 +3,7 @@ lesson:
   chapter_number: "08"
   number: "04"
   id: "08_pipe_redirect/04_combine"
-  title: "Combining Commands"
+  title: "Combining Search and Redirection"
 
 description: "Combine grep and redirection to save ERROR lines."
 

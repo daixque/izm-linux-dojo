@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "03"
   id: "07_search/03_find"
-  title: "Finding Files with find"
+  title: "Finding Files by Name"
 
 content: |
   <h2>Search by Filename</h2>

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "03"
   id: "09_shell_basics/03_man_help"
-  title: "ヘルプの調べ方"
+  title: "コマンドの使い方を自分で調べる"
 
 description: "--help と man でコマンドの使い方を調べます。"
 

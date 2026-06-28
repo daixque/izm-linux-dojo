@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "02"
   id: "01_dir_and_file/02_ls_options"
-  title: "ls Options"
+  title: "Showing Hidden Files and Details"
 
 content: |
   <h2>Limits of a Plain Listing</h2>

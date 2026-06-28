@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "05"
   id: "09_shell_basics/05_multi_command"
-  title: "コマンド連結"
+  title: "複数のコマンドを一度に実行する"
 
 content: |
   <h2>1 行に複数コマンドを書く</h2>

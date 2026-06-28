@@ -3,7 +3,7 @@ lesson:
   chapter_number: "10"
   number: "03"
   id: "10_process/03_background"
-  title: "Foreground and Background"
+  title: "Running Programs in the Background"
 
 description: "Use jobs to understand background job concepts."
 

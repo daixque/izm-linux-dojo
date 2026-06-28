@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "04"
   id: "03_view_text/04_less_sim"
-  title: "Long Files"
+  title: "Reading Parts of Long Files"
 
 content: |
   <h2>The Problem with Very Long Files</h2>

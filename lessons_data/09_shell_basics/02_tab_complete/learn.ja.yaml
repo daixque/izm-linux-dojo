@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "02"
   id: "09_shell_basics/02_tab_complete"
-  title: "Tab 補完"
+  title: "コマンドとパスを Tab で補完する"
 
 content: |
   <h2>入力を自動で補完する</h2>

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "06"
   number: "01"
   id: "06_root_sudo/01_root"
-  title: "root ユーザー"
+  title: "管理者（root）の役割を理解する"
 
 description: "ls -l で root オーナーのシステムファイルを確認します。"
 

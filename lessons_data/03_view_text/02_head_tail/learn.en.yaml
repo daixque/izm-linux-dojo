@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "02"
   id: "03_view_text/02_head_tail"
-  title: "Head and Tail"
+  title: "Reading the Beginning and End of Files"
 
 content: |
   <h2>View Part of a Long File</h2>

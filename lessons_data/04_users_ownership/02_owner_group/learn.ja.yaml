@@ -3,7 +3,7 @@ lesson:
   chapter_number: "04"
   number: "02"
   id: "04_users_ownership/02_owner_group"
-  title: "オーナーとグループ"
+  title: "ファイルの持ち主を確認する"
 
 content: |
   <h2>ファイルの持ち主と所属</h2>

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "04"
   id: "05_permissions/04_chmod_octal"
-  title: "chmod (Octal Mode) [Advanced]"
+  title: "Setting Permissions with Octal Mode [Advanced]"
 
 description: "Set permissions with octal chmod (644, 755)."
 

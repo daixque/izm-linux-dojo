@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "04"
   id: "01_dir_and_file/04_tree"
-  title: "ディレクトリ構造"
+  title: "フォルダの階層構造を把握する"
 
 content: |
   <h2>ツリー構造 — フォルダの入れ子</h2>

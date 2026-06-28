@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "04"
   id: "05_permissions/04_chmod_octal"
-  title: "chmod (Octal Mode) [Advanced]"
+  title: "Setting Permissions with Octal Mode [Advanced]"
 
 content: |
   <h2>Octal <code>chmod</code></h2>

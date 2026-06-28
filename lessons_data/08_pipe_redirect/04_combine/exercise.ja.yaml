@@ -3,7 +3,7 @@ lesson:
   chapter_number: "08"
   number: "04"
   id: "08_pipe_redirect/04_combine"
-  title: "組み合わせ演習"
+  title: "検索とリダイレクトを組み合わせる"
 
 description: "grep とリダイレクトを組み合わせて ERROR 行を保存します。"
 

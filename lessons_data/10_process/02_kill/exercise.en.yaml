@@ -3,7 +3,7 @@ lesson:
   chapter_number: "10"
   number: "02"
   id: "10_process/02_kill"
-  title: "Stopping Processes"
+  title: "Stopping Running Programs"
 
 description: "Use kill to terminate a process by PID."
 

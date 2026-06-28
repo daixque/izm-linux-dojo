@@ -3,7 +3,7 @@ lesson:
   chapter_number: "06"
   number: "03"
   id: "06_root_sudo/03_chown_chgrp"
-  title: "オーナー変更"
+  title: "ファイルのオーナーを変更する"
 
 content: |
   <h2>オーナーを変える必要がある場面</h2>

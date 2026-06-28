@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "04"
   id: "01_dir_and_file/04_tree"
-  title: "ディレクトリ構造"
+  title: "フォルダの階層構造を把握する"
 
 description: "tree で構造を確認し、3 階層下の app ディレクトリまで cd します。"
 

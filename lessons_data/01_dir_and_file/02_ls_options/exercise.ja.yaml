@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "02"
   id: "01_dir_and_file/02_ls_options"
-  title: "ls のオプション"
+  title: "隠しファイルや詳細情報を表示する"
 
 description: "ls -a を使って隠しファイル .config を含む一覧を表示します。"
 

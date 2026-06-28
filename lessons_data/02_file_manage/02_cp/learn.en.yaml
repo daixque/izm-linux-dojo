@@ -3,7 +3,7 @@ lesson:
   chapter_number: "02"
   number: "02"
   id: "02_file_manage/02_cp"
-  title: "Copying Files"
+  title: "Copying Files and Directories"
 
 content: |
   <h2>What Is Copying?</h2>

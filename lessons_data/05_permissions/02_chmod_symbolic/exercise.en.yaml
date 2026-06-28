@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "02"
   id: "05_permissions/02_chmod_symbolic"
-  title: "chmod (Symbolic Mode)"
+  title: "Changing Permissions with Symbolic Mode"
 
 description: "Use symbolic chmod to add execute permission to your file."
 

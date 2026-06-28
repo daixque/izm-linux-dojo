@@ -3,7 +3,7 @@ lesson:
   chapter_number: "02"
   number: "03"
   id: "02_file_manage/03_mv"
-  title: "Moving and Renaming"
+  title: "Moving and Renaming Files"
 
 description: "Use mv to rename a file and move it into another directory."
 

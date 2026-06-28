@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "03"
   id: "01_dir_and_file/03_paths"
-  title: "Understanding Paths"
+  title: "Specifying Locations with Paths"
 
 description: "Use cd with absolute paths, relative paths, and ~, then verify with pwd."
 

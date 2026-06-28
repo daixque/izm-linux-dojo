@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "04"
   id: "03_view_text/04_less_sim"
-  title: "Long Files"
+  title: "Reading Parts of Long Files"
 
 description: "Use head and tail to inspect parts of a long story.txt file."
 

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "02"
   number: "03"
   id: "02_file_manage/03_mv"
-  title: "Moving and Renaming"
+  title: "Moving and Renaming Files"
 
 content: |
   <h2>Moving and Renaming — How the OS Sees It</h2>

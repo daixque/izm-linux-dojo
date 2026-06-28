@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "03"
   id: "01_dir_and_file/03_paths"
-  title: "パスの理解"
+  title: "ファイルの場所をパスで指定する"
 
 content: |
   <h2>パスとは？</h2>

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "04"
   id: "03_view_text/04_less_sim"
-  title: "長いファイル"
+  title: "長いファイルの必要な部分を読む"
 
 content: |
   <h2>とても長いファイルを読む</h2>

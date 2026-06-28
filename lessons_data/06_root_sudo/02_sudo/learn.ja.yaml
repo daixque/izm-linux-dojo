@@ -3,7 +3,7 @@ lesson:
   chapter_number: "06"
   number: "02"
   id: "06_root_sudo/02_sudo"
-  title: "sudo とは"
+  title: "管理者権限を一時的に借りる"
 
 content: |
   <h2>root の権限を一時的に借りる</h2>

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "04"
   id: "09_shell_basics/04_env"
-  title: "環境変数"
+  title: "環境変数で設定値を確認する"
 
 content: |
   <h2>シェルが覚えている値</h2>

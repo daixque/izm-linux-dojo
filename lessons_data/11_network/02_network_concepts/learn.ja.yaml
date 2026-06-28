@@ -3,7 +3,7 @@ lesson:
   chapter_number: "11"
   number: "02"
   id: "11_network/02_network_concepts"
-  title: "ネットワークの概念"
+  title: "ネットワークコマンドの概念"
 
 content: |
   <h2>ネットワークとは？</h2>

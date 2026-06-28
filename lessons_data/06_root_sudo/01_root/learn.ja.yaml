@@ -3,7 +3,7 @@ lesson:
   chapter_number: "06"
   number: "01"
   id: "06_root_sudo/01_root"
-  title: "root ユーザー"
+  title: "管理者（root）の役割を理解する"
 
 content: |
   <h2>特別なユーザー root</h2>

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "03"
   id: "03_view_text/03_wc"
-  title: "行数・語数"
+  title: "ファイルの行数や語数を数える"
 
 description: "wc コマンドでファイルの行数・語数を数えます。"
 

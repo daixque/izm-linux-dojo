@@ -3,7 +3,7 @@ lesson:
   chapter_number: "02"
   number: "04"
   id: "02_file_manage/04_rm"
-  title: "削除"
+  title: "ファイルとフォルダの削除"
 
 description: "rm と rmdir を使って、不要なファイルと空のディレクトリを削除します。"
 

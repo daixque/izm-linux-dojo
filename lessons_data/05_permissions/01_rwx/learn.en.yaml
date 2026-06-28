@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "01"
   id: "05_permissions/01_rwx"
-  title: "Reading rwx Permissions"
+  title: "Reading File Access Permissions"
 
 content: |
   <h2>Review of Chapter 4</h2>

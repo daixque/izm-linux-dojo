@@ -3,7 +3,7 @@ lesson:
   chapter_number: "10"
   number: "03"
   id: "10_process/03_background"
-  title: "Foreground and Background"
+  title: "Running Programs in the Background"
 
 content: |
   <h2>Two Ways to Run</h2>

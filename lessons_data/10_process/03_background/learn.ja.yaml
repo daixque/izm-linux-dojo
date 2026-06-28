@@ -3,7 +3,7 @@ lesson:
   chapter_number: "10"
   number: "03"
   id: "10_process/03_background"
-  title: "フォアグラウンドとバックグラウンド"
+  title: "バックグラウンドでプログラムを実行する"
 
 content: |
   <h2>2 つの動き方</h2>

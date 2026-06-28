@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "04"
   id: "09_shell_basics/04_env"
-  title: "Environment Variables"
+  title: "Inspecting Settings with Environment Variables"
 
 description: "Display HOME and USER environment variables with echo."
 

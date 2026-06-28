@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "03"
   id: "05_permissions/03_permission_denied"
-  title: "When Permissions Block You"
+  title: "Understanding Access Denied Errors"
 
 description: "Confirm that cat fails with Permission denied on a protected file."
 

@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "01"
   id: "03_view_text/01_cat"
-  title: "cat で表示"
+  title: "ファイルの内容を表示する"
 
 content: |
   <h2>テキストファイルの中身</h2>

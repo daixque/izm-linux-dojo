@@ -3,7 +3,7 @@ lesson:
   chapter_number: "04"
   number: "02"
   id: "04_users_ownership/02_owner_group"
-  title: "Owner and Group"
+  title: "Identifying File Owners and Groups"
 
 description: "Use ls -l to see each file's owner and group."
 

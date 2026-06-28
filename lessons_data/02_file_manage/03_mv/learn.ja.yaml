@@ -3,7 +3,7 @@ lesson:
   chapter_number: "02"
   number: "03"
   id: "02_file_manage/03_mv"
-  title: "移動とリネーム"
+  title: "ファイルの移動と名前の変更"
 
 content: |
   <h2>移動と名前変更 — OS の見方</h2>

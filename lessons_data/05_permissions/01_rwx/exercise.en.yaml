@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "01"
   id: "05_permissions/01_rwx"
-  title: "Reading rwx Permissions"
+  title: "Reading File Access Permissions"
 
 description: "Read permission strings (rwx) from ls -l output."
 

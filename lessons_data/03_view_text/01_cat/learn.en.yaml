@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "01"
   id: "03_view_text/01_cat"
-  title: "Display with cat"
+  title: "Displaying File Contents"
 
 content: |
   <h2>Reading File Contents</h2>

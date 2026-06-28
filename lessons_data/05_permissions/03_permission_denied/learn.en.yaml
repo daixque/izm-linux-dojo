@@ -3,7 +3,7 @@ lesson:
   chapter_number: "05"
   number: "03"
   id: "05_permissions/03_permission_denied"
-  title: "When Permissions Block You"
+  title: "Understanding Access Denied Errors"
 
 content: |
   <h2>What Is Permission Denied?</h2>

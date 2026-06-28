@@ -3,7 +3,7 @@ lesson:
   chapter_number: "01"
   number: "03"
   id: "01_dir_and_file/03_paths"
-  title: "Understanding Paths"
+  title: "Specifying Locations with Paths"
 
 content: |
   <h2>What Is a Path?</h2>

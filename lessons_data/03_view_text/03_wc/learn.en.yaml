@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "03"
   id: "03_view_text/03_wc"
-  title: "Line and Word Counts"
+  title: "Counting Lines and Words in Files"
 
 content: |
   <h2>Counting File Contents</h2>

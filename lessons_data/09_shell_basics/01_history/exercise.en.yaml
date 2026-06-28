@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "01"
   id: "09_shell_basics/01_history"
-  title: "Command History"
+  title: "Reusing Previous Commands"
 
 description: "Practice command history with ↑↓ keys."
 

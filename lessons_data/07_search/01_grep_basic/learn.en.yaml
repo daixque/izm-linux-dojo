@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "01"
   id: "07_search/01_grep_basic"
-  title: "grep Basics"
+  title: "Searching Text Within Files"
 
 content: |
   <h2>Search Inside Text</h2>

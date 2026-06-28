@@ -3,7 +3,7 @@ lesson:
   chapter_number: "09"
   number: "02"
   id: "09_shell_basics/02_tab_complete"
-  title: "Tab Completion"
+  title: "Completing Commands and Paths with Tab"
 
 description: "Use Tab completion to navigate directories."
 

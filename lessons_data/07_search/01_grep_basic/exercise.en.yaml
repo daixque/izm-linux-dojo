@@ -3,7 +3,7 @@ lesson:
   chapter_number: "07"
   number: "01"
   id: "07_search/01_grep_basic"
-  title: "grep Basics"
+  title: "Searching Text Within Files"
 
 description: "Use grep to extract ERROR lines from a log file."
 

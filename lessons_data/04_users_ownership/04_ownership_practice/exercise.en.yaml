@@ -3,7 +3,7 @@ lesson:
   chapter_number: "04"
   number: "04"
   id: "04_users_ownership/04_ownership_practice"
-  title: "Checking Ownership"
+  title: "Seeing How Ownership Affects Access"
 
 description: "Use whoami and ls -l to tell your files from others' files."
 

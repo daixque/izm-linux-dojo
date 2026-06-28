@@ -3,7 +3,7 @@ lesson:
   chapter_number: "03"
   number: "02"
   id: "03_view_text/02_head_tail"
-  title: "先頭・末尾"
+  title: "ファイルの先頭と末尾を読む"
 
 description: "head と tail を使って、ログファイルの先頭と末尾を表示します。"
 

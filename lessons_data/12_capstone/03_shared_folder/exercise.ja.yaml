@@ -3,7 +3,7 @@ lesson:
   chapter_number: "12"
   number: "03"
   id: "12_capstone/03_shared_folder"
-  title: "共有フォルダ整備"
+  title: "共有フォルダの権限を整備する"
 
 description: "chmod、chown、sudo で共有ディレクトリの権限を設定します。"
 

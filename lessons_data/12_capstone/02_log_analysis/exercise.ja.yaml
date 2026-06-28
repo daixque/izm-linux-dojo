@@ -3,7 +3,7 @@ lesson:
   chapter_number: "12"
   number: "02"
   id: "12_capstone/02_log_analysis"
-  title: "ログ分析"
+  title: "ログからエラーを集計する"
 
 description: "grep と wc とパイプでログから ERROR 件数を集計します。"
 

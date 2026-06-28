@@ -3,7 +3,7 @@ lesson:
   chapter_number: "10"
   number: "01"
   id: "10_process/01_ps"
-  title: "Process List"
+  title: "Viewing Running Programs"
 
 description: "Use ps to view the list of running processes."
 

@@ -24,28 +24,28 @@
         {
           "id": "01_dir_and_file/01_ls_cd",
           "number": "01-01",
-          "title": "ls と cd の基本",
+          "title": "フォルダの中身を見て移動する",
           "description": "ファイルシステムの階層を意識しながら、ls と cd でディレクトリを移動し、中身を確認します。",
           "available": true
         },
         {
           "id": "01_dir_and_file/02_ls_options",
           "number": "01-02",
-          "title": "ls のオプション",
+          "title": "隠しファイルや詳細情報を表示する",
           "description": "ls -a を使って隠しファイル .config を含む一覧を表示します。",
           "available": true
         },
         {
           "id": "01_dir_and_file/03_paths",
           "number": "01-03",
-          "title": "パスの理解",
+          "title": "ファイルの場所をパスで指定する",
           "description": "絶対パス・相対パス・~ を使って cd し、pwd で現在地を確認します。",
           "available": true
         },
         {
           "id": "01_dir_and_file/04_tree",
           "number": "01-04",
-          "title": "ディレクトリ構造",
+          "title": "フォルダの階層構造を把握する",
           "description": "tree で構造を確認し、3 階層下の app ディレクトリまで cd します。",
           "available": true
         }
@@ -60,28 +60,28 @@
         {
           "id": "02_file_manage/01_mkdir_touch",
           "number": "02-01",
-          "title": "作成コマンド",
+          "title": "ファイルおよびディレクトリの作成",
           "description": "mkdir と touch を使って、ディレクトリと空ファイルを作成します。",
           "available": true
         },
         {
           "id": "02_file_manage/02_cp",
           "number": "02-02",
-          "title": "コピー",
+          "title": "ファイルとフォルダの複製",
           "description": "cp コマンドでファイルを別のディレクトリへコピーします。",
           "available": true
         },
         {
           "id": "02_file_manage/03_mv",
           "number": "02-03",
-          "title": "移動とリネーム",
+          "title": "ファイルの移動と名前の変更",
           "description": "mv コマンドでファイル名を変更し、別のディレクトリへ移動します。",
           "available": true
         },
         {
           "id": "02_file_manage/04_rm",
           "number": "02-04",
-          "title": "削除",
+          "title": "ファイルとフォルダの削除",
           "description": "rm と rmdir を使って、不要なファイルと空のディレクトリを削除します。",
           "available": true
         },
@@ -103,28 +103,28 @@
         {
           "id": "03_view_text/01_cat",
           "number": "03-01",
-          "title": "cat で表示",
+          "title": "ファイルの内容を表示する",
           "description": "cat コマンドでテキストファイルの内容を表示します。",
           "available": true
         },
         {
           "id": "03_view_text/02_head_tail",
           "number": "03-02",
-          "title": "先頭・末尾",
+          "title": "ファイルの先頭と末尾を読む",
           "description": "head と tail を使って、ログファイルの先頭と末尾を表示します。",
           "available": true
         },
         {
           "id": "03_view_text/03_wc",
           "number": "03-03",
-          "title": "行数・語数",
+          "title": "ファイルの行数や語数を数える",
           "description": "wc コマンドでファイルの行数・語数を数えます。",
           "available": true
         },
         {
           "id": "03_view_text/04_less_sim",
           "number": "03-04",
-          "title": "長いファイル",
+          "title": "長いファイルの必要な部分を読む",
           "description": "長い story.txt から head と tail で必要な部分だけ確認します。",
           "available": true
         }
@@ -139,28 +139,28 @@
         {
           "id": "04_users_ownership/01_users",
           "number": "04-01",
-          "title": "ユーザーとは",
+          "title": "ユーザーアカウントを理解する",
           "description": "whoami コマンドで、今ログインしているユーザー名を確認します。",
           "available": true
         },
         {
           "id": "04_users_ownership/02_owner_group",
           "number": "04-02",
-          "title": "オーナーとグループ",
+          "title": "ファイルの持ち主を確認する",
           "description": "ls -l でファイルのオーナーとグループを確認します。",
           "available": true
         },
         {
           "id": "04_users_ownership/03_multi_user",
           "number": "04-03",
-          "title": "複数ユーザーと共有",
+          "title": "複数ユーザー環境を理解する",
           "description": "複数ユーザーのファイルが混在する ls -l の出力を読み取ります。",
           "available": true
         },
         {
           "id": "04_users_ownership/04_ownership_practice",
           "number": "04-04",
-          "title": "オーナーシップの確認",
+          "title": "オーナーシップによる違いを確認する",
           "description": "whoami と ls -l を使い、自分のファイルと他人のファイルを見分けます。",
           "available": true
         }
@@ -175,28 +175,28 @@
         {
           "id": "05_permissions/01_rwx",
           "number": "05-01",
-          "title": "権限 rwx の読み方",
+          "title": "ファイルのアクセス権限を読み取る",
           "description": "ls -l の権限文字列（rwx）を読み取ります。",
           "available": true
         },
         {
           "id": "05_permissions/02_chmod_symbolic",
           "number": "05-02",
-          "title": "chmod（記号形式）",
+          "title": "記号形式で権限を変更する",
           "description": "chmod の記号形式で、自分のファイルに実行権限を付与します。",
           "available": true
         },
         {
           "id": "05_permissions/03_permission_denied",
           "number": "05-03",
-          "title": "権限で拒否される",
+          "title": "アクセス拒否の原因を理解する",
           "description": "権限のないファイルで cat が Permission denied になることを確認します。",
           "available": true
         },
         {
           "id": "05_permissions/04_chmod_octal",
           "number": "05-04",
-          "title": "chmod（8進）",
+          "title": "8進数で権限を設定する【発展】",
           "description": "chmod の 8進形式（644, 755）で権限を設定します。",
           "available": true
         }
@@ -211,21 +211,21 @@
         {
           "id": "06_root_sudo/01_root",
           "number": "06-01",
-          "title": "root ユーザー",
+          "title": "管理者（root）の役割を理解する",
           "description": "ls -l で root オーナーのシステムファイルを確認します。",
           "available": true
         },
         {
           "id": "06_root_sudo/02_sudo",
           "number": "06-02",
-          "title": "sudo とは",
+          "title": "管理者権限を一時的に借りる",
           "description": "sudo ls /root で root 権限を借りてディレクトリを表示します。",
           "available": true
         },
         {
           "id": "06_root_sudo/03_chown_chgrp",
           "number": "06-03",
-          "title": "オーナー変更",
+          "title": "ファイルのオーナーを変更する",
           "description": "sudo chown で root オーナーのファイルを user に変更します。",
           "available": true
         },
@@ -247,28 +247,28 @@
         {
           "id": "07_search/01_grep_basic",
           "number": "07-01",
-          "title": "grep の基本",
+          "title": "ファイル内の文字列を検索する",
           "description": "grep を使ってログファイルから ERROR 行を抽出します。",
           "available": true
         },
         {
           "id": "07_search/02_grep_options",
           "number": "07-02",
-          "title": "grep のオプション",
+          "title": "検索条件を細かく指定する",
           "description": "grep の -n と -c オプションを使います。",
           "available": true
         },
         {
           "id": "07_search/03_find",
           "number": "07-03",
-          "title": "find で探す",
+          "title": "ファイル名からファイルを探す",
           "description": "find コマンドで .txt ファイルを検索します。",
           "available": true
         },
         {
           "id": "07_search/04_wildcard",
           "number": "07-04",
-          "title": "ワイルドカード",
+          "title": "パターンでファイル名を指定する",
           "description": "ワイルドカードを使って特定拡張子のファイルを一覧します。",
           "available": true
         }
@@ -283,28 +283,28 @@
         {
           "id": "08_pipe_redirect/01_redirect_out",
           "number": "08-01",
-          "title": "出力リダイレクト",
+          "title": "コマンドの結果をファイルに保存する",
           "description": "ls の結果をファイルにリダイレクトします。",
           "available": true
         },
         {
           "id": "08_pipe_redirect/02_redirect_in",
           "number": "08-02",
-          "title": "入力リダイレクト",
+          "title": "ファイルの内容をコマンドに渡す",
           "description": "入力リダイレクトで grep にファイルを渡します。",
           "available": true
         },
         {
           "id": "08_pipe_redirect/03_pipe",
           "number": "08-03",
-          "title": "パイプ",
+          "title": "コマンドの出力を次につなげる",
           "description": "パイプで ERROR 行の件数を数えます。",
           "available": true
         },
         {
           "id": "08_pipe_redirect/04_combine",
           "number": "08-04",
-          "title": "組み合わせ演習",
+          "title": "検索とリダイレクトを組み合わせる",
           "description": "grep とリダイレクトを組み合わせて ERROR 行を保存します。",
           "available": true
         },
@@ -326,35 +326,35 @@
         {
           "id": "09_shell_basics/01_history",
           "number": "09-01",
-          "title": "コマンド履歴",
+          "title": "過去のコマンドを再利用する",
           "description": "コマンド履歴の使い方を確認します（↑↓ キー）。",
           "available": true
         },
         {
           "id": "09_shell_basics/02_tab_complete",
           "number": "09-02",
-          "title": "Tab 補完",
+          "title": "コマンドとパスを Tab で補完する",
           "description": "Tab 補完を使ってディレクトリに移動します。",
           "available": true
         },
         {
           "id": "09_shell_basics/03_man_help",
           "number": "09-03",
-          "title": "ヘルプの調べ方",
+          "title": "コマンドの使い方を自分で調べる",
           "description": "--help と man でコマンドの使い方を調べます。",
           "available": true
         },
         {
           "id": "09_shell_basics/04_env",
           "number": "09-04",
-          "title": "環境変数",
+          "title": "環境変数で設定値を確認する",
           "description": "echo で環境変数 HOME と USER を表示します。",
           "available": true
         },
         {
           "id": "09_shell_basics/05_multi_command",
           "number": "09-05",
-          "title": "コマンド連結",
+          "title": "複数のコマンドを一度に実行する",
           "description": "&& で cd と ls を1行で実行します。",
           "available": true
         }
@@ -369,21 +369,21 @@
         {
           "id": "10_process/01_ps",
           "number": "10-01",
-          "title": "プロセス一覧",
+          "title": "実行中のプログラムを確認する",
           "description": "ps コマンドで実行中プロセスの一覧を確認します。",
           "available": true
         },
         {
           "id": "10_process/02_kill",
           "number": "10-02",
-          "title": "プロセス終了",
+          "title": "実行中のプログラムを止める",
           "description": "kill コマンドで指定 PID のプロセスを終了します。",
           "available": true
         },
         {
           "id": "10_process/03_background",
           "number": "10-03",
-          "title": "フォアグラウンドとバックグラウンド",
+          "title": "バックグラウンドでプログラムを実行する",
           "description": "jobs コマンドでバックグラウンドジョブの概念を確認します。",
           "available": true
         }
@@ -398,14 +398,14 @@
         {
           "id": "11_network/01_curl",
           "number": "11-01",
-          "title": "curl で Web 取得",
+          "title": "Web からデータを取得する",
           "description": "curl で模擬 API からデータを取得し、ファイルに保存します。",
           "available": true
         },
         {
           "id": "11_network/02_network_concepts",
           "number": "11-02",
-          "title": "ネットワークの概念",
+          "title": "ネットワークコマンドの概念",
           "description": "curl の復習と、ネットワークコマンドの概念確認。",
           "available": true
         }
@@ -420,21 +420,21 @@
         {
           "id": "12_capstone/01_file_organize",
           "number": "12-01",
-          "title": "ファイル整理",
+          "title": "散らばったファイルを整理する",
           "description": "mkdir/cp/mv/rm を組み合わせてファイルを整理します。",
           "available": true
         },
         {
           "id": "12_capstone/02_log_analysis",
           "number": "12-02",
-          "title": "ログ分析",
+          "title": "ログからエラーを集計する",
           "description": "grep と wc とパイプでログから ERROR 件数を集計します。",
           "available": true
         },
         {
           "id": "12_capstone/03_shared_folder",
           "number": "12-03",
-          "title": "共有フォルダ整備",
+          "title": "共有フォルダの権限を整備する",
           "description": "chmod、chown、sudo で共有ディレクトリの権限を設定します。",
           "available": true
         },

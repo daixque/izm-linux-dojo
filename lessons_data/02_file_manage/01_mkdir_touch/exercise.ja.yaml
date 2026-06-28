@@ -3,7 +3,7 @@ lesson:
   chapter_number: "02"
   number: "01"
   id: "02_file_manage/01_mkdir_touch"
-  title: "作成コマンド"
+  title: "ファイルおよびディレクトリの作成"
 
 description: "mkdir と touch を使って、ディレクトリと空ファイルを作成します。"
 
