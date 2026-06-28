@@ -211,9 +211,12 @@ function runAllTests(simulator) {
     const results = [];
     let allPassed = true;
     const snapshot = simulator.vfs.getSnapshot();
+    // Keep the learner's filesystem changes, but always start tests from the
+    // lesson's initial working directory (not where the terminal currently is).
+    const testCwd = simulator._initialCwd || simulator.vfs._initialCwd || '/home/user';
 
     for (let i = 0; i < currentTests.length; i++) {
-        const testSim = createTestSimulator(snapshot.filesystem, snapshot.cwd);
+        const testSim = createTestSimulator(snapshot.filesystem, testCwd);
         if (snapshot.currentUser) {
             testSim.vfs.setCurrentUser(snapshot.currentUser);
         }
