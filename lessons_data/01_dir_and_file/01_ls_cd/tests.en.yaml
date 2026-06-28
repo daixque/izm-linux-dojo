@@ -22,17 +22,24 @@ tests:
   - name: "Moved to documents directory"
     description: "Check cd documents worked"
     type: cwd
-    commands: []
+    commands:
+      - cd documents
     expected_cwd: /home/user/documents
 
   - name: "ls shows readme.txt"
     description: "Check ls output in documents"
-    type: command_output
-    command: ls
-    expected_output: "readme.txt\n"
+    type: command_sequence
+    steps:
+      - command: cd documents
+        expected_cwd: /home/user/documents
+      - command: ls
+        expected_output: "readme.txt\n"
 
   - name: "pwd shows current location"
     description: "Check pwd output"
-    type: command_output
-    command: pwd
-    expected_output: "/home/user/documents\n"
+    type: command_sequence
+    steps:
+      - command: cd documents
+        expected_cwd: /home/user/documents
+      - command: pwd
+        expected_output: "/home/user/documents\n"

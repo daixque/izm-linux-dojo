@@ -22,17 +22,24 @@ tests:
   - name: "documents ディレクトリに移動できている"
     description: "cd documents で正しく移動できているか"
     type: cwd
-    commands: []
+    commands:
+      - cd documents
     expected_cwd: /home/user/documents
 
   - name: "ls で readme.txt が表示される"
     description: "documents 内の ls 出力を確認"
-    type: command_output
-    command: ls
-    expected_output: "readme.txt\n"
+    type: command_sequence
+    steps:
+      - command: cd documents
+        expected_cwd: /home/user/documents
+      - command: ls
+        expected_output: "readme.txt\n"
 
   - name: "pwd で現在地を確認"
     description: "pwd の出力が正しいか"
-    type: command_output
-    command: pwd
-    expected_output: "/home/user/documents\n"
+    type: command_sequence
+    steps:
+      - command: cd documents
+        expected_cwd: /home/user/documents
+      - command: pwd
+        expected_output: "/home/user/documents\n"

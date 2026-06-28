@@ -133,7 +133,7 @@
         const LESSON_ID = "01_dir_and_file/01_ls_cd";
         const INITIAL_FILESYSTEM = {"/home/user": {"children": {"documents": {"children": {"readme.txt": {"content": "Welcome to IZM Linux Dojo!\n", "type": "file"}}, "type": "directory"}, "notes.txt": {"content": "memo\n", "type": "file"}}, "type": "directory"}};
         const INITIAL_CWD = "/home/user";
-        const TESTS = [{"commands": [], "description": "Check cd documents worked", "expected_cwd": "/home/user/documents", "name": "Moved to documents directory", "type": "cwd"}, {"command": "ls", "description": "Check ls output in documents", "expected_output": "readme.txt\n", "name": "ls shows readme.txt", "type": "command_output"}, {"command": "pwd", "description": "Check pwd output", "expected_output": "/home/user/documents\n", "name": "pwd shows current location", "type": "command_output"}];
+        const TESTS = [{"commands": ["cd documents"], "description": "Check cd documents worked", "expected_cwd": "/home/user/documents", "name": "Moved to documents directory", "type": "cwd"}, {"description": "Check ls output in documents", "name": "ls shows readme.txt", "steps": [{"command": "cd documents", "expected_cwd": "/home/user/documents"}, {"command": "ls", "expected_output": "readme.txt\n"}], "type": "command_sequence"}, {"description": "Check pwd output", "name": "pwd shows current location", "steps": [{"command": "cd documents", "expected_cwd": "/home/user/documents"}, {"command": "pwd", "expected_output": "/home/user/documents\n"}], "type": "command_sequence"}];
         const SOLUTION_COMMANDS = ["cd documents", "ls"];
 
         window.addEventListener('DOMContentLoaded', () => {
