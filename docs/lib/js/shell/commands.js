@@ -1,5 +1,5 @@
 /**
- * シェルコマンド実装（登録制）
+ * Shell command implementations (registry-based)
  */
 const shellCommands = {};
 

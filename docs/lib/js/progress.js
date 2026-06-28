@@ -1,4 +1,4 @@
-// 進捗管理ライブラリ
+// Progress tracking library
 
 const STORAGE_KEY = 'linuxLearning_progress';
 const FILTER_KEY = 'linuxLearning_filterMode';

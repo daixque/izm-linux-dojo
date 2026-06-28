@@ -1,5 +1,5 @@
 /**
- * プロセス状態のシミュレーション（ps / kill / jobs 用）
+ * Process state simulation (for ps / kill / jobs)
  */
 class ProcessManager {
     constructor() {
@@ -57,7 +57,7 @@ class ProcessManager {
     }
 }
 
-/** コマンド間で共有するランタイム状態 */
+/** Runtime state shared across commands */
 window.shellRuntime = window.shellRuntime || {
     processManager: new ProcessManager(),
     reset() {
@@ -66,7 +66,7 @@ window.shellRuntime = window.shellRuntime || {
 };
 
 /**
- * シェルシミュレータ — xterm.js から独立した実行エンジン
+ * Shell simulator — execution engine independent of xterm.js
  */
 class ShellSimulator {
     constructor(options = {}) {

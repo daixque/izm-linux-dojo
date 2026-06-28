@@ -1,4 +1,4 @@
-// 多言語対応ライブラリ
+// Internationalization library
 
 const translations = {
     ja: {

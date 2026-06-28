@@ -1,5 +1,5 @@
 /**
- * 仮想ファイルシステムのツリー表示
+ * Tree view for the virtual filesystem
  */
 class FileExplorer {
     constructor() {

@@ -1,4 +1,4 @@
-// 演習ページ共通機能（Linux ターミナル版）
+// Shared exercise page utilities (Linux terminal edition)
 
 let savedSolutionCommands = [];
 let terminalUI = null;

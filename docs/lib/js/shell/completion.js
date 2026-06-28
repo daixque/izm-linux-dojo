@@ -1,5 +1,5 @@
 /**
- * シェル Tab 補完
+ * Shell Tab completion
  */
 function getWordBounds(line, cursorPos) {
     let start = Math.min(cursorPos, line.length);

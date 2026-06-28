@@ -1,5 +1,5 @@
 /**
- * シェルコマンド演習のテストランナー
+ * Test runner for shell command exercises
  */
 let currentTests = [];
 let testSimulator = null;

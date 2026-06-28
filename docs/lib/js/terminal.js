@@ -1,5 +1,5 @@
 /**
- * xterm.js ターミナル UI ラッパー
+ * xterm.js terminal UI wrapper
  */
 class TerminalUI {
     constructor(containerId, simulator) {
@@ -53,7 +53,7 @@ class TerminalUI {
                 if (domEvent.isComposing || this._isComposing) {
                     return false;
                 }
-                // Enter は textarea の keydown で処理（IME 切替直後の keyCode 229 対策）
+                // Handle Enter on textarea keydown (works around keyCode 229 right after IME toggle)
                 if (domEvent.key === 'Enter' || domEvent.keyCode === 13) {
                     return false;
                 }
@@ -282,7 +282,7 @@ class TerminalUI {
     }
 
     _writeInsertMode(text) {
-        // SMIR: 挿入モードで書くと右側の文字を押し出せる（行末へカーソルを飛ばす必要がない）
+        // SMIR: insert mode pushes existing characters right (no jump to end of line)
         this.term.write('\x1b[4h' + text + '\x1b[4l');
     }
 

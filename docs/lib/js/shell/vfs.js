@@ -1,6 +1,6 @@
 /**
- * 仮想ファイルシステム
- * YAML で定義されたツリー構造をメモリ上で管理する
+ * Virtual filesystem
+ * Manages a YAML-defined tree structure in memory
  */
 class VirtualFilesystem {
     constructor(initialTree = {}, initialCwd = '/home/user') {
@@ -52,7 +52,7 @@ class VirtualFilesystem {
         }
     }
 
-    /** /home/user 形式のキーをネストしたツリーに変換 */
+    /** Convert /home/user-style keys into a nested tree */
     _normalizeInitialTree(tree) {
         if (!tree || typeof tree !== 'object') return {};
 
@@ -236,7 +236,7 @@ class VirtualFilesystem {
         return { ok: true };
     }
 
-    /** ディレクトリからエントリを削除する権限（rm / mv の unlink 相当） */
+    /** Permission to remove an entry from a directory (unlink for rm / mv) */
     _checkUnlink(path, displayPath) {
         if (this.currentUser === 'root') return { ok: true };
 
