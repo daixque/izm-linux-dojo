@@ -214,13 +214,6 @@
           "title": "Changing File Ownership",
           "description": "Use sudo chown to transfer a root-owned file to user.",
           "available": true
-        },
-        {
-          "id": "06_root_sudo/04_privilege_practice",
-          "number": "06-04",
-          "title": "Privileged Operations Practice",
-          "description": "Combine sudo chown and sudo chmod to set up a shared file.",
-          "available": true
         }
       ]
     },

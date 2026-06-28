@@ -214,13 +214,6 @@
           "title": "ファイルのオーナーを変更する",
           "description": "sudo chown で root オーナーのファイルを user に変更します。",
           "available": true
-        },
-        {
-          "id": "06_root_sudo/04_privilege_practice",
-          "number": "06-04",
-          "title": "特権操作の実践",
-          "description": "sudo chown と sudo chmod を組み合わせて共有ファイルを整備します。",
-          "available": true
         }
       ]
     },
