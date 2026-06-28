@@ -12,6 +12,9 @@ class TerminalUI {
         this._lastTabTime = 0;
         this._isComposing = false;
         this._ignoreNextEnter = false;
+        this._enterCommitPending = false;
+        this._enterHandledOnKeydown = false;
+        this._imeProcessEnterPending = false;
         this.onStateChange = null;
     }
 
@@ -47,7 +50,11 @@ class TerminalUI {
         this.term.onKey(({ domEvent, key }) => this._handleKey(domEvent, key));
         this.term.attachCustomKeyEventHandler((domEvent) => {
             if (domEvent.type === 'keydown') {
-                if (domEvent.isComposing || domEvent.keyCode === 229) {
+                if (domEvent.isComposing || this._isComposing) {
+                    return false;
+                }
+                // Enter は textarea の keydown で処理（IME 切替直後の keyCode 229 対策）
+                if (domEvent.key === 'Enter' || domEvent.keyCode === 13) {
                     return false;
                 }
             }
@@ -67,9 +74,15 @@ class TerminalUI {
             this._isComposing = false;
             if (e.data) {
                 this._insertText(e.data);
+                if (this._enterCommitPending) {
+                    this._ignoreNextEnter = true;
+                }
             }
-            this._ignoreNextEnter = true;
+            this._enterCommitPending = false;
         });
+
+        textarea.addEventListener('keydown', (e) => this._onEnterKeyEvent(e, 'keydown'), true);
+        textarea.addEventListener('keyup', (e) => this._onEnterKeyEvent(e, 'keyup'), true);
 
         textarea.addEventListener('paste', (e) => {
             e.preventDefault();
@@ -78,6 +91,78 @@ class TerminalUI {
                 this._insertText(text);
             }
         });
+    }
+
+    _isEnterKeyEvent(e) {
+        return e.key === 'Enter' || e.keyCode === 13;
+    }
+
+    _isImeProcessEnter(e) {
+        if (e.keyCode !== 229 && e.key !== 'Process') {
+            return false;
+        }
+        return e.key === 'Process' || e.key === 'Unidentified' || e.code === 'Enter';
+    }
+
+    _onEnterKeyEvent(e, phase) {
+        if (this._isEnterKeyEvent(e)) {
+            if (phase === 'keydown') {
+                this._imeProcessEnterPending = false;
+                this._enterHandledOnKeydown = false;
+                if (this._isComposing) {
+                    this._enterCommitPending = true;
+                    return;
+                }
+                if (this._consumeEnter(e)) {
+                    this._enterHandledOnKeydown = true;
+                }
+                return;
+            }
+
+            if (this._enterHandledOnKeydown) {
+                this._enterHandledOnKeydown = false;
+                return;
+            }
+            if (!this._isComposing) {
+                this._consumeEnter(e);
+            }
+            return;
+        }
+
+        if (!this._isImeProcessEnter(e)) {
+            if (phase === 'keydown') {
+                this._imeProcessEnterPending = false;
+            }
+            return;
+        }
+
+        if (phase === 'keydown') {
+            if (this._isComposing) {
+                this._enterCommitPending = true;
+                return;
+            }
+            if (!e.isComposing) {
+                this._imeProcessEnterPending = true;
+            }
+            return;
+        }
+
+        if (this._imeProcessEnterPending && !this._isComposing) {
+            this._imeProcessEnterPending = false;
+            this._consumeEnter(e);
+        }
+    }
+
+    _consumeEnter(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        if (this._ignoreNextEnter) {
+            this._ignoreNextEnter = false;
+            return true;
+        }
+        this._executeCurrentLine();
+        return true;
     }
 
     _insertText(text) {
@@ -106,7 +191,7 @@ class TerminalUI {
     }
 
     _handleKey(domEvent, key) {
-        if (domEvent.isComposing || this._isComposing || domEvent.keyCode === 229) {
+        if (domEvent.isComposing || this._isComposing) {
             return;
         }
 
@@ -115,15 +200,6 @@ class TerminalUI {
         if (domEvent.keyCode === 9) {
             domEvent.preventDefault();
             this._handleTab();
-            return;
-        }
-
-        if (domEvent.keyCode === 13) {
-            if (this._ignoreNextEnter) {
-                this._ignoreNextEnter = false;
-                return;
-            }
-            this._executeCurrentLine();
             return;
         }
 
@@ -177,6 +253,9 @@ class TerminalUI {
         }
 
         if (printable && key.length === 1) {
+            this._ignoreNextEnter = false;
+            this._enterCommitPending = false;
+            this._imeProcessEnterPending = false;
             if (this.cursorPos === this.currentLine.length) {
                 this.currentLine += key;
                 this.cursorPos++;
