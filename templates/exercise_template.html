@@ -1,9 +1,10 @@
+{% from '_lesson_heading.html' import heading with context %}
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ ui.page_title.exercise }} - {{ ui.header.lesson_prefix }} {{ lesson.chapter_number|default('') }}-{{ lesson.number }}: {{ lesson.title }}</title>
+    <title>{{ ui.page_title.exercise }} - {{ heading(lesson) }}</title>
     <link rel="stylesheet" href="../../../lib/css/exercise.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
 </head>
@@ -13,7 +14,7 @@
             <div class="site-title">
                 <a href="../../../index.html" class="site-link">🐧 {{ ui.appTitle }}</a>
             </div>
-            <h1 id="lesson-title">📝 {{ ui.header.lesson_prefix }} {{ lesson.chapter_number|default('') }}-{{ lesson.number }}: {{ lesson.title }}</h1>
+            <h1 id="lesson-title">{{ heading(lesson, '📝 ') }}</h1>
             <div class="header-right">
                 <div class="status">
                     <span id="status">{{ ui.exercise.status_preparing }}</span>

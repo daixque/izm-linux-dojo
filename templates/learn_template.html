@@ -1,9 +1,10 @@
+{% from '_lesson_heading.html' import heading with context %}
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ ui.page_title.learn }} - {{ ui.header.lesson_prefix }} {{ lesson.chapter_number|default('') }}-{{ lesson.number }}: {{ lesson.title }}</title>
+    <title>{{ ui.page_title.learn }} - {{ heading(lesson) }}</title>
     <link rel="stylesheet" href="../../../lib/css/learn.css">
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
@@ -16,7 +17,7 @@
             <div class="site-title">
                 <a href="../../../index.html" class="site-link">🐧 {{ ui.appTitle }}</a>
             </div>
-            <h1 id="lesson-title">{{ lesson.title }}</h1>
+            <h1 id="lesson-title">{{ heading(lesson) }}</h1>
             <div class="lesson-meta">
                 <span id="lesson-type">📚 {{ ui.page_title.learn }}</span>
                 <div id="language-switcher">

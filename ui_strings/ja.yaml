@@ -6,6 +6,8 @@ page_title:
   exercise: "演習課題"
 
 header:
+  chapter_prefix: "第"
+  chapter_suffix: "章"
   lesson_prefix: "レッスン"
 
 language_switcher:

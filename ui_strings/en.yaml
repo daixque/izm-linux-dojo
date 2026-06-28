@@ -6,7 +6,9 @@ page_title:
   exercise: "Exercise"
 
 header:
-  lesson_prefix: "Lesson"
+  chapter_prefix: "Chapter "
+  chapter_suffix: ""
+  lesson_prefix: "Lesson "
 
 language_switcher:
   to_english: "English"
